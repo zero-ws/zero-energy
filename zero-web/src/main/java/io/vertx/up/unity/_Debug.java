@@ -16,7 +16,7 @@ class _Debug extends _Complex {
      * <p>
      * Debug method for help us to do development
      * 1) debug:
-     * -- debugTc:  It will be used in test case
+     * -- debugTc:  It will be used in mock case
      * 2) otherwise:
      * 3) dataN/dataO -> New / Old Json
      * ( Business Part: Debugging )

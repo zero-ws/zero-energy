@@ -6,4 +6,4 @@ zero:
       manager:
 
     instance:
-    - name: vx-test-tlk
+      - name: vx-mock-tlk

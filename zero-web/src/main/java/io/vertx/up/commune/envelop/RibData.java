@@ -206,7 +206,7 @@ class RibData {
             .filter(Objects::nonNull)
             .map(itPart::getValue)
             /*
-             * Predicate to test whether value is JsonObject
+             * Predicate to mock whether value is JsonObject
              * If JsonObject, then find the first JsonObject as body
              */
             .filter(value -> value instanceof JsonObject || value instanceof JsonArray)

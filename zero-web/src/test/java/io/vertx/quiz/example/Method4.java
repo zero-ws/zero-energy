@@ -10,7 +10,7 @@ public class Method4 {
     public void test() {
     }
 
-    @Path("///test/:id")
+    @Path("///mock/:id")
     public void test1() {
     }
 }

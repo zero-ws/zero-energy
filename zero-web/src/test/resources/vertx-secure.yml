@@ -11,4 +11,4 @@ secure:
   key:
     type: mongo
     config:
-      test: test
+      test: mock
