@@ -27,7 +27,7 @@ class ServiceDict {
         return KDictUse.epsilon(epsilonJ);
     }
 
-    static <T> Future<T> dictTo(final T record, final KDictAtom fabric) {
+    static <T> Future<T> dictTo(final T record, final KFabric fabric) {
         final FieldMapper mapper = new FieldMapper();
         if (record instanceof JsonObject) {
             final JsonObject ref = (JsonObject) record;
@@ -75,11 +75,11 @@ class ServiceDict {
         return ToCommon.future(dictData);
     }
 
-    static Future<KDictAtom> dictAtom(final KDictConfig dict, final MultiMap params,
-                                      final KMap mapping, final String identifier) {
+    static Future<KFabric> dictAtom(final KDictConfig dict, final MultiMap params,
+                                    final KMap mapping, final String identifier) {
         return Ux.dictData(dict, params).compose(dictData -> {
             final KMapping mappingItem = mapping.child(identifier);
-            final KDictAtom fabric = KDictAtom.create(mappingItem)
+            final KFabric fabric = KFabric.create(mappingItem)
                 .epsilon(dict.configUse())
                 .dictionary(dictData);
             return Ux.future(fabric);

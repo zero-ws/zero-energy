@@ -1,8 +1,8 @@
 package io.vertx.up.unity;
 
-import io.horizon.atom.datamation.KDictAtom;
 import io.horizon.atom.datamation.KDictConfig;
 import io.horizon.atom.datamation.KDictUse;
+import io.horizon.atom.datamation.KFabric;
 import io.horizon.atom.datamation.KMap;
 import io.vertx.core.Future;
 import io.vertx.core.MultiMap;
@@ -28,12 +28,12 @@ class _Dict extends _Debug {
         return ServiceDict.dictData(dict, paramsMap);
     }
 
-    public static Future<KDictAtom> dictAtom(final KDictConfig dict, final MultiMap params,
-                                             final KMap mapping, final String identifier) {
+    public static Future<KFabric> dictAtom(final KDictConfig dict, final MultiMap params,
+                                           final KMap mapping, final String identifier) {
         return ServiceDict.dictAtom(dict, params, mapping, identifier);
     }
 
-    public static <T> Future<T> dictTo(final T record, final KDictAtom fabric) {
+    public static <T> Future<T> dictTo(final T record, final KFabric fabric) {
         return ServiceDict.dictTo(record, fabric);
     }
 }
