@@ -67,13 +67,6 @@ public class InfixScatter implements Scatter<Vertx> {
                 Fn.failAt(() -> method.invoke(null, vertx), LOGGER);
             })
             .dispose();
-        /* After infix inject plugins **/
-        //        Ut.itSet(PLUGINS, (clazz, index) -> Runner.run(() -> {
-        //            /* Instance reference **/
-        //            final Object reference = Ut.singleton(clazz);
-        //            /* Injects scanner **/
-        //            PLUGIN.createInjection(reference);
-        //        }, "injects-plugin-scannner"));
     }
 
 

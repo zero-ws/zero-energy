@@ -16,10 +16,10 @@ public class VertxApplication {
     public static void run(final Class<?> clazz, final String... args) {
         // 构造启动器容器
         final KLauncher<Vertx> container = KLauncher.create(clazz, args);
-        container.start(Electy.whenContainer(VertxApplication::runComponent));
+        container.start(Electy.whenContainer(VertxApplication::runInternal));
     }
 
-    private static void runComponent(final Vertx vertx, final HConfig config) {
+    public static void runInternal(final Vertx vertx, final HConfig config) {
         /* 1.Find Agent for deploy **/
         Runner.run(() -> {
             final Scatter<Vertx> scatter = Ut.singleton(AgentScatter.class);

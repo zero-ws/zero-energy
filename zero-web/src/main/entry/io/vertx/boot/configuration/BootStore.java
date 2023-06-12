@@ -52,8 +52,6 @@ public class BootStore implements HStation {
             synchronized (BootStore.class) {
                 if (Objects.isNull(STORE)) {
                     final BootStore store = new BootStore();
-                    // shared
-                    store.feature(FeatureMark.SHARED, ZeroStore.is(YmlCore.inject.SHARED));
                     // session
                     store.feature(FeatureMark.SESSION, ZeroStore.is(YmlCore.inject.SESSION));
                     // init
@@ -127,11 +125,6 @@ public class BootStore implements HStation {
     public boolean isInit() {
         return this.features
             .getOrDefault(FeatureMark.INIT, Boolean.FALSE);
-    }
-
-    public boolean isShared() {
-        return this.features
-            .getOrDefault(FeatureMark.SHARED, Boolean.FALSE);
     }
 
     public boolean isSession() {
