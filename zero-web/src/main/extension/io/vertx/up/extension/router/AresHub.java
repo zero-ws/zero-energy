@@ -52,7 +52,7 @@ public class AresHub extends AbstractAres {
          *    unity: io.horizon.spi.environment.UnityAmbient
          *
          * In file: vertx-inject.yml
-         * router: io.vertx.mod.jet.JetPollux # ( zero-atom module )
+         * router: io.vertx.mod.jet.JetPollux # ( zero-argument module )
          *
          */
         this.dynamic.bind(this.server, this.options).mount(router);

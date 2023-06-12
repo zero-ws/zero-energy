@@ -20,7 +20,7 @@ class PluginLoad {
             final HLoad loader = CC_PLUGIN_ATOM.pick(() -> Ut.instance(atomCls));
             /*
              * Bind configuration of
-             * atom:
+             * argument:
              *   component:
              *   config
              */
