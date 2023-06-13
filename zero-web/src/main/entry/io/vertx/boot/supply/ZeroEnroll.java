@@ -103,7 +103,7 @@ class ZeroEnroll {
      * 「Vertx启动后」扩展流程三 / 初始化
      */
     static Future<Boolean> registryArk(final Vertx vertx, final HConfig config, final Set<HArk> arkSet) {
-        return registryAsync(config, pre -> pre.beforeModAsync(vertx, config, arkSet), () -> {
+        return registryAsync(config, pre -> pre.beforeInitAsync(vertx, config, arkSet), () -> {
             final List<Future<Boolean>> futures = new ArrayList<>();
             /*
              * 双模式矩阵初始化展开成笛卡尔积
