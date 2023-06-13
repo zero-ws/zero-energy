@@ -1,6 +1,8 @@
 package io.vertx.boot.configuration;
 
+import io.aeon.refine.Ho;
 import io.horizon.eon.em.EmApp;
+import io.horizon.exception.BootingException;
 import io.horizon.uca.log.Annal;
 import io.macrocosm.atom.boot.KBoot;
 import io.macrocosm.specification.config.HBoot;
@@ -51,28 +53,29 @@ public class BootStore implements HStation {
         if (Objects.isNull(STORE)) {
             synchronized (BootStore.class) {
                 if (Objects.isNull(STORE)) {
-                    final BootStore store = new BootStore();
-                    // session
-                    store.feature(FeatureMark.SESSION, ZeroStore.is(YmlCore.inject.SESSION));
-                    // init
-                    store.feature(FeatureMark.INIT, ZeroStore.is(YmlCore.init.__KEY));
-                    // etcd
-                    final boolean etcd = ZeroStore.is(YmlCore.etcd.__KEY);
-                    store.feature(FeatureMark.ETCD, etcd);
-                    // gateway
-                    Fn.outBug(() -> {
-                        final ServerVisitor<HttpServerOptions> visitor =
-                            Ut.singleton(DynamicVisitor.class);
-                        final Set<Integer> apis = visitor.visit(ServerType.API.toString()).keySet();
-                        if (!apis.isEmpty()) {
-                            store.boot().app(EmApp.Type.GATEWAY);
-                        } else {
-                            store.boot().app(etcd ? EmApp.Type.SERVICE : EmApp.Type.APPLICATION);
-                        }
-                    }, Annal.get(BootStore.class));
-                    STORE = store;
+                    STORE = new BootStore();
                 }
             }
+        }
+        {
+            // session
+            STORE.feature(FeatureMark.SESSION, ZeroStore.is(YmlCore.inject.SESSION));
+            // init
+            STORE.feature(FeatureMark.INIT, ZeroStore.is(YmlCore.init.__KEY));
+            // etcd
+            final boolean etcd = ZeroStore.is(YmlCore.etcd.__KEY);
+            STORE.feature(FeatureMark.ETCD, etcd);
+            // gateway
+            Fn.outBug(() -> {
+                final ServerVisitor<HttpServerOptions> visitor =
+                    Ut.singleton(DynamicVisitor.class);
+                final Set<Integer> apis = visitor.visit(ServerType.API.toString()).keySet();
+                if (!apis.isEmpty()) {
+                    STORE.boot().app(EmApp.Type.GATEWAY);
+                } else {
+                    STORE.boot().app(etcd ? EmApp.Type.SERVICE : EmApp.Type.APPLICATION);
+                }
+            }, Annal.get(BootStore.class));
         }
         return STORE;
     }
@@ -87,15 +90,17 @@ public class BootStore implements HStation {
     /**
      * 「启动规范说明」
      * 1. Zero容器要求输入的clazz必须不能为空，用于后期挂载数据专用
-     * 2. 所有 @Up 内容必须是包含的，否则会启动失败，保证基础扫描
+     * 2. 最好在启动类中使用 {@link Up}，否则会导致启动规范的警告，但是不影响启动
      */
     private static void ensure(final Class<?> clazz) {
         // Step 1
         Fn.out(Objects.isNull(clazz), UpClassArgsException.class, BootStore.class);
         // Step 2
         STORE_ANNO.putAll(Anno.get(clazz));
-        Fn.out(!STORE_ANNO.containsKey(Up.class.getName()), UpClassInvalidException.class,
-            BootStore.class, clazz.getName());
+        if (!STORE_ANNO.containsKey(Up.class.getName())) {
+            final BootingException warning = new UpClassInvalidException(BootStore.class, clazz.getName());
+            Ho.LOG.Env.info(BootStore.class, warning.getMessage());
+        }
     }
 
     // ------------------- Reference --------------------
