@@ -8,7 +8,6 @@ import io.vertx.core.Vertx;
 import io.vertx.up.eon.configure.YmlCore;
 import io.vertx.up.fn.Fn;
 import io.vertx.up.runtime.ZeroStore;
-import io.vertx.up.unity.Ux;
 
 import java.util.function.BiConsumer;
 import java.util.function.Supplier;
@@ -22,10 +21,15 @@ class ZeroEntry {
     static BiConsumer<Vertx, HConfig> whenInstruction(final BiConsumer<Vertx, HConfig> endFn) {
         // 1. 环境注册
         return (vertx, config) -> ZeroEnroll.registryStart(vertx, config)
-
-
-            // 2. 这种模式通常不执行扩展注册
-            .compose(arkSet -> Ux.futureT())
+            /*
+             * Fix: Cannot invoke "io.vertx.mod.ambient.atom.AtConfig.getInitializer()"
+             * because the return value of "io.vertx.mod.ambient.init.AtPin.getConfig()" is null
+             */
+            // 2. 是否执行扩展，调用 Fn.passion 带顺序
+            .compose(arkSet -> whenExtension(config, () -> Fn.passion(Boolean.TRUE,
+                // 2.1. 扩展：配置
+                done -> ZeroEnroll.registryAmbient(vertx, config, arkSet)
+            )))
 
 
             // 3. 注册结束之后的统一回调
