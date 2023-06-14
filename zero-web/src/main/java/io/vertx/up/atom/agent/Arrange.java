@@ -1,11 +1,11 @@
 package io.vertx.up.atom.agent;
 
-import com.fasterxml.jackson.databind.JsonObjectDeserializer;
-import com.fasterxml.jackson.databind.JsonObjectSerializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.vertx.core.json.JsonObject;
 import io.vertx.up.eon.em.DeployMode;
+import io.zerows.jackson.databind.JsonObjectDeserializer;
+import io.zerows.jackson.databind.JsonObjectSerializer;
 
 import java.io.Serializable;
 

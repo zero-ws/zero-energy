@@ -1,10 +1,6 @@
 package io.vertx.up.atom.worker;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.databind.ClassDeserializer;
-import com.fasterxml.jackson.databind.ClassSerializer;
-import com.fasterxml.jackson.databind.JsonObjectDeserializer;
-import com.fasterxml.jackson.databind.JsonObjectSerializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.horizon.eon.VMessage;
@@ -21,6 +17,10 @@ import io.vertx.up.exception.web._501JobOnMissingException;
 import io.vertx.up.fn.Fn;
 import io.vertx.up.uca.log.DevEnv;
 import io.vertx.up.util.Ut;
+import io.zerows.jackson.databind.ClassDeserializer;
+import io.zerows.jackson.databind.ClassSerializer;
+import io.zerows.jackson.databind.JsonObjectDeserializer;
+import io.zerows.jackson.databind.JsonObjectSerializer;
 
 import java.io.Serializable;
 import java.lang.annotation.Annotation;

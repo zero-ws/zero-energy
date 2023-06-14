@@ -1,7 +1,5 @@
 package io.vertx.up.secure.config;
 
-import com.fasterxml.jackson.databind.JsonArrayDeserializer;
-import com.fasterxml.jackson.databind.JsonArraySerializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.horizon.uca.log.Annal;
@@ -12,6 +10,8 @@ import io.vertx.up.eon.KWeb;
 import io.vertx.up.eon.configure.YmlCore;
 import io.vertx.up.runtime.ZeroStore;
 import io.vertx.up.runtime.env.MatureOn;
+import io.zerows.jackson.databind.JsonArrayDeserializer;
+import io.zerows.jackson.databind.JsonArraySerializer;
 
 import java.io.Serializable;
 import java.util.Objects;

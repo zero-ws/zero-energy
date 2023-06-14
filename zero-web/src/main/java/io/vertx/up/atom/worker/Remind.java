@@ -1,12 +1,12 @@
 package io.vertx.up.atom.worker;
 
-import com.fasterxml.jackson.databind.ClassDeserializer;
-import com.fasterxml.jackson.databind.ClassSerializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.horizon.uca.cache.Cc;
 import io.vertx.up.boot.di.DiPlugin;
 import io.vertx.up.eon.em.container.RemindType;
+import io.zerows.jackson.databind.ClassDeserializer;
+import io.zerows.jackson.databind.ClassSerializer;
 
 import java.io.Serializable;
 import java.lang.reflect.Method;
