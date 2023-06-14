@@ -1,10 +1,6 @@
 package io.aeon.experiment.specification;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.databind.ClassDeserializer;
-import com.fasterxml.jackson.databind.ClassSerializer;
-import com.fasterxml.jackson.databind.JsonObjectDeserializer;
-import com.fasterxml.jackson.databind.JsonObjectSerializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.horizon.eon.em.EmDS;
@@ -15,6 +11,10 @@ import io.vertx.up.atom.shape.KJoin;
 import io.vertx.up.atom.shape.KPoint;
 import io.vertx.up.plugin.jooq.JooqPin;
 import io.vertx.up.util.Ut;
+import io.zerows.jackson.databind.ClassDeserializer;
+import io.zerows.jackson.databind.ClassSerializer;
+import io.zerows.jackson.databind.JsonObjectDeserializer;
+import io.zerows.jackson.databind.JsonObjectSerializer;
 
 import java.io.Serializable;
 import java.util.Objects;

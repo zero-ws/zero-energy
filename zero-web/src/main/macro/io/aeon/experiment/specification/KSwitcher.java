@@ -1,9 +1,9 @@
 package io.aeon.experiment.specification;
 
-import com.fasterxml.jackson.databind.ClassDeserializer;
-import com.fasterxml.jackson.databind.ClassSerializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import io.zerows.jackson.databind.ClassDeserializer;
+import io.zerows.jackson.databind.ClassSerializer;
 
 import java.io.Serializable;
 
