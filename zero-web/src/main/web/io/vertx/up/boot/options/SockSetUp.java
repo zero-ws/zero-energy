@@ -6,13 +6,13 @@ import io.vertx.core.http.HttpServerOptions;
 import io.vertx.core.json.JsonObject;
 import io.vertx.up.eon.KName;
 import io.vertx.up.fn.Fn;
-import io.vertx.up.uca.options.JTransformer;
+import io.vertx.up.uca.options.Transformer;
 import io.vertx.up.util.Ut;
 
 /**
  * @author <a href="http://www.origin-x.cn">Lang</a>
  */
-public class SockSetUp implements JTransformer<SockOptions> {
+public class SockSetUp implements Transformer<SockOptions> {
 
     private static final Annal LOGGER = Annal.get(SockSetUp.class);
 

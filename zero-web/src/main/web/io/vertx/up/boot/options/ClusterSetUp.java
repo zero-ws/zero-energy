@@ -4,9 +4,9 @@ import io.horizon.uca.log.Annal;
 import io.vertx.core.ClusterOptions;
 import io.vertx.core.json.JsonObject;
 import io.vertx.up.fn.Fn;
-import io.vertx.up.uca.options.JTransformer;
+import io.vertx.up.uca.options.Transformer;
 
-public class ClusterSetUp implements JTransformer<ClusterOptions> {
+public class ClusterSetUp implements Transformer<ClusterOptions> {
 
     private static final Annal LOGGER = Annal.get(ClusterSetUp.class);
 

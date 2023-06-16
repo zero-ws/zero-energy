@@ -5,11 +5,11 @@ import io.vertx.core.http.HttpServerOptions;
 import io.vertx.core.json.JsonObject;
 import io.vertx.up.eon.KName;
 import io.vertx.up.fn.Fn;
-import io.vertx.up.uca.options.JTransformer;
+import io.vertx.up.uca.options.Transformer;
 
 import java.util.Objects;
 
-public class HttpServerSetUp implements JTransformer<HttpServerOptions> {
+public class HttpServerSetUp implements Transformer<HttpServerOptions> {
 
     private static final Annal LOGGER = Annal.get(HttpServerSetUp.class);
 

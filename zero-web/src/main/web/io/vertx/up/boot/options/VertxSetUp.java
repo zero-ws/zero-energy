@@ -4,12 +4,12 @@ import io.horizon.uca.log.Annal;
 import io.vertx.core.VertxOptions;
 import io.vertx.core.json.JsonObject;
 import io.vertx.up.fn.Fn;
-import io.vertx.up.uca.options.JTransformer;
 import io.vertx.up.uca.options.NodeVisitor;
+import io.vertx.up.uca.options.Transformer;
 
 import java.util.Objects;
 
-public class VertxSetUp implements JTransformer<VertxOptions> {
+public class VertxSetUp implements Transformer<VertxOptions> {
 
     private static final Annal LOGGER = Annal.get(VertxSetUp.class);
 

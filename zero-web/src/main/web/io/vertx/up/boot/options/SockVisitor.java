@@ -9,8 +9,8 @@ import io.vertx.core.json.JsonObject;
 import io.vertx.up.commune.Ruler;
 import io.vertx.up.eon.KName;
 import io.vertx.up.runtime.env.MatureOn;
-import io.vertx.up.uca.options.JTransformer;
 import io.vertx.up.uca.options.ServerVisitor;
+import io.vertx.up.uca.options.Transformer;
 import io.vertx.up.util.Ut;
 
 import java.util.concurrent.ConcurrentHashMap;
@@ -20,7 +20,7 @@ import java.util.concurrent.ConcurrentMap;
  * @author <a href="http://www.origin-x.cn">Lang</a>
  */
 public class SockVisitor extends AbstractSVisitor implements ServerVisitor<SockOptions> {
-    protected transient final JTransformer<SockOptions>
+    protected transient final Transformer<SockOptions>
         transformer = Ut.singleton(SockSetUp.class);
 
     @Override

@@ -10,8 +10,8 @@ import io.vertx.core.json.JsonObject;
 import io.vertx.up.commune.Ruler;
 import io.vertx.up.fn.Fn;
 import io.vertx.up.runtime.ZeroStore;
-import io.vertx.up.uca.options.JTransformer;
 import io.vertx.up.uca.options.NodeVisitor;
+import io.vertx.up.uca.options.Transformer;
 import io.vertx.up.util.Ut;
 
 import java.util.concurrent.ConcurrentHashMap;
@@ -21,9 +21,9 @@ public class VertxVisitor implements NodeVisitor {
     private static final Annal LOGGER = Annal.get(VertxVisitor.class);
 
     private static final String KEY = "vertx";
-    private transient final JTransformer<VertxOptions>
+    private transient final Transformer<VertxOptions>
         transformer = Ut.singleton(VertxSetUp.class);
-    private transient final JTransformer<ClusterOptions>
+    private transient final Transformer<ClusterOptions>
         clusterTransformer = Ut.singleton(ClusterSetUp.class);
 
     private transient ClusterOptions clusterOptions;

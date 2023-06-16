@@ -8,8 +8,8 @@ import io.vertx.core.json.JsonObject;
 import io.vertx.up.commune.Ruler;
 import io.vertx.up.eon.KName;
 import io.vertx.up.runtime.env.MatureOn;
-import io.vertx.up.uca.options.JTransformer;
 import io.vertx.up.uca.options.ServerVisitor;
+import io.vertx.up.uca.options.Transformer;
 import io.vertx.up.util.Ut;
 
 import java.util.concurrent.ConcurrentHashMap;
@@ -21,7 +21,7 @@ import java.util.concurrent.ConcurrentMap;
  */
 public class HttpServerVisitor extends AbstractSVisitor implements ServerVisitor<HttpServerOptions> {
 
-    protected transient final JTransformer<HttpServerOptions>
+    protected transient final Transformer<HttpServerOptions>
         transformer = Ut.singleton(HttpServerSetUp.class);
 
     /**
