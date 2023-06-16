@@ -1,10 +1,10 @@
 package io.vertx.rx.web.limit;
 
+import io.horizon.eon.em.web.ServerType;
 import io.macrocosm.specification.config.HConfig;
 import io.vertx.boot.supply.Electy;
 import io.vertx.rx.micro.ZeroRxAgent;
 import io.vertx.up.boot.anima.Factor;
-import io.vertx.up.eon.em.container.ServerType;
 
 import java.util.HashSet;
 import java.util.Set;

@@ -1,5 +1,6 @@
 package io.vertx.up.boot.anima;
 
+import io.horizon.eon.em.web.EmTraffic;
 import io.horizon.uca.log.Annal;
 import io.macrocosm.specification.config.HConfig;
 import io.vertx.boot.configuration.BootStore;
@@ -10,7 +11,6 @@ import io.vertx.up.annotations.Worker;
 import io.vertx.up.backbone.Extractor;
 import io.vertx.up.backbone.config.WorkerExtractor;
 import io.vertx.up.bottle.ZeroHttpWorker;
-import io.vertx.up.eon.em.EmTraffic;
 import io.vertx.up.util.Ut;
 
 import java.util.HashSet;

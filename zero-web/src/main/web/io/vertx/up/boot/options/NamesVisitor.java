@@ -1,11 +1,11 @@
 package io.vertx.up.boot.options;
 
 import io.horizon.eon.VValue;
+import io.horizon.eon.em.web.ServerType;
 import io.horizon.exception.ProgramException;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
 import io.vertx.up.eon.KName;
-import io.vertx.up.eon.em.container.ServerType;
 import io.vertx.up.fn.Fn;
 import io.vertx.up.uca.options.ServerVisitor;
 import io.vertx.up.util.Ut;

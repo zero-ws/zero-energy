@@ -1,13 +1,13 @@
 package io.vertx.up.boot.options;
 
 import io.horizon.eon.VMessage;
+import io.horizon.eon.em.web.ServerType;
 import io.horizon.exception.ProgramException;
 import io.vertx.core.SockOptions;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
 import io.vertx.up.commune.Ruler;
 import io.vertx.up.eon.KName;
-import io.vertx.up.eon.em.container.ServerType;
 import io.vertx.up.runtime.env.MatureOn;
 import io.vertx.up.uca.options.JTransformer;
 import io.vertx.up.uca.options.ServerVisitor;

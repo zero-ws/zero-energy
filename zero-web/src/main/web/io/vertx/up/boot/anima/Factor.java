@@ -1,7 +1,7 @@
 package io.vertx.up.boot.anima;
 
+import io.horizon.eon.em.web.ServerType;
 import io.macrocosm.specification.config.HConfig;
-import io.vertx.up.eon.em.container.ServerType;
 
 import java.util.concurrent.ConcurrentMap;
 

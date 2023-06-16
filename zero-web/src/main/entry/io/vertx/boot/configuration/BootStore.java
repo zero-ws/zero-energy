@@ -2,6 +2,7 @@ package io.vertx.boot.configuration;
 
 import io.aeon.refine.Ho;
 import io.horizon.eon.em.EmApp;
+import io.horizon.eon.em.web.ServerType;
 import io.horizon.exception.BootingException;
 import io.horizon.uca.log.Annal;
 import io.macrocosm.atom.boot.KBoot;
@@ -13,7 +14,6 @@ import io.vertx.up.annotations.Up;
 import io.vertx.up.boot.options.DynamicVisitor;
 import io.vertx.up.eon.configure.YmlCore;
 import io.vertx.up.eon.em.FeatureMark;
-import io.vertx.up.eon.em.container.ServerType;
 import io.vertx.up.fn.Fn;
 import io.vertx.up.runtime.Anno;
 import io.vertx.up.runtime.ZeroStore;

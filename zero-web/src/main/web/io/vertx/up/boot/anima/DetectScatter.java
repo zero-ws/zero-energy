@@ -1,7 +1,7 @@
 package io.vertx.up.boot.anima;
 
+import io.horizon.eon.em.web.EmTraffic;
 import io.macrocosm.specification.config.HConfig;
-import io.vertx.up.eon.em.EmTraffic;
 
 import java.util.HashSet;
 import java.util.Set;

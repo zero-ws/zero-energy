@@ -2,8 +2,8 @@ package io.vertx.boot.supply;
 
 import io.horizon.eon.VMessage;
 import io.horizon.eon.VValue;
+import io.horizon.eon.em.web.ServerType;
 import io.horizon.uca.log.Annal;
-import io.vertx.up.eon.em.container.ServerType;
 import io.vertx.up.fn.Fn;
 import io.vertx.up.util.Ut;
 import io.vertx.zero.exception.AgentDuplicatedException;

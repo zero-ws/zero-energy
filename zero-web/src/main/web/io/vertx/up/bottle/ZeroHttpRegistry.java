@@ -2,6 +2,7 @@ package io.vertx.up.bottle;
 
 import io.horizon.eon.VName;
 import io.horizon.eon.VString;
+import io.horizon.eon.em.web.EmTraffic;
 import io.horizon.uca.log.Annal;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.eventbus.EventBus;
@@ -9,7 +10,6 @@ import io.vertx.core.http.HttpServerOptions;
 import io.vertx.core.json.JsonObject;
 import io.vertx.up.annotations.Worker;
 import io.vertx.up.eon.KWeb;
-import io.vertx.up.eon.em.EmTraffic;
 import io.vertx.up.eon.em.Etat;
 import io.vertx.up.uca.registry.Uddi;
 import io.vertx.up.uca.registry.UddiRegistry;

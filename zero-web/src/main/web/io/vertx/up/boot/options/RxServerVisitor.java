@@ -1,6 +1,6 @@
 package io.vertx.up.boot.options;
 
-import io.vertx.up.eon.em.container.ServerType;
+import io.horizon.eon.em.web.ServerType;
 
 public class RxServerVisitor extends HttpServerVisitor {
 

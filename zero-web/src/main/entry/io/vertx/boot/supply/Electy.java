@@ -1,6 +1,7 @@
 package io.vertx.boot.supply;
 
 import com.google.inject.Injector;
+import io.horizon.eon.em.web.ServerType;
 import io.horizon.fn.Actuator;
 import io.horizon.uca.cache.Cc;
 import io.macrocosm.specification.config.HConfig;
@@ -15,7 +16,6 @@ import io.vertx.up.atom.worker.Mission;
 import io.vertx.up.atom.worker.Receipt;
 import io.vertx.up.atom.worker.Remind;
 import io.vertx.up.commune.secure.Aegis;
-import io.vertx.up.eon.em.container.ServerType;
 
 import java.lang.reflect.Method;
 import java.util.List;

@@ -1,5 +1,6 @@
 package io.vertx.boot.supply;
 
+import io.horizon.eon.em.web.ServerType;
 import io.horizon.uca.cache.Cc;
 import io.horizon.uca.log.Annal;
 import io.vertx.core.ClusterOptions;
@@ -11,7 +12,6 @@ import io.vertx.core.http.HttpServerOptions;
 import io.vertx.up.boot.deployment.DeployRotate;
 import io.vertx.up.boot.deployment.Rotate;
 import io.vertx.up.boot.options.*;
-import io.vertx.up.eon.em.container.ServerType;
 import io.vertx.up.fn.Fn;
 import io.vertx.up.uca.options.NodeVisitor;
 import io.vertx.up.uca.options.RpcServerVisitor;

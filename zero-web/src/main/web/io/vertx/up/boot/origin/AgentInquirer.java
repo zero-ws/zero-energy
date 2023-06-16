@@ -1,8 +1,8 @@
 package io.vertx.up.boot.origin;
 
+import io.horizon.eon.em.web.ServerType;
 import io.horizon.uca.log.Annal;
 import io.vertx.up.annotations.Agent;
-import io.vertx.up.eon.em.container.ServerType;
 import io.vertx.up.fn.Fn;
 import io.vertx.up.util.Ut;
 

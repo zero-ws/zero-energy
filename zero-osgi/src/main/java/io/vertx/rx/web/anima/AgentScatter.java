@@ -1,5 +1,6 @@
 package io.vertx.rx.web.anima;
 
+import io.horizon.eon.em.web.ServerType;
 import io.horizon.uca.log.Annal;
 import io.macrocosm.specification.config.HConfig;
 import io.vertx.core.DeploymentOptions;
@@ -9,7 +10,6 @@ import io.vertx.up.backbone.Extractor;
 import io.vertx.up.backbone.config.AgentExtractor;
 import io.vertx.up.boot.anima.Factor;
 import io.vertx.up.boot.anima.Scatter;
-import io.vertx.up.eon.em.container.ServerType;
 import io.vertx.up.util.Ut;
 
 import java.util.concurrent.ConcurrentMap;

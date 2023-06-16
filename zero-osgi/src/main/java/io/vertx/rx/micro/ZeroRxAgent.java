@@ -1,6 +1,7 @@
 package io.vertx.rx.micro;
 
 import io.horizon.eon.VValue;
+import io.horizon.eon.em.web.ServerType;
 import io.horizon.specification.boot.HAxis;
 import io.horizon.uca.cache.Cc;
 import io.horizon.uca.log.Annal;
@@ -14,7 +15,6 @@ import io.vertx.rxjava3.core.http.HttpServer;
 import io.vertx.rxjava3.ext.web.Route;
 import io.vertx.rxjava3.ext.web.Router;
 import io.vertx.up.annotations.Agent;
-import io.vertx.up.eon.em.container.ServerType;
 import io.vertx.up.util.Ut;
 
 import java.text.MessageFormat;
