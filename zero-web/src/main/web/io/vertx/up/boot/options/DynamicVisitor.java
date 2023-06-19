@@ -26,7 +26,7 @@ public class DynamicVisitor extends HttpServerVisitor {
         throws ProgramException {
         final JsonArray serverData = this.serverPre(1, key);
         this.type = ServerType.valueOf(key[VValue.IDX]);
-        this.logger().info(VMessage.Visitor.V_BEFORE, KName.SERVER, this.type, serverData.encode());
+        this.logger().debug(VMessage.Visitor.V_BEFORE, KName.SERVER, this.type, serverData.encode());
         Ruler.verify(KName.SERVER, serverData);
         final ConcurrentMap<Integer, HttpServerOptions> map =
             new ConcurrentHashMap<>();

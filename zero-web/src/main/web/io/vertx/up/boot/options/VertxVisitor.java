@@ -37,7 +37,7 @@ public class VertxVisitor implements NodeVisitor {
         final JsonObject data = ZeroStore.containerJ();
         // 3. Vertx node validation.
         final JsonObject vertxData = data.getJsonObject(KEY);
-        LOGGER.info(VMessage.Visitor.V_BEFORE, KEY, this.getClass().getSimpleName(), vertxData);
+        LOGGER.debug(VMessage.Visitor.V_BEFORE, KEY, this.getClass().getSimpleName(), vertxData);
         Fn.bugAt(() -> Ruler.verify(KEY, vertxData), vertxData);
         // 4. Set cluster options
         this.clusterOptions = this.clusterTransformer.transform(vertxData.getJsonObject(YKEY_CLUSTERED));
