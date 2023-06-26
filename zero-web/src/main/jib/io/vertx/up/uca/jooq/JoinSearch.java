@@ -1,5 +1,6 @@
 package io.vertx.up.uca.jooq;
 
+import io.horizon.uca.log.Annal;
 import io.horizon.uca.qr.Pager;
 import io.horizon.uca.qr.syntax.Ir;
 import io.vertx.core.json.JsonArray;
@@ -7,6 +8,7 @@ import io.vertx.up.commune.pojo.Mojo;
 import io.vertx.up.plugin.jooq.JooqDsl;
 import io.vertx.up.plugin.jooq.condition.JooqCond;
 import io.vertx.up.uca.jooq.util.JqOut;
+import io.vertx.up.uca.log.DevEnv;
 import io.vertx.up.util.Ut;
 import org.jooq.*;
 import org.jooq.impl.DSL;
@@ -20,6 +22,7 @@ import java.util.Set;
  */
 @SuppressWarnings("all")
 class JoinSearch {
+    private static final Annal LOGGER = Annal.get(JoinSearch.class);
     private final transient JoinStore store;
 
     JoinSearch(final JoinStore store) {
@@ -76,6 +79,9 @@ class JoinSearch {
         if (null != qr.getCriteria()) {
             final Condition condition = JooqCond.transform(qr.getCriteria().toJson(),
                 this.store::metaColumn, this.store::metaTable);
+            if (DevEnv.devJooqCond()) {
+                LOGGER.info(INFO.JOOQ_PARSE, condition);
+            }
             started.where(condition);
         }
         /*
