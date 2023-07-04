@@ -70,18 +70,23 @@ public class JqOut {
     private static void putField(final JsonObject data, final Mojo mojo,
                                  final String field, final Object value) {
         /*
-         * Early Loading, when the data contains the pick up field, ignore the rest
-         * It means that we used the T1 table data as the major data
-         * For example
-         * T1 contains `key`, `sigma` etc
-         * T2 also contains `key`, `sigma` etc
-         * If they are the same, it's not need to put twice
-         * If they are different, the T1 `key` should be correct
-         *
-         * Early Policy
+         * 「主表优先策略」
+         * 非延迟加载，以优先发现的数据为准，一般优先数据为主表数据，LEFT JOIN引起，忽略掉其余数据
+         * 简单说就是 T1 作为核心主表数据抽取关键性字段相关信息，而忽略掉 T2 的相关信息
+         * 通常情况如下：
+         * - T1 包含了 key, sigma 等
+         * - T2 通常包含了 key, sigma 等
+         * 计算结果
+         * - 如果两个属性值相同，则不需要执行第二次计算
+         * - 如果两个属性值不同，则以 T1 的数据为主
          */
         final BiConsumer<String, Object> executor = (resultField, valueData) -> {
-            if (!data.containsKey(field)) {
+            /*
+             * 旧代码的判断使用的是 field，会导致 POJO 出现时有问题
+             * 新版本直接使用 resultField 作计算，这样计算结果更加标准
+             * 基本规则是：已经有的值不再追加第二次，除非配置 alias，否则子表的属性不会被直接暴露
+             */
+            if (!data.containsKey(resultField)) {
                 data.put(resultField, valueData);
             }
         };
@@ -94,25 +99,24 @@ public class JqOut {
                 }
             }
             /*
-             * `key` could not be overwrite by T2
-             * Here are situation of following:
-             * 1) T1 = X_CATEGORY
-             * 2) T2 = F_TERM
-             *
-             * Situation 1:
-             *
+             * key 不允许被 T2 覆盖
+             * 以下情况：
+             * 1. T1 = X_CATEGORY
+             * 2. T2 = F_TERM
              */
             if (KName.KEY.equals(resultField) && data.containsKey(KName.KEY)) {
                 return;
             }
             if (value instanceof java.sql.Timestamp) {
                 /*
-                 * Resolve issue: java.lang.IllegalStateException: Illegal type in JsonObject: class java.sql.Timestamp
+                 * 处理BUG
+                 * java.lang.IllegalStateException: Illegal type in JsonObject: class java.sql.Timestamp
                  */
                 final Date dateTime = (Date) value;
                 executor.accept(resultField, dateTime.toInstant());
             } else if (value instanceof BigDecimal) {
                 /*
+                 * 处理BUG
                  * java.lang.IllegalStateException: Illegal type in JsonObject: class java.math.BigDecimal
                  */
                 final BigDecimal decimal = (BigDecimal) value;
