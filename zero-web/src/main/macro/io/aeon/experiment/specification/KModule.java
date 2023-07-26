@@ -19,8 +19,32 @@ import io.zerows.jackson.databind.JsonObjectSerializer;
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ * 模型定义专用配置，所有模型定义主要位于目录中
+ * <pre><code>
+ *     1. 启动器
+ *        src/main/resources/plugin/crud/xxxx.json
+ *        src/main/resources/plugin/ui/xxxx.json
+ *     2. 模块化
+ *        src/main/resources/plugin/{module}/oob/module/xxx.json
+ *        其中 {module} 是模块名称
+ * </code></pre>
+ * 数据结构如下
+ * <pre><code>
+ * {
+ *     "name": "模型名称，此名称会作为 /api/:actor 中的 actor 参数",
+ *     "pojo": "（一般转换成遗留系统）当模型启用 Pojo 映射时专用",
+ *     "mode": "数据库存储位置，{@link EmDS.Stored} 枚举值，有五种",
+ *     "modeKey": "当 mode = EXTENSION 时，此值必须，用于存储在 Extension 中的 key 值",
+ *     "field": "{@link KField}",
+ *     "column": "{@link KColumn}"
+ * }
+ * </code></pre>
+ *
+ * @author <a href="http://www.origin-x.cn">Lang</a>
+ */
 public class KModule implements Serializable {
-
+    
     private String name;
     private String pojo;
     private String mode;
