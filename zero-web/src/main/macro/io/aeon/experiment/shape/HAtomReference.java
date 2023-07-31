@@ -16,6 +16,7 @@ import io.vertx.core.json.JsonObject;
 import io.vertx.up.atom.shape.KJoin;
 import io.vertx.up.atom.shape.KPoint;
 import io.vertx.up.eon.KName;
+import io.vertx.up.uca.destine.Hymn;
 import io.vertx.up.unity.Ux;
 import io.vertx.up.util.Ut;
 
@@ -221,7 +222,8 @@ public class HAtomReference implements HReference {
             if (Objects.isNull(atom)) {
                 Objects.requireNonNull(join);
                 final KPoint source = join.getSource();
-                final KPoint target = join.point(condition);
+                final Hymn<JsonObject> hymn = Hymn.ofJObject(join);
+                final KPoint target = hymn.pointer(condition); // join.point(condition);
                 // Static
                 if (Objects.isNull(target)) {
                     // Jooq
@@ -249,7 +251,8 @@ public class HAtomReference implements HReference {
             if (Objects.isNull(atom)) {
                 Objects.requireNonNull(join);
                 final KPoint source = join.getSource();
-                final KPoint target = join.point(condition);
+                final Hymn<JsonObject> hymn = Hymn.ofJObject(join);
+                final KPoint target = hymn.pointer(condition); // join.point(condition);
                 // Static
                 if (Objects.isNull(target)) {
                     // Jooq

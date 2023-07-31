@@ -10,6 +10,7 @@ import io.vertx.up.atom.shape.KField;
 import io.vertx.up.atom.shape.KJoin;
 import io.vertx.up.atom.shape.KPoint;
 import io.vertx.up.plugin.jooq.JooqPin;
+import io.vertx.up.uca.destine.Hymn;
 import io.vertx.up.util.Ut;
 import io.zerows.jackson.databind.ClassDeserializer;
 import io.zerows.jackson.databind.ClassSerializer;
@@ -235,7 +236,8 @@ public class KModule implements Serializable {
         if (Objects.isNull(this.connect)) {
             return null;
         }
-        return this.connect.point(identifier);
+        final Hymn<String> hymn = Hymn.ofString(this.connect);
+        return hymn.pointer(identifier); // this.connect.point(identifier);
     }
 
     public EmDS.Stored getMode() {

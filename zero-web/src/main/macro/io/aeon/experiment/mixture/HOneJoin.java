@@ -5,6 +5,7 @@ import io.vertx.core.MultiMap;
 import io.vertx.core.json.JsonObject;
 import io.vertx.up.atom.shape.KJoin;
 import io.vertx.up.atom.shape.KPoint;
+import io.vertx.up.uca.destine.Hymn;
 import io.vertx.up.uca.jooq.UxJoin;
 import io.vertx.up.unity.Ux;
 import io.vertx.up.util.Ut;
@@ -41,7 +42,8 @@ class HOneJoin implements HOne<UxJoin> {
         }
 
         // 4. Connect
-        final KPoint target = join.point(connect.identifier());
+        final Hymn<String> hymn = Hymn.ofString(join);
+        final KPoint target = hymn.pointer(connect.identifier());
         Objects.requireNonNull(target);
         final Class<?> daoCls = connect.getDaoCls();
         dao.join(daoCls, target.getKeyJoin());
