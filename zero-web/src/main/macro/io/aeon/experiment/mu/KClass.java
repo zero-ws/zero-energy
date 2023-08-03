@@ -24,7 +24,6 @@ import java.util.function.BiFunction;
 /**
  * M/U means modal unit, its format is following, please refer the related definition.yml file and definition.json
  * file for more details of KClass structure.
- *
  * KClass will be shared data structure ( JsonObject Part ) with KModule in up framework
  *
  * @author <a href="http://www.origin-x.cn">Lang</a>

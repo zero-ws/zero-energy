@@ -90,6 +90,10 @@ public final class UxJoin {
      * 2) pojo.yml is the parameter of current method `pojo`
      */
     public <T> UxJoin pojo(final Class<?> daoCls, final String pojo) {
+        if (Ut.isNil(pojo)) {
+            // 此处直接返回，由于传入了非法的 pojo
+            return this;
+        }
         final Mojo created = Mirror.create(UxJoin.class).mount(pojo).mojo();
         this.pojoMap.put(daoCls, pojo);
         if (Objects.isNull(this.merged)) {

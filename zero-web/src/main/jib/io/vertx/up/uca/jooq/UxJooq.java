@@ -12,6 +12,7 @@ import io.vertx.up.plugin.jooq.JooqDsl;
 import io.vertx.up.uca.jooq.util.JqCond;
 import io.vertx.up.uca.jooq.util.JqFlow;
 import io.vertx.up.uca.jooq.util.JqTool;
+import io.vertx.up.util.Ut;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
@@ -61,22 +62,34 @@ public final class UxJooq {
 
     // -------------------- Bind Config --------------------
 
-    /*
-     * Bind configuration range here
-     * Pojo mode of complex processing
+
+    /**
+     * 「遗留系统」
+     * 此处方法是为了遗留系统量身打造，您可以绑定所需的Pojo映射文件实现配置本身的转换，
+     * 如果传入的映射文件为空，则不执行任何操作，不为空就实现绑定。
+     *
+     * @param pojo {@link String}
+     *
+     * @return {@link UxJooq}
      */
     public UxJooq on(final String pojo) {
-        this.analyzer.on(pojo, this.clazz);
-        /*
-         * Because the JqAnalyzer has been changed here, instead we should
-         * re-create the workflow component.
-         *
-         * This feature is used in old system of previous version,
-         * 1) The entity is correct in our system and no error here.
-         * 2) There exists `pojo` file that bind to this entity for data conversation
-         * 3) The `pojo` will impact all the interface API that contains `pojo` parameters
-         */
-        this.workflow.on(this.analyzer);
+        if (Ut.isNil(pojo)) {
+            // 此处直接返回，由于传入了非法的 pojo
+            return this;
+        }
+
+        // 否则走后续绑定流程
+        {
+            this.analyzer.on(pojo, this.clazz);
+            /*
+             * 此处 analyzer 对象内置会发生变化，相反会影响到 workflow 的创建，当前方法主要是应用于
+             * 旧系统的连接：
+             * 1）旧系统中的实体是正确的，没有问题
+             * 2）旧系统中存在 pojo 文件，用于数据转换
+             * 3）pojo 文件会影响到所有包含 pojo 参数的接口 API
+             */
+            this.workflow.on(this.analyzer);
+        }
         return this;
     }
 
