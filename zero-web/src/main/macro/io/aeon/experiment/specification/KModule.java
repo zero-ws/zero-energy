@@ -163,17 +163,29 @@ public class KModule implements Serializable {
         this.name = name;
     }
 
+    /**
+     * 切换 identifier 的提取优先级，旧版是以 {@link KColumn} 中为主
+     * <pre><code>
+     *     - 优先从 identifier 中提取，若无才从 column 中拿
+     * </code></pre>
+     *
+     * @return identifier
+     */
     public String identifier() {
-        if (Objects.nonNull(this.column)) {
-            /* Crud Identifier Extract in Old Version */
-            return this.column.getIdentifier();
-        } else {
-            /*
-             * HAtom new version to put code logical into configuration file
-             * `identifier` attach on configuration
-             */
+        // HAtom 新版本在代码逻辑中填充了 identifier，所以优先处理这种方式的提取方式
+        if (Ut.isNotNil(this.identifier)) {
             return this.identifier;
         }
+
+
+        // CRUD的提取再考虑 column（新版大概率不会走的流程）
+        if (Objects.nonNull(this.column)) {
+            return this.column.getIdentifier();
+        }
+
+
+        // 默认返回 null
+        return null;
     }
 
     public KModule identifier(final String identifier) {
