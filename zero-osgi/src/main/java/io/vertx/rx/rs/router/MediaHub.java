@@ -15,7 +15,7 @@ public class MediaHub implements Hub<Route> {
         final Set<MediaType> produces = event.getProduces();
         for (final MediaType type : produces) {
             final String item = type.getType() + VString.SLASH + type.getSubtype();
-            route.consumes(item);
+            route.produces(item);
         }
         // consumes
         final Set<MediaType> consumes = event.getConsumes();

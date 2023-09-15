@@ -24,7 +24,7 @@ public class MediaHub implements Hub<Route> {
             .map(type -> type.getType() + VString.SLASH + type.getSubtype())
             .subscribe(route::produces).dispose();
         // consumes
-        final Set<MediaType> consumes = event.getProduces();
+        final Set<MediaType> consumes = event.getConsumes();
         Observable.fromIterable(consumes)
             .map(type -> type.getType() + VString.SLASH + type.getSubtype())
             .subscribe(route::consumes).dispose();
