@@ -41,9 +41,9 @@ public interface PluginExtension {
          * It's for zero extension module CRUD only, because CRUD module support
          * generic parameters {actor} as module identifier
          *
-         * This parameter could connect business module cross
-         * 1) Static business: Zero Standard
-         * 2) Ox business: Data Driven Workflow
+         * This parameter could connect income module cross
+         * 1) Static income: Zero Standard
+         * 2) Ox income: Data Driven Workflow
          */
         static void registryRoute(final Set<String> routes) {
             /* Etcd Registry Infusion */

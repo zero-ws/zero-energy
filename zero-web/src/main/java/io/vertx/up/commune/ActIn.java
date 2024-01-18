@@ -14,7 +14,7 @@ import java.io.Serializable;
 
 /*
  * Business Request
- * 「ActIn」 means Action Request and offer business component parameters here.
+ * 「ActIn」 means Action Request and offer income component parameters here.
  * 1) This DTO contains: JsonObject ( Pure Data ), ZRecord ( Record Structure )
  * 2) Bind record data structure for serialization/deserialization.
  *

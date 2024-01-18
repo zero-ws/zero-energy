@@ -17,7 +17,7 @@ class PluginAuditor {
     static Future<Envelop> audit(final RoutingContext context, final Envelop envelop) {
         return Plugin.mountPlugin(YmlCore.extension.AUDITOR, envelop, (auditCls, config) -> {
             /*
-             * Extend PlugAuditor for auditing system setting for some spec business.
+             * Extend PlugAuditor for auditing system setting for some spec income.
              */
             final PlugAuditor auditor = CC_PLUGIN.pick(() -> Ut.instance(auditCls), auditCls.getName());
             // Fn.po?lThread(POOL_PLUGIN, () -> Ut.instance(auditCls), auditCls.getName());

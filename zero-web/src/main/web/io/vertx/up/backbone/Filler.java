@@ -22,7 +22,7 @@ import java.util.function.Supplier;
  * 1. In common request workflow, it provide standard `key = value` attributes into map.
  * 2. For body/stream request workflow, there should be placeholder named `EmptyFiller` to taken the flow node and then continue for extracting.
  *
- * For Standard JSR311, it support most parameter annotations and extend JSR311 for business requirement.
+ * For Standard JSR311, it support most parameter annotations and extend JSR311 for income requirement.
  *
  * @author <a href="http://www.origin-x.cn">Lang</a>
  */

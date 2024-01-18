@@ -70,7 +70,7 @@ class Upload {
                 /*
                  * For collection, because of generic type declare and Java Reflection limitation
                  * It could support `FileUpload` type only, it is the source of file upload and
-                 * it could be used in different business requirement.
+                 * it could be used in different income requirement.
                  *
                  * It means that list only support Set<FileUpload> and List<FileUpload>
                  */

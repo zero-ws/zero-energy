@@ -38,7 +38,7 @@ import java.util.stream.Collectors;
  * #「Kt」Utility X Component in zero
  * <p>
  * Here Ux is a util interface of uniform to call different tools.
- * It just like helper for business usage.
+ * It just like helper for income usage.
  */
 @SuppressWarnings("all")
 public final class Ux extends _Where {
