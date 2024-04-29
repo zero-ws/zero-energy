@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+git submodule add git@gitee.com:zero-ws/Zero.Core.Entry.Extension.git boot/Zero.Core.Entry.Extension
+git submodule add git@gitee.com:zero-ws/Zero.Core.Entry.Facade.git boot/Zero.Core.Entry.Facade
+git submodule add git@gitee.com:zero-ws/Zero.Core.Entry.Import.git boot/Zero.Core.Entry.Import
+git submodule add git@gitee.com:zero-ws/Zero.Core.Entry.Mini.git boot/Zero.Core.Entry.Mini
+git submodule add git@gitee.com:zero-ws/Zero.Core.Entry.OSGI.git boot/Zero.Core.Entry.OSGI
+# source
+git submodule add git@gitee.com:zero-ws/Zero.Core.Feature.Database.Cache.git source/Zero.Core.Feature.Database.Cache
+git submodule add git@gitee.com:zero-ws/Zero.Core.Feature.Database.CP.git source/Zero.Core.Feature.Database.CP
+git submodule add git@gitee.com:zero-ws/Zero.Core.Feature.Database.JOOQ.git source/Zero.Core.Feature.Database.JOOQ
+git submodule add git@gitee.com:zero-ws/Zero.Core.Feature.Toolkit.Expression.git source/Zero.Core.Feature.Toolkit.Expression
+git submodule add git@gitee.com:zero-ws/Zero.Core.Feature.Unit.Testing.git source/Zero.Core.Feature.Unit.Testing
+git submodule add git@gitee.com:zero-ws/Zero.Core.Feature.Web.Cache.git source/Zero.Core.Feature.Web.Cache
+git submodule add git@gitee.com:zero-ws/Zero.Core.Feature.Web.Client.git source/Zero.Core.Feature.Web.Client
+git submodule add git@gitee.com:zero-ws/Zero.Core.Feature.Web.MBSE.git source/Zero.Core.Feature.Web.MBSE
+git submodule add git@gitee.com:zero-ws/Zero.Core.Feature.Web.Monitor.git source/Zero.Core.Feature.Web.Monitor
+git submodule add git@gitee.com:zero-ws/Zero.Core.Feature.Web.Security.git source/Zero.Core.Feature.Web.Security
+git submodule add git@gitee.com:zero-ws/Zero.Core.Feature.Web.Session.git source/Zero.Core.Feature.Web.Session
+git submodule add git@gitee.com:zero-ws/Zero.Core.Feature.Web.Shared.git source/Zero.Core.Feature.Web.Shared
+git submodule add git@gitee.com:zero-ws/Zero.Core.Feature.Web.Utility.X.git source/Zero.Core.Feature.Web.Utility.X
+git submodule add git@gitee.com:zero-ws/Zero.Core.Feature.Web.WebSocket.git source/Zero.Core.Feature.Web.WebSocket
+git submodule add git@gitee.com:zero-ws/Zero.Core.Runtime.Assembly.git source/Zero.Core.Runtime.Assembly
+git submodule add git@gitee.com:zero-ws/Zero.Core.Runtime.Cloud.git source/Zero.Core.Runtime.Cloud
+git submodule add git@gitee.com:zero-ws/Zero.Core.Runtime.Configuration.git source/Zero.Core.Runtime.Configuration
+git submodule add git@gitee.com:zero-ws/Zero.Core.Runtime.Domain.git source/Zero.Core.Runtime.Domain
+git submodule add git@gitee.com:zero-ws/Zero.Core.Runtime.Metadata.git source/Zero.Core.Runtime.Metadata
+git submodule add git@gitee.com:zero-ws/Zero.Core.Runtime.Security.git source/Zero.Core.Runtime.Security
+git submodule add git@gitee.com:zero-ws/Zero.Core.Web.Container.git source/Zero.Core.Web.Container
+git submodule add git@gitee.com:zero-ws/Zero.Core.Web.Invocation.git source/Zero.Core.Web.Invocation
+git submodule add git@gitee.com:zero-ws/Zero.Core.Web.IO.git source/Zero.Core.Web.IO
+git submodule add git@gitee.com:zero-ws/Zero.Core.Web.Model.git source/Zero.Core.Web.Model
+git submodule add git@gitee.com:zero-ws/Zero.Core.Web.Scheduler.git source/Zero.Core.Web.Scheduler
+git submodule add git@gitee.com:zero-ws/Zero.Core.Web.Validation.git source/Zero.Core.Web.Validation

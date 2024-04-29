@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>zero-ecosystem</artifactId>
+        <groupId>io.zerows</groupId>
+        <version>1.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>zero-energy</artifactId>
+    <packaging>pom</packaging>
+    <name>Zero.Core.POM.${zero.version}</name>
+    <modules>
+        <!-- Runtime -->
+        <!--        <module>zero-core-runtime-assembly</module>-->
+        <!--        <module>zero-core-runtime-metadata</module>-->
+        <!--        <module>zero-core-runtime-domain</module>-->
+        <!--        <module>zero-core-runtime-cloud</module>-->
+        <!--        <module>zero-core-runtime-security</module>-->
+        <!--        <module>zero-core-runtime-configuration</module>-->
+
+        <!-- Feature -->
+        <!--        <module>zero-core-feature-toolkit-expression</module>-->
+        <!--        <module>zero-core-feature-database-cp</module>-->
+        <!--        <module>zero-core-feature-database-jooq</module>-->
+        <!--        <module>zero-core-feature-database-cache</module>-->
+        <!--        <module>zero-core-feature-unit-testing</module>-->
+        <!--        <module>zero-core-feature-web-cache</module>-->
+        <!--        <module>zero-core-feature-web-client</module>-->
+        <!--        <module>zero-core-feature-web-session</module>-->
+        <!--        <module>zero-core-feature-web-shared</module>-->
+        <!--        <module>zero-core-feature-web-monitor</module>-->
+        <!--        <module>zero-core-feature-web-mbse</module>-->
+        <!--        <module>zero-core-feature-web-utility-x</module>-->
+        <!--        <module>zero-core-feature-web-websocket</module>-->
+        <!--        <module>zero-core-feature-web-security</module>-->
+
+        <!-- Core -->
+        <!--        <module>zero-core-web-model</module>-->
+        <!--        <module>zero-core-web-scheduler</module>-->
+        <!--        <module>zero-core-web-invocation</module>-->
+        <!--        <module>zero-core-web-io</module>-->
+        <!--        <module>zero-core-web-validation</module>-->
+        <!--        <module>zero-core-web-container</module>-->
+
+        <!-- Entry Facade -->
+        <!--        <module>zero-core-entry-facade</module>-->
+        <!--        <module>zero-core-entry-toolkit</module>-->
+    </modules>
+    <build>
+        <plugins>
+            <!-- Mojo -->
+            <plugin>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>enforce-versions</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <requireMavenVersion>
+                                    <version>3.0</version>
+                                </requireMavenVersion>
+                                <requireJavaVersion>
+                                    <version>1.8</version>
+                                </requireJavaVersion>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${encoding}</encoding>
+                    <!-- Disable annotation processing for ourselves. -->
+                    <compilerArgument>-proc:none</compilerArgument>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <includes>
+                        <include>**/*Tc.java</include>
+                        <include>**/*Te.java</include>
+                    </includes>
+                    <excludes>
+                        <exclude>**/Base*.java</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+            <plugin>
+                <!-- https://mvnrepository.com/artifact/org.codehaus.mojo/exec-maven-plugin -->
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>build-submodule</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <workingDirectory>${project.basedir}/Zero.Core.Runtime.Metadata</workingDirectory>
+                            <executable>mvn</executable>
+                            <arguments>
+                                <argument>clean</argument>
+                                <argument>package</argument>
+                                <argument>install</argument>
+                                <argument>-Dmaven.javadoc.skip=true</argument>
+                                <argument>-Dmaven.test.skip=true</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
