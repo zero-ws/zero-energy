@@ -112,15 +112,10 @@
                             <goal>exec</goal>
                         </goals>
                         <configuration>
-                            <workingDirectory>${project.basedir}/Zero.Core.Runtime.Metadata</workingDirectory>
-                            <executable>mvn</executable>
-                            <arguments>
-                                <argument>clean</argument>
-                                <argument>package</argument>
-                                <argument>install</argument>
-                                <argument>-Dmaven.javadoc.skip=true</argument>
-                                <argument>-Dmaven.test.skip=true</argument>
-                            </arguments>
+                            <workingDirectory>${project.basedir}</workingDirectory>
+                            <executable>
+                                ./mvn-build.sh
+                            </executable>
                         </configuration>
                     </execution>
                 </executions>
