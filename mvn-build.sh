@@ -16,8 +16,7 @@ mvn -f source/Zero.Core.Runtime.Metadata clean package install -Dquickly -DskipT
   mvn -f source/Zero.Core.Feature.Toolkit.Expression clean package install -Dquickly -DskipTests=true -Dmaven.javadoc.skip=true
 
   mvn -f source/Zero.Core.Feature.Web.Session clean package install -Dquickly -DskipTests=true -Dmaven.javadoc.skip=true
-  mvn -f source/Zero.Core.Feature.Web.Shared clean package install -Dquickly -DskipTests=true -Dmaven.javadoc.skip=true
-    mvn -f source/Zero.Core.Feature.Web.Cache clean package install -Dquickly -DskipTests=true -Dmaven.javadoc.skip=true
+  mvn -f source/Zero.Core.Feature.Web.Cache clean package install -Dquickly -DskipTests=true -Dmaven.javadoc.skip=true
 
 # Feature.Database.Cache
 # Runtime.Assembly
