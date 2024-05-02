@@ -46,9 +46,6 @@
 [submodule "source/Zero.Core.Feature.Web.Session"]
 	path = source/Zero.Core.Feature.Web.Session
 	url = git@gitee.com:zero-ws/Zero.Core.Feature.Web.Session.git
-[submodule "source/Zero.Core.Feature.Web.Shared"]
-	path = source/Zero.Core.Feature.Web.Shared
-	url = git@gitee.com:zero-ws/Zero.Core.Feature.Web.Shared.git
 [submodule "source/Zero.Core.Feature.Web.Utility.X"]
 	path = source/Zero.Core.Feature.Web.Utility.X
 	url = git@gitee.com:zero-ws/Zero.Core.Feature.Web.Utility.X.git
