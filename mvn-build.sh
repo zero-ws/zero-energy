@@ -42,9 +42,4 @@ mvn -f source/Zero.Core.Feature.Web.Utility.X clean package install -Dquickly -D
     mvn -f source/Zero.Core.Feature.Web.Monitor clean package install -Dquickly -DskipTests=true -Dmaven.javadoc.skip=true
 
 mvn -f source/Zero.Core.Web.Container clean package install -Dquickly -DskipTests=true -Dmaven.javadoc.skip=true
-  mvn -f boot/Zero.Core.Entry.Import clean package install -Dquickly -DskipTests=true -Dmaven.javadoc.skip=true
-  mvn -f boot/Zero.Core.Entry.Mini clean package install -Dquickly -DskipTests=true -Dmaven.javadoc.skip=true
-  mvn -f boot/Zero.Core.Entry.Facade clean package install -Dquickly -DskipTests=true -Dmaven.javadoc.skip=true
-  mvn -f boot/Zero.Core.Entry.Extension clean package install -Dquickly -DskipTests=true -Dmaven.javadoc.skip=true
-  mvn -f boot/Zero.Core.Entry.OSGI clean package install -Dquickly -DskipTests=true -Dmaven.javadoc.skip=true
 # Compare this snippet from zero-ws/zero-energy/mvn-release.sh:
