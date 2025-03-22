@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>io.zerows</groupId>
+        <artifactId>zero-energy</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>zero-core-entry-osgi</artifactId>
+    <name>Zero.Core.Entry.OSGI</name>
+    <packaging>bundle</packaging>
+    <dependencies>
+        <!-- Core -->
+        <dependency>
+            <groupId>io.zerows</groupId>
+            <artifactId>zero-core-web-container</artifactId>
+        </dependency>
+
+        <!-- 请求错误：无法访问目标地址，检查对口是否可被正常访问 -->
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-codec-http2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-handler-proxy</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-resolver-dns</artifactId>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Export-Package>
+                            <!-- SPI Required -->
+                            io.zerows.core.metadata.osgi.spi.*;-split-package:=merge-first,
+
+                            io.zerows.core.entry.toolkit.*,
+                        </Export-Package>
+                        <Import-Package>
+                            *;resolution:=optional,
+                        </Import-Package>
+                        <Embed-Transitive>true</Embed-Transitive>
+                        <Embed-Dependency/>
+                        <_fixupmessages>
+                            "Classes found in the wrong directory";restrict:=error;is:=ignore
+                        </_fixupmessages>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

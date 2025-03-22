@@ -10,44 +10,85 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>zero-energy</artifactId>
     <packaging>pom</packaging>
-    <name>Zero.Core.POM.${zero.version}</name>
+    <name>Zero.R2mo.POM.${zero.version}</name>
     <modules>
-        <!-- Runtime -->
-        <!--        <module>zero-core-runtime-assembly</module>-->
-        <!--        <module>zero-core-runtime-metadata</module>-->
-        <!--        <module>zero-core-runtime-domain</module>-->
-        <!--        <module>zero-core-runtime-cloud</module>-->
-        <!--        <module>zero-core-runtime-security</module>-->
-        <!--        <module>zero-core-runtime-configuration</module>-->
+        <!-- 入口 -->
+        <module>Zero.Core.Entry.Extension</module>
+        <module>Zero.Core.Entry.Facade</module>
+        <module>Zero.Core.Entry.Import</module>
+        <module>Zero.Core.Entry.Mini</module>
+        <module>Zero.Core.Entry.OSGI</module>
 
-        <!-- Feature -->
-        <!--        <module>zero-core-feature-toolkit-expression</module>-->
-        <!--        <module>zero-core-feature-database-cp</module>-->
-        <!--        <module>zero-core-feature-database-jooq</module>-->
-        <!--        <module>zero-core-feature-database-cache</module>-->
-        <!--        <module>zero-core-feature-unit-testing</module>-->
-        <!--        <module>zero-core-feature-web-cache</module>-->
-        <!--        <module>zero-core-feature-web-client</module>-->
-        <!--        <module>zero-core-feature-web-session</module>-->
-        <!--        <module>zero-core-feature-web-shared</module>-->
-        <!--        <module>zero-core-feature-web-monitor</module>-->
-        <!--        <module>zero-core-feature-web-mbse</module>-->
-        <!--        <module>zero-core-feature-web-utility-x</module>-->
-        <!--        <module>zero-core-feature-web-websocket</module>-->
-        <!--        <module>zero-core-feature-web-security</module>-->
 
-        <!-- Core -->
-        <!--        <module>zero-core-web-model</module>-->
-        <!--        <module>zero-core-web-scheduler</module>-->
-        <!--        <module>zero-core-web-invocation</module>-->
-        <!--        <module>zero-core-web-io</module>-->
-        <!--        <module>zero-core-web-validation</module>-->
-        <!--        <module>zero-core-web-container</module>-->
+        <!-- 测试 -->
+        <!--     4     --><module>Zero.Core.Feature.Unit.Testing</module>
 
-        <!-- Entry Facade -->
-        <!--        <module>zero-core-entry-facade</module>-->
-        <!--        <module>zero-core-entry-toolkit</module>-->
+
+        <!-- 容器 -->
+        <!--            11           --><module>Zero.Core.Web.Container</module>
+        <!--  1  --><module>Zero.Core.Feature.Web.Session</module>
+        <!--  1  --><module>Zero.Core.Feature.Toolkit.Expression</module>
+        <!--           10          --><module>Zero.Core.Feature.Web.Monitor</module>
+        <!--          9          --><module>Zero.Core.Feature.Web.MBSE</module>
+        <!--         8         --><module>Zero.Core.Feature.Web.Utility.X</module>
+
+
+        <!-- 核心调用层 -->
+        <!--  1  --><module>Zero.Core.Feature.Web.Cache</module>
+        <!--        7        --><module>Zero.Core.Web.Validation</module>
+        <!--        7        --><module>Zero.Core.Web.Scheduler</module>
+        <!--        7        --><module>Zero.Core.Feature.Web.WebSocket</module>
+        <!--        7        --><module>Zero.Core.Feature.Web.Security</module>
+        <!--       6       --><module>Zero.Core.Web.IO</module>
+        <!--      5      --><module>Zero.Core.Web.Invocation</module>
+        <!--     4     --><module>Zero.Core.Web.Model</module>
+
+
+        <!-- 数据库 -->
+        <!--    3    --><module>Zero.Core.Feature.Database.Cache</module>
+        <!--   2   --><module>Zero.Core.Feature.Database.JOOQ</module>
+        <!--  1  --><module>Zero.Core.Feature.Database.CP</module>
+
+
+        <!-- 底层运行时 -->
+        <!--    3    --><module>Zero.Core.Feature.Web.Client</module>
+        <!--   2   --><module>Zero.Core.Runtime.Security</module>
+        <!--   2   --><module>Zero.Core.Runtime.Cloud</module>
+        <!--  1  --><module>Zero.Core.Runtime.Domain</module>
+        <!--  1  --><module>Zero.Core.Runtime.Configuration</module>
+        <!--  1  --><module>Zero.Core.Runtime.Assembly</module>
+        <!-- 0 --><module>Zero.Core.Runtime.Metadata</module>
     </modules>
+    <profiles>
+        <!-- 切换结构 -->
+        <profile>
+            <id>legacy</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <!-- https://mvnrepository.com/artifact/org.codehaus.mojo/exec-maven-plugin -->
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>build-submodule</id>
+                                <phase>install</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <workingDirectory>${project.basedir}</workingDirectory>
+                                    <executable>
+                                        ./mvn-build.sh
+                                    </executable>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
     <build>
         <plugins>
             <!-- Mojo -->
@@ -99,26 +140,6 @@
                 <configuration>
                     <skip>true</skip>
                 </configuration>
-            </plugin>
-            <plugin>
-                <!-- https://mvnrepository.com/artifact/org.codehaus.mojo/exec-maven-plugin -->
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>build-submodule</id>
-                        <phase>install</phase>
-                        <goals>
-                            <goal>exec</goal>
-                        </goals>
-                        <configuration>
-                            <workingDirectory>${project.basedir}</workingDirectory>
-                            <executable>
-                                ./mvn-build.sh
-                            </executable>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>

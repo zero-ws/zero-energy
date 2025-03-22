@@ -1,0 +1,7 @@
+default: io.zerows.core.web.io.uca.response.resolver.DefaultResolver
+application:
+  json: io.zerows.core.web.io.uca.response.resolver.JsonResolver
+  octet-stream: io.zerows.core.web.io.uca.response.resolver.BufferResolver
+  x-www-form-urlencoded: io.zerows.core.web.io.uca.response.resolver.XFormResolver
+multipart:
+  form-data: io.zerows.core.web.io.uca.response.resolver.FormResolver
