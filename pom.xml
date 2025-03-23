@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>zero-energy</artifactId>
     <packaging>pom</packaging>
-    <name>Zero.R2mo.POM.${zero.version}</name>
+    <name>Zero.Core.POM.${zero.version}</name>
     <modules>
         <!-- 入口 -->
         <module>Zero.Core.Entry.Facade</module>
