@@ -13,7 +13,6 @@
     <name>Zero.R2mo.POM.${zero.version}</name>
     <modules>
         <!-- 入口 -->
-        <module>Zero.Core.Entry.Extension</module>
         <module>Zero.Core.Entry.Facade</module>
         <module>Zero.Core.Entry.Import</module>
         <module>Zero.Core.Entry.Mini</module>
