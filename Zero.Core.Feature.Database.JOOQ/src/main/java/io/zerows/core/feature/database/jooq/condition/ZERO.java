@@ -69,9 +69,9 @@ interface Pool {
         {
 
             this.put(Ir.Instant.DAY, Ut.instance(InTermDateDay.class));  // field,day
-            // this.put(Ir.Instant.YEAR, Ut.instance(InTermDateYear.class));  // field,day
+             this.put(Ir.Instant.YEAR, Ut.instance(InTermDateYear.class));  // field,day
             this.put(Ir.Instant.DATETIME, Ut.instance(InTermDateEqual.class));  // field,day
-            this.put(Ir.Instant.TIME, Ut.instance(InTermDateTime.class));  // field,day
+            //this.put(Ir.Instant.TIME, Ut.instance(InTermDateTime.class));  // field,day
         }
     };
 }
