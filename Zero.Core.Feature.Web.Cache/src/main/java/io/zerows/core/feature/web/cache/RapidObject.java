@@ -23,15 +23,21 @@ class RapidObject<T> extends AbstractRapid<String, T> {
         return this.pool.<String, T>get(key).compose(queried -> {
             if (Objects.isNull(queried)) {
                 return executor.get()
-                    .compose(actual -> 0 < this.expired ?
-                        this.pool.put(key, actual, this.expired) :
-                        this.pool.put(key, actual)
-                    )
-                    .compose(kv -> Ut.future(kv.value()));
+                        .compose(actual -> {
+                            if (Objects.isNull(actual)) {
+                                return Ut.future();
+                            } else {
+                                return 0 < this.expired ?
+                                        this.pool.put(key, actual, this.expired) :
+                                        this.pool.put(key, actual);
+                            }
+                        })
+                        .compose(kv -> Ut.future(Objects.nonNull(kv) ? kv.value() : null));
             } else {
                 this.logger().info("[ Cache ] \u001b[0;37mK = `{1}`, P = `{0}`\u001b[m", this.pool.name(), key);
                 return Ut.future(queried);
             }
         });
     }
+
 }
