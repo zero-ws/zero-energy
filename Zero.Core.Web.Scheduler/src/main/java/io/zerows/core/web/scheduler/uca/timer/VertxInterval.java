@@ -64,10 +64,17 @@ public class VertxInterval implements Interval {
              * 1. setTimer          ( Returned Directly )
              * 2. setPeriodic       ( Output by actuator )
              */
-            final long waitSec = timer.waitUntil();
-            final long delay = waitSec + START_UP_MS;
-            this.vertx.setTimer(delay, ignored -> {
-                final long duration = timer.waitDuration() + START_UP_MS;
+            final long now = System.currentTimeMillis();
+            final long startTime = timer.startTimeMillis();  // 获取计划任务的绝对时间戳
+            final long delay = Math.max(startTime - now, 0L); // 如果已经过了时间点，delay = 0
+            final long duration = timer.waitDuration();      // 间隔周期（毫秒）
+
+            if (delay <= 0) {
+                // 当前时间 >= 设定时间，立即执行一次
+                LOGGER.info("[Trigger] Immediate execution as current time >= scheduled start time.");
+                actuator.handle(null); // 立即执行
+
+                // 设置周期任务
                 final long timerId = this.vertx.setPeriodic(duration, actuator);
                 /*
                  * Bind the controlFn to consume the timerId of periodic timer
@@ -80,10 +87,26 @@ public class VertxInterval implements Interval {
                 if (Objects.nonNull(this.controlFn)) {
                     this.controlFn.accept(timerId);
                 }
-            });
-            LOGGER.info(MessageOfJob.INTERVAL.DELAY_START, timer.name(), FORMATTER.format(Ut.toDuration(waitSec)));
+            } else {
+                // 当前时间 < 设定时间，延迟 delay 毫秒后开始第一次任务
+                LOGGER.info(MessageOfJob.INTERVAL.DELAY_START, timer.name(), FORMATTER.format(Ut.toDuration(delay)));
+
+                this.vertx.setTimer(delay + START_UP_MS, ignored -> {
+                    LOGGER.info("[Trigger] First execution of actuator at scheduled time.");
+                    actuator.handle(null); // 第一次执行
+
+                    // 设置周期任务
+                    final long timerId = this.vertx.setPeriodic(duration, actuator);
+                    LOGGER.info(MessageOfJob.INTERVAL.SCHEDULED, String.valueOf(timerId), timer.name(), duration);
+                    if (Objects.nonNull(this.controlFn)) {
+                        this.controlFn.accept(timerId);
+                    }
+                });
+            }
         }
     }
+
+
 
     @Override
     public void restartAt(final Handler<Long> actuator, final KScheduler timer) {

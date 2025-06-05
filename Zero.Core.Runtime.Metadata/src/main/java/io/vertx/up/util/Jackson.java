@@ -95,7 +95,8 @@ final class Jackson {
                         result = (T) curVal;
                     } else {
                         // Cast Mode
-                        result = (T) curVal;
+
+                        result = (T) curVal.toString();
                     }
                 } else {
                     /* 3.2. Address the middle search **/

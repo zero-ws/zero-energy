@@ -129,4 +129,8 @@ public class KScheduler implements Serializable {
             ", formula=" + this.formula +
             '}';
     }
+    public long startTimeMillis() {
+        final Instant end = this.formula.runAt();
+        return end != null ? end.toEpochMilli() : System.currentTimeMillis();
+    }
 }
