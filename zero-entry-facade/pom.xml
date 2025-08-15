@@ -15,6 +15,7 @@
         <dependency>
             <groupId>io.zerows</groupId>
             <artifactId>zero-core-testing</artifactId>
+            <scope>test</scope>
         </dependency>
         <!-- New -->
         <dependency>
