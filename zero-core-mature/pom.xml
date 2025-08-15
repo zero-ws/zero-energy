@@ -45,7 +45,7 @@
                             <!-- SPI Required -->
                             io.zerows.core.metadata.osgi.spi.*;-split-package:=merge-first,
 
-                            io.zerows.core.web.model.*,
+                            io.zerows.core.web.*,
 
 
                             jakarta.ws.rs.*,
