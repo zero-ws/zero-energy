@@ -10,78 +10,21 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>zero-energy</artifactId>
     <packaging>pom</packaging>
-    <name>Zero.Core.POM.${zero.version}</name>
+    <name>Zero::Core</name>
     <modules>
-        <!-- 入口 -->
-        <module>zero-core-entry-facade</module>
-        <module>zero-core-entry-import</module>
-        <module>zero-core-entry-mini</module>
-        <module>zero-core-entry-osgi</module>
-
-
+        <module>zero-core-runtime</module>
+        <module>zero-core-database</module>
+        <module>zero-core-mature</module>
+        <module>zero-core-web</module>
+        <!-- 工具层 -->
+        <module>zero-core-unity</module>
+        <module>zero-core-container</module>
         <!-- 测试 -->
-        <!--     4     -->
-        <module>zero-core-feature-unit-testing</module>
-
-
-        <!-- 容器 -->
-        <!--            11           -->
-        <module>zero-core-web-container</module>
-        <!--  1  -->
-        <module>zero-core-feature-web-session</module>
-        <!--  1  -->
-        <module>zero-core-feature-toolkit-expression</module>
-        <!--           10          -->
-        <module>zero-core-feature-web-monitor</module>
-        <!--          9          -->
-        <module>zero-core-feature-web-mbse</module>
-        <!--         8         -->
-        <module>zero-core-feature-web-utility-x</module>
-
-
-        <!-- 核心调用层 -->
-        <!--  1  -->
-        <module>zero-core-feature-web-cache</module>
-        <!--        7        -->
-        <module>zero-core-web-validation</module>
-        <!--        7        -->
-        <module>zero-core-web-scheduler</module>
-        <!--        7        -->
-        <module>zero-core-feature-web-websocket</module>
-        <!--        7        -->
-        <module>zero-core-feature-web-security</module>
-        <!--       6       -->
-        <module>zero-core-web-io</module>
-        <!--      5      -->
-        <module>zero-core-web-invocation</module>
-        <!--     4     -->
-        <module>zero-core-web-model</module>
-
-
-        <!-- 数据库 -->
-        <!--    3    -->
-        <module>zero-core-feature-database-cache</module>
-        <!--   2   -->
-        <module>zero-core-feature-database-jooq</module>
-        <!--  1  -->
-        <module>zero-core-feature-database-cp</module>
-
-
-        <!-- 底层运行时 -->
-        <!--    3    -->
-        <module>zero-core-feature-web-client</module>
-        <!--   2   -->
-        <module>zero-core-runtime-security</module>
-        <!--   2   -->
-        <module>zero-core-runtime-cloud</module>
-        <!--  1  -->
-        <module>zero-core-runtime-domain</module>
-        <!--  1  -->
-        <module>zero-core-runtime-configuration</module>
-        <!--  1  -->
-        <module>zero-core-runtime-assembly</module>
-        <!-- 0 -->
-        <module>zero-core-runtime-metadata</module>
+        <module>zero-core-testing</module>
+        <!-- 入口 -->
+        <module>zero-entry-facade</module>
+        <module>zero-entry-import</module>
+        <module>zero-entry-mini</module>
     </modules>
     <profiles>
         <!-- 切换结构 -->
