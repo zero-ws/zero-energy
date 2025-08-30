@@ -1,15 +1,15 @@
 package io.zerows.core.web.container.osgi.service;
 
-import io.horizon.runtime.Runner;
-import io.vertx.up.annotations.Agent;
-import io.vertx.up.annotations.Worker;
-import io.vertx.up.eon.KMeta;
-import io.vertx.up.util.Ut;
-import io.zerows.core.metadata.osgi.service.EnergyDeployment;
-import io.zerows.core.metadata.store.OCacheClass;
+import io.zerows.core.annotations.Agent;
+import io.zerows.core.annotations.Worker;
+import io.zerows.core.constant.KMeta;
+import io.zerows.core.running.context.KRunner;
+import io.zerows.core.util.Ut;
 import io.zerows.core.web.container.store.under.StoreVertx;
 import io.zerows.core.web.container.uca.store.StubLinear;
 import io.zerows.core.web.model.atom.running.RunVertx;
+import io.zerows.module.metadata.osgi.service.EnergyDeployment;
+import io.zerows.module.metadata.store.OCacheClass;
 import org.osgi.framework.Bundle;
 
 import java.util.Arrays;
@@ -141,18 +141,18 @@ public class EnergyDeploymentService implements EnergyDeployment {
     // -------------------- 单独发布流程 -----------------------------
     private void deployPlugins(final Bundle owner, final RunVertx runVertx) {
         // Infusion 插件处理
-        Runner.run(() -> this.deployComponents(owner, runVertx, KMeta.Typed.INFUSION, false), "deployment-infix");
+        KRunner.run(() -> this.deployComponents(owner, runVertx, KMeta.Typed.INFUSION, false), "deployment-infix");
 
         // Rule 验证规则处理
-        Runner.run(() -> this.deployComponents(owner, runVertx, KMeta.Typed.CODEX, false), "deployment-codex");
+        KRunner.run(() -> this.deployComponents(owner, runVertx, KMeta.Typed.CODEX, false), "deployment-codex");
     }
 
     private void deployComponents(final Bundle owner, final RunVertx runVertx) {
         // Agent 发布流程
-        Runner.run(() -> this.deployComponents(owner, runVertx, KMeta.Typed.AGENT, true), "deployment-agent");
+        KRunner.run(() -> this.deployComponents(owner, runVertx, KMeta.Typed.AGENT, true), "deployment-agent");
 
         // Worker 发布流程
-        Runner.run(() -> this.deployComponents(owner, runVertx, KMeta.Typed.WORKER, true), "deployment-worker");
+        KRunner.run(() -> this.deployComponents(owner, runVertx, KMeta.Typed.WORKER, true), "deployment-worker");
     }
 
     private void deployComponents(final Bundle owner, final RunVertx runVertx, final KMeta.Typed type,

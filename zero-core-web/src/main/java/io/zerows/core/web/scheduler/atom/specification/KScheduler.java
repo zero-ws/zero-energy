@@ -1,9 +1,9 @@
 package io.zerows.core.web.scheduler.atom.specification;
 
-import io.horizon.eon.VValue;
-import io.vertx.up.util.Ut;
-import io.zerows.core.metadata.uca.logging.OLog;
+import io.zerows.agreed.constant.VValue;
+import io.zerows.core.util.Ut;
 import io.zerows.core.web.scheduler.eon.MessageOfJob;
+import io.zerows.module.metadata.uca.logging.OLog;
 
 import java.io.Serializable;
 import java.time.Instant;
@@ -129,6 +129,7 @@ public class KScheduler implements Serializable {
             ", formula=" + this.formula +
             '}';
     }
+
     public long startTimeMillis() {
         final Instant end = this.formula.runAt();
         return end != null ? end.toEpochMilli() : System.currentTimeMillis();

@@ -1,12 +1,12 @@
 package io.zerows.core.web.client;
 
-import io.horizon.eon.em.web.EmTraffic;
-import io.modello.atom.app.KIntegration;
 import io.vertx.core.MultiMap;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
-import io.vertx.up.util.Ut;
-import io.zerows.core.metadata.uca.logging.OLog;
+import io.zerows.agreed.constant.em.app.EmTraffic;
+import io.zerows.common.app.KIntegration;
+import io.zerows.core.util.Ut;
+import io.zerows.module.metadata.uca.logging.OLog;
 
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;

@@ -1,7 +1,7 @@
 package io.zerows.core.web.scheduler.exception;
 
-import io.horizon.eon.em.web.HttpStatusCode;
-import io.horizon.exception.WebException;
+import io.zerows.agreed.constant.em.app.HttpStatusCode;
+import io.zerows.core.exception.WebException;
 
 public class _417JobMethodException extends WebException {
     public _417JobMethodException(final Class<?> clazz, final String name) {

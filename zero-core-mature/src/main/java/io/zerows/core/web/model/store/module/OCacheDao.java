@@ -1,9 +1,9 @@
 package io.zerows.core.web.model.store.module;
 
-import io.horizon.uca.cache.Cc;
-import io.vertx.up.util.Ut;
-import io.zerows.core.metadata.atom.configuration.modeling.MDMeta;
-import io.zerows.core.metadata.zdk.running.OCache;
+import io.zerows.core.uca.cache.Cc;
+import io.zerows.core.util.Ut;
+import io.zerows.module.metadata.atom.configuration.modeling.MDMeta;
+import io.zerows.module.metadata.zdk.running.OCache;
 import org.osgi.framework.Bundle;
 
 import java.util.Objects;
@@ -47,27 +47,27 @@ public interface OCacheDao extends OCache<MDMeta> {
             .findFirst().orElse(null);
     }
 
-    static Class<?> findDao(final String daoOrTable){
+    static Class<?> findDao(final String daoOrTable) {
         final MDMeta meta = entireMeta(daoOrTable);
-        if(Objects.isNull(meta)){
+        if (Objects.isNull(meta)) {
             // 通过表名无法查找到对应的 Meta，尝试执行类名查找
             return Ut.clazz(daoOrTable, null);
-        }else{
+        } else {
             // 如果通过表名找到了对应的 Dao，则直接提取 Dao 信息
             return meta.dao();
         }
     }
 
-    static MDMeta findMeta(final String daoOrTable){
+    static MDMeta findMeta(final String daoOrTable) {
         final MDMeta meta = entireMeta(daoOrTable);
-        if(Objects.isNull(meta)){
+        if (Objects.isNull(meta)) {
             // 无法找到对应的 meta，尝试深度检索（通过 Dao 查找）
             final Class<?> daoCls = Ut.clazz(daoOrTable, null);
-            if(Objects.isNull(daoCls)){
+            if (Objects.isNull(daoCls)) {
                 return null;
             }
             return entireMeta(daoCls);
-        }else{
+        } else {
             return meta;
         }
     }

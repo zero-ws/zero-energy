@@ -1,10 +1,10 @@
 package io.zerows.core.web.model.zdk;
 
-import io.horizon.eon.em.web.EmTraffic;
-import io.horizon.specification.typed.TJson;
-import io.modello.atom.app.KIntegration;
-import io.modello.specification.atom.HRule;
+import io.zerows.agreed.constant.em.app.EmTraffic;
+import io.zerows.common.app.KIntegration;
+import io.zerows.specification.modeling.HRule;
 import io.zerows.core.database.atom.Database;
+import io.zerows.specification.atomic.HJson;
 
 /*
  * Underway communication channel between
@@ -15,7 +15,7 @@ import io.zerows.core.database.atom.Database;
  * 1) Request-Response, from Api to Service
  * 2) Publish-Subscribe, from Task to Service
  */
-public interface Commercial extends Application, ServiceDefinition, TJson {
+public interface Commercial extends Application, ServiceDefinition, HJson {
     /*
      * Get channel type of definition ( 1 of 4 )
      * The channel class is fixed in current version, mapped to channel type.

@@ -6,8 +6,8 @@ import io.vertx.core.Vertx;
 import io.vertx.core.json.JsonObject;
 import io.vertx.core.shareddata.AsyncMap;
 import io.vertx.ext.healthchecks.Status;
-import io.vertx.up.eon.KWeb;
-import io.vertx.up.fn.Fn;
+import io.zerows.core.constant.KWeb;
+import io.zerows.core.fn.Fn;
 
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;

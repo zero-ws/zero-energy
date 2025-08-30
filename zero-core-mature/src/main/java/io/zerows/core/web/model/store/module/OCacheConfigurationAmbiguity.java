@@ -1,8 +1,8 @@
 package io.zerows.core.web.model.store.module;
 
-import io.zerows.core.metadata.atom.configuration.MDConfiguration;
-import io.zerows.core.metadata.atom.configuration.MDId;
-import io.zerows.core.metadata.zdk.AbstractAmbiguity;
+import io.zerows.module.metadata.atom.configuration.MDConfiguration;
+import io.zerows.module.metadata.atom.configuration.MDId;
+import io.zerows.module.metadata.zdk.AbstractAmbiguity;
 import org.osgi.framework.Bundle;
 
 import java.util.HashSet;

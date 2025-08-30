@@ -1,8 +1,8 @@
 package io.zerows.core.web.io.uca.request.mime;
 
-import io.horizon.exception.WebException;
-import io.horizon.uca.log.Annal;
-import io.vertx.up.fn.Fn;
+import io.zerows.core.exception.WebException;
+import io.zerows.core.uca.log.Annal;
+import io.zerows.core.fn.Fn;
 import io.zerows.core.web.io.exception._415MediaNotSupportException;
 import io.zerows.core.web.model.atom.Event;
 import jakarta.ws.rs.core.MediaType;

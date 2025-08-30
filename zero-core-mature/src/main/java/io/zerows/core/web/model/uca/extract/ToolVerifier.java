@@ -1,8 +1,8 @@
 package io.zerows.core.web.model.uca.extract;
 
-import io.horizon.uca.log.Annal;
-import io.vertx.up.fn.Fn;
-import io.vertx.up.util.Ut;
+import io.zerows.core.uca.log.Annal;
+import io.zerows.core.fn.Fn;
+import io.zerows.core.util.Ut;
 import io.zerows.core.web.model.exception.BootAccessProxyException;
 import io.zerows.core.web.model.exception.BootNoArgConstructorException;
 

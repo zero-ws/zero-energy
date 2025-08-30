@@ -1,6 +1,5 @@
 package io.zerows.core.web.invocation.uca.parameter;
 
-import io.horizon.uca.cache.Cc;
 import io.vertx.core.MultiMap;
 import io.vertx.core.buffer.Buffer;
 import io.vertx.core.eventbus.EventBus;
@@ -12,8 +11,9 @@ import io.vertx.ext.auth.User;
 import io.vertx.ext.web.FileUpload;
 import io.vertx.ext.web.RoutingContext;
 import io.vertx.ext.web.Session;
-import io.vertx.up.util.Ut;
-import io.zerows.core.domain.atom.commune.XHeader;
+import io.zerows.core.uca.cache.Cc;
+import io.zerows.core.util.Ut;
+import io.zerows.module.domain.atom.commune.XHeader;
 
 import java.util.HashSet;
 import java.util.Objects;

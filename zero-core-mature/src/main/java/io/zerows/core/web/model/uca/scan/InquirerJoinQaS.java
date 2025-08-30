@@ -1,10 +1,10 @@
 package io.zerows.core.web.model.uca.scan;
 
-import io.horizon.runtime.Runner;
-import io.vertx.up.annotations.Address;
-import io.vertx.up.annotations.QaS;
-import io.vertx.up.util.Ut;
-import io.zerows.core.metadata.zdk.uca.Inquirer;
+import io.zerows.core.annotations.Address;
+import io.zerows.core.annotations.QaS;
+import io.zerows.core.running.context.KRunner;
+import io.zerows.core.util.Ut;
+import io.zerows.module.metadata.zdk.uca.Inquirer;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
@@ -27,7 +27,7 @@ public class InquirerJoinQaS implements Inquirer<ConcurrentMap<String, Method>> 
             .collect(Collectors.toSet());
         // address = Method
         final ConcurrentMap<String, Method> result = new ConcurrentHashMap<>();
-        Runner.run(qas, clazz -> result.putAll(this.scan(clazz)));
+        KRunner.run(qas, clazz -> result.putAll(this.scan(clazz)));
         this.logger().info(INFO.HQAS, qas.size(), result.keySet());
         return result;
     }

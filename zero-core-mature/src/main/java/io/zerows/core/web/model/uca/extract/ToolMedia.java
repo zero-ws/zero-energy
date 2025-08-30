@@ -1,9 +1,9 @@
 package io.zerows.core.web.model.uca.extract;
 
-import io.horizon.uca.log.Annal;
+import io.zerows.core.uca.log.Annal;
 import io.reactivex.rxjava3.core.Observable;
-import io.vertx.up.fn.Fn;
-import io.vertx.up.util.Ut;
+import io.zerows.core.fn.Fn;
+import io.zerows.core.util.Ut;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;

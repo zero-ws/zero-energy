@@ -1,17 +1,17 @@
 package io.zerows.core.web.model.commune;
 
-import io.horizon.eon.VString;
 import io.vertx.core.MultiMap;
 import io.vertx.core.http.HttpMethod;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ext.auth.User;
 import io.vertx.ext.web.RoutingContext;
 import io.vertx.ext.web.Session;
-import io.vertx.up.eon.KName;
-import io.vertx.up.eon.KWeb;
-import io.vertx.up.fn.Fn;
-import io.vertx.up.util.Ut;
-import io.zerows.core.domain.atom.commune.Vis;
+import io.zerows.agreed.constant.VString;
+import io.zerows.core.constant.KName;
+import io.zerows.core.constant.KWeb;
+import io.zerows.core.fn.Fn;
+import io.zerows.core.util.Ut;
+import io.zerows.module.domain.atom.commune.Vis;
 
 import java.io.Serializable;
 import java.util.Arrays;

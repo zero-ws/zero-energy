@@ -1,6 +1,6 @@
 package io.zerows.core.web.cache.shared;
 
-import io.horizon.atom.program.Kv;
+import io.zerows.common.program.Kv;
 import io.vertx.codegen.annotations.Fluent;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;

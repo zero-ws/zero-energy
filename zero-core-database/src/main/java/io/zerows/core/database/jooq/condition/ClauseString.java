@@ -1,8 +1,8 @@
 package io.zerows.core.database.jooq.condition;
 
 import io.vertx.core.json.JsonArray;
-import io.vertx.up.util.Ut;
-import io.zerows.core.metadata.uca.logging.OLog;
+import io.zerows.core.util.Ut;
+import io.zerows.module.metadata.uca.logging.OLog;
 import org.jooq.Condition;
 import org.jooq.Field;
 

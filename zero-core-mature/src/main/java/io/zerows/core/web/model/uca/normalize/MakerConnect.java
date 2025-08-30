@@ -1,8 +1,8 @@
 package io.zerows.core.web.model.uca.normalize;
 
 import io.vertx.core.json.JsonArray;
-import io.vertx.up.util.Ut;
-import io.zerows.core.metadata.atom.configuration.modeling.MDConnect;
+import io.zerows.core.util.Ut;
+import io.zerows.module.metadata.atom.configuration.modeling.MDConnect;
 import org.osgi.framework.Bundle;
 
 import java.util.List;

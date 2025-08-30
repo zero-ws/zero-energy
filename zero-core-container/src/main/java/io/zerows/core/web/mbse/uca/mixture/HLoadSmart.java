@@ -1,8 +1,8 @@
 package io.zerows.core.web.mbse.uca.mixture;
 
-import io.horizon.uca.cache.Cc;
-import io.modello.specification.action.HLoad;
-import io.modello.specification.atom.HAtom;
+import io.zerows.core.uca.cache.Cc;
+import io.zerows.specification.modeling.operation.HLoad;
+import io.zerows.specification.modeling.HAtom;
 import io.zerows.core.web.mbse.plugins.PluginLoad;
 
 import java.util.Objects;

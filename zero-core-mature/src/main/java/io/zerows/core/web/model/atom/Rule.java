@@ -1,7 +1,7 @@
 package io.zerows.core.web.model.atom;
 
 import io.vertx.core.json.JsonObject;
-import io.vertx.up.fn.Fn;
+import io.zerows.core.fn.Fn;
 
 import java.io.Serializable;
 

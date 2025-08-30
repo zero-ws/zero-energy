@@ -1,6 +1,6 @@
 package io.zerows.core.database.jooq.exception;
 
-import io.horizon.exception.BootingException;
+import io.zerows.core.exception.BootingException;
 
 public class BootJooqFieldMissingException extends BootingException {
 

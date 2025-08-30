@@ -1,7 +1,7 @@
 package io.zerows.core.database.jooq.operation;
 
 import io.vertx.core.json.JsonObject;
-import io.vertx.up.util.Ut;
+import io.zerows.core.util.Ut;
 import io.zerows.core.database.jooq.util.JqAnalyzer;
 
 import java.util.List;

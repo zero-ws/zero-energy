@@ -1,8 +1,8 @@
 package io.zerows.core.database.cache.util;
 
 import io.vertx.core.Future;
-import io.vertx.up.util.Ut;
-import io.zerows.core.metadata.uca.logging.OLog;
+import io.zerows.core.util.Ut;
+import io.zerows.module.metadata.uca.logging.OLog;
 
 import java.util.Objects;
 import java.util.function.Consumer;

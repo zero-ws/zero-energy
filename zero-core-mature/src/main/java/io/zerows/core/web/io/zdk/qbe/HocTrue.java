@@ -1,22 +1,22 @@
 package io.zerows.core.web.io.zdk.qbe;
 
-import io.horizon.exception.WebException;
-import io.horizon.exception.web._400BadRequestException;
-import io.horizon.specification.uca.HTrue;
-import io.horizon.uca.cache.Cc;
+import io.zerows.core.exception.WebException;
+import io.zerows.core.exception.web._400BadRequestException;
+import io.zerows.core.uca.cache.Cc;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
 import io.vertx.core.shareddata.ClusterSerializable;
-import io.vertx.up.eon.KName;
-import io.vertx.up.util.Ut;
+import io.zerows.core.constant.KName;
+import io.zerows.core.util.Ut;
 import io.zerows.core.web.io.exception._403LinkDeletionException;
+import io.zerows.specification.atomic.HReturn;
 
 import java.util.Set;
 
 /**
  * @author lang : 2023-06-03
  */
-public abstract class HocTrue<T> implements HTrue<T> {
+public abstract class HocTrue<T> implements HReturn.HTrue<T> {
 
     @SuppressWarnings("all")
     private static final Cc<String, HTrue<?>> CCT_CHECKER = Cc.openThread();

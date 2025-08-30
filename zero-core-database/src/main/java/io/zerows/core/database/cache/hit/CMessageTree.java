@@ -1,7 +1,7 @@
 package io.zerows.core.database.cache.hit;
 
 import io.vertx.core.json.JsonObject;
-import io.vertx.up.util.Ut;
+import io.zerows.core.util.Ut;
 
 import java.util.Objects;
 import java.util.TreeMap;

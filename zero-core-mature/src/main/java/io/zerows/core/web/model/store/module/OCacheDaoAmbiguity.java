@@ -2,10 +2,10 @@ package io.zerows.core.web.model.store.module;
 
 import io.github.jklingsporn.vertx.jooq.shared.internal.AbstractVertxDAO;
 import io.github.jklingsporn.vertx.jooq.shared.internal.VertxPojo;
-import io.vertx.up.util.Ut;
-import io.zerows.core.metadata.atom.configuration.modeling.MDMeta;
-import io.zerows.core.metadata.store.OCacheClass;
-import io.zerows.core.metadata.zdk.AbstractAmbiguity;
+import io.zerows.core.util.Ut;
+import io.zerows.module.metadata.atom.configuration.modeling.MDMeta;
+import io.zerows.module.metadata.store.OCacheClass;
+import io.zerows.module.metadata.zdk.AbstractAmbiguity;
 import org.osgi.framework.Bundle;
 
 import java.util.*;
@@ -102,7 +102,7 @@ class OCacheDaoAmbiguity extends AbstractAmbiguity implements OCacheDao {
         if (lines.isEmpty()) {
             return this;
         }
-        
+
         if (Objects.isNull(this.caller())) {
             this.logger().info("Scanned \"{}\" table with Dao configuration in Norm environment. \n{}",
                 this.storedMeta.size(), Ut.fromJoin(lines, "\n"));

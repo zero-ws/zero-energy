@@ -1,9 +1,9 @@
 package io.zerows.core.web.model.commune;
 
-import io.horizon.exception.WebException;
+import io.zerows.core.exception.WebException;
 import io.vertx.core.buffer.Buffer;
 import io.vertx.core.json.JsonObject;
-import io.vertx.up.eon.KWeb;
+import io.zerows.core.constant.KWeb;
 
 class Rib {
 

@@ -1,7 +1,7 @@
 package io.zerows.core.web.scheduler.store;
 
-import io.zerows.core.metadata.zdk.AbstractAmbiguity;
 import io.zerows.core.web.scheduler.atom.Mission;
+import io.zerows.module.metadata.zdk.AbstractAmbiguity;
 import org.osgi.framework.Bundle;
 
 import java.util.HashSet;

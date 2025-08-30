@@ -2,7 +2,7 @@ package io.zerows.core.web.model.atom;
 
 import io.vertx.core.buffer.Buffer;
 import io.vertx.core.json.JsonObject;
-import io.vertx.up.eon.em.IpcType;
+import io.zerows.core.constant.em.IpcType;
 
 import java.io.Serializable;
 

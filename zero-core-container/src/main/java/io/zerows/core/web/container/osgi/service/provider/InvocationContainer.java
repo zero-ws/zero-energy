@@ -1,12 +1,12 @@
 package io.zerows.core.web.container.osgi.service.provider;
 
 import io.vertx.core.Future;
-import io.zerows.core.configuration.atom.NodeNetwork;
-import io.zerows.core.configuration.osgi.service.EnergyOption;
-import io.zerows.core.metadata.osgi.service.EnergyDeployment;
-import io.zerows.core.metadata.zdk.dependency.AbstractServiceInvocation;
-import io.zerows.core.metadata.zdk.service.ServiceContext;
 import io.zerows.core.web.container.osgi.service.EnergyVertx;
+import io.zerows.module.configuration.atom.NodeNetwork;
+import io.zerows.module.configuration.osgi.service.EnergyOption;
+import io.zerows.module.metadata.osgi.service.EnergyDeployment;
+import io.zerows.module.metadata.zdk.dependency.AbstractServiceInvocation;
+import io.zerows.module.metadata.zdk.service.ServiceContext;
 import org.osgi.framework.Bundle;
 
 import java.util.Objects;

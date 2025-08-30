@@ -1,11 +1,11 @@
 package io.zerows.core.web.model.commune;
 
 
-import io.horizon.eon.VName;
+import io.zerows.agreed.constant.VName;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
-import io.vertx.up.eon.KWeb;
-import io.vertx.up.util.Ut;
+import io.zerows.core.constant.KWeb;
+import io.zerows.core.util.Ut;
 
 import java.util.Objects;
 

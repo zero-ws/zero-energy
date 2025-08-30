@@ -1,6 +1,6 @@
 package io.zerows.core.web.invocation.uca.runner;
 
-import io.horizon.exception.web._501NotSupportException;
+import io.zerows.core.exception.web._501NotSupportException;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 import io.vertx.core.Vertx;

@@ -1,9 +1,8 @@
 package io.vertx.up.unity;
 
-import io.horizon.exception.WebException;
-import io.horizon.exception.web._500InternalServerException;
+import io.zerows.core.exception.WebException;
+import io.zerows.core.exception.web._500InternalServerException;
 import org.junit.Assert;
-import org.junit.Test;
 
 public class ErrorTc {
 

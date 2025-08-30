@@ -1,14 +1,14 @@
 package io.zerows.core.database.atom;
 
-import io.horizon.annotations.Legacy;
-import io.horizon.eon.em.EmDS;
-import io.modello.atom.app.KDatabase;
 import io.vertx.core.json.JsonObject;
-import io.vertx.up.eon.configure.YmlCore;
-import io.vertx.up.util.Ut;
-import io.zerows.core.metadata.store.OZeroStore;
-import io.zerows.core.metadata.uca.environment.MatureOn;
-import io.zerows.core.metadata.uca.logging.OLog;
+import io.zerows.agreed.annotations.Legacy;
+import io.zerows.agreed.constant.em.EmDS;
+import io.zerows.common.app.KDatabase;
+import io.zerows.core.constant.configure.YmlCore;
+import io.zerows.core.util.Ut;
+import io.zerows.module.metadata.store.OZeroStore;
+import io.zerows.module.metadata.uca.environment.MatureOn;
+import io.zerows.module.metadata.uca.logging.OLog;
 
 import java.sql.DriverManager;
 import java.sql.SQLException;

@@ -1,11 +1,11 @@
 package io.zerows.core.database.jooq.operation;
 
-import io.horizon.uca.qr.syntax.Ir;
 import io.vertx.core.Future;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
-import io.vertx.up.util.Ut;
-import io.zerows.core.metadata.atom.mapping.Mojo;
+import io.zerows.core.uca.qr.syntax.Ir;
+import io.zerows.core.util.Ut;
+import io.zerows.module.metadata.atom.mapping.Mojo;
 
 import java.util.Set;
 

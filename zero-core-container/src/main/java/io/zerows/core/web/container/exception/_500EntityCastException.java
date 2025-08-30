@@ -1,6 +1,6 @@
 package io.zerows.core.web.container.exception;
 
-import io.horizon.exception.WebException;
+import io.zerows.core.exception.WebException;
 
 public class _500EntityCastException extends WebException {
 

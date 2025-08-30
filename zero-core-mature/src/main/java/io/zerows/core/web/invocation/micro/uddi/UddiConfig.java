@@ -1,8 +1,8 @@
 package io.zerows.core.web.invocation.micro.uddi;
 
 import io.vertx.core.json.JsonObject;
-import io.vertx.up.util.Ut;
-import io.zerows.core.metadata.store.OZeroStore;
+import io.zerows.core.util.Ut;
+import io.zerows.module.metadata.store.OZeroStore;
 
 class UddiConfig {
 

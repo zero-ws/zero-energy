@@ -1,6 +1,6 @@
 package io.zerows.core.web.model.exception;
 
-import io.horizon.exception.BootingException;
+import io.zerows.core.exception.BootingException;
 
 import java.lang.reflect.Method;
 

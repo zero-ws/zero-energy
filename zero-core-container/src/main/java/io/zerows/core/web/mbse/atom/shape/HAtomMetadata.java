@@ -1,9 +1,9 @@
 package io.zerows.core.web.mbse.atom.shape;
 
-import io.modello.specification.atom.HAttribute;
-import io.modello.specification.atom.HModel;
-import io.modello.specification.meta.HMetaAtom;
-import io.modello.specification.meta.HMetaField;
+import io.zerows.specification.modeling.HAttribute;
+import io.zerows.specification.modeling.HModel;
+import io.zerows.specification.modeling.metadata.HMetaAtom;
+import io.zerows.specification.modeling.metadata.HMetaField;
 
 import java.util.Objects;
 import java.util.Set;

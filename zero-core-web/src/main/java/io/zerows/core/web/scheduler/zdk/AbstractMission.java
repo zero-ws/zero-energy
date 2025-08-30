@@ -1,7 +1,7 @@
 package io.zerows.core.web.scheduler.zdk;
 
 import io.vertx.core.Vertx;
-import io.vertx.up.annotations.Contract;
+import io.zerows.core.annotations.Contract;
 import io.zerows.core.web.scheduler.uca.running.JobPin;
 import io.zerows.core.web.scheduler.uca.running.JobStore;
 

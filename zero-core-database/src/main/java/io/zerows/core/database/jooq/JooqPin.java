@@ -1,16 +1,16 @@
 package io.zerows.core.database.jooq;
 
-import io.horizon.eon.em.EmDS;
 import io.vertx.core.json.JsonObject;
-import io.vertx.up.eon.KName;
-import io.vertx.up.eon.configure.YmlCore;
-import io.vertx.up.fn.Fn;
-import io.vertx.up.util.Ut;
+import io.zerows.agreed.constant.em.EmDS;
+import io.zerows.core.constant.KName;
+import io.zerows.core.constant.configure.YmlCore;
 import io.zerows.core.database.atom.Database;
 import io.zerows.core.database.cp.zdk.DataPool;
 import io.zerows.core.database.jooq.exception.BootJooqConfigurationException;
-import io.zerows.core.metadata.uca.environment.MatureOn;
-import io.zerows.core.metadata.uca.logging.OLog;
+import io.zerows.core.fn.Fn;
+import io.zerows.core.util.Ut;
+import io.zerows.module.metadata.uca.environment.MatureOn;
+import io.zerows.module.metadata.uca.logging.OLog;
 import org.jooq.Configuration;
 import org.jooq.Table;
 
@@ -55,7 +55,7 @@ public class JooqPin {
              * orbit - 历史数据库
              */
             config.fieldNames().stream()
-                // 过滤：key值对应的配置存在，并且是合法的 Database Json 格式
+                // 过滤：key值对应的配置存在，并且是合法的 Database InJson 格式
                 .filter(key -> Objects.nonNull(config.getValue(key)))
                 .filter(key -> config.getValue(key) instanceof JsonObject)
                 .forEach(key -> {

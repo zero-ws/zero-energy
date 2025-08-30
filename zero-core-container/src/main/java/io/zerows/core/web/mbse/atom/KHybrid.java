@@ -1,15 +1,15 @@
 package io.zerows.core.web.mbse.atom;
 
-import io.modello.atom.normalize.KAttribute;
-import io.modello.atom.normalize.KMarkAtom;
-import io.modello.atom.normalize.KMarkAttribute;
-import io.modello.atom.reference.RReference;
-import io.modello.specification.atom.HAttribute;
-import io.modello.specification.atom.HRule;
+import io.zerows.common.normalize.KAttribute;
+import io.zerows.common.normalize.KMarkAtom;
+import io.zerows.common.normalize.KMarkAttribute;
+import io.zerows.common.reference.RReference;
+import io.zerows.specification.modeling.HAttribute;
+import io.zerows.specification.modeling.HRule;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
-import io.vertx.up.eon.KName;
-import io.vertx.up.util.Ut;
+import io.zerows.core.constant.KName;
+import io.zerows.core.util.Ut;
 
 import java.io.Serializable;
 import java.util.Objects;

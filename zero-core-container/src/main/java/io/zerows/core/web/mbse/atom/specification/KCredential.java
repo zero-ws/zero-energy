@@ -1,16 +1,16 @@
 package io.zerows.core.web.mbse.atom.specification;
 
-import io.horizon.specification.typed.TJson;
 import io.vertx.core.json.JsonObject;
-import io.vertx.up.eon.KName;
-import io.vertx.up.util.Ut;
+import io.zerows.core.constant.KName;
+import io.zerows.core.util.Ut;
+import io.zerows.specification.atomic.HJson;
 
 import java.io.Serializable;
 
 /*
  * Idc information for interface `Credential` specific
  */
-public class KCredential implements Serializable, TJson {
+public class KCredential implements Serializable, HJson {
     private transient String appId;
     private transient String sigma;
     private transient String language;

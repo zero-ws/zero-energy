@@ -1,6 +1,6 @@
 package io.zerows.launcher.backbone.hunt;
 
-import io.vertx.up.annotations.EndPoint;
+import io.zerows.core.annotations.EndPoint;
 import jakarta.ws.rs.*;
 
 @EndPoint

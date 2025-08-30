@@ -1,6 +1,6 @@
 package io.zerows.core.database.jooq.operation;
 
-import io.vertx.up.util.Ut;
+import io.zerows.core.util.Ut;
 
 /*
  * Helper for join

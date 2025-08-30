@@ -1,6 +1,6 @@
 package io.zerows.core.database.jooq.condition.date;
 
-import io.vertx.up.util.Ut;
+import io.zerows.core.util.Ut;
 import io.zerows.core.database.jooq.condition.Term;
 import org.jooq.Condition;
 import org.jooq.Field;

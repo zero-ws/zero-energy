@@ -1,6 +1,6 @@
 package io.zerows.core.web.scheduler.uca.center;
 
-import io.vertx.up.eon.em.EmJob;
+import io.zerows.core.constant.em.EmJob;
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;

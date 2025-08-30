@@ -3,9 +3,9 @@ package io.zerows.core.web.mbse.atom.specification;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.vertx.core.json.JsonObject;
-import io.vertx.up.util.Ut;
-import io.zerows.jackson.databind.ClassDeserializer;
-import io.zerows.jackson.databind.ClassSerializer;
+import io.zerows.core.util.Ut;
+import io.zerows.extend.jackson.databind.ClassDeserializer;
+import io.zerows.extend.jackson.databind.ClassSerializer;
 
 import java.io.Serializable;
 import java.util.Objects;

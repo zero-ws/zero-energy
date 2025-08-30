@@ -1,7 +1,7 @@
 package io.zerows.core.web.security.store;
 
-import io.zerows.core.metadata.zdk.AbstractAmbiguity;
-import io.zerows.core.security.atom.Aegis;
+import io.zerows.module.metadata.zdk.AbstractAmbiguity;
+import io.zerows.module.security.atom.Aegis;
 import org.osgi.framework.Bundle;
 
 import java.util.HashSet;

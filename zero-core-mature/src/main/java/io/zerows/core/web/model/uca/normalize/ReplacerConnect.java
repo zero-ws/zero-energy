@@ -1,12 +1,12 @@
 package io.zerows.core.web.model.uca.normalize;
 
 import io.vertx.core.json.JsonObject;
-import io.vertx.up.eon.KName;
-import io.vertx.up.fn.Fn;
-import io.vertx.up.util.Ut;
-import io.zerows.core.metadata.atom.configuration.modeling.MDConnect;
-import io.zerows.core.metadata.atom.configuration.modeling.MDMeta;
+import io.zerows.core.constant.KName;
+import io.zerows.core.fn.Fn;
+import io.zerows.core.util.Ut;
 import io.zerows.core.web.model.store.module.OCacheDao;
+import io.zerows.module.metadata.atom.configuration.modeling.MDConnect;
+import io.zerows.module.metadata.atom.configuration.modeling.MDMeta;
 
 import java.util.Objects;
 

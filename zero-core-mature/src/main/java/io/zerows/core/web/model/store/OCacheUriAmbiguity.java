@@ -1,7 +1,7 @@
 package io.zerows.core.web.model.store;
 
 import io.vertx.core.http.HttpMethod;
-import io.zerows.core.metadata.zdk.AbstractAmbiguity;
+import io.zerows.module.metadata.zdk.AbstractAmbiguity;
 import org.osgi.framework.Bundle;
 
 import java.util.HashSet;

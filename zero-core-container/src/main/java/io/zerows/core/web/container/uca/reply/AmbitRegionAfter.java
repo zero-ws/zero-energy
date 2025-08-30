@@ -1,13 +1,13 @@
 package io.zerows.core.web.container.uca.reply;
 
-import io.horizon.uca.cache.Cc;
 import io.vertx.core.Future;
 import io.vertx.ext.web.RoutingContext;
-import io.vertx.up.eon.configure.YmlCore;
-import io.vertx.up.util.Ut;
-import io.zerows.core.domain.atom.element.JComponent;
+import io.zerows.core.constant.configure.YmlCore;
+import io.zerows.core.uca.cache.Cc;
+import io.zerows.core.util.Ut;
 import io.zerows.core.web.io.plugins.extension.PlugRegion;
 import io.zerows.core.web.model.commune.Envelop;
+import io.zerows.module.domain.atom.element.JComponent;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.FrameworkUtil;
 
@@ -41,7 +41,7 @@ public class AmbitRegionAfter implements OAmbit {
             return Future.succeededFuture(envelop);
         }
 
-        
+
         return region.bind(component.getConfig()).after(context, envelop);
     }
 }

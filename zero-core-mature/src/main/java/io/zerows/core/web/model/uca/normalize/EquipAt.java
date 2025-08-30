@@ -1,11 +1,11 @@
 package io.zerows.core.web.model.uca.normalize;
 
-import io.horizon.eon.VString;
-import io.horizon.uca.cache.Cc;
-import io.vertx.up.util.Ut;
-import io.zerows.core.metadata.atom.configuration.MDConfiguration;
-import io.zerows.core.metadata.atom.configuration.MDId;
-import io.zerows.core.metadata.uca.logging.OLog;
+import io.zerows.agreed.constant.VString;
+import io.zerows.core.uca.cache.Cc;
+import io.zerows.core.util.Ut;
+import io.zerows.module.metadata.atom.configuration.MDConfiguration;
+import io.zerows.module.metadata.atom.configuration.MDId;
+import io.zerows.module.metadata.uca.logging.OLog;
 
 /**
  * 扩展模块初始化器，主要用于构造扩展配置相关信息，执行扩展模块的完整解析流程

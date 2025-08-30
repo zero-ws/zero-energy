@@ -1,7 +1,7 @@
 package io.zerows.core.web.invocation.micro.uddi;
 
-import io.horizon.exception.web._500InternalServerException;
-import io.vertx.up.util.Ut;
+import io.zerows.core.exception.web._500InternalServerException;
+import io.zerows.core.util.Ut;
 
 import java.util.Objects;
 

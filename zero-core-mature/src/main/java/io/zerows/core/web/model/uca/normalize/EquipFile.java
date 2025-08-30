@@ -1,9 +1,9 @@
 package io.zerows.core.web.model.uca.normalize;
 
-import io.horizon.eon.VPath;
-import io.vertx.up.util.Ut;
-import io.zerows.core.metadata.atom.configuration.MDConfiguration;
-import io.zerows.core.metadata.atom.configuration.MDId;
+import io.zerows.agreed.constant.VPath;
+import io.zerows.core.util.Ut;
+import io.zerows.module.metadata.atom.configuration.MDConfiguration;
+import io.zerows.module.metadata.atom.configuration.MDId;
 import org.osgi.framework.Bundle;
 
 import java.util.List;

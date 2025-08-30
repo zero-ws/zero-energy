@@ -1,8 +1,8 @@
 package io.zerows.core.web.io.management;
 
-import io.vertx.up.util.Ut;
-import io.zerows.core.metadata.uca.logging.OLog;
+import io.zerows.core.util.Ut;
 import io.zerows.core.web.io.uca.routing.OAxis;
+import io.zerows.module.metadata.uca.logging.OLog;
 import org.osgi.framework.Bundle;
 
 /**
@@ -17,6 +17,6 @@ public interface AxisDynamicFactory {
     boolean isEnabled(Bundle owner);
 
     default OLog logger() {
-        return Ut.Log.plugin(getClass());
+        return Ut.Log.plugin(this.getClass());
     }
 }

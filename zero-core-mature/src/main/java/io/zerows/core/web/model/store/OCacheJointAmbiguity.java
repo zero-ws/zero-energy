@@ -1,8 +1,8 @@
 package io.zerows.core.web.model.store;
 
-import io.zerows.core.metadata.zdk.AbstractAmbiguity;
 import io.zerows.core.web.model.atom.action.OJointAction;
 import io.zerows.core.web.model.atom.action.OJointMap;
+import io.zerows.module.metadata.zdk.AbstractAmbiguity;
 import org.osgi.framework.Bundle;
 
 /**

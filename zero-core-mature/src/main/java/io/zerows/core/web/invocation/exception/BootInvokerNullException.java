@@ -1,6 +1,6 @@
 package io.zerows.core.web.invocation.exception;
 
-import io.horizon.exception.BootingException;
+import io.zerows.core.exception.BootingException;
 
 public class BootInvokerNullException extends BootingException {
 

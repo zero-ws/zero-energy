@@ -1,9 +1,9 @@
 package io.zerows.core.web.model.uca.normalize;
 
-import io.zerows.core.metadata.atom.configuration.MDConfiguration;
-import io.zerows.core.metadata.atom.configuration.MDId;
 import io.zerows.core.web.model.store.module.OCacheConfiguration;
 import io.zerows.core.web.model.store.module.OCacheDao;
+import io.zerows.module.metadata.atom.configuration.MDConfiguration;
+import io.zerows.module.metadata.atom.configuration.MDId;
 
 /**
  * @author lang : 2024-05-08

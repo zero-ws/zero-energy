@@ -2,11 +2,11 @@ package io.zerows.core.web.scheduler.uca.timer;
 
 import io.vertx.core.Handler;
 import io.vertx.core.Vertx;
-import io.vertx.up.annotations.Contract;
-import io.vertx.up.util.Ut;
-import io.zerows.core.metadata.uca.logging.OLog;
+import io.zerows.core.annotations.Contract;
+import io.zerows.core.util.Ut;
 import io.zerows.core.web.scheduler.atom.specification.KScheduler;
 import io.zerows.core.web.scheduler.eon.MessageOfJob;
+import io.zerows.module.metadata.uca.logging.OLog;
 
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
@@ -105,7 +105,6 @@ public class VertxInterval implements Interval {
             }
         }
     }
-
 
 
     @Override

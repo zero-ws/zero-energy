@@ -2,9 +2,9 @@ package io.zerows.core.database.jooq.util;
 
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
-import io.vertx.up.eon.KName;
-import io.vertx.up.util.Ut;
-import io.zerows.core.metadata.atom.mapping.Mojo;
+import io.zerows.core.constant.KName;
+import io.zerows.core.util.Ut;
+import io.zerows.module.metadata.atom.mapping.Mojo;
 import org.jooq.Field;
 import org.jooq.Record;
 

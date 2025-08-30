@@ -1,7 +1,7 @@
 package io.vertx.up.exception;
 
-import io.horizon.exception.WebException;
-import io.horizon.exception.web._403ForbiddenException;
+import io.zerows.core.exception.WebException;
+import io.zerows.core.exception.web._403ForbiddenException;
 import org.junit.Assert;
 import org.junit.Test;
 

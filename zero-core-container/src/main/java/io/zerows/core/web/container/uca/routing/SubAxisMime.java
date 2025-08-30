@@ -1,6 +1,6 @@
 package io.zerows.core.web.container.uca.routing;
 
-import io.horizon.eon.VString;
+import io.zerows.agreed.constant.VString;
 import io.reactivex.rxjava3.core.Observable;
 import io.vertx.ext.web.Route;
 import io.zerows.core.web.io.uca.routing.OAxisSub;

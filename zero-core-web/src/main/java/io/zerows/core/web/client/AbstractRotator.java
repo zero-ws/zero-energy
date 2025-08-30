@@ -1,16 +1,16 @@
 package io.zerows.core.web.client;
 
-import io.horizon.eon.VString;
-import io.modello.atom.app.KIntegration;
-import io.modello.atom.app.KIntegrationApi;
 import io.vertx.core.json.JsonObject;
-import io.vertx.up.eon.KWeb;
-import io.vertx.up.fn.Fn;
-import io.vertx.up.util.Ut;
+import io.zerows.agreed.constant.VString;
+import io.zerows.common.app.KIntegration;
+import io.zerows.common.app.KIntegrationApi;
+import io.zerows.core.constant.KWeb;
+import io.zerows.core.fn.Fn;
+import io.zerows.core.util.Ut;
 import io.zerows.core.web.client.exception._500RequestConfigException;
 import io.zerows.core.web.client.exception._501HttpClientNullException;
 import io.zerows.core.web.client.exception._JexlExpressionException;
-import io.zerows.core.metadata.uca.logging.OLog;
+import io.zerows.module.metadata.uca.logging.OLog;
 import jakarta.ws.rs.core.MediaType;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpHeaders;

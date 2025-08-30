@@ -1,12 +1,12 @@
 package io.zerows.core.web.model.uca.extract;
 
-import io.horizon.eon.VString;
-import io.horizon.eon.VValue;
-import io.horizon.uca.log.Annal;
-import io.vertx.up.fn.Fn;
-import io.vertx.up.util.Ut;
-import io.zerows.core.metadata.uca.environment.DevEnv;
+import io.zerows.agreed.constant.VString;
+import io.zerows.agreed.constant.VValue;
+import io.zerows.core.fn.Fn;
+import io.zerows.core.uca.log.Annal;
+import io.zerows.core.util.Ut;
 import io.zerows.core.web.model.exception.BootPathAnnoEmptyException;
+import io.zerows.module.metadata.uca.environment.DevEnv;
 import jakarta.ws.rs.Path;
 
 import java.util.regex.Matcher;

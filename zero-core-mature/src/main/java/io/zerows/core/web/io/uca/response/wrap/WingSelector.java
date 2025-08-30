@@ -1,6 +1,6 @@
 package io.zerows.core.web.io.uca.response.wrap;
 
-import io.horizon.uca.log.Annal;
+import io.zerows.core.uca.log.Annal;
 import jakarta.ws.rs.core.MediaType;
 
 import java.util.Objects;

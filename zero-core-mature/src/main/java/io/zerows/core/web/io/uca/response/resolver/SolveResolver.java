@@ -1,9 +1,9 @@
 package io.zerows.core.web.io.uca.response.resolver;
 
-import io.horizon.exception.web._500InternalServerException;
-import io.horizon.uca.log.Annal;
+import io.zerows.core.exception.web._500InternalServerException;
+import io.zerows.core.uca.log.Annal;
 import io.vertx.ext.web.RoutingContext;
-import io.vertx.up.annotations.Contract;
+import io.zerows.core.annotations.Contract;
 import io.zerows.core.web.io.zdk.mime.Resolver;
 import io.zerows.core.web.io.zdk.mime.Solve;
 import io.zerows.core.web.model.atom.Epsilon;

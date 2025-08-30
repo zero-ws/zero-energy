@@ -192,7 +192,7 @@ error:
   # 移除：E60029: "(401) - (Jwt) Jwt token expired, please refresh your token. payload = {0}"
   # 移除：E60030: "(401) - (Jwt) Jwt audient \"{0}\" is invalid, please provide correct audient"
   # 移除：E60031: "(401) - (Jwt) Jwt issuer \"{0}\" is invalid, please provide correct issuer"
-  # 移除：E60032: "(500) - (Jwt) Jwt runtime met errors, please check details = {0}"
+  # 移除：E60032: "(500) - (Jwt) Jwt running met errors, please check details = {0}"
   # 移除：E60033: "(401) - (Jwt) Jwt executor result is false, authorization token = {0}"
 
   # (Web) Exception for standard third part

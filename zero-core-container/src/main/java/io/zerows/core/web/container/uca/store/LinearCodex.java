@@ -1,7 +1,7 @@
 package io.zerows.core.web.container.uca.store;
 
-import io.zerows.core.metadata.zdk.AbstractAmbiguity;
 import io.zerows.core.web.model.atom.running.RunVertx;
+import io.zerows.module.metadata.zdk.AbstractAmbiguity;
 import org.osgi.framework.Bundle;
 
 import java.util.Objects;

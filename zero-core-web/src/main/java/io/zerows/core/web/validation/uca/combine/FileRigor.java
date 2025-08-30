@@ -1,6 +1,6 @@
 package io.zerows.core.web.validation.uca.combine;
 
-import io.horizon.exception.WebException;
+import io.zerows.core.exception.WebException;
 import io.reactivex.rxjava3.core.Observable;
 import io.zerows.core.web.model.atom.Rule;
 import io.zerows.core.web.validation.uca.rules.Ruler;

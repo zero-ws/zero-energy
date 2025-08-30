@@ -2,7 +2,7 @@ package io.zerows.core.web.io.uca.request.argument;
 
 import io.vertx.core.MultiMap;
 import io.vertx.ext.web.RoutingContext;
-import io.zerows.core.domain.uca.serialization.ZeroType;
+import io.zerows.module.domain.uca.serialization.ZeroType;
 
 /**
  * 「Co」JSR311 for .@QueryParam

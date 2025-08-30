@@ -1,7 +1,7 @@
 package io.zerows.core.web.scheduler.uca.running;
 
-import io.zerows.core.domain.atom.element.JComponent;
 import io.zerows.core.web.scheduler.uca.timer.VertxInterval;
+import io.zerows.module.domain.atom.element.JComponent;
 
 import java.io.Serializable;
 import java.util.Objects;

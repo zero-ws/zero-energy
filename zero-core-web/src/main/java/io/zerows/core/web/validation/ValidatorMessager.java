@@ -1,7 +1,7 @@
 package io.zerows.core.web.validation;
 
-import io.vertx.up.util.Ut;
-import io.zerows.core.metadata.uca.logging.OLog;
+import io.zerows.core.util.Ut;
+import io.zerows.module.metadata.uca.logging.OLog;
 import jakarta.validation.MessageInterpolator;
 import jakarta.validation.ValidationException;
 import org.hibernate.validator.internal.engine.messageinterpolation.InterpolationTermType;

@@ -1,13 +1,14 @@
 package io.zerows.core.web.model.osgi;
 
-import io.zerows.core.metadata.atom.configuration.MDConfiguration;
-import io.zerows.core.metadata.eon.OMessage;
-import io.zerows.core.metadata.osgi.service.EnergyConfiguration;
-import io.zerows.core.metadata.zdk.dependency.AbstractConnectorService;
-import io.zerows.core.metadata.zdk.service.ServiceConnector;
-import io.zerows.core.metadata.zdk.service.ServiceContext;
 import io.zerows.core.web.model.extension.HExtension;
 import io.zerows.core.web.model.osgi.service.EnergyConfigurationService;
+import io.zerows.module.metadata.atom.configuration.MDConfiguration;
+import io.zerows.module.metadata.eon.OMessage;
+import io.zerows.module.metadata.osgi.service.EnergyConfiguration;
+import io.zerows.module.metadata.zdk.dependency.AbstractConnectorBase;
+import io.zerows.module.metadata.zdk.dependency.AbstractConnectorService;
+import io.zerows.module.metadata.zdk.service.ServiceConnector;
+import io.zerows.module.metadata.zdk.service.ServiceContext;
 import org.apache.felix.dm.Component;
 import org.apache.felix.dm.DependencyManager;
 import org.osgi.framework.Bundle;
@@ -23,7 +24,7 @@ class WebModelDependency extends AbstractConnectorService {
     }
 
     static ServiceConnector of(final Bundle owner) {
-        return of(owner, WebModelDependency::new);
+        return AbstractConnectorBase.of(owner, WebModelDependency::new);
     }
 
     @Override

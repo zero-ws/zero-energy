@@ -1,9 +1,5 @@
 package io.zerows.core.web.model.commune;
 
-import io.horizon.eon.em.web.HttpStatusCode;
-import io.horizon.exception.WebException;
-import io.horizon.exception.web._500InternalServerException;
-import io.modello.eon.em.EmValue;
 import io.vertx.core.MultiMap;
 import io.vertx.core.buffer.Buffer;
 import io.vertx.core.http.HttpMethod;
@@ -12,12 +8,16 @@ import io.vertx.core.json.JsonObject;
 import io.vertx.ext.auth.User;
 import io.vertx.ext.web.RoutingContext;
 import io.vertx.ext.web.Session;
-import io.vertx.up.eon.KName;
-import io.vertx.up.fn.Fn;
-import io.vertx.up.util.Ut;
-import io.zerows.core.security.atom.token.JwtToken;
-import io.zerows.core.security.zdk.authority.Acl;
+import io.zerows.agreed.constant.em.app.HttpStatusCode;
+import io.zerows.agreed.constant.em.modeling.EmValue;
+import io.zerows.core.constant.KName;
+import io.zerows.core.exception.WebException;
+import io.zerows.core.exception.web._500InternalServerException;
+import io.zerows.core.fn.Fn;
+import io.zerows.core.util.Ut;
 import io.zerows.core.web.model.exception.BootIndexExceedException;
+import io.zerows.module.security.atom.token.JwtToken;
+import io.zerows.module.security.zdk.authority.Acl;
 
 import java.io.Serializable;
 import java.util.Map;
@@ -171,7 +171,7 @@ public class Envelop implements Serializable {
         return this.outJson().encode();
     }
 
-    /* Json */
+    /* InJson */
     public JsonObject outJson() {
         return Rib.outJson(this.data, this.error);
     }

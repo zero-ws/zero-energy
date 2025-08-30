@@ -1,7 +1,7 @@
 package io.zerows.core.web.model.uca.extract;
 
-import io.vertx.up.util.Ut;
-import io.zerows.core.metadata.uca.logging.OLog;
+import io.zerows.core.util.Ut;
+import io.zerows.module.metadata.uca.logging.OLog;
 
 public interface Extractor<T> {
 

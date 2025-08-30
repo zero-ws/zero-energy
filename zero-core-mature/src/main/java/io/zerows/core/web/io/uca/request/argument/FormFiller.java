@@ -3,8 +3,8 @@ package io.zerows.core.web.io.uca.request.argument;
 import io.vertx.core.file.FileSystem;
 import io.vertx.ext.web.FileUpload;
 import io.vertx.ext.web.RoutingContext;
-import io.zerows.core.domain.uca.serialization.ZeroType;
 import io.zerows.core.web.io.util.UtilUpload;
+import io.zerows.module.domain.uca.serialization.ZeroType;
 
 import java.util.HashSet;
 import java.util.Set;

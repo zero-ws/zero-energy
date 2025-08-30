@@ -1,12 +1,12 @@
 package io.zerows.core.web.model.uca.normalize;
 
-import io.horizon.eon.VPath;
-import io.horizon.eon.VString;
 import io.vertx.core.json.JsonObject;
-import io.vertx.up.eon.KName;
-import io.vertx.up.util.Ut;
-import io.zerows.core.metadata.atom.configuration.MDConfiguration;
-import io.zerows.core.metadata.atom.configuration.MDId;
+import io.zerows.agreed.constant.VPath;
+import io.zerows.agreed.constant.VString;
+import io.zerows.core.constant.KName;
+import io.zerows.core.util.Ut;
+import io.zerows.module.metadata.atom.configuration.MDConfiguration;
+import io.zerows.module.metadata.atom.configuration.MDId;
 import org.osgi.framework.Bundle;
 
 import java.util.Objects;

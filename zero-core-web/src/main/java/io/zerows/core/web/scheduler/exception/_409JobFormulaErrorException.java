@@ -1,7 +1,7 @@
 package io.zerows.core.web.scheduler.exception;
 
-import io.horizon.eon.em.web.HttpStatusCode;
-import io.horizon.exception.WebException;
+import io.zerows.agreed.constant.em.app.HttpStatusCode;
+import io.zerows.core.exception.WebException;
 
 /**
  * @author <a href="http://www.origin-x.cn">Lang</a>

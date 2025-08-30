@@ -1,7 +1,7 @@
 package io.zerows.core.web.model.atom;
 
-import io.vertx.up.eon.KWeb;
-import io.vertx.up.eon.em.EmMime;
+import io.zerows.core.constant.KWeb;
+import io.zerows.core.constant.em.EmMime;
 
 import java.io.Serializable;
 import java.lang.annotation.Annotation;

@@ -1,12 +1,12 @@
 package io.vertx.boot.configuration;
 
-import io.horizon.specification.boot.HLauncher;
-import io.horizon.spi.BootIo;
-import io.macrocosm.specification.config.HBoot;
-import io.macrocosm.specification.config.HEnergy;
 import io.vertx.boot.launcher.MixerLauncher;
-import io.vertx.up.util.Ut;
+import io.zerows.core.util.Ut;
+import io.zerows.core.spi.BootIo;
 import io.zerows.core.web.container.store.BootStore;
+import io.zerows.specification.access.HLauncher;
+import io.zerows.specification.configuration.HBoot;
+import io.zerows.specification.configuration.HEnergy;
 
 import java.util.Objects;
 

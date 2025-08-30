@@ -1,9 +1,9 @@
 package io.zerows.core.database.jooq.operation;
 
-import io.horizon.eon.VValue;
+import io.zerows.agreed.constant.VValue;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
-import io.vertx.up.util.Ut;
+import io.zerows.core.util.Ut;
 import io.zerows.core.database.jooq.condition.JooqCond;
 import io.zerows.core.database.jooq.util.JqAnalyzer;
 import org.jooq.DSLContext;

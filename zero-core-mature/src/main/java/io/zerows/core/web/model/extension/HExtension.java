@@ -1,16 +1,16 @@
 package io.zerows.core.web.model.extension;
 
 
-import io.horizon.eon.spec.VBoot;
-import io.horizon.uca.cache.Cc;
-import io.macrocosm.specification.config.HSetting;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
-import io.vertx.up.util.Ut;
-import io.zerows.core.metadata.atom.configuration.MDConfiguration;
-import io.zerows.core.metadata.atom.configuration.modeling.MDConnect;
-import io.zerows.core.metadata.store.OZeroStore;
+import io.zerows.agreed.constant.spec.VBoot;
+import io.zerows.core.uca.cache.Cc;
+import io.zerows.core.util.Ut;
 import io.zerows.core.web.model.uca.normalize.EquipAt;
+import io.zerows.module.metadata.atom.configuration.MDConfiguration;
+import io.zerows.module.metadata.atom.configuration.modeling.MDConnect;
+import io.zerows.module.metadata.store.OZeroStore;
+import io.zerows.specification.configuration.HSetting;
 import org.osgi.framework.Bundle;
 
 import java.util.HashSet;
@@ -109,7 +109,7 @@ public interface HExtension {
      * Following two methods are for Crud Default Value
      *  - First has been used by CRUD Extension ( zero-crud )
      *  - Second has been used by UI Extension  ( zero-ui )
-     * They are not for data loading but for runtime usage
+     * They are not for data loading but for running usage
      */
     ConcurrentMap<String, JsonObject> module();
 

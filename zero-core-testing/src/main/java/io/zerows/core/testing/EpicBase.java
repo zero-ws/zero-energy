@@ -1,13 +1,13 @@
 package io.zerows.core.testing;
 
-import io.horizon.uca.qr.Criteria;
-import io.modello.atom.app.KIntegration;
 import io.vertx.core.buffer.Buffer;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
-import io.vertx.up.util.Ut;
+import io.zerows.common.app.KIntegration;
 import io.zerows.core.database.atom.Database;
-import io.zerows.core.metadata.uca.logging.OLog;
+import io.zerows.core.uca.qr.Criteria;
+import io.zerows.core.util.Ut;
+import io.zerows.module.metadata.uca.logging.OLog;
 
 /**
  * # 「Co」 Testing Framework
@@ -32,10 +32,10 @@ import io.zerows.core.metadata.uca.logging.OLog;
  *
  * 1. ioString(filename) - String Content
  * 2. ioBuffer(filename) - Buffer Content
- * 3. ioJObject(filename) - Json Object Content
- * 4. ioJArray(filename) - Json Array Content
- * 5. ioDatabase(filename) - Database from file ( Json Format )
- * 6. ioIntegration(filename) - KIntegration from file ( Json Format )
+ * 3. ioJObject(filename) - InJson Object Content
+ * 4. ioJArray(filename) - InJson Array Content
+ * 5. ioDatabase(filename) - Database from file ( InJson Format )
+ * 6. ioIntegration(filename) - KIntegration from file ( InJson Format )
  *
  * @author <a href="http://www.origin-x.cn">Lang</a>
  */

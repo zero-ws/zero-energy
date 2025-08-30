@@ -1,6 +1,6 @@
 package io.zerows.core.web.container.uca.reply;
 
-import io.horizon.eon.em.web.HttpStatusCode;
+import io.zerows.agreed.constant.em.app.HttpStatusCode;
 import io.vertx.core.Future;
 import io.vertx.ext.web.RoutingContext;
 import io.zerows.core.web.model.commune.Envelop;

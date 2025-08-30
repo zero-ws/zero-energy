@@ -1,12 +1,12 @@
 package io.zerows.core.web.mbse.atom.shape;
 
-import io.horizon.uca.cache.Cc;
-import io.horizon.uca.compare.Vs;
-import io.macrocosm.specification.program.HArk;
-import io.modello.atom.normalize.KMarkAtom;
-import io.modello.specification.atom.*;
-import io.modello.specification.meta.HMetaAtom;
-import io.modello.specification.meta.HMetaField;
+import io.zerows.core.uca.cache.Cc;
+import io.zerows.core.uca.compare.Vs;
+import io.zerows.specification.access.app.HArk;
+import io.zerows.common.normalize.KMarkAtom;
+import io.zerows.specification.modeling.*;
+import io.zerows.specification.modeling.metadata.HMetaAtom;
+import io.zerows.specification.modeling.metadata.HMetaField;
 
 import java.util.Objects;
 import java.util.Set;

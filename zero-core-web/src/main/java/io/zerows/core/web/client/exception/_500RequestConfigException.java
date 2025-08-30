@@ -1,8 +1,8 @@
 package io.zerows.core.web.client.exception;
 
-import io.horizon.eon.em.web.HttpStatusCode;
-import io.horizon.exception.WebException;
-import io.modello.atom.app.KIntegrationApi;
+import io.zerows.agreed.constant.em.app.HttpStatusCode;
+import io.zerows.core.exception.WebException;
+import io.zerows.common.app.KIntegrationApi;
 import io.vertx.core.json.JsonObject;
 
 public class _500RequestConfigException extends WebException {

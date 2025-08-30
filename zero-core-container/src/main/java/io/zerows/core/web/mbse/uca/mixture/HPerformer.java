@@ -1,8 +1,8 @@
 package io.zerows.core.web.mbse.uca.mixture;
 
-import io.modello.specification.atom.HModel;
+import io.zerows.specification.modeling.HModel;
 import io.vertx.core.Future;
-import io.vertx.up.util.Ut;
+import io.zerows.core.util.Ut;
 
 /**
  * @author <a href="http://www.origin-x.cn">Lang</a>

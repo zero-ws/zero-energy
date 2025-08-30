@@ -1,7 +1,7 @@
 package io.zerows.core.web.model.uca.extract;
 
-import io.vertx.up.annotations.Address;
-import io.vertx.up.fn.Fn;
+import io.zerows.core.annotations.Address;
+import io.zerows.core.fn.Fn;
 import io.zerows.core.web.model.atom.Receipt;
 import io.zerows.core.web.model.uca.bridge.AeonBridge;
 

@@ -1,6 +1,6 @@
 package io.zerows.core.web.mbse.atom.internal;
 
-import io.modello.specification.atom.HModel;
+import io.zerows.specification.modeling.HModel;
 import io.zerows.core.web.mbse.atom.shape.AbstractHAtom;
 
 /**

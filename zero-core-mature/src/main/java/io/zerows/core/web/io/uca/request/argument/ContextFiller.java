@@ -1,8 +1,8 @@
 package io.zerows.core.web.io.uca.request.argument;
 
 import io.vertx.ext.web.RoutingContext;
-import io.vertx.up.fn.Fn;
-import io.zerows.core.domain.uca.serialization.ZeroType;
+import io.zerows.core.fn.Fn;
+import io.zerows.module.domain.uca.serialization.ZeroType;
 
 import java.util.Map;
 

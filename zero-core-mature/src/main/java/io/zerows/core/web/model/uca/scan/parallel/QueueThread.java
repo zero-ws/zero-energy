@@ -1,7 +1,7 @@
 package io.zerows.core.web.model.uca.scan.parallel;
 
-import io.horizon.uca.log.Annal;
-import io.vertx.up.util.Ut;
+import io.zerows.core.uca.log.Annal;
+import io.zerows.core.util.Ut;
 import io.zerows.core.web.model.atom.Receipt;
 import io.zerows.core.web.model.uca.extract.Extractor;
 import io.zerows.core.web.model.uca.extract.ExtractorReceipt;

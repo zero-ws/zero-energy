@@ -1,7 +1,7 @@
 package io.zerows.core.web.io.uca.response.wrap;
 
-import io.horizon.annotations.Memory;
-import io.horizon.uca.cache.Cc;
+import io.zerows.core.uca.cache.Cc;
+import io.zerows.agreed.annotations.Memory;
 import jakarta.ws.rs.core.MediaType;
 
 import java.util.concurrent.ConcurrentHashMap;
@@ -23,7 +23,7 @@ interface CACHE {
                 {
                     /* SubType `*` */
                     this.put(MediaType.WILDCARD_TYPE.getSubtype(),
-                        () -> CC_WINGS.pick(JsonWings::new, MediaType.WILDCARD_TYPE.toString())
+                        () -> CACHE.CC_WINGS.pick(JsonWings::new, MediaType.WILDCARD_TYPE.toString())
                         // () -> Fn.po?lThread(POOL_THREAD, JsonWings::new, MediaType.WILDCARD_TYPE.toString())
                     );
                 }
@@ -35,13 +35,13 @@ interface CACHE {
                 {
                     /* SubType: json */
                     this.put(MediaType.APPLICATION_JSON_TYPE.getSubtype(),
-                        () -> CC_WINGS.pick(JsonWings::new, MediaType.APPLICATION_JSON_TYPE.toString())
+                        () -> CACHE.CC_WINGS.pick(JsonWings::new, MediaType.APPLICATION_JSON_TYPE.toString())
                         // () -> Fn.po?lThread(POOL_THREAD, JsonWings::new, MediaType.APPLICATION_JSON_TYPE.toString())
                     );
 
                     /* SubType: octet-stream */
                     this.put(MediaType.APPLICATION_OCTET_STREAM_TYPE.getSubtype(),
-                        () -> CC_WINGS.pick(BufferWings::new, MediaType.APPLICATION_OCTET_STREAM_TYPE.toString())
+                        () -> CACHE.CC_WINGS.pick(BufferWings::new, MediaType.APPLICATION_OCTET_STREAM_TYPE.toString())
                         // () -> Fn.po?lThread(POOL_THREAD, BufferWings::new, MediaType.APPLICATION_OCTET_STREAM_TYPE.toString()));
                     );
                 }

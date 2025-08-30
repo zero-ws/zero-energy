@@ -1,11 +1,11 @@
 package io.zerows.core.web.model.commune;
 
-import io.horizon.eon.VName;
-import io.horizon.exception.WebException;
 import io.vertx.core.buffer.Buffer;
 import io.vertx.core.json.JsonObject;
-import io.vertx.up.fn.Fn;
-import io.zerows.core.domain.uca.serialization.ZeroType;
+import io.zerows.agreed.constant.VName;
+import io.zerows.core.exception.WebException;
+import io.zerows.core.fn.Fn;
+import io.zerows.module.domain.uca.serialization.ZeroType;
 
 import java.util.Objects;
 

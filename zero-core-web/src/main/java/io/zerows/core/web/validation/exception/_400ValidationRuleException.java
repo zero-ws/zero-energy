@@ -1,6 +1,6 @@
 package io.zerows.core.web.validation.exception;
 
-import io.horizon.exception.WebException;
+import io.zerows.core.exception.WebException;
 
 public class _400ValidationRuleException extends WebException {
 

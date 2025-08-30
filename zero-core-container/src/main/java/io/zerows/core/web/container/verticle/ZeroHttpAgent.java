@@ -1,7 +1,7 @@
 package io.zerows.core.web.container.verticle;
 
 import io.vertx.core.AbstractVerticle;
-import io.vertx.up.annotations.Agent;
+import io.zerows.core.annotations.Agent;
 import io.zerows.core.web.container.store.under.StoreVertx;
 import io.zerows.core.web.container.uca.routing.*;
 import io.zerows.core.web.container.uca.server.StubServer;

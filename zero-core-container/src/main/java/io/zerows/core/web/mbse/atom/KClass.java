@@ -1,17 +1,17 @@
 package io.zerows.core.web.mbse.atom;
 
-import io.horizon.uca.cache.Cc;
-import io.macrocosm.specification.app.HApp;
-import io.macrocosm.specification.program.HArk;
 import io.vertx.core.json.JsonObject;
-import io.vertx.up.eon.KName;
-import io.vertx.up.util.Ut;
-import io.zerows.core.domain.atom.specification.KPoint;
+import io.zerows.core.constant.KName;
+import io.zerows.core.uca.cache.Cc;
+import io.zerows.core.util.Ut;
 import io.zerows.core.web.mbse.atom.specification.KModule;
 import io.zerows.core.web.mbse.exception._404ModelNotFoundException;
 import io.zerows.core.web.mbse.exception._409IdentifierConflictException;
 import io.zerows.core.web.mbse.uca.mixture.HOne;
-import io.zerows.core.metadata.uca.logging.OLog;
+import io.zerows.module.domain.atom.specification.KPoint;
+import io.zerows.module.metadata.uca.logging.OLog;
+import io.zerows.specification.access.app.HApp;
+import io.zerows.specification.access.app.HArk;
 
 import java.io.Serializable;
 import java.util.HashSet;
@@ -321,7 +321,7 @@ public class KClass implements Serializable {
                 throw new _409IdentifierConflictException(KClass.class, identifier, idConfig);
             }
             classJ.put(KName.MODULE, moduleJ);
-            LOGGER.info("[ KClass ] Json Input = {0}", classJ.encode());
+            LOGGER.info("[ KClass ] InJson Input = {0}", classJ.encode());
             return classJ;
         }
     }

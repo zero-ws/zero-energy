@@ -1,7 +1,7 @@
 package io.zerows.core.database.jooq.condition;
 
-import io.horizon.uca.qr.syntax.Ir;
-import io.vertx.up.util.Ut;
+import io.zerows.core.uca.qr.syntax.Ir;
+import io.zerows.core.util.Ut;
 import org.jooq.Condition;
 import org.jooq.impl.DSL;
 

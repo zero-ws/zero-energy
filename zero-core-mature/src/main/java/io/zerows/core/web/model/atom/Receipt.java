@@ -1,14 +1,14 @@
 package io.zerows.core.web.model.atom;
 
-import io.horizon.uca.cache.Cc;
-import io.zerows.core.assembly.uca.di.DiPlugin;
+import io.zerows.core.uca.cache.Cc;
+import io.zerows.module.assembly.uca.di.DiPlugin;
 
 import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.util.Objects;
 
 /**
- * Scanned address ( Metadata ) for Queue.
+ * Scanned address ( KMetadata ) for Queue.
  */
 public class Receipt implements Serializable {
 

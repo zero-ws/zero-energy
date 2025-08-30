@@ -1,11 +1,11 @@
 package io.zerows.core.web.model.uca.normalize;
 
 import io.vertx.core.json.JsonObject;
-import io.zerows.core.metadata.atom.configuration.MDConfiguration;
-import io.zerows.core.metadata.atom.configuration.MDId;
-import io.zerows.core.metadata.atom.configuration.modeling.MDConnect;
-import io.zerows.core.metadata.atom.configuration.modeling.MDEntity;
 import io.zerows.core.web.model.store.module.OCacheConfiguration;
+import io.zerows.module.metadata.atom.configuration.MDConfiguration;
+import io.zerows.module.metadata.atom.configuration.MDId;
+import io.zerows.module.metadata.atom.configuration.modeling.MDConnect;
+import io.zerows.module.metadata.atom.configuration.modeling.MDEntity;
 import org.osgi.framework.Bundle;
 
 import java.util.Set;

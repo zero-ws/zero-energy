@@ -3,19 +3,20 @@ package io.zerows.core.web.mbse.atom.specification;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import io.horizon.eon.em.EmDS;
 import io.vertx.core.json.JsonObject;
-import io.vertx.up.util.Ut;
-import io.zerows.core.domain.atom.specification.KField;
-import io.zerows.core.domain.atom.specification.KJoin;
-import io.zerows.core.domain.atom.specification.KPoint;
-import io.zerows.core.domain.atom.specification.KTransform;
-import io.zerows.core.domain.uca.destine.Hymn;
+import io.zerows.agreed.constant.em.EmDS;
 import io.zerows.core.database.jooq.JooqPin;
-import io.zerows.jackson.databind.ClassDeserializer;
-import io.zerows.jackson.databind.ClassSerializer;
-import io.zerows.jackson.databind.JsonObjectDeserializer;
-import io.zerows.jackson.databind.JsonObjectSerializer;
+import io.zerows.core.uca.aop.Aspect;
+import io.zerows.core.util.Ut;
+import io.zerows.extend.jackson.databind.ClassDeserializer;
+import io.zerows.extend.jackson.databind.ClassSerializer;
+import io.zerows.extend.jackson.databind.JsonObjectDeserializer;
+import io.zerows.extend.jackson.databind.JsonObjectSerializer;
+import io.zerows.module.domain.atom.specification.KField;
+import io.zerows.module.domain.atom.specification.KJoin;
+import io.zerows.module.domain.atom.specification.KPoint;
+import io.zerows.module.domain.atom.specification.KTransform;
+import io.zerows.module.domain.uca.destine.Hymn;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -143,7 +144,7 @@ public class KModule implements Serializable {
     private KTransform transform;
 
     /**
-     * AOP配置，详细配置参考 {@link io.horizon.uca.aop.Aspect} 中的定义和说明
+     * AOP配置，详细配置参考 {@link Aspect} 中的定义和说明
      */
     private JsonObject aop;
 

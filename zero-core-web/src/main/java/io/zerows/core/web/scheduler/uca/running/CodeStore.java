@@ -1,6 +1,6 @@
 package io.zerows.core.web.scheduler.uca.running;
 
-import io.vertx.up.fn.Fn;
+import io.zerows.core.fn.Fn;
 import io.zerows.core.web.scheduler.atom.Mission;
 import io.zerows.core.web.scheduler.store.OCacheJob;
 

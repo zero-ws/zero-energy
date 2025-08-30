@@ -1,6 +1,6 @@
 package io.zerows.core.web.model.atom.running;
 
-import io.horizon.eon.VString;
+import io.zerows.agreed.constant.VString;
 import io.vertx.ext.web.Route;
 import io.vertx.ext.web.Router;
 import io.zerows.core.web.model.atom.Event;

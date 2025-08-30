@@ -1,7 +1,7 @@
 package io.zerows.core.web.client.exception;
 
-import io.horizon.exception.InternalException;
-import io.vertx.up.util.Ut;
+import io.zerows.core.exception.InternalException;
+import io.zerows.core.util.Ut;
 
 public class _JexlExpressionException extends InternalException {
 

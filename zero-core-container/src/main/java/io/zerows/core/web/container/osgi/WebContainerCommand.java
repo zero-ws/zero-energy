@@ -1,7 +1,7 @@
 package io.zerows.core.web.container.osgi;
 
-import io.zerows.core.metadata.zdk.AbstractCommand;
 import io.zerows.core.web.container.osgi.command.CommandRunningVertx;
+import io.zerows.module.metadata.zdk.AbstractCommand;
 import org.apache.felix.service.command.Descriptor;
 import org.apache.felix.service.command.Parameter;
 import org.osgi.framework.BundleContext;

@@ -1,10 +1,10 @@
 package io.zerows.core.web.model.uca.scan;
 
-import io.horizon.uca.log.Annal;
-import io.vertx.up.fn.Fn;
-import io.zerows.core.metadata.zdk.uca.Inquirer;
+import io.zerows.core.fn.Fn;
+import io.zerows.core.uca.log.Annal;
 import io.zerows.core.web.model.atom.Event;
 import io.zerows.core.web.model.uca.scan.parallel.EndPointThread;
+import io.zerows.module.metadata.zdk.uca.Inquirer;
 
 import java.util.ArrayList;
 import java.util.HashSet;

@@ -1,15 +1,15 @@
 package io.zerows.core.database.jooq;
 
-import io.modello.atom.app.KDatabase;
 import io.vertx.core.Vertx;
-import io.vertx.up.annotations.Infusion;
-import io.vertx.up.eon.configure.YmlCore;
-import io.vertx.up.fn.Fn;
-import io.vertx.up.util.Ut;
+import io.zerows.common.app.KDatabase;
+import io.zerows.core.annotations.Infusion;
+import io.zerows.core.constant.configure.YmlCore;
 import io.zerows.core.database.cp.zdk.DataPool;
 import io.zerows.core.database.jooq.exception.BootJooqConfigurationException;
-import io.zerows.core.metadata.uca.logging.OLog;
-import io.zerows.core.metadata.zdk.plugins.Infix;
+import io.zerows.core.fn.Fn;
+import io.zerows.core.util.Ut;
+import io.zerows.module.metadata.uca.logging.OLog;
+import io.zerows.module.metadata.zdk.plugins.Infix;
 import org.jooq.Configuration;
 import org.jooq.DSLContext;
 

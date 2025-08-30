@@ -1,10 +1,10 @@
 package io.zerows.core.web.model.uca.scan;
 
-import io.horizon.uca.log.Annal;
-import io.vertx.up.fn.Fn;
-import io.zerows.core.metadata.zdk.uca.Inquirer;
+import io.zerows.core.fn.Fn;
+import io.zerows.core.uca.log.Annal;
 import io.zerows.core.web.model.atom.Receipt;
 import io.zerows.core.web.model.uca.scan.parallel.QueueThread;
+import io.zerows.module.metadata.zdk.uca.Inquirer;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -22,7 +22,7 @@ public class InquirerReceipt implements Inquirer<Set<Receipt>> {
     @Override
     public Set<Receipt> scan(final Set<Class<?>> queues) {
         final List<QueueThread> threadReference = new ArrayList<>();
-        /* 3.1. Build Metadata **/
+        /* 3.1. Build KMetadata **/
         for (final Class<?> queue : queues) {
             final QueueThread thread =
                 new QueueThread(queue);

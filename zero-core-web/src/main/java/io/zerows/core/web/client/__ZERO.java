@@ -1,9 +1,9 @@
 package io.zerows.core.web.client;
 
-import io.horizon.annotations.Memory;
-import io.horizon.uca.cache.Cc;
-import io.modello.atom.app.KIntegration;
+import io.zerows.core.uca.cache.Cc;
+import io.zerows.common.app.KIntegration;
 import io.vertx.core.http.HttpMethod;
+import io.zerows.agreed.annotations.Memory;
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;

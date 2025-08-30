@@ -1,16 +1,16 @@
 package io.zerows.core.database.jooq.util;
 
-import io.horizon.eon.VString;
-import io.horizon.uca.qr.syntax.Ir;
 import io.vertx.core.CompositeFuture;
 import io.vertx.core.Future;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
-import io.vertx.up.fn.Fn;
-import io.vertx.up.util.Ut;
-import io.zerows.core.metadata.atom.mapping.Mirror;
-import io.zerows.core.metadata.atom.mapping.Mojo;
-import io.zerows.core.metadata.uca.logging.OLog;
+import io.zerows.agreed.constant.VString;
+import io.zerows.core.fn.Fn;
+import io.zerows.core.uca.qr.syntax.Ir;
+import io.zerows.core.util.Ut;
+import io.zerows.module.metadata.atom.mapping.Mirror;
+import io.zerows.module.metadata.atom.mapping.Mojo;
+import io.zerows.module.metadata.uca.logging.OLog;
 
 import java.util.HashSet;
 import java.util.List;

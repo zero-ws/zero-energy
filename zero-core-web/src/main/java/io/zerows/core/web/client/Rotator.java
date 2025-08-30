@@ -1,6 +1,6 @@
 package io.zerows.core.web.client;
 
-import io.modello.atom.app.KIntegrationApi;
+import io.zerows.common.app.KIntegrationApi;
 import io.vertx.core.json.JsonObject;
 import org.apache.http.impl.client.CloseableHttpClient;
 
@@ -19,7 +19,7 @@ public interface Rotator {
     Rotator bind(CloseableHttpClient client);
 
     /*
-     * Request data with `Json` parameters, get string response
+     * Request data with `InJson` parameters, get string response
      */
     String request(KIntegrationApi request, JsonObject params);
 }

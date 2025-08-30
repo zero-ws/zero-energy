@@ -3,7 +3,7 @@ package io.zerows.core.web.container.uca.mode;
 import io.vertx.core.Future;
 import io.vertx.core.Handler;
 import io.vertx.ext.web.RoutingContext;
-import io.vertx.up.fn.Fn;
+import io.zerows.core.fn.Fn;
 import io.zerows.core.web.invocation.micro.uddi.Uddi;
 import io.zerows.core.web.invocation.micro.uddi.UddiClient;
 import io.zerows.core.web.io.zdk.Aim;

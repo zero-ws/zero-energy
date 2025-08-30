@@ -1,12 +1,12 @@
 package io.zerows.core.web.mbse.atom.runner;
 
-import io.horizon.atom.datamation.KMap;
-import io.horizon.uca.qr.syntax.Ir;
-import io.modello.specification.HRecord;
+import io.zerows.common.datamation.KMap;
+import io.zerows.core.uca.qr.syntax.Ir;
 import io.vertx.core.json.JsonObject;
-import io.vertx.up.eon.KWeb;
-import io.vertx.up.util.Ut;
+import io.zerows.core.constant.KWeb;
+import io.zerows.core.util.Ut;
 import io.zerows.core.web.model.commune.Envelop;
+import io.zerows.specification.modeling.HRecord;
 
 import java.io.Serializable;
 import java.util.Arrays;

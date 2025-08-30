@@ -1,15 +1,12 @@
 package io.zerows.core.database.jooq.operation;
 
-import io.horizon.eon.VString;
-import io.horizon.eon.VValue;
-import io.horizon.eon.em.EmDS;
-import io.horizon.uca.cache.Cc;
-import io.horizon.uca.qr.Sorter;
 import io.vertx.core.Future;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
-import io.vertx.up.eon.configure.YmlCore;
-import io.vertx.up.util.Ut;
+import io.zerows.agreed.constant.VString;
+import io.zerows.agreed.constant.VValue;
+import io.zerows.agreed.constant.em.EmDS;
+import io.zerows.core.constant.configure.YmlCore;
 import io.zerows.core.database.cp.zdk.DataPool;
 import io.zerows.core.database.jooq.JooqDsl;
 import io.zerows.core.database.jooq.JooqInfix;
@@ -17,7 +14,10 @@ import io.zerows.core.database.jooq.util.JqAnalyzer;
 import io.zerows.core.database.jooq.util.JqCond;
 import io.zerows.core.database.jooq.util.JqFlow;
 import io.zerows.core.database.jooq.util.JqTool;
-import io.zerows.core.metadata.uca.logging.OLog;
+import io.zerows.core.uca.cache.Cc;
+import io.zerows.core.uca.qr.Sorter;
+import io.zerows.core.util.Ut;
+import io.zerows.module.metadata.uca.logging.OLog;
 
 import java.math.BigDecimal;
 import java.util.Arrays;

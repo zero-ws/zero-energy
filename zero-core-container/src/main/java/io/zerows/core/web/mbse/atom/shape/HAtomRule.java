@@ -1,7 +1,7 @@
 package io.zerows.core.web.mbse.atom.shape;
 
-import io.modello.specification.atom.HModel;
-import io.modello.specification.atom.HRule;
+import io.zerows.specification.modeling.HModel;
+import io.zerows.specification.modeling.HRule;
 
 import java.util.Objects;
 

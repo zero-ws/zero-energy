@@ -1,10 +1,10 @@
 package io.zerows.core.web.model.atom;
 
-import io.horizon.eon.VString;
-import io.horizon.uca.cache.Cc;
 import io.vertx.core.http.HttpMethod;
-import io.vertx.up.eon.KWeb;
-import io.zerows.core.assembly.uca.di.DiPlugin;
+import io.zerows.agreed.constant.VString;
+import io.zerows.core.constant.KWeb;
+import io.zerows.core.uca.cache.Cc;
+import io.zerows.module.assembly.uca.di.DiPlugin;
 import jakarta.ws.rs.core.MediaType;
 
 import java.io.Serializable;
@@ -13,7 +13,7 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * Scanned Uri Event ( Metadata ) for each Endpoint.
+ * Scanned Uri Event ( KMetadata ) for each Endpoint.
  */
 public class Event implements Serializable {
 

@@ -1,8 +1,8 @@
 package io.vertx.boot.lighter;
 
-import io.macrocosm.specification.boot.HOn;
 import io.vertx.boot.supply.Electy;
 import io.zerows.core.web.container.eon.em.FeatureMark;
+import io.zerows.specification.configuration.HConfig;
 
 import java.util.Objects;
 
@@ -20,7 +20,7 @@ import java.util.Objects;
  *
  * @author lang : 2023-05-30
  */
-public class ZeroOn implements HOn<ZeroOnConfiguration> {
+public class ZeroOn implements HConfig.HOn<ZeroOnConfiguration> {
 
     private static ZeroOnConfiguration INSTANCE;
 
@@ -45,7 +45,7 @@ public class ZeroOn implements HOn<ZeroOnConfiguration> {
      *        新计算，所以要重写 Scatter 连接专用方法
      * </code></pre>
      *
-     * @param config 输入参数，{@link io.macrocosm.specification.config.HConfig} 实例
+     * @param config 输入参数，{@link HConfig} 实例
      *
      * @return {@link Boolean} 实例
      */
@@ -70,7 +70,7 @@ public class ZeroOn implements HOn<ZeroOnConfiguration> {
     }
 
     @Override
-    public HOn<ZeroOnConfiguration> args(final String[] args) {
+    public HConfig.HOn<ZeroOnConfiguration> args(final String[] args) {
         this.arguments = args;
         return this;
     }

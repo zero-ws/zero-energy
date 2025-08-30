@@ -1,6 +1,6 @@
 package io.zerows.core.web.mbse.atom.specification;
 
-import io.vertx.up.util.Ut;
+import io.zerows.core.util.Ut;
 
 import java.io.Serializable;
 
@@ -17,8 +17,8 @@ import java.io.Serializable;
  * </code></pre>
  * 此处配置仅在列表提取时会使用，Zero Extension 中提取List列配置有三种方案
  * <pre><code>
- *     1. 直接在前端使用 Json 文件的方式配置（资源文件中）
- *     2. 后端不访问 zero-ui 中的数据库定义，直接使用静态 Json 文件，这种方式就是 {@link KColumn} 做连接时的配置。
+ *     1. 直接在前端使用 InJson 文件的方式配置（资源文件中）
+ *     2. 后端不访问 zero-ui 中的数据库定义，直接使用静态 InJson 文件，这种方式就是 {@link KColumn} 做连接时的配置。
  *     3. 后端直接访问 zero-ui 模块中 `UI_COLUMN` 表中的定义来提取（纯动态模式）
  * </code></pre>
  *

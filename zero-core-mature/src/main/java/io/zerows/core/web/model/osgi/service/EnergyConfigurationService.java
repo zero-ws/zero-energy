@@ -1,9 +1,9 @@
 package io.zerows.core.web.model.osgi.service;
 
-import io.macrocosm.specification.config.HSetting;
-import io.zerows.core.metadata.atom.configuration.MDConfiguration;
-import io.zerows.core.metadata.osgi.service.EnergyConfiguration;
 import io.zerows.core.web.model.store.module.OCacheConfiguration;
+import io.zerows.module.metadata.atom.configuration.MDConfiguration;
+import io.zerows.module.metadata.osgi.service.EnergyConfiguration;
+import io.zerows.specification.configuration.HSetting;
 import org.osgi.framework.Bundle;
 
 /**
@@ -20,7 +20,7 @@ public class EnergyConfigurationService implements EnergyConfiguration {
 
     @Override
     public EnergyConfiguration addSetting(final Bundle owner, final HSetting setting) {
-        DATA_SETTING.put(owner.getBundleId(), setting);
+        EnergyConfiguration.DATA_SETTING.put(owner.getBundleId(), setting);
         return this;
     }
 
@@ -33,7 +33,7 @@ public class EnergyConfigurationService implements EnergyConfiguration {
 
     @Override
     public EnergyConfiguration removeSetting(final Bundle owner) {
-        DATA_SETTING.remove(owner.getBundleId());
+        EnergyConfiguration.DATA_SETTING.remove(owner.getBundleId());
         return this;
     }
 
@@ -45,6 +45,6 @@ public class EnergyConfigurationService implements EnergyConfiguration {
 
     @Override
     public HSetting getSetting(final Bundle owner) {
-        return DATA_SETTING.getOrDefault(owner.getBundleId(), null);
+        return EnergyConfiguration.DATA_SETTING.getOrDefault(owner.getBundleId(), null);
     }
 }

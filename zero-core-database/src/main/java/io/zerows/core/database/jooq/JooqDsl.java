@@ -1,18 +1,18 @@
 package io.zerows.core.database.jooq;
 
 import io.github.jklingsporn.vertx.jooq.classic.VertxDAO;
-import io.horizon.uca.cache.Cc;
 import io.vertx.core.Future;
 import io.vertx.core.Handler;
 import io.vertx.core.Promise;
 import io.vertx.core.Vertx;
 import io.vertx.core.impl.ContextInternal;
 import io.vertx.core.impl.future.PromiseImpl;
-import io.vertx.up.fn.Fn;
-import io.vertx.up.util.Ut;
 import io.zerows.core.database.jooq.exception.BootJooqClassInvalidException;
 import io.zerows.core.database.jooq.exception.BootJooqVertxNullException;
-import io.zerows.core.metadata.uca.logging.OLog;
+import io.zerows.core.fn.Fn;
+import io.zerows.core.uca.cache.Cc;
+import io.zerows.core.util.Ut;
+import io.zerows.module.metadata.uca.logging.OLog;
 import org.jooq.Configuration;
 import org.jooq.DSLContext;
 
@@ -78,7 +78,7 @@ public class JooqDsl {
         return this.poolKey;
     }
 
-    // ----------------------- Metadata
+    // ----------------------- KMetadata
 
     public DSLContext context() {
         return this.configurationRef.dsl();

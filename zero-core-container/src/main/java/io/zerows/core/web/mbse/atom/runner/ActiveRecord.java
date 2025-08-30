@@ -1,9 +1,9 @@
 package io.zerows.core.web.mbse.atom.runner;
 
-import io.modello.specification.HRecord;
 import io.vertx.core.json.JsonObject;
-import io.vertx.up.util.Ut;
-import io.zerows.core.metadata.uca.logging.OLog;
+import io.zerows.core.util.Ut;
+import io.zerows.module.metadata.uca.logging.OLog;
+import io.zerows.specification.modeling.HRecord;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -192,7 +192,7 @@ public abstract class ActiveRecord implements HRecord {
         return record;
     }
 
-    // --------------- Json interface ------------
+    // --------------- InJson interface ------------
     /*
      * It does not contain `null` value here.
      */

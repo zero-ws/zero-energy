@@ -1,9 +1,9 @@
 package io.zerows.core.web.io.util;
 
-import io.horizon.uca.log.Annal;
 import io.vertx.core.buffer.Buffer;
 import io.vertx.ext.web.FileUpload;
-import io.zerows.core.domain.uca.serialization.ZeroType;
+import io.zerows.core.uca.log.Annal;
+import io.zerows.module.domain.uca.serialization.ZeroType;
 
 import java.io.File;
 import java.util.*;

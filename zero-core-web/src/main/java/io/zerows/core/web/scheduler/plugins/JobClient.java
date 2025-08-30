@@ -1,13 +1,13 @@
 package io.zerows.core.web.scheduler.plugins;
 
-import io.horizon.eon.VString;
+import io.zerows.agreed.constant.VString;
 import io.vertx.codegen.annotations.Fluent;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Future;
 import io.vertx.core.Handler;
 import io.vertx.core.Vertx;
 import io.vertx.core.json.JsonObject;
-import io.vertx.up.eon.KWeb;
+import io.zerows.core.constant.KWeb;
 import io.zerows.core.web.scheduler.atom.Mission;
 
 import java.util.List;

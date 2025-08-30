@@ -1,8 +1,8 @@
 package io.zerows.core.web.model.store;
 
-import io.zerows.core.metadata.zdk.AbstractAmbiguity;
-import io.zerows.core.metadata.zdk.running.OCache;
 import io.zerows.core.web.model.atom.action.OActorComponent;
+import io.zerows.module.metadata.zdk.AbstractAmbiguity;
+import io.zerows.module.metadata.zdk.running.OCache;
 import org.osgi.framework.Bundle;
 
 /**

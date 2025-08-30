@@ -1,10 +1,10 @@
 package io.zerows.core.web.mbse.atom.internal;
 
-import io.horizon.exception.web._501NotSupportException;
-import io.macrocosm.specification.program.HArk;
-import io.modello.eon.em.EmModel;
-import io.modello.specification.atom.HAttribute;
-import io.modello.specification.atom.HRule;
+import io.zerows.core.exception.web._501NotSupportException;
+import io.zerows.specification.access.app.HArk;
+import io.zerows.agreed.constant.em.modeling.EmModel;
+import io.zerows.specification.modeling.HAttribute;
+import io.zerows.specification.modeling.HRule;
 import io.vertx.core.json.JsonObject;
 import io.zerows.core.web.mbse.atom.KClass;
 import io.zerows.core.web.mbse.atom.KHybrid;

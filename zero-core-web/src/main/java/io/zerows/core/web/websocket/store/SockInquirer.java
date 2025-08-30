@@ -1,10 +1,10 @@
 package io.zerows.core.web.websocket.store;
 
-import io.vertx.up.fn.Fn;
+import io.zerows.core.fn.Fn;
 import io.zerows.core.web.websocket.annotations.Subscribe;
 import io.zerows.core.web.websocket.atom.Remind;
 import io.zerows.core.web.websocket.eon.MessageOfSock;
-import io.zerows.core.metadata.zdk.uca.Inquirer;
+import io.zerows.module.metadata.zdk.uca.Inquirer;
 
 import java.lang.reflect.Method;
 import java.util.*;

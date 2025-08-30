@@ -1,6 +1,6 @@
 package io.zerows.core.web.container.store.uri;
 
-import io.horizon.uca.cache.Cc;
+import io.zerows.core.uca.cache.Cc;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ext.web.Router;
 

@@ -1,7 +1,7 @@
 package io.zerows.core.web.security.osgi.service;
 
-import io.vertx.up.util.Ut;
-import io.zerows.core.metadata.uca.logging.OLog;
+import io.zerows.core.util.Ut;
+import io.zerows.module.metadata.uca.logging.OLog;
 import org.osgi.framework.Bundle;
 
 /**

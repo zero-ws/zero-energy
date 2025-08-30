@@ -1,18 +1,18 @@
 package io.zerows.core.database.jooq.condition;
 
-import io.horizon.eon.VString;
-import io.horizon.eon.VValue;
-import io.horizon.uca.qr.Criteria;
-import io.horizon.uca.qr.Sorter;
-import io.horizon.uca.qr.syntax.Ir;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
-import io.vertx.up.fn.Fn;
-import io.vertx.up.util.Ut;
+import io.zerows.agreed.constant.VString;
+import io.zerows.agreed.constant.VValue;
 import io.zerows.core.database.jooq.exception.BootJooqCondClauseException;
 import io.zerows.core.database.jooq.exception.BootJooqCondFieldException;
-import io.zerows.core.metadata.uca.environment.DevEnv;
-import io.zerows.core.metadata.uca.logging.OLog;
+import io.zerows.core.fn.Fn;
+import io.zerows.core.uca.qr.Criteria;
+import io.zerows.core.uca.qr.Sorter;
+import io.zerows.core.uca.qr.syntax.Ir;
+import io.zerows.core.util.Ut;
+import io.zerows.module.metadata.uca.environment.DevEnv;
+import io.zerows.module.metadata.uca.logging.OLog;
 import org.jooq.Condition;
 import org.jooq.Field;
 import org.jooq.Operator;

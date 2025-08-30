@@ -1,9 +1,9 @@
 package io.zerows.core.web.security.osgi.dependency;
 
-import io.vertx.up.util.Ut;
+import io.zerows.core.util.Ut;
 import io.zerows.core.web.security.osgi.service.EnergySecure;
-import io.zerows.core.metadata.zdk.dependency.OOnce;
-import io.zerows.core.metadata.zdk.service.ServiceContext;
+import io.zerows.module.metadata.zdk.dependency.OOnce;
+import io.zerows.module.metadata.zdk.service.ServiceContext;
 
 /**
  * @author lang : 2024-04-28

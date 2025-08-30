@@ -2,9 +2,10 @@ package io.zerows.core.web.security.osgi;
 
 import io.zerows.core.web.security.osgi.service.EnergySecure;
 import io.zerows.core.web.security.osgi.service.EnergySecureService;
-import io.zerows.core.metadata.eon.OMessage;
-import io.zerows.core.metadata.zdk.dependency.AbstractConnectorService;
-import io.zerows.core.metadata.zdk.service.ServiceConnector;
+import io.zerows.module.metadata.eon.OMessage;
+import io.zerows.module.metadata.zdk.dependency.AbstractConnectorBase;
+import io.zerows.module.metadata.zdk.dependency.AbstractConnectorService;
+import io.zerows.module.metadata.zdk.service.ServiceConnector;
 import org.apache.felix.dm.Component;
 import org.apache.felix.dm.DependencyManager;
 import org.osgi.framework.Bundle;
@@ -20,7 +21,7 @@ class WebSecurityDependency extends AbstractConnectorService {
     }
 
     static ServiceConnector of(final Bundle bundle) {
-        return of(bundle, WebSecurityDependency::new);
+        return AbstractConnectorBase.of(bundle, WebSecurityDependency::new);
     }
 
     @Override

@@ -1,6 +1,6 @@
 package io.zerows.core.web.invocation.uca.runner;
 
-import io.horizon.uca.cache.Cc;
+import io.zerows.core.uca.cache.Cc;
 
 interface INFO {
 

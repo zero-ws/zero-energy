@@ -1,7 +1,7 @@
 package io.zerows.core.web.model.util;
 
-import io.vertx.up.fn.Fn;
-import io.vertx.up.util.Ut;
+import io.zerows.core.fn.Fn;
+import io.zerows.core.util.Ut;
 
 import java.lang.annotation.Annotation;
 import java.util.Arrays;

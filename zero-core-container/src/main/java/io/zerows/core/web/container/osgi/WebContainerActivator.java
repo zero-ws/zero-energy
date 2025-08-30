@@ -1,8 +1,8 @@
 package io.zerows.core.web.container.osgi;
 
-import io.vertx.up.util.Ut;
-import io.zerows.core.metadata.eon.OMessage;
-import io.zerows.core.metadata.zdk.service.ServiceConnector;
+import io.zerows.core.util.Ut;
+import io.zerows.module.metadata.eon.OMessage;
+import io.zerows.module.metadata.zdk.service.ServiceConnector;
 import org.apache.felix.dm.DependencyActivatorBase;
 import org.apache.felix.dm.DependencyManager;
 import org.osgi.annotation.bundle.Header;

@@ -1,7 +1,7 @@
 package io.zerows.core.web.model.uca.scan.parallel;
 
-import io.horizon.fn.Actuator;
-import io.horizon.uca.log.Annal;
+import io.zerows.agreed.fn.Actuator;
+import io.zerows.core.uca.log.Annal;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -19,7 +19,7 @@ mvn clean package install
 # 查看依赖
 git submodule
 # 依赖清单
-git submodule add git@gitee.com:zero-ws/zero-rapid-build-runtime.git refs/Zero.Rapid.Build.Runtime
+git submodule add git@gitee.com:zero-ws/zero-rapid-build-running.git refs/Zero.Rapid.Build.Runtime
 ```
 
 ## 2. 模块信息

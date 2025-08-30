@@ -1,7 +1,7 @@
 package io.zerows.core.web.websocket.store;
 
 import io.zerows.core.web.websocket.atom.Remind;
-import io.zerows.core.metadata.zdk.AbstractAmbiguity;
+import io.zerows.module.metadata.zdk.AbstractAmbiguity;
 import org.osgi.framework.Bundle;
 
 import java.util.HashSet;

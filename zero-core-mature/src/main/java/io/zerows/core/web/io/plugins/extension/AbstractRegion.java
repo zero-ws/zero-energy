@@ -1,13 +1,13 @@
 package io.zerows.core.web.io.plugins.extension;
 
-import io.horizon.uca.qr.syntax.Ir;
 import io.vertx.core.http.HttpMethod;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ext.web.RoutingContext;
-import io.vertx.up.eon.KName;
-import io.vertx.up.eon.configure.YmlCore;
-import io.vertx.up.util.Ut;
-import io.zerows.core.metadata.uca.logging.OLog;
+import io.zerows.core.constant.KName;
+import io.zerows.core.constant.configure.YmlCore;
+import io.zerows.core.uca.qr.syntax.Ir;
+import io.zerows.core.util.Ut;
+import io.zerows.module.metadata.uca.logging.OLog;
 
 import java.util.Objects;
 import java.util.Set;

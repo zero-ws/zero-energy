@@ -1,6 +1,6 @@
 package io.zerows.core.testing.exception;
 
-import io.horizon.exception.BootingException;
+import io.zerows.core.exception.BootingException;
 
 /*
  * Zero Quiz needed when you used QzTc / QzMicroTc

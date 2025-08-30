@@ -1,9 +1,9 @@
 package io.zerows.core.web.model.uca.codec;
 
-import io.horizon.eon.VValue;
+import io.zerows.agreed.constant.VValue;
 import io.vertx.core.buffer.Buffer;
 import io.vertx.core.eventbus.MessageCodec;
-import io.vertx.up.util.Ut;
+import io.zerows.core.util.Ut;
 import io.zerows.core.web.model.commune.Envelop;
 
 /**

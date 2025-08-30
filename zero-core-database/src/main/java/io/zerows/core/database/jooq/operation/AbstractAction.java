@@ -2,12 +2,12 @@ package io.zerows.core.database.jooq.operation;
 
 import io.github.jklingsporn.vertx.jooq.classic.VertxDAO;
 import io.vertx.core.json.JsonObject;
-import io.vertx.up.util.Ut;
 import io.zerows.core.database.jooq.JooqDsl;
 import io.zerows.core.database.jooq.condition.JooqCond;
 import io.zerows.core.database.jooq.util.JqAnalyzer;
-import io.zerows.core.metadata.uca.environment.DevEnv;
-import io.zerows.core.metadata.uca.logging.OLog;
+import io.zerows.core.util.Ut;
+import io.zerows.module.metadata.uca.environment.DevEnv;
+import io.zerows.module.metadata.uca.logging.OLog;
 import org.jooq.*;
 import org.jooq.impl.DSL;
 

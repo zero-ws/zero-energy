@@ -1,7 +1,7 @@
 package io.zerows.core.web.security.osgi.service;
 
 import io.zerows.core.web.security.store.ORepositorySecurity;
-import io.zerows.core.metadata.zdk.running.ORepository;
+import io.zerows.module.metadata.zdk.running.ORepository;
 import org.osgi.framework.Bundle;
 
 /**

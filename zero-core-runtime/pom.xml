@@ -131,7 +131,7 @@
 
         <!--
         Expression
-        原：zero-core-runtime-domain
+        原：zero-core-running-domain
         -->
         <dependency>
             <groupId>org.jetbrains</groupId>
@@ -139,7 +139,7 @@
             <version>${jetbrains.version}</version>
         </dependency>
         <!--
-        原：zero-core-runtime-security
+        原：zero-core-running-security
         -->
         <!-- Vertx Web / Auth Common Framework -->
         <dependency>
@@ -151,7 +151,7 @@
             <artifactId>vertx-web</artifactId>
         </dependency>
         <!--
-        原：zero-core-runtime-configuration
+        原：zero-core-running-configuration
         -->
         <!-- Vertx Cluster -->
         <dependency>

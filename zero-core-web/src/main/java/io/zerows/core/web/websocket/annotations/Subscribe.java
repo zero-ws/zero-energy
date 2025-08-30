@@ -1,7 +1,7 @@
 package io.zerows.core.web.websocket.annotations;
 
-import io.horizon.eon.VString;
-import io.vertx.up.eon.DefaultClass;
+import io.zerows.agreed.constant.VString;
+import io.zerows.core.constant.DefaultClass;
 import io.zerows.core.web.websocket.eon.em.RemindType;
 
 import java.lang.annotation.*;

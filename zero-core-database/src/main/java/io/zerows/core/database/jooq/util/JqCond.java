@@ -1,7 +1,7 @@
 package io.zerows.core.database.jooq.util;
 
-import io.horizon.eon.VString;
-import io.horizon.uca.qr.syntax.Ir;
+import io.zerows.agreed.constant.VString;
+import io.zerows.core.uca.qr.syntax.Ir;
 import io.vertx.core.json.JsonObject;
 
 import java.util.Set;

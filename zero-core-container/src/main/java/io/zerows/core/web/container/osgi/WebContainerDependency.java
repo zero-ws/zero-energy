@@ -1,14 +1,15 @@
 package io.zerows.core.web.container.osgi;
 
-import io.zerows.core.metadata.eon.OMessage;
-import io.zerows.core.metadata.osgi.service.EnergyDeployment;
-import io.zerows.core.metadata.zdk.dependency.AbstractConnectorService;
-import io.zerows.core.metadata.zdk.service.ServiceConnector;
-import io.zerows.core.metadata.zdk.service.ServiceInvocation;
 import io.zerows.core.web.container.osgi.service.EnergyDeploymentService;
 import io.zerows.core.web.container.osgi.service.EnergyVertx;
 import io.zerows.core.web.container.osgi.service.EnergyVertxService;
 import io.zerows.core.web.container.osgi.service.provider.InvocationContainer;
+import io.zerows.module.metadata.eon.OMessage;
+import io.zerows.module.metadata.osgi.service.EnergyDeployment;
+import io.zerows.module.metadata.zdk.dependency.AbstractConnectorBase;
+import io.zerows.module.metadata.zdk.dependency.AbstractConnectorService;
+import io.zerows.module.metadata.zdk.service.ServiceConnector;
+import io.zerows.module.metadata.zdk.service.ServiceInvocation;
 import org.apache.felix.dm.Component;
 import org.apache.felix.dm.DependencyManager;
 import org.osgi.framework.Bundle;
@@ -24,7 +25,7 @@ public class WebContainerDependency extends AbstractConnectorService {
     }
 
     public static ServiceConnector of(final Bundle bundle) {
-        return of(bundle, WebContainerDependency::new);
+        return AbstractConnectorBase.of(bundle, WebContainerDependency::new);
     }
 
     @Override

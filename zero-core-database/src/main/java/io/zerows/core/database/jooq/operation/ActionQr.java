@@ -1,12 +1,12 @@
 package io.zerows.core.database.jooq.operation;
 
-import io.horizon.uca.qr.Pager;
-import io.horizon.uca.qr.Sorter;
-import io.horizon.uca.qr.syntax.Ir;
+import io.zerows.core.uca.qr.Pager;
+import io.zerows.core.uca.qr.Sorter;
+import io.zerows.core.uca.qr.syntax.Ir;
 import io.vertx.core.Future;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
-import io.vertx.up.util.Ut;
+import io.zerows.core.util.Ut;
 import io.zerows.core.database.jooq.condition.JooqCond;
 import io.zerows.core.database.jooq.util.JqAnalyzer;
 import io.zerows.core.database.jooq.util.JqOut;

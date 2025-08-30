@@ -2,11 +2,11 @@ package io.zerows.core.web.websocket.atom;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import io.horizon.uca.cache.Cc;
-import io.zerows.core.assembly.uca.di.DiPlugin;
+import io.zerows.core.uca.cache.Cc;
 import io.zerows.core.web.websocket.eon.em.RemindType;
-import io.zerows.jackson.databind.ClassDeserializer;
-import io.zerows.jackson.databind.ClassSerializer;
+import io.zerows.extend.jackson.databind.ClassDeserializer;
+import io.zerows.extend.jackson.databind.ClassSerializer;
+import io.zerows.module.assembly.uca.di.DiPlugin;
 
 import java.io.Serializable;
 import java.lang.reflect.Method;

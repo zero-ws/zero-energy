@@ -1,6 +1,6 @@
 package io.zerows.core.web.io.zdk;
 
-import io.horizon.exception.BootingException;
+import io.zerows.core.exception.BootingException;
 
 import java.lang.annotation.Annotation;
 

@@ -1,7 +1,7 @@
 package io.zerows.core.web.security.exception;
 
-import io.horizon.exception.BootingException;
-import io.vertx.up.eon.em.EmSecure;
+import io.zerows.core.exception.BootingException;
+import io.zerows.core.constant.em.EmSecure;
 
 public class BootWallSizeException extends BootingException {
 

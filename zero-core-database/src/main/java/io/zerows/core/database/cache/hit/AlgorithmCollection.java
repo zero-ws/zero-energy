@@ -2,7 +2,7 @@ package io.zerows.core.database.cache.hit;
 
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
-import io.vertx.up.util.Ut;
+import io.zerows.core.util.Ut;
 
 import java.util.HashSet;
 import java.util.Set;

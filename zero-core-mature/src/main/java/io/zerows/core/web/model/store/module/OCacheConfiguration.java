@@ -1,12 +1,12 @@
 package io.zerows.core.web.model.store.module;
 
-import io.horizon.uca.cache.Cc;
-import io.macrocosm.specification.config.HSetting;
-import io.vertx.up.util.Ut;
-import io.zerows.core.metadata.atom.configuration.MDConfiguration;
-import io.zerows.core.metadata.atom.configuration.children.MDPage;
-import io.zerows.core.metadata.atom.configuration.modeling.MDConnect;
-import io.zerows.core.metadata.zdk.running.OCache;
+import io.zerows.core.uca.cache.Cc;
+import io.zerows.core.util.Ut;
+import io.zerows.module.metadata.atom.configuration.MDConfiguration;
+import io.zerows.module.metadata.atom.configuration.children.MDPage;
+import io.zerows.module.metadata.atom.configuration.modeling.MDConnect;
+import io.zerows.module.metadata.zdk.running.OCache;
+import io.zerows.specification.configuration.HSetting;
 import org.osgi.framework.Bundle;
 
 import java.util.Objects;

@@ -1,7 +1,7 @@
 package io.zerows.core.database.jooq.exception;
 
-import io.horizon.exception.BootingException;
-import io.horizon.uca.qr.syntax.Ir;
+import io.zerows.core.exception.BootingException;
+import io.zerows.core.uca.qr.syntax.Ir;
 import io.vertx.core.json.JsonObject;
 
 public class BootJooqModeConflictException extends BootingException {

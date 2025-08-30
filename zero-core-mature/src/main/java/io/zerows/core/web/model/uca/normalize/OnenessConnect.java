@@ -1,11 +1,11 @@
 package io.zerows.core.web.model.uca.normalize;
 
 import io.vertx.core.json.JsonArray;
-import io.vertx.up.util.Ut;
-import io.zerows.core.metadata.atom.configuration.modeling.MDConnect;
-import io.zerows.core.metadata.atom.configuration.modeling.MDMeta;
-import io.zerows.core.metadata.atom.mapping.Mirror;
-import io.zerows.core.metadata.atom.mapping.Mojo;
+import io.zerows.core.util.Ut;
+import io.zerows.module.metadata.atom.configuration.modeling.MDConnect;
+import io.zerows.module.metadata.atom.configuration.modeling.MDMeta;
+import io.zerows.module.metadata.atom.mapping.Mirror;
+import io.zerows.module.metadata.atom.mapping.Mojo;
 
 import java.util.HashSet;
 import java.util.Objects;

@@ -1,6 +1,6 @@
 package io.vertx.quiz.example;
 
-import io.horizon.eon.VString;
+import io.zerows.agreed.constant.VString;
 import jakarta.ws.rs.GET;
 
 public class RMethod1 {

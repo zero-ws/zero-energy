@@ -1,8 +1,8 @@
 package io.vertx.up.unity;
 
-import io.horizon.eon.VString;
+import io.zerows.agreed.constant.VString;
 import io.vertx.core.json.JsonObject;
-import io.vertx.up.util.Ut;
+import io.zerows.core.util.Ut;
 import io.zerows.core.testing.ZeroBase;
 import org.junit.Assert;
 import org.junit.Test;

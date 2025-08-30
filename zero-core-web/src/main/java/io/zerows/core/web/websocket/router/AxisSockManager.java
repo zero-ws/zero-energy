@@ -1,9 +1,9 @@
 package io.zerows.core.web.websocket.router;
 
-import io.zerows.core.configuration.atom.NodeNetwork;
-import io.zerows.core.configuration.store.OCacheNode;
 import io.zerows.core.web.io.management.AxisSockFactory;
 import io.zerows.core.web.io.uca.routing.OAxis;
+import io.zerows.module.configuration.atom.NodeNetwork;
+import io.zerows.module.configuration.store.OCacheNode;
 import org.osgi.framework.Bundle;
 
 /**

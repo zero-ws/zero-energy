@@ -1,6 +1,6 @@
 package io.zerows.core.web.model.zdk;
 
-import io.horizon.atom.datamation.KDictConfig;
+import io.zerows.common.datamation.KDictConfig;
 
 /*
  * Service

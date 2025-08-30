@@ -1,19 +1,19 @@
 package io.zerows.core.web.security.uca.bridge;
 
-import io.horizon.uca.cache.Cc;
 import io.vertx.core.Vertx;
 import io.vertx.ext.auth.authentication.AuthenticationProvider;
 import io.vertx.ext.web.handler.AuthenticationHandler;
 import io.vertx.ext.web.handler.AuthorizationHandler;
-import io.vertx.up.eon.em.EmSecure;
-import io.vertx.up.fn.Fn;
-import io.vertx.up.util.Ut;
+import io.zerows.core.constant.em.EmSecure;
+import io.zerows.core.fn.Fn;
+import io.zerows.core.uca.cache.Cc;
+import io.zerows.core.util.Ut;
 import io.zerows.core.web.security.exception.BootWallProviderConflictException;
 import io.zerows.core.web.security.exception.BootWallSizeException;
-import io.zerows.core.metadata.uca.logging.OLog;
-import io.zerows.core.security.atom.Aegis;
-import io.zerows.core.security.atom.AegisItem;
-import io.zerows.core.security.zdk.Lee;
+import io.zerows.module.metadata.uca.logging.OLog;
+import io.zerows.module.security.atom.Aegis;
+import io.zerows.module.security.atom.AegisItem;
+import io.zerows.module.security.zdk.Lee;
 
 import java.util.Objects;
 import java.util.Set;

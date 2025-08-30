@@ -1,6 +1,6 @@
 package io.zerows.core.web.model.uca.scan.parallel;
 
-import io.horizon.fn.Actuator;
+import io.zerows.agreed.fn.Actuator;
 
 import java.util.concurrent.CountDownLatch;
 

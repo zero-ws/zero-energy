@@ -1,6 +1,6 @@
 package io.zerows.core.database.jooq.exception;
 
-import io.horizon.exception.BootingException;
+import io.zerows.core.exception.BootingException;
 
 public class BootJooqCondClauseException extends BootingException {
     public BootJooqCondClauseException(final Class<?> clazz, final String field,

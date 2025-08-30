@@ -1,13 +1,13 @@
 package io.zerows.core.web.model.extension;
 
-import io.horizon.eon.VString;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
-import io.vertx.up.util.Ut;
-import io.zerows.core.metadata.atom.configuration.MDConfiguration;
-import io.zerows.core.metadata.atom.configuration.modeling.MDConnect;
-import io.zerows.core.metadata.atom.configuration.modeling.MDEntity;
-import io.zerows.core.metadata.uca.logging.OLog;
+import io.zerows.agreed.constant.VString;
+import io.zerows.core.util.Ut;
+import io.zerows.module.metadata.atom.configuration.MDConfiguration;
+import io.zerows.module.metadata.atom.configuration.modeling.MDConnect;
+import io.zerows.module.metadata.atom.configuration.modeling.MDEntity;
+import io.zerows.module.metadata.uca.logging.OLog;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;

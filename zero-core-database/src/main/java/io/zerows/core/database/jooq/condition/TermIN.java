@@ -1,6 +1,6 @@
 package io.zerows.core.database.jooq.condition;
 
-import io.vertx.up.util.Ut;
+import io.zerows.core.util.Ut;
 import org.jooq.Condition;
 import org.jooq.Field;
 import org.jooq.impl.DSL;

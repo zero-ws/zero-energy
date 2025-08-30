@@ -1,12 +1,12 @@
 package io.zerows.core.web.model.uca.normalize;
 
-import io.horizon.annotations.ChatGPT;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
-import io.vertx.up.eon.KName;
-import io.vertx.up.util.Ut;
-import io.zerows.core.metadata.atom.configuration.modeling.MDConnect;
-import io.zerows.core.metadata.atom.configuration.modeling.MDEntity;
+import io.zerows.agreed.annotations.ChatGPT;
+import io.zerows.core.constant.KName;
+import io.zerows.core.util.Ut;
+import io.zerows.module.metadata.atom.configuration.modeling.MDConnect;
+import io.zerows.module.metadata.atom.configuration.modeling.MDEntity;
 import org.osgi.framework.Bundle;
 
 import java.util.List;

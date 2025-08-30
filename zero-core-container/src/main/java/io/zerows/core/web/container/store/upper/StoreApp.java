@@ -1,19 +1,19 @@
 package io.zerows.core.web.container.store.upper;
 
-import io.horizon.eon.VString;
-import io.macrocosm.specification.app.HApp;
-import io.macrocosm.specification.program.HArk;
-import io.macrocosm.specification.secure.HoI;
-import io.modello.atom.app.KDS;
+import io.zerows.agreed.constant.VString;
+import io.zerows.specification.access.app.HApp;
+import io.zerows.specification.access.app.HArk;
+import io.zerows.common.app.KDS;
 import io.zerows.core.web.container.store.under.StoreRouter;
 import io.zerows.core.web.container.store.under.StoreServer;
+import io.zerows.specification.vital.HOI;
 
 /**
  * 应用对接器，底层会直接针对应用执行相关初始化，解析应用专用配置 vertx-app.yml，新配置
  * <pre><code>
  *     1. 所属：{@link HArk} 数据结构
  *             - {@link HApp} 应用 x 1
- *             - {@link HoI} 租户 x 1
+ *             - {@link HOI} 租户 x 1
  *             - {@link KDS} 数据库 x N
  *               - PRIMARY：  主数据库
  *               - HISTORY：  历史数据库

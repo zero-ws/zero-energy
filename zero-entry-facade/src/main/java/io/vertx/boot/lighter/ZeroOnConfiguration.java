@@ -1,10 +1,10 @@
 package io.vertx.boot.lighter;
 
-import io.macrocosm.specification.app.HPre;
-import io.modello.atom.app.KConfig;
+import io.zerows.common.app.KConfig;
+import io.zerows.specification.configuration.boot.HMature;
 
 /**
- * 标准容器中的 {@link HPre} 处理器
+ * 标准容器中的 {@link HMature.HPre} 处理器
  * 针对框架中的插件执行双重处理：
  * <pre><code>
  *     Vertx容器已执行完实例化
