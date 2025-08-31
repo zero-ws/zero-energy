@@ -1,6 +1,6 @@
 package io.zerows.module.domain.uca.serialization;
 
-import io.zerows.agreed.constant.VValue;
+import io.zerows.ams.constant.VValue;
 import io.zerows.core.fn.Fn;
 
 class ByteArraySaber extends AbstractSaber {

@@ -1,7 +1,7 @@
 package io.zerows.core.web.scheduler.store;
 
-import io.zerows.agreed.constant.VPath;
-import io.zerows.agreed.constant.VString;
+import io.zerows.ams.constant.VPath;
+import io.zerows.ams.constant.VString;
 import io.vertx.core.json.JsonObject;
 import io.zerows.core.annotations.Job;
 import io.zerows.core.constant.KName;

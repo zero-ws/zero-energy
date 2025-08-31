@@ -3,7 +3,7 @@ package io.zerows.core.web.model.extension;
 
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
-import io.zerows.agreed.constant.spec.VBoot;
+import io.zerows.ams.constant.spec.VBoot;
 import io.zerows.core.uca.cache.Cc;
 import io.zerows.core.util.Ut;
 import io.zerows.core.web.model.uca.normalize.EquipAt;

@@ -1,6 +1,6 @@
 package io.zerows.core.util;
 
-import io.zerows.agreed.util.HUt;
+import io.zerows.ams.util.HUt;
 import io.zerows.core.fn.Fn;
 
 import javax.crypto.Cipher;

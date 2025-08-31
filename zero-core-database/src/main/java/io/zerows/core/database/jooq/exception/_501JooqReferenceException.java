@@ -1,6 +1,6 @@
 package io.zerows.core.database.jooq.exception;
 
-import io.zerows.agreed.constant.em.app.HttpStatusCode;
+import io.zerows.ams.constant.em.app.HttpStatusCode;
 import io.zerows.core.exception.WebException;
 
 public class _501JooqReferenceException extends WebException {

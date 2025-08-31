@@ -1,6 +1,6 @@
 package io.zerows.core.web.mbse.atom.shape;
 
-import io.zerows.agreed.util.HUt;
+import io.zerows.ams.util.HUt;
 import io.zerows.specification.access.app.HArk;
 import io.zerows.common.normalize.KMarkAtom;
 import io.zerows.common.normalize.KMarkAttribute;

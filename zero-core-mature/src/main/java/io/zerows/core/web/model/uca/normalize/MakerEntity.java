@@ -2,7 +2,7 @@ package io.zerows.core.web.model.uca.normalize;
 
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
-import io.zerows.agreed.annotations.ChatGPT;
+import io.zerows.ams.annotations.ChatGPT;
 import io.zerows.core.constant.KName;
 import io.zerows.core.util.Ut;
 import io.zerows.module.metadata.atom.configuration.modeling.MDConnect;

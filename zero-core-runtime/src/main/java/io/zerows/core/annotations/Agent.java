@@ -1,6 +1,6 @@
 package io.zerows.core.annotations;
 
-import io.zerows.agreed.constant.em.app.ServerType;
+import io.zerows.ams.constant.em.app.ServerType;
 import io.zerows.core.constant.KWeb;
 
 import java.lang.annotation.*;

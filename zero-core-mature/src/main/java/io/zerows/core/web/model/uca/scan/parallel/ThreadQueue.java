@@ -1,6 +1,6 @@
 package io.zerows.core.web.model.uca.scan.parallel;
 
-import io.zerows.agreed.fn.Actuator;
+import io.zerows.ams.fn.Actuator;
 import io.zerows.core.uca.log.Annal;
 
 import java.util.ArrayList;

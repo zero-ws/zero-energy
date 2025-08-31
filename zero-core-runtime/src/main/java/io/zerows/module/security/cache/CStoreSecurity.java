@@ -1,6 +1,6 @@
 package io.zerows.module.security.cache;
 
-import io.zerows.agreed.annotations.Memory;
+import io.zerows.ams.annotations.Memory;
 import io.zerows.core.uca.cache.Cc;
 import io.zerows.module.metadata.cache.CStore;
 import io.zerows.module.security.atom.manage.KPermit;

@@ -1,6 +1,6 @@
 package io.zerows.module.metadata.zdk.running;
 
-import io.zerows.agreed.constant.VString;
+import io.zerows.ams.constant.VString;
 import io.zerows.core.exception.web._501NotSupportException;
 import io.zerows.core.uca.cache.Cc;
 import io.zerows.core.util.Ut;

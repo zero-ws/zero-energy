@@ -1,6 +1,6 @@
 package io.zerows.core.web.cache.shared.exception;
 
-import io.zerows.agreed.constant.em.app.HttpStatusCode;
+import io.zerows.ams.constant.em.app.HttpStatusCode;
 import io.zerows.core.exception.WebException;
 
 public class _500SharedDataModeException extends WebException {

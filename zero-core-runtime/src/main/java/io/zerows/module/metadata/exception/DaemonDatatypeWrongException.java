@@ -1,6 +1,6 @@
 package io.zerows.module.metadata.exception;
 
-import io.zerows.agreed.constant.em.typed.EmType;
+import io.zerows.ams.constant.em.typed.EmType;
 import io.zerows.core.exception.DaemonException;
 
 public class DaemonDatatypeWrongException extends DaemonException {

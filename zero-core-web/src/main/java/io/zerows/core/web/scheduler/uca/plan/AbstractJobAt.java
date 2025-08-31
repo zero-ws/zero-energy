@@ -1,6 +1,6 @@
 package io.zerows.core.web.scheduler.uca.plan;
 
-import io.zerows.agreed.constant.VString;
+import io.zerows.ams.constant.VString;
 import io.zerows.common.program.Kv;
 import io.zerows.core.exception.web._501NotSupportException;
 import io.zerows.core.util.Ut;

@@ -1,6 +1,6 @@
 package io.zerows.core.util;
 
-import io.zerows.agreed.constant.VString;
+import io.zerows.ams.constant.VString;
 import io.vertx.core.json.JsonObject;
 
 import java.util.HashSet;

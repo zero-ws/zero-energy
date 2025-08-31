@@ -1,6 +1,6 @@
 package io.zerows.core.web.scheduler.plugins;
 
-import io.zerows.agreed.constant.VString;
+import io.zerows.ams.constant.VString;
 import io.vertx.codegen.annotations.Fluent;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Future;

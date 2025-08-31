@@ -1,6 +1,6 @@
 package io.zerows.core.web.model.uca.codec;
 
-import io.zerows.agreed.constant.VValue;
+import io.zerows.ams.constant.VValue;
 import io.vertx.core.buffer.Buffer;
 import io.vertx.core.eventbus.MessageCodec;
 import io.zerows.core.util.Ut;

@@ -1,7 +1,7 @@
 package io.zerows.module.configuration.zdk;
 
 import io.vertx.core.http.HttpServerOptions;
-import io.zerows.agreed.constant.em.app.ServerType;
+import io.zerows.ams.constant.em.app.ServerType;
 import io.zerows.core.exception.web._501NotSupportException;
 
 import java.io.Serializable;

@@ -1,6 +1,6 @@
 package io.zerows.core.web.validation.uca.rules;
 
-import io.zerows.agreed.constant.VValue;
+import io.zerows.ams.constant.VValue;
 import io.zerows.core.exception.WebException;
 import io.zerows.core.web.model.atom.Rule;
 

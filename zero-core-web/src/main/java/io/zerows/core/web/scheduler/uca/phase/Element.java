@@ -7,7 +7,7 @@ import io.zerows.core.uca.cache.Cc;
 import io.zerows.core.web.scheduler.atom.Mission;
 import io.zerows.core.web.scheduler.zdk.JobIncome;
 import io.zerows.core.web.scheduler.zdk.JobOutcome;
-import io.zerows.agreed.fn.Actuator;
+import io.zerows.ams.fn.Actuator;
 
 import java.util.Objects;
 

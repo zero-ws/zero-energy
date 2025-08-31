@@ -1,7 +1,7 @@
 package io.zerows.core.database.jooq;
 
 import io.vertx.core.json.JsonObject;
-import io.zerows.agreed.constant.em.EmDS;
+import io.zerows.ams.constant.em.EmDS;
 import io.zerows.core.constant.KName;
 import io.zerows.core.constant.configure.YmlCore;
 import io.zerows.core.database.atom.Database;

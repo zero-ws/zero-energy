@@ -2,9 +2,9 @@ package io.zerows.core.util;
 
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
-import io.zerows.agreed.constant.VPath;
-import io.zerows.agreed.constant.VString;
-import io.zerows.agreed.util.HUt;
+import io.zerows.ams.constant.VPath;
+import io.zerows.ams.constant.VString;
+import io.zerows.ams.util.HUt;
 import io.zerows.core.fn.Fn;
 import io.zerows.core.uca.cache.Cc;
 import org.osgi.framework.Bundle;

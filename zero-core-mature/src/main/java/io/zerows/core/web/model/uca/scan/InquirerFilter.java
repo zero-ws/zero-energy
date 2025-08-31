@@ -3,7 +3,7 @@ package io.zerows.core.web.model.uca.scan;
 import io.reactivex.rxjava3.core.Observable;
 import io.vertx.core.http.HttpServerRequest;
 import io.vertx.core.http.HttpServerResponse;
-import io.zerows.agreed.constant.VValue;
+import io.zerows.ams.constant.VValue;
 import io.zerows.core.annotations.Ordered;
 import io.zerows.core.constant.KWeb;
 import io.zerows.core.fn.Fn;

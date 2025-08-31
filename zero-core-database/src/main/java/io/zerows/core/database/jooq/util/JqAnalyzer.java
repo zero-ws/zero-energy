@@ -1,8 +1,8 @@
 package io.zerows.core.database.jooq.util;
 
 import io.vertx.core.json.JsonObject;
-import io.zerows.agreed.constant.VString;
-import io.zerows.agreed.constant.VValue;
+import io.zerows.ams.constant.VString;
+import io.zerows.ams.constant.VValue;
 import io.zerows.core.database.jooq.JooqDsl;
 import io.zerows.core.database.jooq.condition.JooqCond;
 import io.zerows.core.database.jooq.exception.BootJooqFieldMissingException;

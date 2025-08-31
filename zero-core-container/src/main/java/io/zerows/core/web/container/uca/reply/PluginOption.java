@@ -1,7 +1,7 @@
 package io.zerows.core.web.container.uca.reply;
 
 import io.vertx.core.json.JsonObject;
-import io.zerows.agreed.constant.VName;
+import io.zerows.ams.constant.VName;
 import io.zerows.core.constant.configure.YmlCore;
 import io.zerows.core.uca.cache.Cc;
 import io.zerows.core.util.Ut;

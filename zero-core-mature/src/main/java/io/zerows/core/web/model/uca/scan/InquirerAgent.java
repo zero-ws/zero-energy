@@ -1,6 +1,6 @@
 package io.zerows.core.web.model.uca.scan;
 
-import io.zerows.agreed.constant.em.app.ServerType;
+import io.zerows.ams.constant.em.app.ServerType;
 import io.zerows.core.annotations.Agent;
 import io.zerows.core.fn.Fn;
 import io.zerows.core.uca.log.Annal;

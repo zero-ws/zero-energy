@@ -1,7 +1,7 @@
 package io.zerows.module.domain.exception;
 
 import io.vertx.core.json.JsonObject;
-import io.zerows.agreed.constant.em.app.HttpStatusCode;
+import io.zerows.ams.constant.em.app.HttpStatusCode;
 import io.zerows.core.exception.WebException;
 
 /**

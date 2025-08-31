@@ -4,7 +4,7 @@ import io.vertx.core.DeploymentOptions;
 import io.vertx.core.VertxOptions;
 import io.vertx.core.eventbus.DeliveryOptions;
 import io.vertx.core.http.HttpServerOptions;
-import io.zerows.agreed.constant.em.app.ServerType;
+import io.zerows.ams.constant.em.app.ServerType;
 import io.zerows.module.configuration.atom.option.ActorTool;
 import io.zerows.module.configuration.atom.option.RpcOptions;
 import io.zerows.module.configuration.atom.option.SockOptions;

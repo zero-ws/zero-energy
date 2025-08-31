@@ -1,6 +1,6 @@
 package io.zerows.core.web.scheduler.uca.plan;
 
-import io.zerows.agreed.constant.em.typed.PerMode;
+import io.zerows.ams.constant.em.typed.PerMode;
 import io.zerows.core.uca.cache.Cc;
 
 import java.time.Instant;

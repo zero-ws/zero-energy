@@ -1,6 +1,6 @@
 package io.zerows.core.web.model.uca.normalize;
 
-import io.zerows.agreed.constant.VString;
+import io.zerows.ams.constant.VString;
 import io.zerows.core.uca.cache.Cc;
 import io.zerows.core.util.Ut;
 import io.zerows.module.metadata.atom.configuration.MDConfiguration;

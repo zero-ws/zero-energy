@@ -1,6 +1,6 @@
 package io.zerows.core.database.jooq.operation;
 
-import io.zerows.agreed.constant.VValue;
+import io.zerows.ams.constant.VValue;
 import io.zerows.core.uca.qr.syntax.Ir;
 import io.vertx.core.CompositeFuture;
 import io.vertx.core.Future;

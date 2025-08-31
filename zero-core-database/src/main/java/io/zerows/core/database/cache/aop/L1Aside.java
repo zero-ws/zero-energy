@@ -1,6 +1,6 @@
 package io.zerows.core.database.cache.aop;
 
-import io.zerows.agreed.fn.ErrorSupplier;
+import io.zerows.ams.fn.ErrorSupplier;
 import io.vertx.core.Future;
 import io.zerows.core.fn.Fn;
 import io.zerows.core.database.cache.Harp;

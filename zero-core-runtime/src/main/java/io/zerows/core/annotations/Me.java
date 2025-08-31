@@ -1,6 +1,6 @@
 package io.zerows.core.annotations;
 
-import io.zerows.agreed.constant.em.modeling.EmValue;
+import io.zerows.ams.constant.em.modeling.EmValue;
 
 import java.lang.annotation.*;
 

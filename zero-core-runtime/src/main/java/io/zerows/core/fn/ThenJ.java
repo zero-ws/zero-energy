@@ -1,6 +1,6 @@
 package io.zerows.core.fn;
 
-import io.zerows.agreed.fn.HFn;
+import io.zerows.ams.fn.HFn;
 import io.zerows.core.uca.log.Log;
 import io.vertx.core.CompositeFuture;
 import io.vertx.core.Future;

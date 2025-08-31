@@ -1,6 +1,6 @@
 package io.zerows.core.web.model.store;
 
-import io.zerows.agreed.constant.em.app.ServerType;
+import io.zerows.ams.constant.em.app.ServerType;
 import io.zerows.core.annotations.QaS;
 import io.zerows.core.constant.KMeta;
 import io.zerows.core.fn.Fn;

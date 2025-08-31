@@ -1,7 +1,7 @@
 package io.zerows.core.web.container.store;
 
 import io.vertx.core.json.JsonObject;
-import io.zerows.agreed.constant.em.EmApp;
+import io.zerows.ams.constant.em.EmApp;
 import io.zerows.core.annotations.Up;
 import io.zerows.core.constant.configure.YmlCore;
 import io.zerows.core.exception.BootingException;

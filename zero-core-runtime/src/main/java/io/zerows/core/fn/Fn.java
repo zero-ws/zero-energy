@@ -1,6 +1,6 @@
 package io.zerows.core.fn;
 
-import io.zerows.agreed.fn.ErrorSupplier;
+import io.zerows.ams.fn.ErrorSupplier;
 import io.vertx.core.Future;
 
 import java.util.function.Consumer;

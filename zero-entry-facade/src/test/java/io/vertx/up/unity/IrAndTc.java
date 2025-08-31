@@ -1,6 +1,6 @@
 package io.vertx.up.unity;
 
-import io.zerows.agreed.constant.VString;
+import io.zerows.ams.constant.VString;
 import io.vertx.core.json.JsonObject;
 import io.zerows.core.util.Ut;
 import io.zerows.core.testing.ZeroBase;

@@ -1,6 +1,6 @@
 package io.zerows.core.util;
 
-import io.zerows.agreed.util.HUt;
+import io.zerows.ams.util.HUt;
 import io.zerows.module.metadata.eon.OMessage;
 import io.zerows.module.metadata.zdk.running.OCommand;
 import org.osgi.framework.Bundle;

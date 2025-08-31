@@ -1,7 +1,7 @@
 package io.zerows.core.web.container.uca.store;
 
 import io.vertx.core.Vertx;
-import io.zerows.agreed.constant.VString;
+import io.zerows.ams.constant.VString;
 import io.zerows.core.annotations.Infusion;
 import io.zerows.core.constant.KMeta;
 import io.zerows.core.exception.web._501NotSupportException;

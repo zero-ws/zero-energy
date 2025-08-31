@@ -1,8 +1,8 @@
 package io.zerows.core.database.atom;
 
 import io.vertx.core.json.JsonObject;
-import io.zerows.agreed.annotations.Legacy;
-import io.zerows.agreed.constant.em.EmDS;
+import io.zerows.ams.annotations.Legacy;
+import io.zerows.ams.constant.em.EmDS;
 import io.zerows.common.app.KDatabase;
 import io.zerows.core.constant.configure.YmlCore;
 import io.zerows.core.util.Ut;

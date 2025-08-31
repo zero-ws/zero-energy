@@ -1,6 +1,6 @@
 package io.zerows.module.metadata.exception;
 
-import io.zerows.agreed.constant.em.app.HttpStatusCode;
+import io.zerows.ams.constant.em.app.HttpStatusCode;
 import io.zerows.core.exception.WebException;
 
 public class _412ContractFieldException extends WebException {

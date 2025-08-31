@@ -1,6 +1,6 @@
 package io.zerows.core.database.jooq.operation;
 
-import io.zerows.agreed.constant.VValue;
+import io.zerows.ams.constant.VValue;
 import io.vertx.core.Future;
 import io.vertx.core.json.JsonObject;
 import io.zerows.core.database.jooq.util.JqAnalyzer;

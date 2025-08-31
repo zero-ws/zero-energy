@@ -2,7 +2,7 @@ package io.zerows.core.web.model.commune;
 
 import io.vertx.core.buffer.Buffer;
 import io.vertx.core.json.JsonObject;
-import io.zerows.agreed.constant.VName;
+import io.zerows.ams.constant.VName;
 import io.zerows.core.exception.WebException;
 import io.zerows.core.fn.Fn;
 import io.zerows.module.domain.uca.serialization.ZeroType;

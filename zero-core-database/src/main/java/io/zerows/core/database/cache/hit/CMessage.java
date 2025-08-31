@@ -1,6 +1,6 @@
 package io.zerows.core.database.cache.hit;
 
-import io.zerows.agreed.constant.em.typed.ChangeFlag;
+import io.zerows.ams.constant.em.typed.ChangeFlag;
 import io.vertx.core.buffer.Buffer;
 
 import java.util.TreeSet;

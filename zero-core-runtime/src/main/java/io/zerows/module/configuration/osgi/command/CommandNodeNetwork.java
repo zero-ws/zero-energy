@@ -1,6 +1,6 @@
 package io.zerows.module.configuration.osgi.command;
 
-import io.zerows.agreed.constant.VString;
+import io.zerows.ams.constant.VString;
 import io.zerows.module.configuration.atom.NodeNetwork;
 import io.zerows.module.configuration.atom.option.ClusterOptions;
 import io.zerows.module.configuration.store.OCacheNode;

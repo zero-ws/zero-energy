@@ -2,7 +2,7 @@ package io.zerows.core.web.mbse.atom.internal;
 
 import io.zerows.core.exception.web._501NotSupportException;
 import io.zerows.specification.access.app.HArk;
-import io.zerows.agreed.constant.em.modeling.EmModel;
+import io.zerows.ams.constant.em.modeling.EmModel;
 import io.zerows.specification.modeling.HAttribute;
 import io.zerows.specification.modeling.HRule;
 import io.vertx.core.json.JsonObject;

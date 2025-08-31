@@ -1,6 +1,6 @@
 package io.zerows.module.domain.uca.serialization;
 
-import io.zerows.agreed.constant.VString;
+import io.zerows.ams.constant.VString;
 import io.zerows.core.fn.Fn;
 
 /**

@@ -1,7 +1,7 @@
 package io.zerows.core.web.container.uca.mode;
 
-import io.zerows.agreed.constant.VString;
-import io.zerows.agreed.constant.em.app.HttpStatusCode;
+import io.zerows.ams.constant.VString;
+import io.zerows.ams.constant.em.app.HttpStatusCode;
 import io.vertx.core.http.HttpHeaders;
 import io.vertx.core.http.HttpMethod;
 import io.vertx.core.http.HttpServerResponse;

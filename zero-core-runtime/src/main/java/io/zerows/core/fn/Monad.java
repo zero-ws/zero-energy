@@ -1,7 +1,7 @@
 package io.zerows.core.fn;
 
 import io.vertx.core.Future;
-import io.zerows.agreed.fn.ErrorSupplier;
+import io.zerows.ams.fn.ErrorSupplier;
 import io.zerows.core.util.Ut;
 import io.zerows.module.metadata.uca.logging.OLog;
 

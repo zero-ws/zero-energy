@@ -2,8 +2,8 @@ package io.zerows.module.metadata.uca.stable;
 
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
-import io.zerows.agreed.constant.VPath;
-import io.zerows.agreed.constant.VString;
+import io.zerows.ams.constant.VPath;
+import io.zerows.ams.constant.VString;
 import io.zerows.core.exception.ProgramException;
 import io.zerows.core.fn.Fn;
 import io.zerows.core.uca.cache.Cc;

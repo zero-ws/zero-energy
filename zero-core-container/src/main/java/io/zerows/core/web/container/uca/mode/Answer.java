@@ -1,6 +1,6 @@
 package io.zerows.core.web.container.uca.mode;
 
-import io.zerows.agreed.constant.em.app.HttpStatusCode;
+import io.zerows.ams.constant.em.app.HttpStatusCode;
 import io.zerows.core.exception.web._500InternalServerException;
 import io.vertx.core.Future;
 import io.vertx.core.http.HttpServerResponse;

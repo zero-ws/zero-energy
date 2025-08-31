@@ -2,8 +2,8 @@ package io.zerows.core.database.jooq.condition;
 
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
-import io.zerows.agreed.constant.VString;
-import io.zerows.agreed.constant.VValue;
+import io.zerows.ams.constant.VString;
+import io.zerows.ams.constant.VValue;
 import io.zerows.core.database.jooq.exception.BootJooqCondClauseException;
 import io.zerows.core.database.jooq.exception.BootJooqCondFieldException;
 import io.zerows.core.fn.Fn;

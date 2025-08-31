@@ -1,9 +1,9 @@
 package io.zerows.module.metadata.store;
 
 import io.vertx.core.json.JsonObject;
-import io.zerows.agreed.constant.VPath;
-import io.zerows.agreed.constant.VString;
-import io.zerows.agreed.constant.spec.VBoot;
+import io.zerows.ams.constant.VPath;
+import io.zerows.ams.constant.VString;
+import io.zerows.ams.constant.spec.VBoot;
 import io.zerows.core.constant.KName;
 import io.zerows.core.constant.KPlugin;
 import io.zerows.core.constant.configure.YmlCore;

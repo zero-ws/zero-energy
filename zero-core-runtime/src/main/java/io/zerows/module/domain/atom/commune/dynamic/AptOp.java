@@ -1,7 +1,7 @@
 package io.zerows.module.domain.atom.commune.dynamic;
 
 import io.vertx.core.json.JsonObject;
-import io.zerows.agreed.constant.em.typed.ChangeFlag;
+import io.zerows.ams.constant.em.typed.ChangeFlag;
 
 /*
  * Package scope

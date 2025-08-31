@@ -1,9 +1,9 @@
 package io.zerows.core.constant.configure;
 
-import io.zerows.agreed.constant.VPath;
-import io.zerows.agreed.constant.VString;
-import io.zerows.agreed.constant.em.EmDS;
-import io.zerows.agreed.util.HUt;
+import io.zerows.ams.constant.VPath;
+import io.zerows.ams.constant.VString;
+import io.zerows.ams.constant.em.EmDS;
+import io.zerows.ams.util.HUt;
 import io.zerows.core.annotations.Infusion;
 import io.zerows.core.constant.KName;
 import io.zerows.core.constant.em.EmSecure;

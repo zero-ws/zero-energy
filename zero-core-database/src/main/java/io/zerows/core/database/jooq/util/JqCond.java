@@ -1,6 +1,6 @@
 package io.zerows.core.database.jooq.util;
 
-import io.zerows.agreed.constant.VString;
+import io.zerows.ams.constant.VString;
 import io.zerows.core.uca.qr.syntax.Ir;
 import io.vertx.core.json.JsonObject;
 

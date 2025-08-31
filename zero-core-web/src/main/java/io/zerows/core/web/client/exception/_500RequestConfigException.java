@@ -1,6 +1,6 @@
 package io.zerows.core.web.client.exception;
 
-import io.zerows.agreed.constant.em.app.HttpStatusCode;
+import io.zerows.ams.constant.em.app.HttpStatusCode;
 import io.zerows.core.exception.WebException;
 import io.zerows.common.app.KIntegrationApi;
 import io.vertx.core.json.JsonObject;

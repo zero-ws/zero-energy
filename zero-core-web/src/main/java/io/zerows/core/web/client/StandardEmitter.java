@@ -1,7 +1,7 @@
 package io.zerows.core.web.client;
 
-import io.zerows.agreed.constant.VPath;
-import io.zerows.agreed.constant.VString;
+import io.zerows.ams.constant.VPath;
+import io.zerows.ams.constant.VString;
 import io.zerows.common.app.KIntegration;
 import io.zerows.common.app.KIntegrationApi;
 import io.vertx.core.MultiMap;

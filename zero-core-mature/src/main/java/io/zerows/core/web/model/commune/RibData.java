@@ -1,7 +1,7 @@
 package io.zerows.core.web.model.commune;
 
 
-import io.zerows.agreed.constant.VName;
+import io.zerows.ams.constant.VName;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
 import io.zerows.core.constant.KWeb;

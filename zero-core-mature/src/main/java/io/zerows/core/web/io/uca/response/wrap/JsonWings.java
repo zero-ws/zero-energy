@@ -1,7 +1,7 @@
 package io.zerows.core.web.io.uca.response.wrap;
 
-import io.zerows.agreed.constant.VString;
-import io.zerows.agreed.constant.em.app.HttpStatusCode;
+import io.zerows.ams.constant.VString;
+import io.zerows.ams.constant.em.app.HttpStatusCode;
 import io.vertx.core.http.HttpServerResponse;
 import io.zerows.core.web.model.commune.Envelop;
 

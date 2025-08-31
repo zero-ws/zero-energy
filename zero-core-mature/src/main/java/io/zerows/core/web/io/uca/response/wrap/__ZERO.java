@@ -1,7 +1,7 @@
 package io.zerows.core.web.io.uca.response.wrap;
 
 import io.zerows.core.uca.cache.Cc;
-import io.zerows.agreed.annotations.Memory;
+import io.zerows.ams.annotations.Memory;
 import jakarta.ws.rs.core.MediaType;
 
 import java.util.concurrent.ConcurrentHashMap;

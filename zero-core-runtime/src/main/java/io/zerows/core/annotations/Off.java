@@ -1,6 +1,6 @@
 package io.zerows.core.annotations;
 
-import io.zerows.agreed.constant.VString;
+import io.zerows.ams.constant.VString;
 import io.zerows.core.constant.DefaultClass;
 
 import java.lang.annotation.*;

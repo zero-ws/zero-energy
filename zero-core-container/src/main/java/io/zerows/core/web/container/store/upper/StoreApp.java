@@ -1,6 +1,6 @@
 package io.zerows.core.web.container.store.upper;
 
-import io.zerows.agreed.constant.VString;
+import io.zerows.ams.constant.VString;
 import io.zerows.specification.access.app.HApp;
 import io.zerows.specification.access.app.HArk;
 import io.zerows.common.app.KDS;

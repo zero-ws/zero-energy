@@ -1,6 +1,6 @@
 package io.zerows.module.security.exception;
 
-import io.zerows.agreed.constant.em.app.HttpStatusCode;
+import io.zerows.ams.constant.em.app.HttpStatusCode;
 import io.zerows.core.constant.em.EmSecure;
 import io.zerows.core.exception.WebException;
 

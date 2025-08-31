@@ -1,6 +1,6 @@
 package io.zerows.core.util;
 
-import io.zerows.agreed.util.HUt;
+import io.zerows.ams.util.HUt;
 
 /**
  * @author lang : 2023-06-19

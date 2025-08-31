@@ -1,6 +1,6 @@
 package io.zerows.module.assembly.osgi.command;
 
-import io.zerows.agreed.constant.VString;
+import io.zerows.ams.constant.VString;
 import io.zerows.core.constant.KMeta;
 import io.zerows.core.util.Ut;
 import io.zerows.module.metadata.store.OCacheClass;

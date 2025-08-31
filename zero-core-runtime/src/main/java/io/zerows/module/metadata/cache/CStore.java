@@ -1,7 +1,7 @@
 package io.zerows.module.metadata.cache;
 
 import io.vertx.core.json.JsonObject;
-import io.zerows.agreed.annotations.Memory;
+import io.zerows.ams.annotations.Memory;
 import io.zerows.core.uca.cache.Cc;
 
 /**

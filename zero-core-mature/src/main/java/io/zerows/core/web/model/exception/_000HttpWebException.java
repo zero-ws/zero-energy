@@ -1,6 +1,6 @@
 package io.zerows.core.web.model.exception;
 
-import io.zerows.agreed.constant.em.app.HttpStatusCode;
+import io.zerows.ams.constant.em.app.HttpStatusCode;
 import io.zerows.core.exception.WebException;
 import io.vertx.ext.web.handler.HttpException;
 

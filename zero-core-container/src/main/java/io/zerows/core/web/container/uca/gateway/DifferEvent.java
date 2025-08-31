@@ -1,6 +1,6 @@
 package io.zerows.core.web.container.uca.gateway;
 
-import io.zerows.agreed.constant.VValue;
+import io.zerows.ams.constant.VValue;
 import io.zerows.core.uca.log.Annal;
 import io.vertx.core.eventbus.Message;
 import io.vertx.ext.web.RoutingContext;

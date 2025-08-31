@@ -1,7 +1,7 @@
 package io.zerows.module.configuration.atom.server;
 
 import io.vertx.core.http.HttpServerOptions;
-import io.zerows.agreed.constant.em.app.ServerType;
+import io.zerows.ams.constant.em.app.ServerType;
 import io.zerows.module.configuration.atom.option.RpcOptions;
 import io.zerows.module.configuration.atom.option.SockOptions;
 import io.zerows.module.configuration.zdk.OptionOfServer;

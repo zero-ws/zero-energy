@@ -1,6 +1,6 @@
 package io.zerows.module.domain.uca.destine;
 
-import io.zerows.agreed.annotations.Memory;
+import io.zerows.ams.annotations.Memory;
 import io.zerows.core.uca.cache.Cc;
 
 

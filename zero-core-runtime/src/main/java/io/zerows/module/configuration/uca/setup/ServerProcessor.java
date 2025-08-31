@@ -2,7 +2,7 @@ package io.zerows.module.configuration.uca.setup;
 
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
-import io.zerows.agreed.constant.em.app.ServerType;
+import io.zerows.ams.constant.em.app.ServerType;
 import io.zerows.core.constant.KName;
 import io.zerows.core.constant.configure.YmlCore;
 import io.zerows.core.fn.Fn;

@@ -1,7 +1,7 @@
 package io.zerows.core.util;
 
-import io.zerows.agreed.constant.VString;
-import io.zerows.agreed.constant.em.typed.ChangeFlag;
+import io.zerows.ams.constant.VString;
+import io.zerows.ams.constant.em.typed.ChangeFlag;
 import io.vertx.core.Future;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
