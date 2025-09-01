@@ -6,6 +6,7 @@
         <artifactId>zero-ecosystem</artifactId>
         <groupId>io.zerows</groupId>
         <version>1.0.0</version>
+        <relativePath>.././zero-core-version/./zero-ecosystem/pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>zero-energy</artifactId>
