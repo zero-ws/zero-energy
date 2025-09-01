@@ -33,7 +33,7 @@ class EquipWeb implements EquipAt {
         final Bundle owner = id.owner();
         if (Objects.isNull(owner)) {
             final String split = id.value();
-            return filePath.split(split)[1];
+            return filePath.split(split)[2];
         } else {
             // 如果是 Bundle 有值，此处的 filePath 一定会是相对路径
             return filePath;

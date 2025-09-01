@@ -1,1 +1,1 @@
-logger: io.horizon.uca.log.internal.Log4JAnnal
+logger: io.zerows.core.uca.log.internal.Log4JAnnal
