@@ -20,7 +20,7 @@ public abstract class AbstractJsonSaber extends AbstractSaber {
                         return this.getFun().apply(literal);
                     } catch (final DecodeException ex) {
                         // Do not do anything
-                        // getLogger().jvm(ex);
+                        // getLogger().checked(ex);
                         throw new _400ParameterFromStringException(this.getClass(), paramType, literal);
                     }
                 }, () -> null),
