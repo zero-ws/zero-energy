@@ -20,9 +20,9 @@ class SessionQuota extends AbstractQuota {
              * map calculated
              */
             final JsonObject sessions = new JsonObject();
-            map.size(res -> {
+            map.size().onComplete(res -> {
                 sessions.put("size", res.result());
-                map.keys(keySet -> {
+                map.keys().onComplete(keySet -> {
                     /*
                      * keys
                      */

@@ -295,13 +295,13 @@ class _Combine extends _Atomic {
      * @return Future<JsonObject> 返回执行过的结果
      */
     public static Future<JsonObject> combineJ_(
-        final Future<JsonObject> source, final Function<JsonObject, List<Future>> generateOf,
+        final Future<JsonObject> source, final Function<JsonObject, List<Future<?>>> generateOf,
         final BiConsumer<JsonObject, JsonObject>... combinerOf) {
         return ThenJ.combineJ(source, generateOf, combinerOf);
     }
 
     public static Future<JsonObject> combineJ_(
-        final JsonObject source, final Function<JsonObject, List<Future>> generateFun,
+        final JsonObject source, final Function<JsonObject, List<Future<?>>> generateFun,
         final BiConsumer<JsonObject, JsonObject>... operatorFun) {
         return ThenJ.combineJ(Future.succeededFuture(source), generateFun, operatorFun);
     }

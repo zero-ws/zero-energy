@@ -82,7 +82,7 @@ public class SessionClientImpl implements SessionClient {
     @Override
     public Future<Session> get(final String id) {
         final Promise<Session> promise = Promise.promise();
-        STORE.get(id, result -> {
+        STORE.get(id).onComplete(result -> {
             if (result.succeeded()) {
                 promise.complete(result.result());
             } else {

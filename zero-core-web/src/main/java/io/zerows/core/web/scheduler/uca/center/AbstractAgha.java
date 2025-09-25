@@ -2,8 +2,8 @@ package io.zerows.core.web.scheduler.uca.center;
 
 import io.vertx.core.Future;
 import io.vertx.core.Vertx;
+import io.vertx.core.VertxException;
 import io.vertx.core.WorkerExecutor;
-import io.vertx.core.impl.NoStackTraceThrowable;
 import io.zerows.ams.fn.Actuator;
 import io.zerows.core.annotations.Contract;
 import io.zerows.core.constant.em.EmJob;
@@ -176,40 +176,84 @@ public abstract class AbstractAgha implements Agha {
             /*
              * The executor start to process the workers here.
              */
-            executor.<Envelop>executeBlocking(promise -> promise.handle(this.workingAsync(mission)
-                .compose(result -> {
-                    /*
-                     * The job is executing successfully and then stopped
-                     */
-                    actuator.execute();
-                    this.logger().info(MessageOfJob.AGHA.WORKER_END, code);
-                    return Future.succeededFuture(result);
-                })
-                .otherwise(error -> {
-                    /*
-                     * The job exception
-                     */
-                    if (!(error instanceof NoStackTraceThrowable)) {
-                        error.printStackTrace();
-                        this.moveOn(mission, false);
-                    }
-                    return Envelop.failure(error);
-                })), handler -> {
+            //            executor.<Envelop>executeBlocking(promise -> promise.handle(this.workingAsync(mission)
+            //                .compose(result -> {
+            //                    /*
+            //                     * The job is executing successfully and then stopped
+            //                     */
+            //                    actuator.execute();
+            //                    this.logger().info(MessageOfJob.AGHA.WORKER_END, code);
+            //                    return Future.succeededFuture(result);
+            //                })
+            //                .otherwise(error -> {
+            //                    /*
+            //                     * The job exception
+            //                     */
+            //                    if (!(error instanceof NoStackTraceThrowable)) {
+            //                        error.printStackTrace();
+            //                        this.moveOn(mission, false);
+            //                    }
+            //                    return Envelop.failure(error);
+            //                })), handler -> {
+            //                /*
+            //                 * Async result here to check whether it's ended
+            //                 */
+            //                if (handler.succeeded()) {
+            //                    /*
+            //                     * Successful, close worker executor
+            //                     */
+            //                    executor.close();
+            //                } else {
+            //                    if (Objects.nonNull(handler.cause())) {
+            //                        /*
+            //                         * Failure, print stack instead of other exception here.
+            //                         */
+            //                        final Throwable error = handler.cause();
+            //                        if (!(error instanceof NoStackTraceThrowable)) {
+            //                            error.printStackTrace();
+            //                        }
+            //                    }
+            //                }
+            //            });
+            executor.<Envelop>executeBlocking(() -> {
+                // 在 executeBlocking 的 Callable 中，直接执行阻塞逻辑
+                return this.workingAsync(mission)
+                    .compose(result -> {
+                        /*
+                         * 任务执行成功，执行后置逻辑
+                         */
+                        actuator.execute();
+                        this.logger().info(MessageOfJob.AGHA.WORKER_END, code);
+                        return Future.succeededFuture(result);
+                    })
+                    .otherwise(error -> {
+                        /*
+                         * 任务执行异常
+                         */
+                        if (!(error instanceof VertxException)) {
+                            error.printStackTrace();
+                            this.moveOn(mission, false);
+                        }
+                        return Envelop.failure(error);
+                    })
+                    // 等待异步结果（因为 Callable 要返回 T，这里要阻塞获取）
+                    .toCompletionStage().toCompletableFuture().get();
+            }).onComplete(handler -> {
                 /*
-                 * Async result here to check whether it's ended
+                 * 异步结果检查是否完成
                  */
                 if (handler.succeeded()) {
                     /*
-                     * Successful, close worker executor
+                     * 成功，关闭 worker executor
                      */
                     executor.close();
                 } else {
                     if (Objects.nonNull(handler.cause())) {
                         /*
-                         * Failure, print stack instead of other exception here.
+                         * 失败，打印堆栈而不是吞掉异常
                          */
                         final Throwable error = handler.cause();
-                        if (!(error instanceof NoStackTraceThrowable)) {
+                        if (!(error instanceof VertxException)) {
                             error.printStackTrace();
                         }
                     }

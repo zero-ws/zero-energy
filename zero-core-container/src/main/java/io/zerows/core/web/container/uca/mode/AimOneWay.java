@@ -60,7 +60,7 @@ public class AimOneWay extends AbstractAim implements Aim<RoutingContext> {
                 if (dataRes.succeeded()) {
                     final NodeNetwork network = OCacheNode.of().network();
                     final DeliveryOptions deliveryOptions = network.get().optionDelivery();
-                    bus.<Envelop>request(address, dataRes.result(), deliveryOptions, handler -> {
+                    bus.<Envelop>request(address, dataRes.result(), deliveryOptions).onComplete(handler -> {
                         final Envelop response;
                         if (handler.succeeded()) {
                             /*

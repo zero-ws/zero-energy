@@ -1,11 +1,10 @@
 package io.zerows.core.fn;
 
-import io.zerows.ams.fn.HFn;
-import io.zerows.core.uca.log.Log;
-import io.vertx.core.CompositeFuture;
 import io.vertx.core.Future;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
+import io.zerows.ams.fn.HFn;
+import io.zerows.core.uca.log.Log;
 import io.zerows.core.util.Ut;
 
 import java.util.Arrays;
@@ -47,7 +46,7 @@ final class ThenJ {
     }
 
     static Future<JsonObject> combineJ(final Future<JsonObject>... futures) {
-        return CompositeFuture.join(Arrays.asList(futures)).compose(finished -> {
+        return Future.join(Arrays.asList(futures)).compose(finished -> {
             final JsonObject resultMap = new JsonObject();
             if (null != finished) {
                 Ut.itList(finished.list(), (item, index) -> resultMap.put(index.toString(), item));
@@ -57,10 +56,10 @@ final class ThenJ {
     }
 
     static Future<JsonObject> combineJ(
-        final Future<JsonObject> source, final Function<JsonObject, List<Future>> generateFun,
+        final Future<JsonObject> source, final Function<JsonObject, List<Future<?>>> generateFun,
         final BiConsumer<JsonObject, JsonObject>... operatorFun
     ) {
-        return source.compose(first -> CompositeFuture.join(generateFun.apply(first)).compose(finished -> {
+        return source.compose(first -> Future.join(generateFun.apply(first)).compose(finished -> {
             if (null != finished) {
                 final List<JsonObject> secondary = finished.list();
                 // Zipper Operation, the base list is first

@@ -17,7 +17,7 @@ public abstract class AbstractQuota implements Quota {
     }
 
     protected void mapAsync(final String name, final Consumer<AsyncMap<String, Object>> consumer) {
-        this.vertx.sharedData().<String, Object>getAsyncMap(name, mapped -> {
+        this.vertx.sharedData().<String, Object>getAsyncMap(name).onComplete(mapped -> {
             if (mapped.succeeded()) {
                 consumer.accept(mapped.result());
             } else {

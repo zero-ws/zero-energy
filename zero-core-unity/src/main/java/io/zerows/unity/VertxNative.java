@@ -1,9 +1,6 @@
 package io.zerows.unity;
 
-import io.vertx.core.Handler;
-import io.vertx.core.Promise;
-import io.vertx.core.Vertx;
-import io.vertx.core.WorkerExecutor;
+import io.vertx.core.*;
 import io.vertx.core.eventbus.EventBus;
 import io.zerows.core.util.Ut;
 import io.zerows.core.web.model.commune.Envelop;
@@ -37,19 +34,33 @@ class VertxNative {
     }
 
     static <T> io.vertx.core.Future<T> nativeWorker(final String name, final Vertx vertx, final Handler<Promise<T>> handler) {
-        final Promise<T> promise = Promise.promise();
         final WorkerExecutor executor = nativeWorker(name, vertx, 10);
-        executor.executeBlocking(
-            handler,
-            post -> {
-                // Fix Issue:
-                // Task io.vertx.core.impl.TaskQueue$$Lambda$367/0x00000008004f3440@2b1e3784 rejected from
-                // java.util.concurrent.ThreadPoolExecutor@1db1d316
-                // [Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
-                executor.close();
-                promise.complete(post.result());
+
+        // 将旧的 Handler<Promise<T>> 包装成 Callable<T>
+        return executor.<T>executeBlocking(() -> {
+            final Promise<T> promise = Promise.promise();
+            try {
+                // 执行业务逻辑
+                handler.handle(promise);
+            } catch (final Throwable ex) {
+                promise.fail(ex);
             }
-        );
-        return promise.future();
+            // 等待 promise 完成，并返回结果（阻塞）
+            return promise.future()
+                .toCompletionStage()
+                .toCompletableFuture()
+                .get();
+        }).onComplete(ar -> {
+            // 无论成功还是失败，都要关闭 WorkerExecutor
+            executor.close();
+
+            if (ar.failed()) {
+                // 异常时打印堆栈
+                final Throwable error = ar.cause();
+                if (!(error instanceof VertxException)) {
+                    error.printStackTrace();
+                }
+            }
+        });
     }
 }

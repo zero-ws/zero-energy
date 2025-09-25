@@ -67,7 +67,7 @@ class Input {
                      */
                     input.complete(envelop);
                 }
-            }).completionHandler(item -> {
+            }).completion().onComplete(item -> {
                 /*
                  * This handler will cause finally for future
                  * If no data came from address

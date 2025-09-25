@@ -1,6 +1,5 @@
 package io.zerows.module.feature.toolkit.expression.wffs;
 
-import io.vertx.core.CompositeFuture;
 import io.vertx.core.Future;
 import io.vertx.core.json.JsonObject;
 
@@ -47,7 +46,7 @@ public class Regulation implements Serializable {
                 futures.add(formula.run(params, () -> ruleFn.apply(params)));
             }
         });
-        return CompositeFuture.join(new ArrayList<>(futures))
+        return Future.join(new ArrayList<>(futures))
             /*
              * Here are response ignored execution
              * 1) When the formula is triggered, the response should be ignored

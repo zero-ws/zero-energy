@@ -1,8 +1,7 @@
 package io.zerows.core.fn;
 
-import io.zerows.ams.fn.HFn;
-import io.vertx.core.CompositeFuture;
 import io.vertx.core.Future;
+import io.zerows.ams.fn.HFn;
 import io.zerows.core.util.Ut;
 
 import java.util.ArrayList;
@@ -17,8 +16,8 @@ final class ThenL {
     }
 
     static <T> Future<List<T>> compressL(final List<Future<List<T>>> futures) {
-        final List<Future> futureList = new ArrayList<>(futures);
-        return CompositeFuture.join(futureList).compose(finished -> {
+        final List<Future<?>> futureList = new ArrayList<>(futures);
+        return Future.join(futureList).compose(finished -> {
             final List<T> result = new ArrayList<>();
             if (null != finished) {
                 Ut.itList(finished.list(), (item, index) -> {

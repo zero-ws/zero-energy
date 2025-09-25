@@ -1,9 +1,8 @@
 package io.zerows.core.fn;
 
+import io.vertx.core.Future;
 import io.zerows.ams.constant.VValue;
 import io.zerows.ams.fn.HFn;
-import io.vertx.core.CompositeFuture;
-import io.vertx.core.Future;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,12 +21,12 @@ final class ThenM {
     @SuppressWarnings("all")
     static <K, T> Future<ConcurrentMap<K, T>> combineM(final ConcurrentMap<K, Future<T>> futureMap) {
         final List<K> keys = new ArrayList<>();
-        final List<Future> futures = new ArrayList<>();
+        final List<Future<?>> futures = new ArrayList<>();
         futureMap.forEach((key, future) -> {
             keys.add(key);
             futures.add(future);
         });
-        return CompositeFuture.join(futures).compose(finished -> {
+        return Future.join(futures).compose(finished -> {
             final List<T> list = finished.list();
             /*
              * Index mapping
@@ -56,7 +55,7 @@ final class ThenM {
         final BinaryOperator<T> binaryOperator
     ) {
         /* thenResponse */
-        return CompositeFuture.join(new ArrayList<>(futures)).compose(finished -> {
+        return Future.join(new ArrayList<>(futures)).compose(finished -> {
             final ConcurrentMap<String, T> resultMap = new ConcurrentHashMap<>();
             if (Objects.nonNull(finished)) {
                 final List<ConcurrentMap<String, T>> result = finished.list();

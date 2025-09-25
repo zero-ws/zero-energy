@@ -30,7 +30,7 @@ class VerticleQuota extends AbstractQuota {
              */
             final ConcurrentMap<String, Future<JsonObject>> mapped =
                 new ConcurrentHashMap<>();
-            map.keys(keyRes -> {
+            map.keys().onComplete(keyRes -> {
                 if (keyRes.succeeded()) {
                     final Set<String> keys = keyRes.result();
                     keys.forEach(key -> mapped.put(key, this.readAsync(key, map)));
@@ -50,7 +50,7 @@ class VerticleQuota extends AbstractQuota {
 
     private Future<JsonObject> readAsync(final String name, final AsyncMap<String, Object> map) {
         final Promise<JsonObject> promise = Promise.promise();
-        map.get(name, res -> {
+        map.get(name).onComplete(res -> {
             if (res.succeeded()) {
                 final JsonObject completed = (JsonObject) res.result();
                 promise.complete(completed);

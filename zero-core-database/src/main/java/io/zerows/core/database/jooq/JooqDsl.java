@@ -5,8 +5,6 @@ import io.vertx.core.Future;
 import io.vertx.core.Handler;
 import io.vertx.core.Promise;
 import io.vertx.core.Vertx;
-import io.vertx.core.impl.ContextInternal;
-import io.vertx.core.impl.future.PromiseImpl;
 import io.zerows.core.database.jooq.exception.BootJooqClassInvalidException;
 import io.zerows.core.database.jooq.exception.BootJooqVertxNullException;
 import io.zerows.core.fn.Fn;
@@ -15,6 +13,8 @@ import io.zerows.core.util.Ut;
 import io.zerows.module.metadata.uca.logging.OLog;
 import org.jooq.Configuration;
 import org.jooq.DSLContext;
+
+import java.util.concurrent.Callable;
 
 /**
  * Container to wrap Jooq / VertxDAO
@@ -89,8 +89,34 @@ public class JooqDsl {
     }
 
     public <T> Future<T> executeBlocking(Handler<Promise<T>> blockingCodeHandler) {
-        Promise<T> promise = new PromiseImpl((ContextInternal) this.vertxRef.getOrCreateContext());
-        this.vertxRef.executeBlocking(blockingCodeHandler, false, promise);
+        Promise<T> promise = Promise.promise();
+
+        // 关键：用 Callable 包裹 blockingCodeHandler
+        Callable<T> callable = () -> {
+            try {
+                blockingCodeHandler.handle(promise);
+                // 这里不能直接返回结果，因为用户是异步 complete()
+                // 所以返回 null 交给 promise.future() 处理
+                return null;
+            } catch (Throwable e) {
+                promise.fail(e);
+                return null;
+            }
+        };
+
+        
+        // 调用 Vert.x 5.x 的 API
+        vertxRef.executeBlocking(callable, false)
+            .onComplete(ar -> {
+                // 如果用户在 handler 里 complete/fail 了，这里就不用管
+                // 如果用户什么都没做，就把 Vert.x 的结果传回
+                if (ar.succeeded() && !promise.future().isComplete()) {
+                    promise.complete(ar.result());
+                } else if (ar.failed() && !promise.future().isComplete()) {
+                    promise.fail(ar.cause());
+                }
+            });
+
         return promise.future();
     }
 }

@@ -21,7 +21,7 @@ class LinearTool {
         final Vertx vertx = runVertx.instance();
         Objects.requireNonNull(vertx);
         // 发布启动
-        vertx.deployVerticle(() -> Ut.instance(verticleCls), options, (res) -> {
+        vertx.deployVerticle(() -> Ut.instance(verticleCls), options).onComplete((res) -> {
             final String deploymentId = res.result();
             if (res.succeeded()) {
                 Ut.Log.vertx(verticleCls).info(INFO.SUCCESS_STARTED,
@@ -54,7 +54,7 @@ class LinearTool {
         Objects.requireNonNull(vertx);
         // 发布撤销
         final Set<String> ids = runVertx.deploymentFind(verticleCls);
-        ids.forEach(id -> vertx.undeploy(id, res -> {
+        ids.forEach(id -> vertx.undeploy(id).onComplete(res -> {
             if (res.succeeded()) {
                 Ut.Log.vertx(verticleCls).info(INFO.SUCCESS_STOPPED,
                     // 0,1,2

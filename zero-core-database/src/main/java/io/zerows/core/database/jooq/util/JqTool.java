@@ -26,13 +26,13 @@ public class JqTool {
     public static <T> CompositeFuture joinAsync(final JsonObject criteria, final JsonObject data, final JqFlow flow) {
         final Future<JsonObject> criteriaFuture = flow.inputQrJAsync(criteria);
         final Future<T> dataFuture = flow.inputAsync(data);
-        return CompositeFuture.join(criteriaFuture, dataFuture);
+        return Future.join(criteriaFuture, dataFuture);
     }
 
     public static <T> CompositeFuture joinAsync(final JsonObject criteria, final JsonArray data, final JqFlow flow) {
         final Future<JsonObject> criteriaFuture = flow.inputQrJAsync(criteria);
         final Future<List<T>> dataFuture = flow.inputAsync(data);
-        return CompositeFuture.join(criteriaFuture, dataFuture);
+        return Future.join(criteriaFuture, dataFuture);
     }
 
     public static Ir qr(final JsonObject envelop, final String pojo) {

@@ -1,6 +1,7 @@
 package io.zerows.core.database.cache;
 
 import io.vertx.core.DeploymentOptions;
+import io.vertx.core.ThreadingModel;
 import io.vertx.core.Verticle;
 import io.vertx.core.Vertx;
 import io.vertx.core.json.JsonObject;
@@ -46,20 +47,13 @@ public class HarpBus {
              * Address, Class
              */
             final DeploymentOptions workerOptions = new DeploymentOptions();
-            workerOptions.setWorker(true);
+            workerOptions.setThreadingModel(ThreadingModel.WORKER);
             /*
              * Configuration
              */
             workerOptions.setConfig(options.copy());
-            vertx.deployVerticle(worker.getName(), workerOptions, result -> {
-                if (result.succeeded()) {
-                    DevOps.on(vertx).add(worker.getName(), workerOptions, result.result());
-                } else {
-                    if (null != result.cause()) {
-                        result.cause().printStackTrace();
-                    }
-                }
-            });
+            vertx.deployVerticle(worker.getName(), workerOptions)
+                .onSuccess(result -> DevOps.on(vertx).add(worker.getName(), workerOptions, result));
         }
     }
 
@@ -75,10 +69,6 @@ public class HarpBus {
                 final L1Cache created = Ut.instance(cacheClass);
                 return created.bind(this.vertx).bind(this.l1Config.copy());
             });
-            //            cache = Fn.po?lThread(POOL_L1, () -> {
-            //                final L1Cache created = Ut.instance(cacheClass);
-            //                return created.bind(this.vertx).bind(this.l1Config.copy());
-            //            });
         }
         return cache;
     }

@@ -3,16 +3,14 @@ package io.zerows.module.metadata.uca.environment;
 import io.vertx.core.DeploymentOptions;
 import io.vertx.core.Vertx;
 import io.vertx.core.json.JsonObject;
-import io.vertx.core.shareddata.AsyncMap;
 import io.zerows.core.constant.KName;
 import io.zerows.core.constant.KWeb;
-import io.zerows.core.util.Ut;
-import io.zerows.module.metadata.eon.OMessage;
-import io.zerows.module.metadata.uca.logging.OLog;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author lang : 2023/4/25
  */
+@Slf4j
 public class DevOps {
     private final transient Vertx vertx;
 
@@ -26,38 +24,24 @@ public class DevOps {
 
 
     private static void add(final Vertx vertx, final String name, final DeploymentOptions options, final String id) {
-        vertx.sharedData().<String, Object>getAsyncMap(KWeb.SHARED.DEPLOYMENT, mapped -> {
-            if (mapped.succeeded()) {
-                final JsonObject instance = new JsonObject();
-                instance.put(KName.DEPLOY_ID, id);
-                instance.put(KName.TYPE, name);
-                instance.put("isWorker", options.isWorker());
-                instance.put("instances", options.getInstances());
-                instance.put("poolName", options.getWorkerPoolName());
-                instance.put("poolSize", options.getWorkerPoolSize());
-                final AsyncMap<String, Object> data = mapped.result();
-                data.put(name, instance, result -> {
-                    if (result.succeeded()) {
-                        final OLog logger = Ut.Log.boot(DevOps.class);
-                        logger.info(OMessage.Measure.ADD, name,
-                            String.valueOf(options.getInstances()), options.isWorker());
-                    }
-                });
-            }
+        vertx.sharedData().<String, Object>getAsyncMap(KWeb.SHARED.DEPLOYMENT).onSuccess(data -> {
+            final JsonObject instance = new JsonObject();
+            instance.put(KName.DEPLOY_ID, id);
+            instance.put(KName.TYPE, name);
+            instance.put("instances", options.getInstances());
+            instance.put("poolName", options.getWorkerPoolName());
+            instance.put("poolSize", options.getWorkerPoolSize());
+            data.put(name, instance).onSuccess(nil ->
+                log.info("[ Meansure ] The {} has been added. ( instances = {} ), TM = {}",
+                    name, options.getInstances(), options.getThreadingModel()));
         });
     }
 
     private static void remove(final Vertx vertx, final String name, final DeploymentOptions options) {
-        vertx.sharedData().<String, Object>getAsyncMap(KWeb.SHARED.DEPLOYMENT, mapped -> {
-            if (mapped.succeeded()) {
-                final AsyncMap<String, Object> data = mapped.result();
-                data.remove(name, result -> {
-                    if (result.succeeded()) {
-                        final OLog logger = Ut.Log.boot(DevOps.class);
-                        logger.info(OMessage.Measure.REMOVE, name, String.valueOf(options.getInstances()));
-                    }
-                });
-            }
+        vertx.sharedData().<String, Object>getAsyncMap(KWeb.SHARED.DEPLOYMENT).onSuccess(data -> {
+            data.remove(name).onSuccess(nil ->
+                log.info("[ Meansure ] The {} has been removed. ( instances = {} )",
+                    name, options.getInstances()));
         });
     }
 

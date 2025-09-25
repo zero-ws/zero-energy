@@ -6,7 +6,6 @@
         <artifactId>zero-ecosystem</artifactId>
         <groupId>io.zerows</groupId>
         <version>1.0.0</version>
-        <relativePath>.././zero-core-version/./zero-ecosystem/pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>zero-energy</artifactId>
@@ -27,88 +26,4 @@
         <module>zero-entry-import</module>
         <module>zero-entry-mini</module>
     </modules>
-    <profiles>
-        <!-- 切换结构 -->
-        <profile>
-            <id>legacy</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <!-- https://mvnrepository.com/artifact/org.codehaus.mojo/exec-maven-plugin -->
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>exec-maven-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>build-submodule</id>
-                                <phase>install</phase>
-                                <goals>
-                                    <goal>exec</goal>
-                                </goals>
-                                <configuration>
-                                    <workingDirectory>${project.basedir}</workingDirectory>
-                                    <executable>
-                                        ./mvn-build.sh
-                                    </executable>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
-    <build>
-        <plugins>
-            <!-- Mojo -->
-            <plugin>
-                <artifactId>maven-enforcer-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>enforce-versions</id>
-                        <goals>
-                            <goal>enforce</goal>
-                        </goals>
-                        <configuration>
-                            <rules>
-                                <requireMavenVersion>
-                                    <version>3.0</version>
-                                </requireMavenVersion>
-                                <requireJavaVersion>
-                                    <version>1.8</version>
-                                </requireJavaVersion>
-                            </rules>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                    <encoding>${encoding}</encoding>
-                    <!-- Disable annotation processing for ourselves. -->
-                    <compilerArgument>-proc:none</compilerArgument>
-                </configuration>
-            </plugin>
-            <plugin>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <configuration>
-                    <includes>
-                        <include>**/*Tc.java</include>
-                        <include>**/*Te.java</include>
-                    </includes>
-                    <excludes>
-                        <exclude>**/Base*.java</exclude>
-                    </excludes>
-                </configuration>
-            </plugin>
-            <plugin>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <configuration>
-                    <skip>true</skip>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 </project>
