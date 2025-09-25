@@ -2,7 +2,6 @@ package io.zerows.core.web.model.uca.extract;
 
 import io.r2mo.typed.cc.Cc;
 import io.vertx.core.DeploymentOptions;
-import io.zerows.core.fn.Fn;
 import io.zerows.core.uca.log.Annal;
 import io.zerows.module.configuration.atom.NodeNetwork;
 import io.zerows.module.configuration.atom.NodeVertx;
@@ -19,7 +18,7 @@ public class ExtractorWorker implements Extractor<DeploymentOptions> {
 
     @Override
     public DeploymentOptions extract(final Class<?> clazz) {
-        Fn.runAt(() -> LOGGER.info(INFO.WORKER_HIT, clazz.getName()), clazz);
+        LOGGER.info(INFO.WORKER_HIT, clazz.getName());
 
         final NodeNetwork network = OCacheNode.of().network();
         final NodeVertx nodeVertx = network.get();

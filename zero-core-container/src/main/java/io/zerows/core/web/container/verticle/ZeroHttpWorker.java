@@ -5,7 +5,6 @@ import io.vertx.core.eventbus.EventBus;
 import io.zerows.ams.constant.VValue;
 import io.zerows.core.annotations.Ipc;
 import io.zerows.core.annotations.Worker;
-import io.zerows.core.fn.Fn;
 import io.zerows.core.util.Ut;
 import io.zerows.core.web.invocation.uca.runner.Invoker;
 import io.zerows.core.web.invocation.uca.runner.InvokerUtil;
@@ -75,7 +74,7 @@ public class ZeroHttpWorker extends AbstractVerticle {
             // 7. Record for different invokers
             INVOKER_MAP.put(receipt.hashCode(), invoker);
 
-            Fn.runAt(() -> bus.<Envelop>consumer(address, message -> {
+            bus.<Envelop>consumer(address, message -> {
                 /*
                  * 延迟初始化，在调用的时候再执行 Proxy 的提取
                  * 新版引入了注入结构，而 getProxy 具有延迟加载的效果，所以此处将
@@ -105,7 +104,7 @@ public class ZeroHttpWorker extends AbstractVerticle {
                         // message.fail(0, ex.getMessage());
                     }
                 }
-            }), address, method);
+            });
         }
         // Record all the information;
         if (!LOGGED.getAndSet(Boolean.TRUE)) {

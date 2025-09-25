@@ -6,7 +6,6 @@ import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
 import io.zerows.ams.util.HUt;
 import io.zerows.core.constant.KName;
-import io.zerows.core.fn.Fn;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
@@ -74,9 +73,7 @@ final class To {
 
     static JsonObject toJObject(final MultiMap multiMap) {
         final JsonObject params = new JsonObject();
-        Fn.runAt(() -> multiMap.forEach(
-            item -> params.put(item.getKey(), item.getValue())
-        ), multiMap);
+        multiMap.forEach(item -> params.put(item.getKey(), item.getValue()));
         return params;
     }
 

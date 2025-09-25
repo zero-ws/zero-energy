@@ -1,6 +1,5 @@
 package io.zerows.module.domain.uca.serialization;
 
-import io.zerows.core.fn.Fn;
 import io.zerows.core.util.Ut;
 
 import java.util.function.Function;
@@ -13,13 +12,11 @@ public abstract class AbstractNumericSaber extends AbstractSaber {
     @Override
     public Object from(final Class<?> paramType,
                        final String literal) {
-        return Fn.runOr(() ->
-                Fn.runOr(this.isValid(paramType), this.logger(),
-                    () -> {
-                        this.verifyInput(!Ut.isInteger(literal), paramType, literal);
-                        return this.getFun().apply(literal);
-                    }, () -> null),
-            paramType, literal);
+        if (this.isValid(paramType)) {
+            this.verifyInput(!Ut.isInteger(literal), paramType, literal);
+            return this.getFun().apply(literal);
+        }
+        return null;
     }
 
     protected abstract boolean isValid(final Class<?> paramType);

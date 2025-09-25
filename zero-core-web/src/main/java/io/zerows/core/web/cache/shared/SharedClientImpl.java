@@ -10,7 +10,6 @@ import io.vertx.core.shareddata.LocalMap;
 import io.vertx.core.shareddata.SharedData;
 import io.zerows.common.program.Kv;
 import io.zerows.core.exception.WebException;
-import io.zerows.core.fn.Fn;
 import io.zerows.core.util.Ut;
 import io.zerows.core.web.cache.shared.exception._500SharedDataModeException;
 import io.zerows.module.metadata.uca.logging.OLog;
@@ -79,9 +78,11 @@ public class SharedClientImpl<K, V> implements SharedClient<K, V> {
     public Kv<K, V> put(final K key, final V value) {
         final V reference = this.sync().get(key);
         // Add & Replace
-        Fn.runAt(null == reference, LOGGER,
-            () -> this.sync().put(key, value),
-            () -> this.sync().replace(key, value));
+        if (Objects.isNull(reference)) {
+            this.sync().put(key, value);
+        } else {
+            this.sync().replace(key, value);
+        }
         return Kv.create(key, value);
     }
 
@@ -107,13 +108,13 @@ public class SharedClientImpl<K, V> implements SharedClient<K, V> {
         this.async(map -> map.result().get(key).onComplete(res -> {
             if (res.succeeded()) {
                 final V reference = res.result();
-                Fn.runAt(null == reference, LOGGER,
-                    // Successed for Add
-                    () -> map.result()
-                        .put(key, value).onComplete(added -> this.putHandler(added, key, value, handler)),
-                    // Successed for Replace
-                    () -> map.result()
-                        .replace(key, value).onComplete(replaced -> this.putHandler(replaced, key, value, handler)));
+                if (Objects.isNull(reference)) {
+                    map.result()
+                        .put(key, value).onComplete(added -> this.putHandler(added, key, value, handler));
+                } else {
+                    map.result()
+                        .replace(key, value).onComplete(replaced -> this.putHandler(replaced, key, value, handler));
+                }
             } else {
                 final WebException error = new _500SharedDataModeException(getClass(), res.cause());
                 handler.handle(Future.failedFuture(error));
@@ -130,13 +131,13 @@ public class SharedClientImpl<K, V> implements SharedClient<K, V> {
         this.async(map -> map.result().get(key).onComplete(res -> {
             if (res.succeeded()) {
                 final V reference = res.result();
-                Fn.runAt(null == reference, LOGGER,
-                    // Successed for Add
-                    () -> map.result()
-                        .put(key, value, ms).onComplete(added -> this.putHandler(added, key, value, handler)),
-                    // Successed for Replace
-                    () -> map.result()
-                        .replace(key, value, ms).onComplete(replaced -> this.putHandler(replaced, key, value, handler)));
+                if (Objects.isNull(reference)) {
+                    map.result()
+                        .put(key, value, ms).onComplete(added -> this.putHandler(added, key, value, handler));
+                } else {
+                    map.result()
+                        .replace(key, value, ms).onComplete(replaced -> this.putHandler(replaced, key, value, handler));
+                }
             } else {
                 final WebException error = new _500SharedDataModeException(getClass(), res.cause());
                 handler.handle(Future.failedFuture(error));

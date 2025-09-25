@@ -47,14 +47,14 @@ class ToolPath {
     public static String resolve(final Path path, final String root) {
         Fn.outBoot(null == path, LOGGER,
             BootPathAnnoEmptyException.class, ToolPath.class);
-        return Fn.runOr(Ut.isNil(root), LOGGER, () -> calculate(path(path.value())),
-            () -> {
-                final String api = calculate(root);
-                final String contextPath = calculate(path.value());
-                // If api has been calculated to
-                return VValue.ONE == api.length() ?
-                    path(contextPath) : path(api + contextPath);
-            });
+        if (Ut.isNil(root)) {
+            return calculate(path(path.value()));
+        }
+        final String api = calculate(root);
+        final String contextPath = calculate(path.value());
+        // If api has been calculated to
+        return VValue.ONE == api.length() ?
+            path(contextPath) : path(api + contextPath);
     }
 
     /**
@@ -102,8 +102,7 @@ class ToolPath {
         }
         // Uri must begin with SLASH
         final String processed = uri;
-        final String finalUri = Fn.runOr(() -> processed.startsWith(VString.SLASH)
-            ? processed : VString.SLASH + processed, uri);
+        final String finalUri = processed.startsWith(VString.SLASH) ? processed : VString.SLASH + processed;
         if (!path.equals(finalUri) && DevEnv.devWebUri()) {
             LOGGER.warn("[ Path ] The original uri is `{0}`, recommend/detected uri is `{1}`.", path, finalUri);
         }

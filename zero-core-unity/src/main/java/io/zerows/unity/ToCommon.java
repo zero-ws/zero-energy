@@ -1,12 +1,9 @@
 package io.zerows.unity;
 
-import io.zerows.core.exception.WebException;
 import io.vertx.core.Future;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
-import io.zerows.core.fn.Fn;
 import io.zerows.core.util.Ut;
-import io.zerows.core.web.model.commune.Envelop;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,53 +24,20 @@ class ToCommon {
     }
 
     static <T> Future<T> future(final T entity) {
-        return Fn.runOr(Future.succeededFuture(),
-            () -> Fn.runOr(entity instanceof Throwable, null,
-                () -> Future.failedFuture((Throwable) entity),
-                () -> Future.succeededFuture(entity)),
-            entity);
+        if (entity instanceof Throwable) {
+            return Future.failedFuture((Throwable) entity);
+        } else {
+            return Future.succeededFuture(entity);
+        }
     }
 
     static <T> List<JsonObject> toJList(
         final List<T> list,
         final String pojo
     ) {
-        return Fn.runOr(new ArrayList<>(), () -> {
-            final List<JsonObject> jlist = new ArrayList<>();
-            Ut.itJArray(Ut.toJson(list, pojo)).forEach(jlist::add);
-            return jlist;
-        }, list);
-    }
-
-    @SuppressWarnings("all")
-    static <T> Envelop toEnvelop(
-        final T entity
-    ) {
-        return Fn.runOr(Envelop.ok(), () -> Fn.runOr(entity instanceof WebException, null,
-                () -> Envelop.failure((WebException) entity),
-                () -> {
-                    if (Envelop.class == entity.getClass()) {
-                        return (Envelop) entity;
-                    } else {
-                        return Envelop.success(entity);
-                    }
-                }),
-            entity);
-    }
-
-    static <T> Envelop toEnvelop(
-        final T entity,
-        final WebException error
-    ) {
-        return Fn.runOr(Envelop.failure(error),
-            () -> Envelop.success(entity), entity);
-    }
-
-    static Envelop toEnvelop(
-        final Class<? extends WebException> clazz,
-        final Object... args
-    ) {
-        return Envelop.failure(Ut.failWeb(clazz, args));
+        final List<JsonObject> jlist = new ArrayList<>();
+        Ut.itJArray(Ut.toJson(list, pojo)).forEach(jlist::add);
+        return jlist;
     }
 
     static JsonObject toToggle(final Object... args) {

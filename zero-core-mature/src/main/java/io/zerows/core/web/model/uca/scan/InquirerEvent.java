@@ -33,14 +33,14 @@ public class InquirerEvent implements Inquirer<Set<Event>> {
             for (final EndPointThread item : threadReference) {
                 item.join();
             }
-        }, LOGGER);
+        });
         /* 3.3. Finally **/
         final Set<Event> events = new HashSet<>();
         Fn.jvmAt(() -> {
             for (final EndPointThread item : threadReference) {
                 events.addAll(item.getEvents());
             }
-        }, LOGGER);
+        });
         return events;
     }
 }

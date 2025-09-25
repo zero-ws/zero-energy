@@ -3,7 +3,6 @@ package io.zerows.module.configuration.uca.transformer;
 import io.vertx.core.VertxOptions;
 import io.vertx.core.json.JsonObject;
 import io.zerows.core.constant.configure.YmlCore;
-import io.zerows.core.fn.Fn;
 import io.zerows.module.configuration.zdk.Transformer;
 
 import java.util.Objects;
@@ -22,13 +21,12 @@ public class VertxTransformer implements Transformer<VertxOptions> {
     @Override
     public VertxOptions transform(final JsonObject input) {
         final JsonObject config = input.getJsonObject(YmlCore.vertx.OPTIONS, null);
-        final VertxOptions options = Fn.runOr(null == config, this.logger(),
-            VertxOptions::new,
-            () -> {
-                assert Objects.nonNull(config) : "`config` should not be null";
-                return new VertxOptions(config);
-            });
-        assert options != null;
+        final VertxOptions options;
+        if (Objects.isNull(config)) {
+            options = new VertxOptions();
+        } else {
+            options = new VertxOptions(config);
+        }
         options.setPreferNativeTransport(true);
         return options;
     }

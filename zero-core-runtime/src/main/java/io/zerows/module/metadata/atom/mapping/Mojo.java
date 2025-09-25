@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.zerows.core.constant.KName;
-import io.zerows.core.fn.Fn;
 import io.zerows.core.util.Ut;
 import io.zerows.extend.jackson.databind.ClassDeserializer;
 import io.zerows.extend.jackson.databind.ClassSerializer;
@@ -70,7 +69,9 @@ public class Mojo implements Serializable {
      */
     public ConcurrentMap<String, String> getOut() {
         // Fix no mapping issue for empty mapping conversion.
-        Fn.runAt(null == this.mapping, LOGGER, () -> this.mapping = new ConcurrentHashMap<>());
+        if (Objects.isNull(this.mapping)) {
+            this.mapping = new ConcurrentHashMap<>();
+        }
         return this.mapping;
     }
 
@@ -88,9 +89,6 @@ public class Mojo implements Serializable {
      */
     @SuppressWarnings("all")
     public ConcurrentMap<String, String> getIn() {
-        Fn.runAt(mapping.keySet().size() != mapping.values().size(), LOGGER,
-            () -> LOGGER.warn(Info.VALUE_SAME,
-                mapping.keySet().size(), mapping.values().size()));
         final ConcurrentMap<String, String> mapper =
             new ConcurrentHashMap<>();
         mapping.forEach((key, value) -> mapper.put(value, key));

@@ -29,7 +29,7 @@ final class Store {
      * @return Stored
      */
     static ConfigStoreOptions getJson(final String filename) {
-        return Fn.failOr(() -> {
+        return Fn.jvmOr(() -> {
             final JsonObject data = HUt.ioJObject(filename);
             return CC_STORE.pick(() -> new ConfigStoreOptions()
                 .setType(StoreType.JSON.key())
@@ -39,7 +39,7 @@ final class Store {
                             .setType(SessionType.JSON.key())
                             .setConfig(data))
                 , data);*/
-        }, filename);
+        });
     }
 
     /**
@@ -66,7 +66,7 @@ final class Store {
 
     private static ConfigStoreOptions getFile(final String filename,
                                               final StoreFormat format) {
-        return Fn.failOr(() -> {
+        return Fn.jvmOr(() -> {
             final JsonObject config = new JsonObject()
                 .put(StoreConfig.PATH.key(), HUt.ioPath(filename));
             return CC_STORE.pick(() -> new ConfigStoreOptions()
@@ -78,6 +78,6 @@ final class Store {
                     .setType(SessionType.FILE.key())
                     .setFormat(format.key())
                     .setConfig(config));*/
-        }, filename, format);
+        });
     }
 }

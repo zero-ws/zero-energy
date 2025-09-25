@@ -8,7 +8,6 @@ import io.zerows.ams.constant.VValue;
 import io.zerows.ams.constant.em.typed.ChangeFlag;
 import io.zerows.ams.util.HUt;
 import io.zerows.core.constant.KName;
-import io.zerows.core.fn.Fn;
 import io.zerows.module.metadata.uca.logging.OLog;
 
 import java.lang.annotation.Annotation;
@@ -83,36 +82,34 @@ final class Jackson {
         /* 2. Extract current input key **/
         final String path = pathes[VValue.IDX];
         /* 3. Continue searching if key existing, otherwise terminal. **/
-        return Fn.runOr(current.containsKey(path) && null != current.getValue(path),
-            null,
-            () -> {
-                final Object curVal = current.getValue(path);
-                T result = null;
-                if (VValue.ONE == pathes.length) {
-                    /* 3.1. Get the end node. **/
-                    if (Objects.nonNull(clazz) && clazz == curVal.getClass()) {
-                        // Strict Mode
-                        result = (T) curVal;
-                    } else {
-                        // Cast Mode
-
-                        result = (T) curVal.toString();
-                    }
+        if (current.containsKey(path) && null != current.getValue(path)) {
+            final Object curVal = current.getValue(path);
+            T result = null;
+            if (VValue.ONE == pathes.length) {
+                /* 3.1. Get the end node. **/
+                if (Objects.nonNull(clazz) && clazz == curVal.getClass()) {
+                    // Strict Mode
+                    result = (T) curVal;
                 } else {
-                    /* 3.2. Address the middle search **/
-                    if (HUt.isJObject(curVal)) {
-                        final JsonObject continueNode = current.getJsonObject(path);
-                        /* 4.Extract new key **/
-                        final String[] continueKeys =
-                            Arrays.copyOfRange(pathes,
-                                VValue.ONE,
-                                pathes.length);
-                        result = Jackson.searchData(continueNode, clazz, continueKeys);
-                    }
+                    // Cast Mode
+
+                    result = (T) curVal.toString();
                 }
-                return result;
-            },
-            () -> null);
+            } else {
+                /* 3.2. Address the middle search **/
+                if (HUt.isJObject(curVal)) {
+                    final JsonObject continueNode = current.getJsonObject(path);
+                    /* 4.Extract new key **/
+                    final String[] continueKeys =
+                        Arrays.copyOfRange(pathes,
+                            VValue.ONE,
+                            pathes.length);
+                    result = Jackson.searchData(continueNode, clazz, continueKeys);
+                }
+            }
+            return result;
+        }
+        return null;
     }
 
     @SuppressWarnings("unchecked")
@@ -139,32 +136,33 @@ final class Jackson {
     }
 
     static <T> T deserialize(final JsonObject value, final Class<T> type, final boolean isSmart) {
-        return Fn.runOr(null,
-            () -> Jackson.deserialize(value.encode(), type, isSmart), value);
+        if (Objects.isNull(value)) {
+            return null;
+        }
+        return Jackson.deserialize(value.encode(), type, isSmart);
     }
 
     static <T> T deserialize(final JsonArray value, final Class<T> type, final boolean isSmart) {
-        return Fn.runOr(null,
-            () -> Jackson.deserialize(value.encode(), type, isSmart), value);
+        if (Objects.isNull(value)) {
+            return null;
+        }
+        return Jackson.deserialize(value.encode(), type, isSmart);
     }
 
     static <T> T deserialize(final String value, final Class<T> type, final boolean isSmart) {
         final String smart = isSmart ? deserializeSmart(value, type) : value;
-        return Fn.runOr(null,
-            () -> Fn.failOr(() -> HUt.deserialize(smart, type)), value);
+        return HUt.deserialize(smart, type);
     }
 
     static <T, R extends Iterable> R serializeJson(final T t, final boolean isSmart) {
         final String content = HUt.serialize(t);
-        return Fn.failOr(null, () -> Fn.runOr(content.trim().startsWith(VString.LEFT_BRACE), null,
-            /*
-             * Switch to smart serialization on the object to avoid
-             * issue when met {} or []
-             * 递归调用
-             */
-            () -> isSmart ? serializeSmart(new JsonObject(content)) : ((R) new JsonObject(content)),
-            () -> isSmart ? serializeSmart(new JsonArray(content)) : ((R) new JsonArray(content))
-        ), content);
+        if (content.trim().startsWith(VString.LEFT_BRACE)) {
+            return isSmart ?
+                serializeSmart(new JsonObject(content)) : ((R) new JsonObject(content));
+        } else {
+            return isSmart ?
+                serializeSmart(new JsonArray(content)) : ((R) new JsonArray(content));
+        }
     }
 
     // ---------------------- Jackson Advanced for Smart Serilization / DeSerialization

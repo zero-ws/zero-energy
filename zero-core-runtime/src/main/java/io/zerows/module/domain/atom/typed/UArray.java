@@ -3,7 +3,6 @@ package io.zerows.module.domain.atom.typed;
 import io.vertx.core.Future;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
-import io.zerows.core.fn.Fn;
 import io.zerows.core.util.Ut;
 import io.zerows.module.metadata.uca.logging.OLog;
 
@@ -23,10 +22,9 @@ public class UArray {
     private final JsonArray arrayReference;
 
     private UArray(final JsonArray jsonArray) {
-        this.arrayReference = Fn.runOr(new JsonArray(), () ->
-            new JsonArray(jsonArray.stream().filter(Objects::nonNull)
-                .map(item -> (JsonObject) item)
-                .collect(Collectors.toList())), jsonArray);
+        this.arrayReference = new JsonArray(jsonArray.stream().filter(Objects::nonNull)
+            .map(item -> (JsonObject) item)
+            .collect(Collectors.toList()));
         LOGGER.debug(StreamInfo.STREAM_START, String.valueOf(this.hashCode()), jsonArray);
     }
 

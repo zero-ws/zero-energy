@@ -5,12 +5,10 @@ import io.vertx.core.json.JsonObject;
 import io.zerows.ams.constant.em.app.ServerType;
 import io.zerows.core.constant.KName;
 import io.zerows.core.constant.configure.YmlCore;
-import io.zerows.core.fn.Fn;
 import io.zerows.core.util.Ut;
 import io.zerows.module.configuration.atom.NodeVertx;
 import io.zerows.module.configuration.exception.ServerConfigException;
 import io.zerows.module.configuration.zdk.Processor;
-import io.zerows.module.metadata.uca.stable.Ruler;
 import io.zerows.specification.configuration.HConfig;
 import io.zerows.specification.configuration.HSetting;
 
@@ -40,7 +38,6 @@ class ServerProcessor implements Processor<NodeVertx, HSetting> {
     public void makeup(final NodeVertx target, final HSetting setting) {
         // 服务器基础配置提取
         final JsonArray serverData = this.verifyConfig(setting);
-        Fn.jvmAt(() -> Ruler.verify(YmlCore.server.__KEY, serverData), serverData);
 
 
         // Deployment 先执行（全局先赋值，后期可在 Vertx 内部再定义赋值）

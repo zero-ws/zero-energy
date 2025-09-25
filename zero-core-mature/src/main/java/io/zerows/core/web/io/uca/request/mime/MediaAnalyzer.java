@@ -3,7 +3,6 @@ package io.zerows.core.web.io.uca.request.mime;
 import io.r2mo.typed.cc.Cc;
 import io.vertx.ext.web.RoutingContext;
 import io.zerows.core.exception.WebException;
-import io.zerows.core.fn.Fn;
 import io.zerows.core.uca.log.Annal;
 import io.zerows.core.util.Ut;
 import io.zerows.core.web.io.uca.request.mime.parse.EpsilonIncome;
@@ -47,9 +46,11 @@ public class MediaAnalyzer implements Analyzer {
 
     private MediaType getMedia(final RoutingContext context) {
         final String header = context.request().getHeader(HttpHeaders.CONTENT_TYPE);
-        return Fn.runOr(Ut.isNil(header), LOGGER,
-            () -> MediaType.WILDCARD_TYPE,
-            () -> MediaType.valueOf(header));
+        if (Ut.isNil(header)) {
+            return MediaType.WILDCARD_TYPE;
+        } else {
+            return MediaType.valueOf(header);
+        }
     }
 
 }

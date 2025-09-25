@@ -2,7 +2,6 @@ package io.zerows.core.web.container.uca.mode;
 
 import io.vertx.core.Handler;
 import io.vertx.ext.web.RoutingContext;
-import io.zerows.core.fn.Fn;
 import io.zerows.core.util.Ut;
 import io.zerows.core.web.io.zdk.Aim;
 import io.zerows.core.web.model.atom.Event;
@@ -15,7 +14,7 @@ public class AimPing extends AbstractAim implements Aim<RoutingContext> {
 
     @Override
     public Handler<RoutingContext> attack(final Event event) {
-        return Fn.runOr(() -> (context) -> this.exec(() -> {
+        return (context) -> this.exec(() -> {
             // 1. Build TypedArgument
             final Object[] arguments = this.buildArgs(context, event);
 
@@ -30,6 +29,6 @@ public class AimPing extends AbstractAim implements Aim<RoutingContext> {
             }
             // 4. Process modal
             Answer.reply(context, data, event);
-        }, context, event), event);
+        }, context, event);
     }
 }

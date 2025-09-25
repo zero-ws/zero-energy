@@ -3,7 +3,6 @@ package io.zerows.core.web.container.uca.mode;
 import io.vertx.core.Future;
 import io.vertx.core.Handler;
 import io.vertx.ext.web.RoutingContext;
-import io.zerows.core.fn.Fn;
 import io.zerows.core.web.invocation.micro.uddi.Uddi;
 import io.zerows.core.web.invocation.micro.uddi.UddiClient;
 import io.zerows.core.web.io.zdk.Aim;
@@ -14,7 +13,7 @@ public class AimIpc extends AbstractAim implements Aim<RoutingContext> {
 
     @Override
     public Handler<RoutingContext> attack(final Event event) {
-        return Fn.runOr(() -> (context) -> this.exec(() -> {
+        return (context) -> this.exec(() -> {
             /*
              * Build TypedArgument by java reflection metadata definition
              */
@@ -74,6 +73,6 @@ public class AimIpc extends AbstractAim implements Aim<RoutingContext> {
             // 5. Reply
             handler.setHandler(res -> Answer.reply(context, res.result()));
              */
-        }, context, event), event);
+        }, context, event);
     }
 }

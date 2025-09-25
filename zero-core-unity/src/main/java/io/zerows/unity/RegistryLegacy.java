@@ -5,9 +5,9 @@ import io.vertx.core.Vertx;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
 import io.zerows.core.constant.configure.YmlCore;
+import io.zerows.core.database.jooq.JooqInfix;
 import io.zerows.core.fn.Fn;
 import io.zerows.core.util.Ut;
-import io.zerows.core.database.jooq.JooqInfix;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
@@ -135,10 +135,10 @@ class RegistryLegacy {
             final boolean isAsync = 0 < counter;
             if (isAsync) {
                 // Async:  Future<Boolean> init(Vertx vertx) | init()
-                return Fn.failOr(() -> (Future<Boolean>) methodInit.invoke(null, vertx));
+                return Fn.jvmOr(() -> (Future<Boolean>) methodInit.invoke(null, vertx));
             } else {
                 // Sync:   void init(Vertx vertx) | init()
-                return Fn.failOr(() -> {
+                return Fn.jvmOr(() -> {
                     methodInit.invoke(null);
                     return Future.succeededFuture(Boolean.TRUE);
                 });

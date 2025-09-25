@@ -1,11 +1,10 @@
 package io.zerows.core.web.client;
 
-import io.zerows.ams.constant.VString;
-import io.zerows.common.app.KIntegration;
-import io.zerows.common.app.KIntegrationApi;
 import io.vertx.core.MultiMap;
 import io.vertx.core.http.HttpMethod;
 import io.vertx.core.json.JsonObject;
+import io.zerows.common.app.KIntegration;
+import io.zerows.common.app.KIntegrationApi;
 import io.zerows.core.fn.Fn;
 import io.zerows.core.util.Ut;
 import jakarta.ws.rs.core.MediaType;
@@ -15,6 +14,7 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import java.io.PrintWriter;
 import java.net.HttpURLConnection;
+import java.net.URI;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.Objects;
@@ -40,25 +40,23 @@ class LegacyEmitter extends AbstractEmitter {
 
     @Override
     public String request(final String apiKey, final JsonObject params, final MultiMap headers) {
-        return Fn.runOr(VString.EMPTY, () -> {
-            /*
-             * Read KIntegrationApi object
-             */
-            final KIntegrationApi request = this.integration().createRequest(apiKey);
-            /*
-             * Encrypt content with public key of RSA
-             * Replace the method `getPublicKeyFile` with `getPublicKey` for content extracting
-             */
-            final String content = Ut.encryptRSAP(params.encode(), this.integration().getPublicKey());
-            /*
-             * Send request to read String response here.
-             */
-            return this.send(request.getPath(), request.getMethod(), MediaType.APPLICATION_JSON_TYPE, content);
-        }, params, apiKey);
+        /*
+         * Read KIntegrationApi object
+         */
+        final KIntegrationApi request = this.integration().createRequest(apiKey);
+        /*
+         * Encrypt content with public key of RSA
+         * Replace the method `getPublicKeyFile` with `getPublicKey` for content extracting
+         */
+        final String content = Ut.encryptRSAP(params.encode(), this.integration().getPublicKey());
+        /*
+         * Send request to read String response here.
+         */
+        return this.send(request.getPath(), request.getMethod(), MediaType.APPLICATION_JSON_TYPE, content);
     }
 
     private String send(final String uri, final HttpMethod method, final MediaType mediaType, final String content) {
-        return Fn.failOr(null, () -> {
+        return Fn.jvmOr(() -> {
             this.logger().info(INFO.HTTP_REQUEST, uri, method, content);
             final String contentType = Objects.isNull(mediaType) ? MediaType.APPLICATION_JSON : mediaType.toString();
 
@@ -66,7 +64,7 @@ class LegacyEmitter extends AbstractEmitter {
             this.initialize();
 
             /* Create new connect */
-            final URL url = new URL(uri);
+            final URL url = new URI(uri).toURL();
             final HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
             /* Set options for current connection */
@@ -86,6 +84,6 @@ class LegacyEmitter extends AbstractEmitter {
             final String normalized = new String(response.getBytes(), StandardCharsets.UTF_8);
             this.logger().info(INFO.HTTP_RESPONSE, normalized);
             return normalized;
-        }, uri, method, content);
+        });
     }
 }

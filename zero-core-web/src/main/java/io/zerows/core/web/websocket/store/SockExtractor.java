@@ -4,14 +4,13 @@ import io.zerows.ams.constant.VString;
 import io.zerows.core.annotations.Address;
 import io.zerows.core.constant.DefaultClass;
 import io.zerows.core.constant.KName;
-import io.zerows.core.fn.Fn;
 import io.zerows.core.util.Ut;
-import io.zerows.core.web.websocket.annotations.Subscribe;
-import io.zerows.core.web.websocket.atom.Remind;
-import io.zerows.core.web.websocket.eon.em.RemindType;
 import io.zerows.core.web.model.uca.extract.Extractor;
 import io.zerows.core.web.model.uca.extract.ToolMethod;
 import io.zerows.core.web.model.uca.extract.ToolVerifier;
+import io.zerows.core.web.websocket.annotations.Subscribe;
+import io.zerows.core.web.websocket.atom.Remind;
+import io.zerows.core.web.websocket.eon.em.RemindType;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
@@ -26,20 +25,18 @@ public class SockExtractor implements Extractor<Set<Remind>> {
 
     @Override
     public Set<Remind> extract(final Class<?> clazz) {
-        return Fn.runOr(new HashSet<>(), () -> {
-            // 1. Class verify
-            ToolVerifier.noArg(clazz, this.getClass());
-            ToolVerifier.modifier(clazz, this.getClass());
-            // 2. Scan method to find @WebSocket
-            final Set<Remind> websockets = new HashSet<>();
-            final Method[] methods = clazz.getDeclaredMethods();
-            Arrays.stream(methods)
-                .filter(ToolMethod::isValid)
-                .filter(method -> method.isAnnotationPresent(Subscribe.class))
-                .map(this::extract)
-                .forEach(websockets::add);
-            return websockets;
-        }, clazz);
+        // 1. Class verify
+        ToolVerifier.noArg(clazz, this.getClass());
+        ToolVerifier.modifier(clazz, this.getClass());
+        // 2. Scan method to find @WebSocket
+        final Set<Remind> websockets = new HashSet<>();
+        final Method[] methods = clazz.getDeclaredMethods();
+        Arrays.stream(methods)
+            .filter(ToolMethod::isValid)
+            .filter(method -> method.isAnnotationPresent(Subscribe.class))
+            .map(this::extract)
+            .forEach(websockets::add);
+        return websockets;
     }
 
     private Remind extract(final Method method) {
@@ -81,7 +78,7 @@ public class SockExtractor implements Extractor<Set<Remind>> {
             }
         }
         final String sockAddr = address;
-        Fn.runAt(() -> this.logger().info(INFO.SOCK_HIT, clazz, sockAddr, inputAddress));
+        this.logger().info(INFO.SOCK_HIT, clazz, sockAddr, inputAddress);
         return remind;
     }
 }

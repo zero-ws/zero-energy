@@ -3,7 +3,6 @@ package io.zerows.module.configuration.atom.option;
 import io.vertx.core.json.JsonObject;
 import io.vertx.core.spi.cluster.ClusterManager;
 import io.zerows.core.constant.KName;
-import io.zerows.core.fn.Fn;
 import io.zerows.core.util.Ut;
 
 /**
@@ -41,13 +40,9 @@ final class ClusterOptionsConverter {
             obj.setOptions(json.getJsonObject(KName.OPTIONS));
         }
         final Object managerObj = json.getValue("manager");
-        Fn.runAt(() -> {
-            final Class<?> clazz = Ut.clazz(managerObj.toString());
-            Fn.runAt(() -> {
-                // If null, keep default
-                final ClusterManager manager = Ut.instance(clazz);
-                obj.setManager(manager);
-            }, clazz);
-        }, managerObj);
+        final Class<?> clazz = Ut.clazz(managerObj.toString());
+        // If null, keep default
+        final ClusterManager manager = Ut.instance(clazz);
+        obj.setManager(manager);
     }
 }

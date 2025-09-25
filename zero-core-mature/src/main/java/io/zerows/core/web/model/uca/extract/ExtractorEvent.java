@@ -1,6 +1,5 @@
 package io.zerows.core.web.model.uca.extract;
 
-import io.zerows.core.uca.log.Annal;
 import io.reactivex.rxjava3.core.Observable;
 import io.vertx.core.http.HttpMethod;
 import io.zerows.core.annotations.Adjust;
@@ -8,6 +7,7 @@ import io.zerows.core.annotations.Codex;
 import io.zerows.core.annotations.EndPoint;
 import io.zerows.core.constant.KName;
 import io.zerows.core.fn.Fn;
+import io.zerows.core.uca.log.Annal;
 import io.zerows.core.util.Ut;
 import io.zerows.core.web.model.atom.Event;
 import io.zerows.core.web.model.exception.BootCodexMoreException;
@@ -31,24 +31,23 @@ public class ExtractorEvent implements Extractor<Set<Event>> {
 
     @Override
     public Set<Event> extract(final Class<?> clazz) {
-        return Fn.runOr(new HashSet<>(), () -> {
-            // 1. Class verify
-            this.verify(clazz);
-            // 2. Check whether clazz annotated with @PATH
-            final Set<Event> result = new HashSet<>();
-            Fn.runAt(clazz.isAnnotationPresent(Path.class), LOGGER,
-                () -> {
-                    // 3.1. Append Root Path
-                    final Path path = this.path(clazz);
-                    assert null != path : "Path should not be null.";
-                    result.addAll(this.extract(clazz, ToolPath.resolve(path)));
-                },
-                () -> {
-                    // 3.2. Use method Path directly
-                    result.addAll(this.extract(clazz, null));
-                });
-            return result;
-        }, clazz);
+        if (Objects.isNull(clazz)) {
+            return new HashSet<>();
+        }
+        // 1. Class verify
+        this.verify(clazz);
+        // 2. Check whether clazz annotated with @PATH
+        final Set<Event> result = new HashSet<>();
+        if (clazz.isAnnotationPresent(Path.class)) {
+            // 3.1. Append Root Path
+            final Path path = this.path(clazz);
+            assert null != path : "Path should not be null.";
+            result.addAll(this.extract(clazz, ToolPath.resolve(path)));
+        } else {
+            // 3.2. Use method Path directly
+            result.addAll(this.extract(clazz, null));
+        }
+        return result;
     }
 
     private void verify(final Class<?> clazz) {
@@ -59,9 +58,9 @@ public class ExtractorEvent implements Extractor<Set<Event>> {
         }
         ToolVerifier.modifier(clazz, this.getClass());
         // Event Source Checking
-        Fn.outBoot(!clazz.isAnnotationPresent(EndPoint.class),
-            LOGGER, BootEventSourceException.class,
-            this.getClass(), clazz.getName());
+        if (!clazz.isAnnotationPresent(EndPoint.class)) {
+            throw new BootEventSourceException(this.getClass(), clazz.getName());
+        }
     }
 
     @SuppressWarnings("all")

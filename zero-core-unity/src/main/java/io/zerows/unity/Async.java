@@ -2,8 +2,6 @@ package io.zerows.unity;
 
 import io.vertx.core.Future;
 import io.vertx.core.Promise;
-import io.vertx.core.json.JsonArray;
-import io.vertx.core.json.JsonObject;
 import io.zerows.ams.constant.VValue;
 import io.zerows.common.program.KRef;
 import io.zerows.core.fn.Fn;
@@ -15,7 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
-import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -103,65 +100,6 @@ class Async {
                 }
             }
         }
-    }
-
-    @SuppressWarnings("all")
-    static <T> Future<JsonObject> toJsonFuture(
-        final String pojo,
-        final CompletableFuture<T> completableFuture
-    ) {
-        final Promise<JsonObject> future = Promise.promise();
-        Fn.runAt(null == completableFuture, null,
-            () -> future.complete(new JsonObject()),
-            () -> completableFuture.thenAcceptAsync((item) -> Fn.runAt(
-                null == item, null,
-                () -> future.complete(new JsonObject()),
-                () -> future.complete(Ut.toJson(item, pojo))
-            )).exceptionally((ex) -> {
-                LOGGER.fatal(ex);
-                future.fail(ex);
-                return null;
-            }));
-        return future.future();
-    }
-
-    @SuppressWarnings("all")
-    static <T> Future<JsonArray> toArrayFuture(
-        final String pojo,
-        final CompletableFuture<List<T>> completableFuture
-    ) {
-        final Promise<JsonArray> future = Promise.promise();
-        Fn.runAt(null == completableFuture, null,
-            () -> future.complete(new JsonArray()),
-            () -> completableFuture.thenAcceptAsync((item) -> Fn.runAt(
-                null == item, null,
-                () -> future.complete(new JsonArray()),
-                () -> future.complete(Ut.toJson(item, pojo))
-            )).exceptionally((ex) -> {
-                LOGGER.fatal(ex);
-                future.fail(ex);
-                return null;
-            }));
-        return future.future();
-    }
-
-    @SuppressWarnings("all")
-    static <T> Future<JsonObject> toUpsertFuture(final T entity, final String pojo,
-                                                 final Supplier<Future<JsonObject>> supplier,
-                                                 final Function<JsonObject, JsonObject> updateFun) {
-        // Default Case
-        if (Objects.isNull(entity)) {
-            return supplier.get();
-        }
-        final JsonObject params = Ut.toJson(entity, pojo);
-
-        // Update Function == null
-        if (Objects.isNull(updateFun)) {
-            return Future.succeededFuture(params);
-        }
-
-        // Update Executor
-        return Future.succeededFuture(updateFun.apply(params));
     }
 
     static <T> Function<Throwable, Future<T>> toErrorFuture(final Supplier<T> input) {

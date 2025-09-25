@@ -1,6 +1,5 @@
 package io.zerows.core.web.model.util;
 
-import io.zerows.core.fn.Fn;
 import io.zerows.core.util.Ut;
 
 import java.lang.annotation.Annotation;
@@ -28,9 +27,9 @@ public final class Anno {
      * @return hash map that stored (name = Annotation) scanned results.
      */
     public static ConcurrentMap<String, Annotation> get(final Class<?> clazz) {
-        return Fn.runOr(() -> Ut.elementZip(clazz.getDeclaredAnnotations(),
+        return Ut.elementZip(clazz.getDeclaredAnnotations(),
             (item) -> item.annotationType().getName(),
-            (item) -> item), clazz);
+            (item) -> item);
     }
 
     /**
@@ -44,11 +43,11 @@ public final class Anno {
      */
     public static Annotation[] query(final Class<?> clazz,
                                      final Class<? extends Annotation> methodCls) {
-        return Fn.runOr(() -> Arrays.stream(clazz.getDeclaredMethods())
+        return Arrays.stream(clazz.getDeclaredMethods())
             .filter(item -> item.isAnnotationPresent(methodCls))
             .map(item -> item.getAnnotation(methodCls))
             .filter(Objects::nonNull)
-            .toList().toArray(new Annotation[]{}), clazz, methodCls);
+            .toList().toArray(new Annotation[]{});
     }
 
     /**

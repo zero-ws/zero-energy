@@ -2,8 +2,6 @@ package io.zerows.core.web.model.uca.scan;
 
 import io.zerows.ams.constant.em.app.ServerType;
 import io.zerows.core.annotations.Agent;
-import io.zerows.core.fn.Fn;
-import io.zerows.core.uca.log.Annal;
 import io.zerows.core.util.Ut;
 import io.zerows.module.metadata.zdk.uca.Inquirer;
 
@@ -29,9 +27,9 @@ public class InquirerAgent implements
     }
 
     public ServerType getAgentKey(final Class<?> clazz) {
-        final Annal logger = Annal.get(this.getClass());
-        return Fn.runOr(clazz.isAnnotationPresent(Agent.class), logger,
-            () -> Ut.invoke(clazz.getDeclaredAnnotation(Agent.class), "type"),
-            () -> null);
+        if (clazz.isAnnotationPresent(Agent.class)) {
+            return clazz.getDeclaredAnnotation(Agent.class).type();
+        }
+        return null;
     }
 }

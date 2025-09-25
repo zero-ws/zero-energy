@@ -2,7 +2,6 @@ package io.zerows.module.configuration.uca.transformer;
 
 import io.vertx.core.http.HttpServerOptions;
 import io.vertx.core.json.JsonObject;
-import io.zerows.core.fn.Fn;
 import io.zerows.core.util.Ut;
 import io.zerows.module.configuration.zdk.Transformer;
 
@@ -36,11 +35,10 @@ public class HttpServerTransformer implements Transformer<HttpServerOptions> {
     public HttpServerOptions transform(final JsonObject input) {
         // port = 80 issue
         final JsonObject config = Ut.valueJObject(input);
-        return Fn.runOr(Ut.isNil(config), this.logger(),
-            HttpServerOptions::new,
-            () -> {
-                assert Objects.nonNull(config) : "`config` is not null";
-                return new HttpServerOptions(config);
-            });
+        if (Ut.isNil(config)) {
+            return new HttpServerOptions();
+        }
+        assert Objects.nonNull(config) : "`config` is not null";
+        return new HttpServerOptions(config);
     }
 }

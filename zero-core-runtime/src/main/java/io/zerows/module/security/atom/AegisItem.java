@@ -3,11 +3,9 @@ package io.zerows.module.security.atom;
 import io.vertx.core.json.JsonObject;
 import io.zerows.core.constant.configure.YmlCore;
 import io.zerows.core.constant.em.EmSecure;
-import io.zerows.core.fn.Fn;
 import io.zerows.core.util.Ut;
 import io.zerows.module.metadata.store.OZeroStore;
 import io.zerows.module.metadata.uca.logging.OLog;
-import io.zerows.module.metadata.uca.stable.Ruler;
 
 import java.io.Serializable;
 import java.util.Set;
@@ -28,7 +26,6 @@ public class AegisItem implements Serializable {
         Ut.<JsonObject>itJObject(configuration, (value, field) -> {
             if (keys.contains(field)) {
                 final String ruleKey = "wall-" + field;
-                Fn.outBug(() -> Ruler.verify(ruleKey, value), LOGGER);
                 SECURE.put(field, new AegisItem(field, value));
             } else {
                 LOGGER.info("[ Auth ] You have defined extension configuration with key `{0}`", field);

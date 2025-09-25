@@ -1,6 +1,5 @@
 package io.zerows.core.web.scheduler.uca.running;
 
-import io.zerows.core.fn.Fn;
 import io.zerows.core.web.scheduler.atom.Mission;
 import io.zerows.core.web.scheduler.store.OCacheJob;
 
@@ -18,8 +17,8 @@ class CodeStore implements JobReader {
 
     @Override
     public Mission fetch(final String code) {
-        return Fn.runOr(null, () -> this.fetch().stream()
+        return this.fetch().stream()
             .filter(mission -> code.equals(mission.getCode()))
-            .findFirst().orElse(null), code);
+            .findFirst().orElse(null);
     }
 }

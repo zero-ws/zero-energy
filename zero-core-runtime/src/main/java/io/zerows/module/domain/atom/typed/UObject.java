@@ -3,7 +3,6 @@ package io.zerows.module.domain.atom.typed;
 import io.vertx.core.Future;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
-import io.zerows.core.fn.Fn;
 import io.zerows.core.util.Ut;
 import io.zerows.module.metadata.uca.logging.OLog;
 
@@ -21,7 +20,7 @@ public class UObject {
     private final JsonObject objectReference;
 
     private UObject(final JsonObject json) {
-        this.objectReference = Fn.runOr(new JsonObject(), () -> json, json);
+        this.objectReference = json;
         LOGGER.debug(StreamInfo.STREAM_START, String.valueOf(this.hashCode()), json);
     }
 

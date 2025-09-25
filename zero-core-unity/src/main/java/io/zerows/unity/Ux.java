@@ -13,7 +13,6 @@ import io.zerows.core.constant.KName;
 import io.zerows.core.database.cp.zdk.DataPool;
 import io.zerows.core.database.jooq.operation.UxJoin;
 import io.zerows.core.database.jooq.operation.UxJooq;
-import io.zerows.core.fn.Fn;
 import io.zerows.core.util.Ut;
 import io.zerows.core.web.cache.shared.UxPool;
 import io.zerows.module.metadata.atom.configuration.modeling.MDConnect;
@@ -250,11 +249,11 @@ public final class Ux extends _Where {
     // --------------- Record processing -----------------
 
     public static Future<JsonObject> futureJ(final HRecord record) {
-        return Fn.runOr(futureJ(), () -> ToCommon.future(record.toJson()), record);
+        return ToCommon.future(record.toJson());
     }
 
     public static Future<JsonArray> futureA(final HRecord[] records) {
-        return Fn.runOr(futureA(), () -> ToCommon.future(Ut.toJArray(records)), records);
+        return ToCommon.future(Ut.toJArray(records));
     }
 
     // --------------- Future of Map -----------------

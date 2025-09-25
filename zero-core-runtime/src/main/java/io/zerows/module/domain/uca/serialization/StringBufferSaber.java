@@ -1,7 +1,6 @@
 package io.zerows.module.domain.uca.serialization;
 
 import io.zerows.ams.constant.VString;
-import io.zerows.core.fn.Fn;
 
 /**
  * StringBuffer, StringBuilder
@@ -10,28 +9,24 @@ class StringBufferSaber extends AbstractSaber {
     @Override
     public Object from(final Class<?> paramType,
                        final String literal) {
-        return Fn.runOr(() ->
-                Fn.runOr(StringBuilder.class == paramType
-                        || StringBuffer.class == paramType, this.logger(),
-                    () -> {
-                        if (StringBuffer.class == paramType) {
-                            return new StringBuffer(literal);
-                        } else {
-                            return new StringBuilder(literal);
-                        }
-                    }, () -> VString.EMPTY),
-            paramType, literal);
+        if (StringBuilder.class == paramType
+            || StringBuffer.class == paramType) {
+            if (StringBuffer.class == paramType) {
+                return new StringBuffer(literal);
+            } else {
+                return new StringBuilder(literal);
+            }
+        }
+        return VString.EMPTY;
     }
 
     @Override
     public <T> Object from(final T input) {
-        return Fn.runOr(() -> {
-            Object reference = null;
-            if (input instanceof StringBuilder
-                || input instanceof StringBuffer) {
-                reference = input.toString();
-            }
-            return reference;
-        }, input);
+        Object reference = null;
+        if (input instanceof StringBuilder
+            || input instanceof StringBuffer) {
+            reference = input.toString();
+        }
+        return reference;
     }
 }

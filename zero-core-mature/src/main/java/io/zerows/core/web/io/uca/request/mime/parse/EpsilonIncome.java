@@ -5,7 +5,6 @@ import io.vertx.ext.web.RoutingContext;
 import io.zerows.ams.constant.VValue;
 import io.zerows.core.constant.KWeb;
 import io.zerows.core.exception.WebException;
-import io.zerows.core.fn.Fn;
 import io.zerows.core.uca.log.Annal;
 import io.zerows.core.util.Ut;
 import io.zerows.core.web.io.uca.request.argument.Filler;
@@ -19,7 +18,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Objects;
 
 /**
  * Help to extract epsilon
@@ -51,25 +50,26 @@ public class EpsilonIncome implements Income<List<Epsilon<Object>>> {
             /* Epsilon income -> outcome **/
             final Atomic<Object> atomic = CC_ATOMIC.pick(MimeAtomic::new); // Fn.po?lThread(POOL_ATOMIC, MimeAtomic::new);
             final Epsilon<Object> outcome = atomic.ingest(context, epsilon);
-            args.add(Fn.runOr(() -> outcome, outcome));
+            args.add(outcome);
         }
         return args;
     }
 
     @SuppressWarnings("all")
     private String getName(final Annotation annotation) {
-        return Fn.runOr(null == annotation, LOGGER,
-            () -> KWeb.ARGS.MIME_IGNORE,
-            () -> Fn.runOr(!Filler.NO_VALUE.contains(annotation.annotationType()),
-                LOGGER,
-                () -> Ut.invoke(annotation, "value"),
-                () -> KWeb.ARGS.MIME_DIRECT));
+        if (Objects.isNull(annotation)) {
+            return KWeb.ARGS.MIME_IGNORE;
+        }
+        if (Filler.NO_VALUE.contains(annotation.annotationType())) {
+            return KWeb.ARGS.MIME_DIRECT;
+        }
+        return Ut.invoke(annotation, "value");
     }
 
     private Annotation getAnnotation(final Annotation[] annotations) {
         final List<Annotation> annotationList = Arrays.stream(annotations)
             .filter(item -> Filler.PARAMS.containsKey(item.annotationType()))
-            .collect(Collectors.toList());
+            .toList();
         return annotationList.isEmpty() ? null : annotationList.get(VValue.IDX);
     }
 
@@ -77,13 +77,12 @@ public class EpsilonIncome implements Income<List<Epsilon<Object>>> {
                               final Class<?> paramType) {
         final List<Annotation> annotationList = Arrays.stream(annotations)
             .filter(item -> item.annotationType() == DefaultValue.class)
-            .collect(Collectors.toList());
-        return Fn.runOr(annotationList.isEmpty(), LOGGER,
-            () -> null,
-            () -> {
-                final Annotation annotation = annotationList.get(VValue.IDX);
-                return ZeroType.value(paramType,
-                    Ut.invoke(annotation, "value"));
-            });
+            .toList();
+        if (annotationList.isEmpty()) {
+            return null;
+        }
+        final Annotation annotation = annotationList.get(VValue.IDX);
+        return ZeroType.value(paramType,
+            Ut.invoke(annotation, "value"));
     }
 }

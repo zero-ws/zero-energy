@@ -7,7 +7,6 @@ import io.vertx.core.eventbus.DeliveryOptions;
 import io.vertx.core.eventbus.EventBus;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ext.web.RoutingContext;
-import io.zerows.core.fn.Fn;
 import io.zerows.core.web.io.zdk.Aim;
 import io.zerows.core.web.model.atom.Event;
 import io.zerows.core.web.model.commune.Envelop;
@@ -22,7 +21,7 @@ public class AimAsync extends AbstractAim implements Aim<RoutingContext> {
 
     @Override
     public Handler<RoutingContext> attack(final Event event) {
-        return Fn.runOr(() -> (context) -> this.exec(() -> {
+        return (context) -> this.exec(() -> {
             /*
              * Build future ( data handler )
              */
@@ -79,7 +78,7 @@ public class AimAsync extends AbstractAim implements Aim<RoutingContext> {
                     Answer.reply(context, Envelop.failure(dataRes.cause()));
                 }
             });
-        }, context, event), event);
+        }, context, event);
     }
 
     private Future<Envelop> invoke(final RoutingContext context,

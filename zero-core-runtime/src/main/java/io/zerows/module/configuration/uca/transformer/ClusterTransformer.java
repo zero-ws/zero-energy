@@ -1,9 +1,10 @@
 package io.zerows.module.configuration.uca.transformer;
 
 import io.vertx.core.json.JsonObject;
-import io.zerows.core.fn.Fn;
 import io.zerows.module.configuration.atom.option.ClusterOptions;
 import io.zerows.module.configuration.zdk.Transformer;
+
+import java.util.Objects;
 
 /**
  * @author lang : 2024-04-20
@@ -11,8 +12,9 @@ import io.zerows.module.configuration.zdk.Transformer;
 public class ClusterTransformer implements Transformer<ClusterOptions> {
     @Override
     public ClusterOptions transform(final JsonObject config) {
-        return Fn.runOr(null == config, this.logger(),
-            ClusterOptions::new,
-            () -> new ClusterOptions(config));
+        if (Objects.isNull(config)) {
+            return new ClusterOptions();
+        }
+        return new ClusterOptions(config);
     }
 }

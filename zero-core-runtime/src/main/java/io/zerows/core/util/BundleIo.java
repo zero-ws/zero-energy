@@ -158,12 +158,10 @@ final class BundleIo {
                                 final Supplier<T> supplier,
                                 final Function<InputStream, T> executor) {
         final URL finalUrl = ioURL(filename, bundle);
-        return (T) Fn.jvmOr(supplier.get(), () -> {
-            if (Objects.isNull(finalUrl)) {
-                return supplier.get();
-            }
-            return executor.apply(finalUrl.openStream());
-        });
+        if (Objects.isNull(finalUrl)) {
+            return supplier.get();
+        }
+        return executor.apply(Fn.jvmOr(finalUrl::openStream));
     }
 
     private static List<String> ioEntries(final String directory, final Bundle bundle,

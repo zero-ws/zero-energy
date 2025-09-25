@@ -5,7 +5,6 @@ import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ext.web.Session;
 import io.zerows.core.constant.em.EmSecure;
-import io.zerows.core.fn.Fn;
 import io.zerows.core.util.Ut;
 import io.zerows.core.web.model.commune.Envelop;
 import io.zerows.module.security.atom.AegisItem;
@@ -25,7 +24,10 @@ class InputRequest {
     }
 
     static <T> T request(final Envelop envelop, final Class<T> clazz) {
-        return Fn.runOr(null == envelop, null, () -> null, () -> envelop.data(clazz));
+        if (Objects.isNull(envelop)) {
+            return null;
+        }
+        return envelop.data(clazz);
     }
 
     static <T> T request(final Message<Envelop> message, final Integer index, final Class<T> clazz) {
@@ -35,7 +37,10 @@ class InputRequest {
 
     static <T> T request(final Envelop envelop, final Integer index, final Class<T> clazz
     ) {
-        return Fn.runOr(null == envelop, null, () -> null, () -> envelop.data(index, clazz));
+        if (Objects.isNull(envelop)) {
+            return null;
+        }
+        return envelop.data(index, clazz);
     }
 
     static String requestUser(final Message<Envelop> message, final String field
@@ -44,8 +49,10 @@ class InputRequest {
     }
 
     static String requestUser(final Envelop envelop, final String field) {
-        return Fn.runOr(null == envelop, null, () -> null,
-            () -> envelop.identifier(field));
+        if (Objects.isNull(envelop)) {
+            return null;
+        }
+        return envelop.identifier(field);
     }
 
     static String requestToken(final String tokenString, final String field) {
@@ -71,11 +78,11 @@ class InputRequest {
         final Envelop envelop,
         final String field
     ) {
-        return Fn.runOr(null == envelop, null, () -> null,
-            () -> {
-                final Session session = envelop.session();
-                return null == session ? null : session.get(field);
-            });
+        if (Objects.isNull(envelop)) {
+            return null;
+        }
+        final Session session = envelop.session();
+        return null == session ? null : session.get(field);
     }
 
     static JsonArray assignValue(

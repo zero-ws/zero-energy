@@ -5,7 +5,6 @@ import io.vertx.core.Future;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
 import io.zerows.ams.constant.VString;
-import io.zerows.core.fn.Fn;
 import io.zerows.core.uca.qr.syntax.Ir;
 import io.zerows.core.util.Ut;
 import io.zerows.module.metadata.atom.mapping.Mirror;
@@ -36,16 +35,14 @@ public class JqTool {
     }
 
     public static Ir qr(final JsonObject envelop, final String pojo) {
-        return Fn.runOr(Ir.create(new JsonObject()), () -> {
-            final JsonObject data = envelop.copy();
-            if (Ut.isNil(pojo)) {
-                return Ir.create(data);
-            } else {
-                // Projection Process
-                final Mojo mojo = Mirror.create(JqTool.class).mount(pojo).mojo();
-                return qr(data, mojo);
-            }
-        }, envelop);
+        final JsonObject data = envelop.copy();
+        if (Ut.isNil(pojo)) {
+            return Ir.create(data);
+        } else {
+            // Projection Process
+            final Mojo mojo = Mirror.create(JqTool.class).mount(pojo).mojo();
+            return qr(data, mojo);
+        }
     }
 
     public static Ir qr(final JsonObject data, final Mojo mojo) {

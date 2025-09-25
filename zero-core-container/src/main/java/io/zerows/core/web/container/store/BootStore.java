@@ -7,7 +7,6 @@ import io.zerows.core.constant.configure.YmlCore;
 import io.zerows.core.exception.BootingException;
 import io.zerows.core.fn.Fn;
 import io.zerows.core.running.boot.KBoot;
-import io.zerows.core.uca.log.Annal;
 import io.zerows.core.web.container.eon.em.FeatureMark;
 import io.zerows.core.web.container.exception.BootUpClassArgsException;
 import io.zerows.core.web.container.exception.BootUpClassInvalidException;
@@ -62,10 +61,8 @@ public class BootStore implements HStation {
             final boolean etcd = OZeroStore.is(YmlCore.etcd.__KEY);
             STORE.feature(FeatureMark.ETCD, etcd);
             // gateway
-            Fn.outBug(() -> {
-                // 暂时不考虑 API 类型
-                STORE.boot().app(etcd ? EmApp.Type.SERVICE : EmApp.Type.APPLICATION);
-            }, Annal.get(BootStore.class));
+            // 暂时不考虑 API 类型
+            STORE.boot().app(etcd ? EmApp.Type.SERVICE : EmApp.Type.APPLICATION);
         }
         return STORE;
     }

@@ -7,7 +7,6 @@ import io.zerows.core.util.Ut;
 import io.zerows.module.metadata.exception.BootDynamicKeyMissingException;
 import io.zerows.module.metadata.store.OZeroStore;
 import io.zerows.module.metadata.uca.logging.OLog;
-import io.zerows.module.metadata.uca.stable.Ruler;
 
 import java.io.Serializable;
 
@@ -36,12 +35,8 @@ public class InfixConfig implements Serializable {
             this.getClass(), key, raw);
 
         // Check up exception for JsonObject
-        this.endpoint = Fn.runOr(null, () -> raw.getString(KEY_ENDPOINT), raw.getValue(KEY_ENDPOINT));
-        this.config = Fn.runOr(new JsonObject(), () -> raw.getJsonObject(KEY_CONFIG), raw.getValue(KEY_CONFIG));
-        // Verify the config data.
-        if (null != rule) {
-            Fn.outBug(() -> Fn.bugAt(() -> Ruler.verify(rule, this.config), this.config), LOGGER);
-        }
+        this.endpoint = raw.getString(KEY_ENDPOINT);
+        this.config = raw.getJsonObject(KEY_CONFIG);
     }
 
     public static InfixConfig create(final String key) {

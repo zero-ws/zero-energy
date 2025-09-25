@@ -83,30 +83,27 @@ final class Instance {
      * Find the unique implementation for interfaceCls
      */
     static Class<?> child(final Class<?> interfaceCls) {
-        return Fn.runOr(null, () -> {
-            final Set<Class<?>> classes = OCacheClass.entireValue();
-            final List<Class<?>> filtered = classes.stream()
-                .filter(item -> interfaceCls.isAssignableFrom(item)
-                    && item != interfaceCls)
-                .toList();
-            final int size = filtered.size();
-            // Non-Unique throw error out.
-            if (VValue.ONE < size) {
-                final BootingException error = new BootDuplicatedImplException(Instance.class, interfaceCls);
-                LOGGER.error("[Tool] Error occurs {}", error.getMessage());
-                throw error;
-            }
-            // Null means direct interface only.
-            return VValue.ONE == size ? filtered.get(VValue.IDX) : null;
-        }, interfaceCls);
+        final Set<Class<?>> classes = OCacheClass.entireValue();
+        final List<Class<?>> filtered = classes.stream()
+            .filter(item -> interfaceCls.isAssignableFrom(item)
+                && item != interfaceCls)
+            .toList();
+        final int size = filtered.size();
+        // Non-Unique throw error out.
+        if (VValue.ONE < size) {
+            final BootingException error = new BootDuplicatedImplException(Instance.class, interfaceCls);
+            LOGGER.error("[Tool] Error occurs {}", error.getMessage());
+            throw error;
+        }
+        // Null means direct interface only.
+        return VValue.ONE == size ? filtered.get(VValue.IDX) : null;
     }
 
 
     static Field[] fieldAll(final Object instance, final Class<?> fieldType) {
         final Function<Class<?>, Set<Field>> lookupFun = clazz -> lookUp(clazz, fieldType)
             .collect(Collectors.toSet());
-        return Fn.failOr(() -> fieldAll(instance.getClass(), fieldType).toArray(new Field[]{}),
-            instance, fieldType);
+        return fieldAll(instance.getClass(), fieldType).toArray(new Field[]{});
     }
 
     private static Set<Field> fieldAll(final Class<?> clazz, final Class<?> fieldType) {
@@ -131,7 +128,7 @@ final class Instance {
     }
 
     private static Stream<Field> lookUp(final Class<?> clazz, final Class<?> fieldType) {
-        return Fn.failOr(() -> {
+        return Fn.jvmOr(() -> {
             /* Lookup field */
             final Field[] fields = fields(clazz);
             /* Direct match */

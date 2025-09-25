@@ -1,10 +1,10 @@
 package io.zerows.core.web.container.uca.gateway;
 
-import io.zerows.core.uca.log.Annal;
 import io.vertx.ext.web.RoutingContext;
 import io.zerows.core.annotations.Address;
 import io.zerows.core.annotations.Ipc;
 import io.zerows.core.fn.Fn;
+import io.zerows.core.uca.log.Annal;
 import io.zerows.core.web.container.exception.BootChannelMultiException;
 import io.zerows.core.web.io.zdk.Aim;
 import io.zerows.core.web.model.atom.Event;
@@ -34,29 +34,27 @@ public class SplitterMode {
     private static final Annal LOGGER = Annal.get(SplitterMode.class);
 
     public Aim<RoutingContext> distribute(final Event event) {
-        return Fn.runOr(() -> {
-            // 1. Scan method to check @Address
-            final Method method = event.getAction();
-            final boolean annotated = method.isAnnotationPresent(Address.class);
-            final boolean rpc = method.isAnnotationPresent(Ipc.class);
-            // 2. Only one channel enabled
-            Fn.outBoot(rpc && annotated, LOGGER, BootChannelMultiException.class,
-                this.getClass(), method);
+        // 1. Scan method to check @Address
+        final Method method = event.getAction();
+        final boolean annotated = method.isAnnotationPresent(Address.class);
+        final boolean rpc = method.isAnnotationPresent(Ipc.class);
+        // 2. Only one channel enabled
+        Fn.outBoot(rpc && annotated, LOGGER, BootChannelMultiException.class,
+            this.getClass(), method);
 
-            final Differ<RoutingContext> differ;
-            if (annotated) {
-                // EventBus Mode for Mode: 1,3,5
-                differ = DifferEvent.create();
-            } else if (rpc) {
+        final Differ<RoutingContext> differ;
+        if (annotated) {
+            // EventBus Mode for Mode: 1,3,5
+            differ = DifferEvent.create();
+        } else if (rpc) {
 
-                // Ipc Mode for Mode: 6
-                differ = DifferIpc.create();
-            } else {
+            // Ipc Mode for Mode: 6
+            differ = DifferIpc.create();
+        } else {
 
-                // Non Event Bus for Mode: 2,4
-                differ = DifferCommon.create();
-            }
-            return differ.build(event);
-        }, event, event.getAction());
+            // Non Event Bus for Mode: 2,4
+            differ = DifferCommon.create();
+        }
+        return differ.build(event);
     }
 }

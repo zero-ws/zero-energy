@@ -1,9 +1,7 @@
 package io.zerows.core.util;
 
-import io.reactivex.rxjava3.core.Observable;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
-import io.zerows.core.fn.Fn;
 import io.zerows.module.metadata.atom.mapping.Mirror;
 
 import java.util.ArrayList;
@@ -17,43 +15,46 @@ class Json {
     static <T> JsonObject toJObject(
         final T entity,
         final String pojo) {
-        return Fn.runOr(new JsonObject(),
-            () -> Fn.runOr(Ut.isNil(pojo), null,
-                // Turn On Smart
-                () -> Ut.serializeJson(entity, true),
-                () -> Mirror.create(Json.class)
-                    .mount(pojo)
-                    .connect(Ut.serializeJson(entity, true))
-                    .to()
-                    .result()),
-            entity);
+        if (Objects.isNull(entity)) {
+            return new JsonObject();
+        }
+        if (Ut.isNil(pojo)) {
+            return Ut.serializeJson(entity, true);
+        } else {
+            return Mirror.create(Json.class)
+                .mount(pojo)
+                .connect(Ut.serializeJson(entity, true))
+                .to()
+                .result();
+        }
     }
 
     static <T> JsonArray toJArray(
         final List<T> list,
         final String pojo
     ) {
-        return Fn.runOr(new JsonArray(), () -> {
-            final JsonArray array = new JsonArray();
-            Observable.fromIterable(list)
-                .filter(Objects::nonNull)
-                .map(item -> toJObject(item, pojo))
-                .subscribe(array::add).dispose();
-            return array;
-        }, list);
+        if (Objects.isNull(list)) {
+            return new JsonArray();
+        }
+        final JsonArray array = new JsonArray();
+        list.stream()
+            .filter(Objects::nonNull)
+            .map(item -> toJObject(item, pojo))
+            .forEach(array::add);
+        return array;
     }
 
     static <T> T from(final JsonObject data, final Class<T> clazz,
                       final String pojo) {
-        return Fn.runOr(Ut.isNil(pojo), null,
-            // Turn On Smart Serialization on Business Layer
-            () -> Ut.deserialize(data, clazz, true),
-            () -> Mirror.create(Json.class)
-                .mount(pojo)
-                .connect(data)
-                .type(clazz)
-                .from()
-                .get());
+        if (Ut.isNil(pojo)) {
+            return Ut.deserialize(data, clazz, true);
+        }
+        return Mirror.create(Json.class)
+            .mount(pojo)
+            .connect(data)
+            .type(clazz)
+            .from()
+            .get();
     }
 
     @SuppressWarnings("all")

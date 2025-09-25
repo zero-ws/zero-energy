@@ -4,7 +4,6 @@ import io.vertx.core.buffer.Buffer;
 import io.vertx.core.json.JsonObject;
 import io.zerows.ams.constant.VName;
 import io.zerows.core.exception.WebException;
-import io.zerows.core.fn.Fn;
 import io.zerows.module.domain.uca.serialization.ZeroType;
 
 import java.util.Objects;
@@ -23,7 +22,7 @@ class RibTool {
         T reference = null;
         if (Objects.nonNull(value)) {
             final Object result = ZeroType.value(clazz, value.toString());
-            reference = Fn.runOr(() -> (T) result, result);
+            reference = (T) result;
         }
         return reference;
     }

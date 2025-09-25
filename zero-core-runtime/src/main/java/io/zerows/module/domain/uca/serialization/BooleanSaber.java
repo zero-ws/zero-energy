@@ -1,6 +1,5 @@
 package io.zerows.module.domain.uca.serialization;
 
-import io.zerows.core.fn.Fn;
 import io.zerows.core.util.Ut;
 
 /**
@@ -11,11 +10,10 @@ class BooleanSaber extends AbstractSaber {
     @Override
     public Object from(final Class<?> paramType,
                        final String literal) {
-        return Fn.runOr(boolean.class == paramType || Boolean.class == paramType, this.logger(),
-            () -> {
-
-                this.verifyInput(!Ut.isBoolean(literal), paramType, literal);
-                return Boolean.parseBoolean(literal);
-            }, () -> Boolean.FALSE);
+        if (boolean.class == paramType || Boolean.class == paramType) {
+            this.verifyInput(!Ut.isBoolean(literal), paramType, literal);
+            return Boolean.parseBoolean(literal);
+        }
+        return Boolean.FALSE;
     }
 }

@@ -1,9 +1,9 @@
 package io.zerows.core.web.container.uca.store;
 
+import io.r2mo.function.Fn;
 import io.vertx.core.Vertx;
 import io.zerows.core.annotations.Infusion;
 import io.zerows.core.constant.KPlugin;
-import io.zerows.core.fn.Fn;
 import io.zerows.core.util.Ut;
 import io.zerows.core.web.container.exception.BootPluginInfusionException;
 import io.zerows.core.web.model.atom.running.RunVertx;
@@ -74,7 +74,7 @@ class LinearInfusion extends AbstractAmbiguity implements StubLinear {
         if (Objects.isNull(methodInit)) {
             throw Ut.Bnd.failBoot(BootPluginInfusionException.class, this.getClass(), clazz.getName());
         }
-        Fn.failAt(() -> methodInit.invoke(null, vertxRef));
+        Fn.jvmAt(() -> methodInit.invoke(null, vertxRef));
     }
 
     private Method findMethod(final Class<?> clazz) {

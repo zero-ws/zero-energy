@@ -34,14 +34,14 @@ public class SockInquirer implements Inquirer<Set<Remind>> {
             for (final SockThread item : threadReference) {
                 item.join();
             }
-        }, this.logger());
+        });
         /* 3.3. Finally **/
         final Set<Remind> events = new HashSet<>();
         Fn.jvmAt(() -> {
             for (final SockThread item : threadReference) {
                 events.addAll(item.getEvents());
             }
-        }, this.logger());
+        });
         return events;
     }
 

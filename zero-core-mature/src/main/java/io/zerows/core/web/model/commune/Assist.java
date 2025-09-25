@@ -6,10 +6,8 @@ import io.vertx.core.json.JsonObject;
 import io.vertx.ext.auth.User;
 import io.vertx.ext.web.RoutingContext;
 import io.vertx.ext.web.Session;
-import io.zerows.ams.constant.VString;
 import io.zerows.core.constant.KName;
 import io.zerows.core.constant.KWeb;
-import io.zerows.core.fn.Fn;
 import io.zerows.core.util.Ut;
 import io.zerows.module.domain.atom.commune.Vis;
 
@@ -42,12 +40,8 @@ class Assist implements Serializable {
 
     @SuppressWarnings("all")
     String principal(final String field) {
-        return Fn.failOr(VString.EMPTY, () -> {
-            final JsonObject credential = this.user.principal();
-            return Fn.bugOr(null != credential && credential.containsKey(field),
-                () -> credential.getString(field),
-                () -> VString.EMPTY);
-        }, this.user);
+        final JsonObject credential = this.user.principal();
+        return Ut.valueString(credential, field);
     }
 
     void bind(final RoutingContext context) {

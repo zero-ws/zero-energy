@@ -21,16 +21,16 @@ class RsaLegacy {
      * @return The encoded string with rsa
      */
     static String encryptRSALegacy(final String strText, final String keyPath) {
-        return Fn.failOr(() ->
-            encryptRSALegacy(strText, loadRSAPublicKeyByFile(keyPath)), strText);
+        return Fn.jvmOr(() ->
+            encryptRSALegacy(strText, loadRSAPublicKeyByFile(keyPath)));
     }
 
     static String encryptRSALegacy(final String strText, final RSAPublicKey publicKey) {
-        return Fn.failOr(() -> {
+        return Fn.jvmOr(() -> {
             final Cipher cipher = Cipher.getInstance("RSA");
             cipher.init(Cipher.ENCRYPT_MODE, publicKey);
             return Base64.getEncoder().encodeToString(cipher.doFinal(strText.getBytes()));
-        }, strText, publicKey);
+        });
     }
 
     private static RSAPublicKey loadRSAPublicKeyByFile(final String keyPath)

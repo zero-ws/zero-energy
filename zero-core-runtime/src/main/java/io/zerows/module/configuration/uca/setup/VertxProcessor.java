@@ -5,7 +5,6 @@ import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
 import io.zerows.core.constant.KName;
 import io.zerows.core.constant.configure.YmlCore;
-import io.zerows.core.fn.Fn;
 import io.zerows.core.util.Ut;
 import io.zerows.module.configuration.atom.NodeNetwork;
 import io.zerows.module.configuration.atom.NodeVertx;
@@ -14,7 +13,6 @@ import io.zerows.module.configuration.uca.transformer.ClusterTransformer;
 import io.zerows.module.configuration.uca.transformer.VertxTransformer;
 import io.zerows.module.configuration.zdk.Processor;
 import io.zerows.module.configuration.zdk.Transformer;
-import io.zerows.module.metadata.uca.stable.Ruler;
 import io.zerows.specification.configuration.HConfig;
 import io.zerows.specification.configuration.HSetting;
 
@@ -43,10 +41,6 @@ class VertxProcessor implements Processor<NodeNetwork, HSetting> {
         final JsonObject vertxData = Ut.valueJObject(containerJ, YmlCore.VERTX);
         this.logger().debug(INFO.V_BEFORE, YmlCore.VERTX,
             this.getClass().getName(), vertxData);
-
-
-        // 配置验证
-        Fn.jvmAt(() -> Ruler.verify(YmlCore.VERTX, vertxData), vertxData);
 
 
         // 集群基础配置

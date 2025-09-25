@@ -1,7 +1,6 @@
 package io.zerows.core.web.model.atom;
 
 import io.vertx.core.json.JsonObject;
-import io.zerows.core.fn.Fn;
 
 import java.io.Serializable;
 
@@ -22,7 +21,7 @@ public class Rule implements Serializable {
     }
 
     public static Rule create(final JsonObject data) {
-        return Fn.runOr(null, () -> new Rule(data), data);
+        return new Rule(data);
     }
 
     public String getMessage() {

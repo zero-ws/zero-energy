@@ -3,7 +3,6 @@ package io.zerows.module.metadata.atom.mapping;
 import io.r2mo.typed.cc.Cc;
 import io.reactivex.rxjava3.core.Observable;
 import io.vertx.core.json.JsonObject;
-import io.zerows.core.fn.Fn;
 import io.zerows.core.util.Ut;
 import io.zerows.module.metadata.uca.logging.OLog;
 
@@ -42,7 +41,7 @@ public class Mirror {
             final JsonObject data = Ut.ioYaml(MessageFormat.format(POJO, filename));
 
             /* Only one point to refer `pojoFile` */
-            return Fn.runOr(() -> Ut.deserialize(data, Mojo.class), data).on(filename);
+            return Ut.deserialize(data, Mojo.class).on(filename);
         }, filename);
         return this;
     }
@@ -54,7 +53,7 @@ public class Mirror {
 
     public Mirror connect(final JsonObject data) {
         // Copy new data
-        this.data = Fn.runOr(new JsonObject(), data::copy, data);
+        this.data = data.copy();
         return this;
     }
 
@@ -115,7 +114,7 @@ public class Mirror {
     @SuppressWarnings("unchecked")
     public <T> T get() {
         final Object reference = Ut.deserialize(this.converted, this.mojo.getType(), true);
-        return Fn.runOr(() -> (T) reference, reference);
+        return (T) reference;
     }
 
     public JsonObject result() {

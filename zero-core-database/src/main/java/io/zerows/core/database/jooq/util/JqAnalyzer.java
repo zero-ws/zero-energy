@@ -348,25 +348,26 @@ public class JqAnalyzer {
     public <T> T copyEntity(final T target, final T updated) {
         Fn.outBoot(null == updated, LOGGER, BootJooqMergeException.class,
             getClass(), null == target ? null : target.getClass(), Ut.serialize(target));
-        return Fn.runOr(null == target && null == updated, LOGGER, () -> null, () -> {
-            final JsonObject targetJson = null == target ? new JsonObject() : Ut.serializeJson(target);
-            /*
-             * Skip Primary Key
-             */
-            final Table<?> tableField = this.table();
-            final UniqueKey key = tableField.getPrimaryKey();
-            key.getFields().stream().map(item -> ((TableField) item).getName())
-                .filter(this.revert::containsKey)
-                .map(this.revert::get)
-                .forEach(item -> Ut.field(updated, item.toString(), null));
-            /*
-             * Deserialization
-             */
-            final JsonObject sourceJson = Ut.serializeJson(updated);
-            targetJson.mergeIn(sourceJson, true);
-            final Class<?> type = null == target ? updated.getClass() : target.getClass();
-            return (T) Ut.deserialize(targetJson, type);
-        });
+        if (Objects.isNull(target) && Objects.isNull(updated)) {
+            return null;
+        }
+        final JsonObject targetJson = null == target ? new JsonObject() : Ut.serializeJson(target);
+        /*
+         * Skip Primary Key
+         */
+        final Table<?> tableField = this.table();
+        final UniqueKey key = tableField.getPrimaryKey();
+        key.getFields().stream().map(item -> ((TableField) item).getName())
+            .filter(this.revert::containsKey)
+            .map(this.revert::get)
+            .forEach(item -> Ut.field(updated, item.toString(), null));
+        /*
+         * Deserialization
+         */
+        final JsonObject sourceJson = Ut.serializeJson(updated);
+        targetJson.mergeIn(sourceJson, true);
+        final Class<?> type = null == target ? updated.getClass() : target.getClass();
+        return (T) Ut.deserialize(targetJson, type);
     }
 
     public String pojoFile() {

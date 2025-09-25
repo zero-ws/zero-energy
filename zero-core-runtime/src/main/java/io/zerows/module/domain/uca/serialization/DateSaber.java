@@ -1,6 +1,5 @@
 package io.zerows.module.domain.uca.serialization;
 
-import io.zerows.core.fn.Fn;
 import io.zerows.core.util.Ut;
 
 import java.util.Calendar;
@@ -14,35 +13,29 @@ class DateSaber extends AbstractSaber {
     @Override
     public Object from(final Class<?> paramType,
                        final String literal) {
-        return Fn.runOr(() ->
-                Fn.runOr(Date.class == paramType ||
-                        Calendar.class == paramType, this.logger(),
-                    () -> {
-                        this.verifyInput(!Ut.isDate(literal), paramType, literal);
-                        final Date reference = Ut.parse(literal);
-                        if (Calendar.class == paramType) {
-                            // Specific date format
-                            final Calendar calendar = Calendar.getInstance();
-                            calendar.setTime(reference);
-                            return calendar;
-                        }
-                        return reference;
-                    }, Date::new),
-            paramType, literal);
+        if (Date.class == paramType ||
+            Calendar.class == paramType) {
+            this.verifyInput(!Ut.isDate(literal), paramType, literal);
+            final Date reference = Ut.parse(literal);
+            if (Calendar.class == paramType) {
+                // Specific date format
+                final Calendar calendar = Calendar.getInstance();
+                calendar.setTime(reference);
+                return calendar;
+            }
+            return reference;
+        }
+        return new Date();
     }
 
     @Override
     public <T> Object from(final T input) {
-        return Fn.runOr(() -> {
-            Object reference = null;
-            if (input instanceof Date) {
-                final Date date = (Date) input;
-                reference = date.getTime();
-            } else if (input instanceof Calendar) {
-                final Calendar date = (Calendar) input;
-                reference = date.getTime().getTime();
-            }
-            return reference;
-        }, input);
+        Object reference = null;
+        if (input instanceof final Date date) {
+            reference = date.getTime();
+        } else if (input instanceof final Calendar date) {
+            reference = date.getTime().getTime();
+        }
+        return reference;
     }
 }

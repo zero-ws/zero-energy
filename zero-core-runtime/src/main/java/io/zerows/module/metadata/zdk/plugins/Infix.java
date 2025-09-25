@@ -6,7 +6,6 @@ import io.zerows.core.util.Ut;
 import io.zerows.module.metadata.exception.BootKeyMissingException;
 import io.zerows.module.metadata.store.OZeroStore;
 import io.zerows.module.metadata.uca.logging.OLog;
-import io.zerows.module.metadata.uca.stable.Ruler;
 
 import java.util.function.Function;
 
@@ -18,7 +17,6 @@ public interface Infix {
         Fn.outBoot(!OZeroStore.is(key), logger, BootKeyMissingException.class,
             clazz, key);
         final JsonObject options = OZeroStore.option(key);
-        Fn.outBug(() -> Ruler.verify(key, options), logger);
         return executor.apply(options);
     }
 

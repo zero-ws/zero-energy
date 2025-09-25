@@ -6,7 +6,6 @@ import io.vertx.core.Vertx;
 import io.vertx.core.eventbus.DeliveryOptions;
 import io.vertx.core.eventbus.EventBus;
 import io.vertx.ext.web.RoutingContext;
-import io.zerows.core.fn.Fn;
 import io.zerows.core.web.io.zdk.Aim;
 import io.zerows.core.web.model.atom.Event;
 import io.zerows.core.web.model.commune.Envelop;
@@ -20,7 +19,7 @@ public class AimOneWay extends AbstractAim implements Aim<RoutingContext> {
 
     @Override
     public Handler<RoutingContext> attack(final Event event) {
-        return Fn.runOr(() -> (context) -> this.exec(() -> {
+        return (context) -> this.exec(() -> {
             /*
              * Build TypedArgument by java reflection metadata definition here
              */
@@ -75,6 +74,6 @@ public class AimOneWay extends AbstractAim implements Aim<RoutingContext> {
                     });
                 }
             });
-        }, context, event), event);
+        }, context, event);
     }
 }

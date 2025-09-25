@@ -1,8 +1,6 @@
 package io.zerows.core.web.model.uca.extract;
 
 import io.zerows.core.uca.log.Annal;
-import io.reactivex.rxjava3.core.Observable;
-import io.zerows.core.fn.Fn;
 import io.zerows.core.util.Ut;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.Produces;
@@ -10,6 +8,7 @@ import jakarta.ws.rs.core.MediaType;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -54,22 +53,18 @@ class ToolMedia {
     private static Set<MediaType> resolve(final Method method,
                                           final Class<? extends Annotation>
                                               mediaCls) {
-        return Fn.runOr(() -> {
-            final Annotation anno = method.getAnnotation(mediaCls);
-            return Fn.runOr(null == anno, LOGGER,
-                () -> DEFAULTS,
-                () -> {
-                    final String[] value = Ut.invoke(anno, "value");
-                    final Set<MediaType> result = new HashSet<>();
-                    // RxJava 2
-                    Observable.fromArray(value)
-                        .filter(Objects::nonNull)
-                        .map(MediaType::valueOf)
-                        .filter(Objects::nonNull)
-                        .subscribe(result::add)
-                        .dispose();
-                    return result.isEmpty() ? DEFAULTS : result;
-                });
-        }, method, mediaCls);
+        final Annotation anno = method.getAnnotation(mediaCls);
+        if (Objects.isNull(anno)) {
+            return DEFAULTS;
+        }
+        final String[] value = Ut.invoke(anno, "value");
+        final Set<MediaType> result = new HashSet<>();
+        // RxJava 2
+        Arrays.stream(value)
+            .filter(Objects::nonNull)
+            .map(MediaType::valueOf)
+            .filter(Objects::nonNull)
+            .forEach(result::add);
+        return result.isEmpty() ? DEFAULTS : result;
     }
 }

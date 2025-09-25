@@ -3,7 +3,6 @@ package io.zerows.core.web.model.store;
 import io.zerows.ams.constant.em.app.ServerType;
 import io.zerows.core.annotations.QaS;
 import io.zerows.core.constant.KMeta;
-import io.zerows.core.fn.Fn;
 import io.zerows.core.running.context.KRunner;
 import io.zerows.core.util.Ut;
 import io.zerows.core.web.model.atom.Event;
@@ -85,25 +84,29 @@ public class ORepositoryMeta extends AbstractAmbiguity implements ORepository {
         final Set<Class<?>> classQueue = OCacheClass.entireValue(KMeta.Typed.QUEUE);
         KRunner.run("meditate-core-component",
             // @EndPoint -> Event
-            () -> Fn.runAt(!classesEndpoint.isEmpty(), logger, () -> {
-                final Inquirer<Set<Event>> event = Ut.singleton(InquirerEvent.class);
-                final Set<Event> events = event.scan(classesEndpoint);
-                actorComponent.addEvents(events);
+            () -> {
+                if (!classesEndpoint.isEmpty()) {
+                    final Inquirer<Set<Event>> event = Ut.singleton(InquirerEvent.class);
+                    final Set<Event> events = event.scan(classesEndpoint);
+                    actorComponent.addEvents(events);
 
 
-                // 追加到路由管理器中
-                OCacheActor.Tool.addTo(events);
-            }),
+                    // 追加到路由管理器中
+                    OCacheActor.Tool.addTo(events);
+                }
+            },
             // @WebFilter -> JSR340
             () -> {
                 final Inquirer<ConcurrentMap<String, Set<Event>>> filters = Ut.singleton(InquirerFilter.class);
                 actorComponent.addFilters(filters.scan(classAll));
             },
             // @Queue/@QaS -> Receipt
-            () -> Fn.runAt(!classQueue.isEmpty(), logger, () -> {
-                final Inquirer<Set<Receipt>> receipt = Ut.singleton(InquirerReceipt.class);
-                actorComponent.addReceipts(receipt.scan(classQueue));
-            }),
+            () -> {
+                if (!classQueue.isEmpty()) {
+                    final Inquirer<Set<Receipt>> receipt = Ut.singleton(InquirerReceipt.class);
+                    actorComponent.addReceipts(receipt.scan(classQueue));
+                }
+            },
             // Agent Component
             () -> {
                 final Inquirer<ConcurrentMap<ServerType, List<Class<?>>>> agent = Ut.singleton(InquirerAgent.class);

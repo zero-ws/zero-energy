@@ -37,7 +37,7 @@ class DiInfix {
         Observable.fromIterable(infixes)
             .filter(Infix.class::isAssignableFrom)
             .subscribe(item -> {
-                final Method method = Fn.failOr(() -> item.getDeclaredMethod("get"), item);
+                final Method method = Fn.jvmOr(() -> item.getDeclaredMethod("get"));
                 final Class<?> type = method.getReturnType();
                 binds.put(type, item);
             })

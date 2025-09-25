@@ -1,7 +1,5 @@
 package io.zerows.module.domain.uca.serialization;
 
-import io.zerows.core.fn.Fn;
-
 import java.math.BigDecimal;
 import java.util.function.Function;
 
@@ -22,9 +20,7 @@ class BigDecimalSaber extends AbstractDecimalSaber {
 
     @Override
     public <T> Object from(final T input) {
-        return Fn.runOr(() -> {
-            final BigDecimal decimal = (BigDecimal) input;
-            return decimal.doubleValue();
-        }, input);
+        final BigDecimal decimal = (BigDecimal) input;
+        return decimal.doubleValue();
     }
 }
