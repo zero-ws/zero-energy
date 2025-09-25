@@ -1,7 +1,7 @@
 package io.zerows.module.metadata.zdk.dependency;
 
+import io.r2mo.typed.cc.Cc;
 import io.zerows.core.constant.KName;
-import io.zerows.core.uca.cache.Cc;
 import io.zerows.module.metadata.osgi.dependency.CallbackOfBase;
 import io.zerows.module.metadata.osgi.service.EnergyFailure;
 import io.zerows.module.metadata.zdk.service.ServiceConnector;

@@ -1,7 +1,7 @@
 package io.zerows.core.web.model.store;
 
+import io.r2mo.typed.cc.Cc;
 import io.vertx.core.http.HttpMethod;
-import io.zerows.core.uca.cache.Cc;
 import io.zerows.core.util.Ut;
 import io.zerows.module.metadata.zdk.running.OCache;
 import org.osgi.framework.Bundle;
@@ -27,7 +27,7 @@ public interface OCacheUri extends OCache<ConcurrentMap<HttpMethod, Set<String>>
     }
 
     static Set<String> entireUri(final HttpMethod method) {
-        return CC_SKELETON.store().values().stream()
+        return CC_SKELETON.get().values().stream()
             .flatMap(uri -> {
                 if (Objects.isNull(method)) {
                     return uri.value().values().stream().flatMap(Set::stream);

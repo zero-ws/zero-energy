@@ -1,12 +1,12 @@
 package io.zerows.core.web.security.uca.bridge;
 
+import io.r2mo.typed.cc.Cc;
 import io.vertx.core.Vertx;
 import io.vertx.ext.auth.authentication.AuthenticationProvider;
 import io.vertx.ext.web.handler.AuthenticationHandler;
 import io.vertx.ext.web.handler.AuthorizationHandler;
 import io.zerows.core.constant.em.EmSecure;
 import io.zerows.core.fn.Fn;
-import io.zerows.core.uca.cache.Cc;
 import io.zerows.core.util.Ut;
 import io.zerows.core.web.security.exception.BootWallProviderConflictException;
 import io.zerows.core.web.security.exception.BootWallSizeException;

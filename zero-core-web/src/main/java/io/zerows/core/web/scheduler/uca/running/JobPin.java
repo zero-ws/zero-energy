@@ -17,7 +17,7 @@ public class JobPin {
             CONFIG = OZeroStore.option(YmlCore.job.__KEY, JobConfig.class, JobConfig::new);
             //            final JsonObject job = config.getJsonObject(YmlCore.job.__KEY);
             //            if (!Ut.isNil(job)) {
-            //                /* Extension job-store */
+            //                /* Extension job-get */
             //                CONFIG = Ut.deserialize(job, JobConfig.class);
             //            } else {
             //                CONFIG = new JobConfig();

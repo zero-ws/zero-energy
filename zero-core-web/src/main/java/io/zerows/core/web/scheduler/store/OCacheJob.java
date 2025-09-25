@@ -1,6 +1,6 @@
 package io.zerows.core.web.scheduler.store;
 
-import io.zerows.core.uca.cache.Cc;
+import io.r2mo.typed.cc.Cc;
 import io.zerows.core.util.Ut;
 import io.zerows.core.web.scheduler.atom.Mission;
 import io.zerows.module.metadata.zdk.running.OCache;
@@ -25,7 +25,7 @@ public interface OCacheJob extends OCache<Set<Mission>> {
     }
 
     static Set<Mission> entireValue() {
-        return CC_SKELETON.store().values().stream()
+        return CC_SKELETON.get().values().stream()
             .flatMap(cache -> cache.value().stream())
             .collect(Collectors.toSet());
     }

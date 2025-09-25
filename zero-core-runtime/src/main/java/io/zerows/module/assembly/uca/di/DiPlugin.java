@@ -1,7 +1,7 @@
 package io.zerows.module.assembly.uca.di;
 
 import com.google.inject.Injector;
-import io.zerows.core.uca.cache.Cc;
+import io.r2mo.typed.cc.Cc;
 import io.zerows.core.util.Ut;
 import io.zerows.module.assembly.atom.OProxyInstance;
 import io.zerows.module.metadata.uca.logging.OLog;

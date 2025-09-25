@@ -1,6 +1,6 @@
 package io.zerows.module.assembly.atom;
 
-import io.zerows.core.uca.cache.Cc;
+import io.r2mo.typed.cc.Cc;
 
 import java.lang.reflect.Proxy;
 

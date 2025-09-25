@@ -1,8 +1,8 @@
 package io.zerows.core.web.cache.shared;
 
+import io.r2mo.typed.cc.Cc;
 import io.vertx.core.Vertx;
 import io.zerows.core.annotations.Infusion;
-import io.zerows.core.uca.cache.Cc;
 import io.zerows.module.metadata.zdk.plugins.Infix;
 
 @Infusion
@@ -23,7 +23,7 @@ public class MapInfix implements Infix {
     }
 
     public static SharedClient<String, Object> getClient() {
-        return CC_CLIENTS.store(NAME);
+        return CC_CLIENTS.get(NAME);
     }
 
     public static String getDefaultName() {

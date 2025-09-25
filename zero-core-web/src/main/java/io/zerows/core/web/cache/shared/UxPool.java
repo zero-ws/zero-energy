@@ -1,9 +1,9 @@
 package io.zerows.core.web.cache.shared;
 
+import io.r2mo.typed.cc.Cc;
 import io.vertx.core.Future;
 import io.zerows.common.program.Kv;
 import io.zerows.core.fn.Fn;
-import io.zerows.core.uca.cache.Cc;
 import io.zerows.core.util.Ut;
 import io.zerows.core.web.cache.shared.exception._500PoolInternalException;
 import io.zerows.module.metadata.uca.logging.OLog;

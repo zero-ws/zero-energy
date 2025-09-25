@@ -240,7 +240,7 @@ public class InvokerUtil {
         final long count = json.fieldNames().stream().filter(Ut::isInteger)
             .count();
         // All json keys are numbers
-        LOGGER.debug("( isInterface Mode ) store count: {0}, json: {1}",
+        LOGGER.debug("( isInterface Mode ) get count: {0}, json: {1}",
             count, json.encode());
         return count == json.fieldNames().size();
     }

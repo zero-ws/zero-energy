@@ -1,16 +1,15 @@
 package io.zerows.core.web.mbse.atom.shape;
 
+import io.r2mo.typed.cc.Cc;
 import io.vertx.core.Future;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
-import io.zerows.unity.Ux;
 import io.zerows.ams.constant.em.modeling.EmValue;
 import io.zerows.common.reference.*;
 import io.zerows.core.constant.KName;
 import io.zerows.core.database.jooq.operation.UxJoin;
 import io.zerows.core.database.jooq.operation.UxJooq;
 import io.zerows.core.exception.web._501NotSupportException;
-import io.zerows.core.uca.cache.Cc;
 import io.zerows.core.util.Ut;
 import io.zerows.module.domain.atom.specification.KJoin;
 import io.zerows.module.domain.atom.specification.KPoint;
@@ -21,6 +20,7 @@ import io.zerows.specification.modeling.HAtom;
 import io.zerows.specification.modeling.HAttribute;
 import io.zerows.specification.modeling.HReference;
 import io.zerows.specification.modeling.operation.HDao;
+import io.zerows.unity.Ux;
 
 import java.util.Objects;
 import java.util.concurrent.ConcurrentMap;
@@ -43,7 +43,7 @@ import java.util.function.Function;
  *
  * ### 3. Dao Map
  *
- * Here are following hash map rules to store component references:
+ * Here are following hash map rules to get component references:
  *
  * 1. Each `key = value` pair refer to `source = {@link RQuote}`.
  * 2. `references` stored `source = RQuote` hash map.
@@ -72,7 +72,7 @@ import java.util.function.Function;
  *
  * ### 4. Result Map
  *
- * Here are following hash map rules to store component result:
+ * Here are following hash map rules to get component result:
  *
  * 1. Each `key = value` pair refer to `field = {@link RResult}`.
  * 2. `result` stored `source = RResult` hash map and refer to `RDao`.
@@ -96,11 +96,11 @@ import java.util.function.Function;
 public class HAtomReference implements HReference {
     protected final transient Cc<String, RDao> ccDao = Cc.open();
     /**
-     * The hash map to store `source = {@link RQuote}`.
+     * The hash map to get `source = {@link RQuote}`.
      */
     protected final transient Cc<String, RQuote> ccReference = Cc.open();
     /**
-     * The hash map to store `field = {@link RResult}`.
+     * The hash map to get `field = {@link RResult}`.
      */
     protected final transient Cc<String, RResult> ccResult = Cc.open();
     /*
@@ -119,25 +119,25 @@ public class HAtomReference implements HReference {
     // ======================= Overwrite Api ==========================
     @Override
     public ConcurrentMap<String, RQuote> refInput() {
-        //        final ConcurrentMap<String, RQuote> store = this.ccReference.store();
-        return this.ccReference.store();
+        //        final ConcurrentMap<String, RQuote> get = this.ccReference.get();
+        return this.ccReference.get();
     }
 
     @Override
     public ConcurrentMap<String, RQuery> refQr() {
-        //        final Cd<String, RQuery> store = this.ccQuery.store();
-        return this.ccQuery.store();
+        //        final Cd<String, RQuery> get = this.ccQuery.get();
+        return this.ccQuery.get();
     }
 
     @Override
     public ConcurrentMap<String, RResult> refOutput() {
-        //        final Cd<String, RResult> store = this.ccResult.store();
-        return this.ccResult.store();
+        //        final Cd<String, RResult> get = this.ccResult.get();
+        return this.ccResult.get();
     }
 
     @Override
     public RReference refData(final String name) {
-        return this.ccData.store(name);
+        return this.ccData.get(name);
     }
 
     // ======================= Overwrite Api ==========================

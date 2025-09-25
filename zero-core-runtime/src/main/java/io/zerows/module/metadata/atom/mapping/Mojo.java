@@ -80,7 +80,7 @@ public class Mojo implements Serializable {
 
     /*
      * outField -> field
-     * Reverted into `getOut`, it does not store
+     * Reverted into `getOut`, it does not get
      *
      * Example:
      *

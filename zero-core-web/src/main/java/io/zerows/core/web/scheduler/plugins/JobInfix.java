@@ -1,8 +1,8 @@
 package io.zerows.core.web.scheduler.plugins;
 
+import io.r2mo.typed.cc.Cc;
 import io.vertx.core.Vertx;
 import io.zerows.core.annotations.Infusion;
-import io.zerows.core.uca.cache.Cc;
 import io.zerows.module.metadata.zdk.plugins.Infix;
 
 @Infusion
@@ -25,7 +25,7 @@ public class JobInfix implements Infix {
     }
 
     public static JobClient getClient() {
-        return CC_CLIENTS.store(NAME);
+        return CC_CLIENTS.get(NAME);
     }
 
     @Override

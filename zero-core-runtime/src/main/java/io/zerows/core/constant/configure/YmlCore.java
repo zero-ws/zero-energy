@@ -124,7 +124,7 @@ public interface YmlCore {
      * session:
      *     config:
      *         category:    SessionType
-     *         store:
+     *         get:
      *         options:
      * </code></pre>
      */
@@ -316,8 +316,8 @@ public interface YmlCore {
     /**
      * vertx-job.yml
      * <pre><code>
-     * job:  {@see io.vertx.up.operation.job.store.JobConfig}
-     *     store:
+     * job:  {@see io.vertx.up.operation.job.get.JobConfig}
+     *     get:
      *        component:
      *        config:
      *     client:

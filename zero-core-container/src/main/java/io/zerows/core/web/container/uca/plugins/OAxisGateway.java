@@ -1,6 +1,6 @@
 package io.zerows.core.web.container.uca.plugins;
 
-import io.zerows.core.uca.cache.Cc;
+import io.r2mo.typed.cc.Cc;
 import io.zerows.core.util.Ut;
 import io.zerows.core.web.container.uca.routing.AxisExtension;
 import io.zerows.core.web.io.uca.routing.OAxis;

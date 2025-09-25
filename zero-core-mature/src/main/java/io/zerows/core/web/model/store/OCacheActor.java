@@ -1,6 +1,6 @@
 package io.zerows.core.web.model.store;
 
-import io.zerows.core.uca.cache.Cc;
+import io.r2mo.typed.cc.Cc;
 import io.zerows.core.util.Ut;
 import io.zerows.core.web.model.atom.Event;
 import io.zerows.core.web.model.atom.action.OActorComponent;

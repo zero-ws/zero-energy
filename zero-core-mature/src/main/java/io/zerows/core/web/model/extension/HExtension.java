@@ -1,10 +1,10 @@
 package io.zerows.core.web.model.extension;
 
 
+import io.r2mo.typed.cc.Cc;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
 import io.zerows.ams.constant.spec.VBoot;
-import io.zerows.core.uca.cache.Cc;
 import io.zerows.core.util.Ut;
 import io.zerows.core.web.model.uca.normalize.EquipAt;
 import io.zerows.module.metadata.atom.configuration.MDConfiguration;
@@ -34,7 +34,7 @@ public interface HExtension {
 
     static Set<HExtension> initialize() {
         /* Boot processing */
-        final ConcurrentMap<Class<?>, HExtension> data = CC_BOOT.store();
+        final ConcurrentMap<Class<?>, HExtension> data = CC_BOOT.get();
         if (data.isEmpty()) {
             final HSetting setting = OZeroStore.setting();
             final JsonObject launcherJ = setting.launcher().options();
@@ -88,7 +88,7 @@ public interface HExtension {
         if (Ut.isNil(table)) {
             return null;
         }
-        return CC_BOOT.store().values().stream()
+        return CC_BOOT.get().values().stream()
             .flatMap(extension -> extension.connect().values().stream())
             .filter(connect -> table.equals(connect.getTable()))
             .findAny().orElse(null);

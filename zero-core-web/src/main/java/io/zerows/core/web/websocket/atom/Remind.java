@@ -2,7 +2,7 @@ package io.zerows.core.web.websocket.atom;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import io.zerows.core.uca.cache.Cc;
+import io.r2mo.typed.cc.Cc;
 import io.zerows.core.web.websocket.eon.em.RemindType;
 import io.zerows.extend.jackson.databind.ClassDeserializer;
 import io.zerows.extend.jackson.databind.ClassSerializer;

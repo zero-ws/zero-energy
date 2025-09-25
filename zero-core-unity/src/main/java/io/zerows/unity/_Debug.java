@@ -13,7 +13,7 @@ import java.util.function.Supplier;
  */
 class _Debug extends _Complex {
     /**
-     * Create new log instance for store `Annal` mapping
+     * Create new log instance for get `Annal` mapping
      * <p>
      * Debug method for help us to do development
      * 1) debug:

@@ -1,8 +1,8 @@
 package io.zerows.module.metadata.zdk.plugins;
 
+import io.r2mo.typed.cc.Cc;
 import io.vertx.core.json.JsonObject;
 import io.zerows.core.fn.Fn;
-import io.zerows.core.uca.cache.Cc;
 import io.zerows.core.util.Ut;
 import io.zerows.module.metadata.exception.BootDynamicKeyMissingException;
 import io.zerows.module.metadata.store.OZeroStore;

@@ -1,12 +1,12 @@
 package io.zerows.module.metadata.uca.stable;
 
+import io.r2mo.typed.cc.Cc;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
 import io.zerows.ams.constant.VPath;
 import io.zerows.ams.constant.VString;
 import io.zerows.core.exception.ProgramException;
 import io.zerows.core.fn.Fn;
-import io.zerows.core.uca.cache.Cc;
 import io.zerows.core.util.Ut;
 import io.zerows.module.metadata.uca.logging.OLog;
 
@@ -129,7 +129,7 @@ public class Ruler {
     private static JsonObject getRule(final String file) {
         // Cached rule into memory pool
         final String filename = MessageFormat.format(VPath.SERVER.INTERNAL_RULE, file);
-        final ConcurrentMap<String, JsonObject> data = CC_RULE.store();
+        final ConcurrentMap<String, JsonObject> data = CC_RULE.get();
         if (data.containsKey(filename)) {
             LOGGER.debug(MESSAGE.Ruler.RULE_CACHED_FILE, filename);
         } else {

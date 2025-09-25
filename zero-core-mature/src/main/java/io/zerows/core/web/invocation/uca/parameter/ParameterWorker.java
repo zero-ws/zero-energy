@@ -1,5 +1,6 @@
 package io.zerows.core.web.invocation.uca.parameter;
 
+import io.r2mo.typed.cc.Cc;
 import io.vertx.core.MultiMap;
 import io.vertx.core.eventbus.EventBus;
 import io.vertx.core.http.HttpServerRequest;
@@ -7,7 +8,6 @@ import io.vertx.core.http.HttpServerResponse;
 import io.vertx.ext.auth.User;
 import io.vertx.ext.web.RoutingContext;
 import io.vertx.ext.web.Session;
-import io.zerows.core.uca.cache.Cc;
 import io.zerows.core.util.Ut;
 import io.zerows.core.web.model.commune.Envelop;
 import io.zerows.module.domain.atom.commune.XHeader;

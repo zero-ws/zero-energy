@@ -1,6 +1,6 @@
 package io.zerows.module.metadata.zdk.service;
 
-import io.zerows.core.uca.cache.Cc;
+import io.r2mo.typed.cc.Cc;
 import io.zerows.core.util.Ut;
 import io.zerows.module.metadata.atom.configuration.MDConfiguration;
 import io.zerows.module.metadata.atom.service.context.ContextOfApp;

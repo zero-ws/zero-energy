@@ -1,11 +1,11 @@
 package io.zerows.core.web.mbse.plugins;
 
-import io.zerows.core.uca.cache.Cc;
-import io.zerows.specification.modeling.operation.HLoad;
-import io.zerows.specification.modeling.HAtom;
+import io.r2mo.typed.cc.Cc;
 import io.zerows.core.constant.configure.YmlCore;
-import io.zerows.unity.Ux;
 import io.zerows.core.util.Ut;
+import io.zerows.specification.modeling.HAtom;
+import io.zerows.specification.modeling.operation.HLoad;
+import io.zerows.unity.Ux;
 
 /**
  * @author <a href="http://www.origin-x.cn">Lang</a>

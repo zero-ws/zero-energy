@@ -1,6 +1,6 @@
 package io.zerows.core.web.container.store.under;
 
-import io.zerows.core.uca.cache.Cc;
+import io.r2mo.typed.cc.Cc;
 import io.zerows.core.util.Ut;
 import io.zerows.core.web.model.atom.running.RunRoute;
 import io.zerows.module.metadata.zdk.running.OCache;

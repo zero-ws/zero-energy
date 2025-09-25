@@ -67,7 +67,7 @@ error:
   E20002: (401) - Qiy token record does not contain "access_token", client_id = {0}
   E20003: (424) - Ali Acs Client profile met error when it''s initializing, details = {0}
   E20004: (424) - Ali Acs Client send request met error, details = {0}
-  E20005: "(500) - You selected mode = `DEFINED`, but there missed `store` key in config"
+  E20005: "(500) - You selected mode = `DEFINED`, but there missed `get` key in config"
 
   # ElasticSearch
   E20006: (404) - the Configuration of ElasticSearch is missinng, please check vertx-elasticsearch.yml.

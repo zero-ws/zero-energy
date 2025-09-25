@@ -1,11 +1,11 @@
 package io.zerows.core.web.container.uca.store;
 
+import io.r2mo.typed.cc.Cc;
 import io.vertx.core.Vertx;
 import io.zerows.ams.constant.VString;
 import io.zerows.core.annotations.Infusion;
 import io.zerows.core.constant.KMeta;
 import io.zerows.core.exception.web._501NotSupportException;
-import io.zerows.core.uca.cache.Cc;
 import io.zerows.core.util.Ut;
 import io.zerows.core.web.container.store.under.StoreVertx;
 import io.zerows.core.web.container.verticle.ZeroHttpAgent;

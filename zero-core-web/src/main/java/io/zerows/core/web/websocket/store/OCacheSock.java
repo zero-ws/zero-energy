@@ -1,6 +1,6 @@
 package io.zerows.core.web.websocket.store;
 
-import io.zerows.core.uca.cache.Cc;
+import io.r2mo.typed.cc.Cc;
 import io.zerows.core.util.Ut;
 import io.zerows.core.web.websocket.atom.Remind;
 import io.zerows.module.metadata.zdk.running.OCache;
@@ -27,7 +27,7 @@ public interface OCacheSock extends OCache<Set<Remind>> {
     }
 
     static Set<Remind> entireValue() {
-        return CC_SKELETON.store().values().stream()
+        return CC_SKELETON.get().values().stream()
             .flatMap(sock -> sock.value().stream())
             .collect(Collectors.toSet());
     }

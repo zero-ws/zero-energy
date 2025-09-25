@@ -26,7 +26,7 @@ public class KLexeme<T> implements Serializable {
     public KLexeme(final Class<?> interfaceCls, final T reference) {
         this.interfaceCls = interfaceCls;
         this.reference = reference;
-        /* store names */
+        /* get names */
         this.parseParams(interfaceCls);
     }
 

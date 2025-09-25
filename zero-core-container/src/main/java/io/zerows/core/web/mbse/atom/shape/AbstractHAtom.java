@@ -1,9 +1,9 @@
 package io.zerows.core.web.mbse.atom.shape;
 
-import io.zerows.core.uca.cache.Cc;
+import io.r2mo.typed.cc.Cc;
+import io.zerows.common.normalize.KMarkAtom;
 import io.zerows.core.uca.compare.Vs;
 import io.zerows.specification.access.app.HArk;
-import io.zerows.common.normalize.KMarkAtom;
 import io.zerows.specification.modeling.*;
 import io.zerows.specification.modeling.metadata.HMetaAtom;
 import io.zerows.specification.modeling.metadata.HMetaField;

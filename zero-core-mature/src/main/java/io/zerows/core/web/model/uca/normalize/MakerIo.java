@@ -1,7 +1,7 @@
 package io.zerows.core.web.model.uca.normalize;
 
+import io.r2mo.typed.cc.Cc;
 import io.zerows.core.exception.web._501NotSupportException;
-import io.zerows.core.uca.cache.Cc;
 import io.zerows.core.util.Ut;
 import org.osgi.framework.Bundle;
 

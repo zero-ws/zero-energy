@@ -1,6 +1,6 @@
 package io.zerows.core.web.mbse.uca.mixture;
 
-import io.zerows.core.uca.cache.Cc;
+import io.r2mo.typed.cc.Cc;
 import io.vertx.core.MultiMap;
 import io.vertx.core.json.JsonObject;
 import io.zerows.core.database.jooq.operation.UxJoin;

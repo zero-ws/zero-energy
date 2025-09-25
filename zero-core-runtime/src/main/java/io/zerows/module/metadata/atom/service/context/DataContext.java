@@ -1,6 +1,6 @@
 package io.zerows.module.metadata.atom.service.context;
 
-import io.zerows.core.uca.cache.Cc;
+import io.r2mo.typed.cc.Cc;
 import org.osgi.framework.Bundle;
 
 import java.util.concurrent.ConcurrentHashMap;

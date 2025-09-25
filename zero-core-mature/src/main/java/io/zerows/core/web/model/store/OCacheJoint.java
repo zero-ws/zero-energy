@@ -1,6 +1,6 @@
 package io.zerows.core.web.model.store;
 
-import io.zerows.core.uca.cache.Cc;
+import io.r2mo.typed.cc.Cc;
 import io.zerows.core.util.Ut;
 import io.zerows.core.web.model.atom.action.OJointAction;
 import io.zerows.core.web.model.atom.action.OJointMap;
@@ -24,7 +24,7 @@ public interface OCacheJoint extends OCache<OJointAction> {
 
     static OJointMap entireJoint() {
         final OJointMap jointMap = new OJointMap();
-        CC_SKELETON.store().values().forEach(each -> {
+        CC_SKELETON.get().values().forEach(each -> {
             final OJointMap eachMap = each.joint();
             jointMap.add(eachMap);
         });

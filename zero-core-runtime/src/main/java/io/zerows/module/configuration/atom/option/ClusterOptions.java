@@ -16,7 +16,7 @@ import java.io.Serializable;
  * 1. Whether you have enabled Cluster in zero framework ( About vert.x cluster )
  * 2. After you have set cluster, here you should provide a default `io.vertx.core.spi.cluster.ClusterManager` for it,
  * 3. The default cluster manager is `HazelcastClusterManager` ( The same as vert.x ).
- * 4. Here provide `JsonObject` reference to store cluster options in the configured file.
+ * 4. Here provide `JsonObject` reference to get cluster options in the configured file.
  *
  * Here are yaml structure in `vertx.yml`:
  *

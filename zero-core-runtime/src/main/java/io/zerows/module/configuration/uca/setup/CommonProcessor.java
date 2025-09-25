@@ -1,6 +1,6 @@
 package io.zerows.module.configuration.uca.setup;
 
-import io.zerows.core.uca.cache.Cc;
+import io.r2mo.typed.cc.Cc;
 import io.zerows.module.configuration.atom.NodeNetwork;
 import io.zerows.module.configuration.atom.NodeVertx;
 import io.zerows.module.configuration.zdk.Processor;

@@ -1,7 +1,7 @@
 package io.zerows.module.feature.toolkit.expression.script;
 
+import io.r2mo.typed.cc.Cc;
 import io.vertx.core.json.JsonObject;
-import io.zerows.core.uca.cache.Cc;
 import org.apache.commons.jexl3.JexlContext;
 
 /**

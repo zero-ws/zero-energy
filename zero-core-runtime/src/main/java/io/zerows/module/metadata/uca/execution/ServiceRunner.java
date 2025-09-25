@@ -1,7 +1,7 @@
 package io.zerows.module.metadata.uca.execution;
 
+import io.r2mo.typed.cc.Cc;
 import io.vertx.core.Future;
-import io.zerows.core.uca.cache.Cc;
 import io.zerows.core.util.Ut;
 import io.zerows.module.metadata.atom.service.CallbackParameter;
 import io.zerows.module.metadata.uca.logging.OLog;

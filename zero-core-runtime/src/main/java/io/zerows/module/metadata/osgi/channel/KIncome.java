@@ -11,7 +11,7 @@ import java.util.Objects;
 import java.util.Vector;
 
 /*
- * Stack of fluent api here to store parameters
+ * Stack of fluent api here to get parameters
  */
 public class KIncome implements Serializable {
     private static final OLog LOGGER = Ut.Log.service(KIncome.class);

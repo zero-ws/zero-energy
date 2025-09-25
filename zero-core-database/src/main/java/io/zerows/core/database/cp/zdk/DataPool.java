@@ -1,10 +1,10 @@
 package io.zerows.core.database.cp.zdk;
 
+import io.r2mo.typed.cc.Cc;
 import io.zerows.common.app.KDatabase;
 import io.zerows.core.database.atom.Database;
 import io.zerows.core.database.cp.ds.DSMeta;
 import io.zerows.core.database.cp.ds.HikariDataPool;
-import io.zerows.core.uca.cache.Cc;
 import io.zerows.core.util.Ut;
 import io.zerows.module.metadata.uca.logging.OLog;
 import org.jooq.Configuration;

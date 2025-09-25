@@ -1,8 +1,8 @@
 package io.zerows.core.web.mbse.atom;
 
+import io.r2mo.typed.cc.Cc;
 import io.vertx.core.json.JsonObject;
 import io.zerows.core.constant.KName;
-import io.zerows.core.uca.cache.Cc;
 import io.zerows.core.util.Ut;
 import io.zerows.core.web.mbse.atom.specification.KModule;
 import io.zerows.core.web.mbse.exception._404ModelNotFoundException;

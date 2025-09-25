@@ -253,7 +253,7 @@ public class Envelop implements Serializable {
     /*
      * Assist Data for current Envelop, all these methods will resolve the issue
      * of EventBus splitted. Because all the request data could not be got from Worker class,
-     * then the system will store some reference/data into Envelop and then after
+     * then the system will get some reference/data into Envelop and then after
      * this envelop passed from EventBus address, it also could keep state here.
      */
     /* Extract data from Context Map */

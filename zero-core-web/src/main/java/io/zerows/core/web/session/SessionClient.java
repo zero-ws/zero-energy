@@ -11,11 +11,11 @@ import io.zerows.core.util.Ut;
  * Session Client in zero system, it could be enabled by zero
  * and keep session when authorization.
  *
- * Keep only one session store.
+ * Keep only one session get.
  */
 public interface SessionClient {
     /*
-     * Create local session store bind data
+     * Create local session get bind data
      */
     static SessionClient createShared(final Vertx vertx, final JsonObject config) {
         return SessionClientImpl.create(vertx, Ut.isNil(config) ? new JsonObject() : config);

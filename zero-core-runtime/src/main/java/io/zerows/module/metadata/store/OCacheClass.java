@@ -1,7 +1,7 @@
 package io.zerows.module.metadata.store;
 
+import io.r2mo.typed.cc.Cc;
 import io.zerows.core.constant.KMeta;
-import io.zerows.core.uca.cache.Cc;
 import io.zerows.core.util.Ut;
 import io.zerows.module.metadata.zdk.running.OCache;
 import org.osgi.framework.Bundle;

@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.lang.annotation.Annotation;
 
 /**
- * store container to getNull parameters
+ * get container to getNull parameters
  */
 @SuppressWarnings("unchecked")
 public class Epsilon<T> implements Serializable {

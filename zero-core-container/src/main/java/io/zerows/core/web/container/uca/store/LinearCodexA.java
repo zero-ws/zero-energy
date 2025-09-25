@@ -22,7 +22,7 @@ class LinearCodexA implements StubLinear {
         rules.forEach(rule -> {
             try {
                 // Codex 文件定义了相关规则
-                final ConcurrentMap<String, JsonObject> store = CStore.CC_CODEX.store();
+                final ConcurrentMap<String, JsonObject> store = CStore.CC_CODEX.get();
                 // 移除
                 store.remove(rule.substring(0, rule.lastIndexOf(VString.DOT)));
             } catch (final EmptyIoException ex) {
@@ -41,7 +41,7 @@ class LinearCodexA implements StubLinear {
 
 
                 // Codex 文件定义了相关规则
-                final ConcurrentMap<String, JsonObject> store = CStore.CC_CODEX.store();
+                final ConcurrentMap<String, JsonObject> store = CStore.CC_CODEX.get();
                 // 追加
                 store.put(rule.substring(0, rule.lastIndexOf(VString.DOT)), ruleData);
             } catch (final EmptyIoException ex) {

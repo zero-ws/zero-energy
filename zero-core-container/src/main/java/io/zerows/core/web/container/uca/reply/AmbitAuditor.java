@@ -1,9 +1,9 @@
 package io.zerows.core.web.container.uca.reply;
 
+import io.r2mo.typed.cc.Cc;
 import io.vertx.core.Future;
 import io.vertx.ext.web.RoutingContext;
 import io.zerows.core.constant.configure.YmlCore;
-import io.zerows.core.uca.cache.Cc;
 import io.zerows.core.util.Ut;
 import io.zerows.core.web.io.plugins.extension.PlugAuditor;
 import io.zerows.core.web.model.commune.Envelop;

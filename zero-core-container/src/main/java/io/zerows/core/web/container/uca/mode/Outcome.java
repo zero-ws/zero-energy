@@ -73,7 +73,7 @@ final class Outcome {
                 /*
                  * do not allow proxies to cache the data
                  */
-                .putHeader("Cache-Control", "no-store, no-cache")
+                .putHeader("Cache-Control", "no-get, no-cache")
                 /*
                  * prevents Internet Explorer from MIME - sniffing a
                  * response away from the declared content-type

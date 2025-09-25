@@ -235,7 +235,7 @@ public class KCatena implements Serializable {
          * key              ->      key
          * name             ->      label
          * code             ->      value
-         * datum            ->      {} store
+         * datum            ->      {} get
          */
         normalized.put(KName.Rbac.UI, Ut.valueString(uiSurface, KName.Component.WEB_COMPONENT));
         final JsonObject input = this.request.copy();

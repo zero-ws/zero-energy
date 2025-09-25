@@ -1,5 +1,6 @@
 package io.zerows.module.metadata.uca.environment;
 
+import io.r2mo.typed.cc.Cc;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
 import io.zerows.ams.constant.VString;
@@ -9,7 +10,6 @@ import io.zerows.common.program.KVarSet;
 import io.zerows.core.constant.KName;
 import io.zerows.core.constant.KWeb;
 import io.zerows.core.running.HMacrocosm;
-import io.zerows.core.uca.cache.Cc;
 import io.zerows.core.util.Ut;
 import io.zerows.specification.configuration.boot.HMature;
 

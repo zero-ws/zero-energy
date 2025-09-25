@@ -1,6 +1,6 @@
 package io.zerows.core.web.security.store;
 
-import io.zerows.core.uca.cache.Cc;
+import io.r2mo.typed.cc.Cc;
 import io.zerows.core.util.Ut;
 import io.zerows.module.metadata.zdk.running.OCache;
 import io.zerows.module.security.atom.Aegis;
@@ -27,7 +27,7 @@ public interface OCacheSecurity extends OCache<Set<Aegis>> {
 
     static ConcurrentMap<String, Set<Aegis>> entireWall() {
         final ConcurrentMap<String, Set<Aegis>> walls = new ConcurrentHashMap<>();
-        CC_SKELETON.store().values().forEach(self -> walls.putAll(self.valueWall()));
+        CC_SKELETON.get().values().forEach(self -> walls.putAll(self.valueWall()));
         return walls;
     }
 

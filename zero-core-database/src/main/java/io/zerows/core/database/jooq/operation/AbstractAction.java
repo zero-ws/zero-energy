@@ -59,7 +59,7 @@ public abstract class AbstractAction {
 
     // -------------------------------- Input Method
     /*
-     * store processing here
+     * get processing here
      * Here are two situations:
      * 1): No collection -> List<Object> -> [Element]
      * 2): List type -> Direct for list -> [Element, ...]

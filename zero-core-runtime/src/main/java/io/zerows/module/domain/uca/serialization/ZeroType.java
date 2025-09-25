@@ -1,9 +1,9 @@
 package io.zerows.module.domain.uca.serialization;
 
+import io.r2mo.typed.cc.Cc;
 import io.vertx.core.buffer.Buffer;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
-import io.zerows.core.uca.cache.Cc;
 import io.zerows.core.util.Ut;
 import io.zerows.module.domain.atom.commune.Vis;
 import io.zerows.module.metadata.uca.logging.OLog;

@@ -1,9 +1,9 @@
 package io.zerows.core.web.container.uca.reply;
 
+import io.r2mo.typed.cc.Cc;
 import io.vertx.core.json.JsonObject;
 import io.zerows.ams.constant.VName;
 import io.zerows.core.constant.configure.YmlCore;
-import io.zerows.core.uca.cache.Cc;
 import io.zerows.core.util.Ut;
 import io.zerows.module.domain.atom.element.JComponent;
 import io.zerows.module.metadata.store.OZeroStore;

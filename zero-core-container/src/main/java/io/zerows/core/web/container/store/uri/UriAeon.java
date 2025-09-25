@@ -1,6 +1,6 @@
 package io.zerows.core.web.container.store.uri;
 
-import io.zerows.core.uca.cache.Cc;
+import io.r2mo.typed.cc.Cc;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ext.web.Router;
 
@@ -11,7 +11,7 @@ import java.util.concurrent.ConcurrentMap;
 /**
  * @author <a href="http://www.origin-x.cn">Lang</a>
  *
- * The soul of zero framework to store critical data / extract data
+ * The soul of zero framework to get critical data / extract data
  */
 public class UriAeon {
     /*
@@ -25,7 +25,7 @@ public class UriAeon {
      */
     public static void connect(final Router router) {
         /*
-         * Initialize the routing system to store reference
+         * Initialize the routing system to get reference
          */
         final String threadId = Thread.currentThread().getName();
         CC_NEURO.pick(() -> UriNeuro.getInstance(threadId).bind(router));
@@ -40,7 +40,7 @@ public class UriAeon {
         /*
          * Create new routing on `original` route object
          */
-        final ConcurrentMap<String, UriNeuro> store = CC_NEURO.store();
+        final ConcurrentMap<String, UriNeuro> store = CC_NEURO.get();
         store.values().forEach(neuro -> neuro.addRoute(config));
     }
 

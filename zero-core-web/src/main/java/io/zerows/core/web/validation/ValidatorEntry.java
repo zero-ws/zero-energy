@@ -28,7 +28,7 @@ public class ValidatorEntry {
 
     private static final ConcurrentMap<String, Map<String, List<Rule>>>
         RULERS = new ConcurrentHashMap<>();
-    private static final ConcurrentMap<String, JsonObject> STORED = CStore.CC_CODEX.store();
+    private static final ConcurrentMap<String, JsonObject> STORED = CStore.CC_CODEX.get();
 
     /**
      * Validate the method parameters based on javax.validation: Hibernate Validator.

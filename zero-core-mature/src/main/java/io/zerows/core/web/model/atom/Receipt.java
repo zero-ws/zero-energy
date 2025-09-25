@@ -1,6 +1,6 @@
 package io.zerows.core.web.model.atom;
 
-import io.zerows.core.uca.cache.Cc;
+import io.r2mo.typed.cc.Cc;
 import io.zerows.module.assembly.uca.di.DiPlugin;
 
 import java.io.Serializable;

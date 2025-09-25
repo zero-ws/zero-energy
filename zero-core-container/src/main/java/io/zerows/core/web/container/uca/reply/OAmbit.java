@@ -1,6 +1,6 @@
 package io.zerows.core.web.container.uca.reply;
 
-import io.zerows.core.uca.cache.Cc;
+import io.r2mo.typed.cc.Cc;
 import io.vertx.core.Future;
 import io.vertx.ext.web.RoutingContext;
 import io.zerows.core.util.Ut;

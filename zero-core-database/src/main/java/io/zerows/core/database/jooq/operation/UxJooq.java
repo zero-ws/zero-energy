@@ -1,5 +1,6 @@
 package io.zerows.core.database.jooq.operation;
 
+import io.r2mo.typed.cc.Cc;
 import io.vertx.core.Future;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
@@ -14,7 +15,6 @@ import io.zerows.core.database.jooq.util.JqAnalyzer;
 import io.zerows.core.database.jooq.util.JqCond;
 import io.zerows.core.database.jooq.util.JqFlow;
 import io.zerows.core.database.jooq.util.JqTool;
-import io.zerows.core.uca.cache.Cc;
 import io.zerows.core.uca.qr.Sorter;
 import io.zerows.core.util.Ut;
 import io.zerows.module.metadata.uca.logging.OLog;

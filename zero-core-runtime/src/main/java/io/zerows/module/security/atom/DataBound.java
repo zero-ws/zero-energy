@@ -17,7 +17,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
 /*
- * Data Bound feature for result, DTO to store metadata information here.
+ * Data Bound feature for result, DTO to get metadata information here.
  * Pre-Condition
  * 1. criteria:
  *    Only available in query engine enabled here.

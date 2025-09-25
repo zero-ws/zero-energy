@@ -1,6 +1,6 @@
 package io.zerows.unity;
 
-import io.zerows.core.uca.cache.Cc;
+import io.r2mo.typed.cc.Cc;
 
 interface INFO {
 

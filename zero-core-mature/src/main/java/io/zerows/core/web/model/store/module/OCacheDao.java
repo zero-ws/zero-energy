@@ -1,6 +1,6 @@
 package io.zerows.core.web.model.store.module;
 
-import io.zerows.core.uca.cache.Cc;
+import io.r2mo.typed.cc.Cc;
 import io.zerows.core.util.Ut;
 import io.zerows.module.metadata.atom.configuration.modeling.MDMeta;
 import io.zerows.module.metadata.zdk.running.OCache;
@@ -28,20 +28,20 @@ public interface OCacheDao extends OCache<MDMeta> {
     }
 
     static Set<String> entireKeys() {
-        return CC_SKELETON.store().values().stream()
+        return CC_SKELETON.get().values().stream()
             .flatMap(item -> item.keys().stream())
             .collect(Collectors.toSet());
     }
 
     static MDMeta entireMeta(final String table) {
-        return CC_SKELETON.store().values().stream()
+        return CC_SKELETON.get().values().stream()
             .map(item -> item.valueGet(table))
             .filter(Objects::nonNull)
             .findFirst().orElse(null);
     }
 
     static MDMeta entireMeta(final Class<?> daoCls) {
-        return CC_SKELETON.store().values().stream()
+        return CC_SKELETON.get().values().stream()
             .map(item -> item.keyGet(daoCls))
             .filter(Objects::nonNull)
             .findFirst().orElse(null);

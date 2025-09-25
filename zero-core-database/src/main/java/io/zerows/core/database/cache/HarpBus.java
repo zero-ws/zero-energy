@@ -1,5 +1,6 @@
 package io.zerows.core.database.cache;
 
+import io.r2mo.typed.cc.Cc;
 import io.vertx.core.DeploymentOptions;
 import io.vertx.core.ThreadingModel;
 import io.vertx.core.Verticle;
@@ -8,7 +9,6 @@ import io.vertx.core.json.JsonObject;
 import io.zerows.core.constant.configure.YmlCore;
 import io.zerows.core.database.cache.l1.L1Cache;
 import io.zerows.core.database.cache.l1.L1Config;
-import io.zerows.core.uca.cache.Cc;
 import io.zerows.core.util.Ut;
 import io.zerows.module.metadata.uca.environment.DevOps;
 

@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
 import java.util.Objects;
 
 /**
- * This object is for uri store, it could store following information
+ * This object is for uri get, it could get following information
  *
  * 1. Api ( uri + method / uri + method + key ), both static and dynamic
  * 2. Address ( deployment address )
@@ -29,7 +29,7 @@ public class UriMeta implements Serializable {
 
     /*
      * Brief Description for current api here
-     * It's for UI display that could store uri comment
+     * It's for UI display that could get uri comment
      * 1) For System/Static URIs, the comment is equal to `uri`
      * 2) For Dynamic URIs, the comment came from `I_API` field ( name + comment )
      */

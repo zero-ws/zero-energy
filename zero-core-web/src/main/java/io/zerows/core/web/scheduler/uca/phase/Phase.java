@@ -1,6 +1,6 @@
 package io.zerows.core.web.scheduler.uca.phase;
 
-import io.zerows.core.uca.cache.Cc;
+import io.r2mo.typed.cc.Cc;
 import io.vertx.core.Future;
 import io.vertx.core.Vertx;
 import io.zerows.core.web.model.commune.Envelop;

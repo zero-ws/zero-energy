@@ -1,8 +1,8 @@
 package io.zerows.module.metadata.cache;
 
+import io.r2mo.typed.cc.Cc;
 import io.vertx.core.json.JsonObject;
 import io.zerows.ams.annotations.Memory;
-import io.zerows.core.uca.cache.Cc;
 
 /**
  * @author lang : 2024-04-17

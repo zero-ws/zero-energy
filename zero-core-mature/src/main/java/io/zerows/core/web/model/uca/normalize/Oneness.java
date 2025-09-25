@@ -1,6 +1,6 @@
 package io.zerows.core.web.model.uca.normalize;
 
-import io.zerows.core.uca.cache.Cc;
+import io.r2mo.typed.cc.Cc;
 import io.zerows.module.metadata.atom.configuration.modeling.MDConnect;
 
 import java.util.Set;

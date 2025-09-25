@@ -10,7 +10,7 @@ import java.util.Optional;
 /*
  * Job configuration in `vertx-job.yml`, the job node
  * job:
- * - store:
+ * - get:
  *   - component:
  *   - config:
  * - interval:
@@ -56,7 +56,7 @@ public class JobConfig implements Serializable {
     @Override
     public String toString() {
         return "JobConfig{" +
-            "store=" + this.store +
+            "get=" + this.store +
             ", interval=" + this.interval +
             ", client=" + this.client +
             '}';

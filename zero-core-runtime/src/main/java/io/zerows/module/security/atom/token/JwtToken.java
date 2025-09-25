@@ -1,11 +1,11 @@
 package io.zerows.module.security.atom.token;
 
+import io.r2mo.typed.cc.Cc;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ext.auth.User;
 import io.zerows.core.constant.KName;
 import io.zerows.core.constant.em.EmSecure;
 import io.zerows.core.exception.web._501NotSupportException;
-import io.zerows.core.uca.cache.Cc;
 import io.zerows.core.util.Ut;
 import io.zerows.module.security.atom.AegisItem;
 import io.zerows.module.security.zdk.Lee;

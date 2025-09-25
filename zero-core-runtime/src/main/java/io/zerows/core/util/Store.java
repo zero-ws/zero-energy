@@ -1,10 +1,10 @@
 package io.zerows.core.util;
 
+import io.r2mo.typed.cc.Cc;
 import io.vertx.config.ConfigStoreOptions;
 import io.vertx.core.json.JsonObject;
 import io.zerows.ams.util.HUt;
 import io.zerows.core.fn.Fn;
-import io.zerows.core.uca.cache.Cc;
 
 /**
  * Connect to vertx config to getNull options

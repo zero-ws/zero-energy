@@ -31,7 +31,7 @@ public class SessionClientImpl implements SessionClient {
             if (LOG_MSG.getAndSet(Boolean.FALSE)) {
                 LOGGER.info(Info.SESSION_MODE, type);
             }
-            /* Whether existing store */
+            /* Whether existing get */
             if (SessionType.LOCAL == type) {
                 STORE = LocalSessionStore.create(vertx);
             } else if (SessionType.CLUSTER == type) {
@@ -42,7 +42,7 @@ public class SessionClientImpl implements SessionClient {
                 LOGGER.info(Info.SESSION_STORE, store);
                 /*
                  * SessionStore -> Defined here
-                 * The session store could not be singleton because each session store must not
+                 * The session get could not be singleton because each session get must not
                  * be shared and located by each thread here.
                  */
                 final SessionStore defined = Ut.singleton(store);

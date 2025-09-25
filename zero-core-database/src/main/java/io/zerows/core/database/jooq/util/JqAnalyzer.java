@@ -1,5 +1,6 @@
 package io.zerows.core.database.jooq.util;
 
+import io.r2mo.typed.cc.Cc;
 import io.vertx.core.json.JsonObject;
 import io.zerows.ams.constant.VString;
 import io.zerows.ams.constant.VValue;
@@ -8,7 +9,6 @@ import io.zerows.core.database.jooq.condition.JooqCond;
 import io.zerows.core.database.jooq.exception.BootJooqFieldMissingException;
 import io.zerows.core.database.jooq.exception.BootJooqMergeException;
 import io.zerows.core.fn.Fn;
-import io.zerows.core.uca.cache.Cc;
 import io.zerows.core.util.Ut;
 import io.zerows.module.metadata.atom.mapping.Mirror;
 import io.zerows.module.metadata.atom.mapping.Mojo;

@@ -16,7 +16,7 @@ import java.util.Set;
 @SuppressWarnings("all")
 public interface JobClient {
     /*
-     * Create local session store bind data
+     * Create local session get bind data
      */
     static JobClient createShared(final Vertx vertx, final JsonObject config) {
         return new JobClientImpl(vertx, config);

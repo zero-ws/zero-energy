@@ -1,6 +1,7 @@
 package io.zerows.core.database.jooq;
 
 import io.github.jklingsporn.vertx.jooq.classic.VertxDAO;
+import io.r2mo.typed.cc.Cc;
 import io.vertx.core.Future;
 import io.vertx.core.Handler;
 import io.vertx.core.Promise;
@@ -8,7 +9,6 @@ import io.vertx.core.Vertx;
 import io.zerows.core.database.jooq.exception.BootJooqClassInvalidException;
 import io.zerows.core.database.jooq.exception.BootJooqVertxNullException;
 import io.zerows.core.fn.Fn;
-import io.zerows.core.uca.cache.Cc;
 import io.zerows.core.util.Ut;
 import io.zerows.module.metadata.uca.logging.OLog;
 import org.jooq.Configuration;
@@ -53,7 +53,7 @@ public class JooqDsl {
         final String poolKey = String.valueOf(vertxRef.hashCode()) + ":" +
             String.valueOf(configurationRef.hashCode()) + ":" + daoCls.getName();
         return CC_DSL.pick(() -> new JooqDsl(poolKey).bind(vertxRef, configurationRef).store(daoCls), poolKey);
-        // return Fn.po?l(DSL_MAP, poolKey, () -> new JooqDsl(poolKey).bind(vertxRef, configurationRef).store(daoCls));
+        // return Fn.po?l(DSL_MAP, poolKey, () -> new JooqDsl(poolKey).bind(vertxRef, configurationRef).get(daoCls));
     }
 
     private JooqDsl bind(final Vertx vertxRef, final Configuration configurationRef) {
@@ -104,7 +104,7 @@ public class JooqDsl {
             }
         };
 
-        
+
         // 调用 Vert.x 5.x 的 API
         vertxRef.executeBlocking(callable, false)
             .onComplete(ar -> {

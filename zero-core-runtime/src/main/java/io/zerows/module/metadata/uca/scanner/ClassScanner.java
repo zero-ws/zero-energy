@@ -1,6 +1,6 @@
 package io.zerows.module.metadata.uca.scanner;
 
-import io.zerows.core.uca.cache.Cc;
+import io.r2mo.typed.cc.Cc;
 import io.zerows.core.util.Ut;
 import io.zerows.module.metadata.uca.logging.OLog;
 import org.junit.runner.RunWith;

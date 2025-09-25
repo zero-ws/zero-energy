@@ -1,11 +1,11 @@
 package io.zerows.unity;
 
+import io.r2mo.typed.cc.Cc;
 import io.vertx.core.Future;
 import io.vertx.core.MultiMap;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
 import io.zerows.common.datamation.*;
-import io.zerows.core.uca.cache.Cc;
 import io.zerows.core.util.Ut;
 import io.zerows.feature.web.utility.uca.FieldMapper;
 import io.zerows.module.cloud.zdk.spi.Dictionary;

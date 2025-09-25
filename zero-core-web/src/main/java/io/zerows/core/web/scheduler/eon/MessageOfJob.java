@@ -43,13 +43,13 @@ interface MessageOfJob {
         String DELAY = "[ Job ] Job \"{0}\" will started after `{1}` ";
     }
 
-    // ------------ io.vertx.up.operation.job.store.JobStore
+    // ------------ io.vertx.up.operation.job.get.JobStore
     interface STORE {
         String SCANNED = "[ Job ] The system scanned {0} jobs with type {1}";
     }
 
     interface PIN {
-        // ------------ io.vertx.up.operation.job.store.JobPin
+        // ------------ io.vertx.up.operation.job.get.JobPin
         String PIN_CONFIG = "[ Job ] Job configuration read : {0}";
     }
 

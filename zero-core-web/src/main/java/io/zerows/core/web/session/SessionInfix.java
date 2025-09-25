@@ -1,10 +1,10 @@
 package io.zerows.core.web.session;
 
+import io.r2mo.typed.cc.Cc;
 import io.vertx.core.Vertx;
 import io.vertx.core.json.JsonObject;
 import io.zerows.core.annotations.Infusion;
 import io.zerows.core.constant.configure.YmlCore;
-import io.zerows.core.uca.cache.Cc;
 import io.zerows.module.metadata.zdk.plugins.Infix;
 
 import java.util.Objects;
@@ -26,7 +26,7 @@ public class SessionInfix implements Infix {
     }
 
     public static SessionClient getClient() {
-        return CC_CLIENTS.store(NAME);
+        return CC_CLIENTS.get(NAME);
     }
 
     public static SessionClient getOrCreate(final Vertx vertx) {
@@ -42,7 +42,7 @@ public class SessionInfix implements Infix {
     }
 
     private static SessionClient getOrCreate(final Vertx vertx, final String name, final JsonObject inputConfig) {
-        final SessionClient client = CC_CLIENTS.store(name);
+        final SessionClient client = CC_CLIENTS.get(name);
         if (Objects.isNull(client)) {
             /* Null will create new */
             return CC_CLIENTS.pick(() -> {

@@ -7,7 +7,7 @@ import io.zerows.ams.constant.VOption;
  */
 interface YmlJob {
     String __KEY = "job";
-    String STORE = "store";
+    String STORE = "get";
     String CLIENT = "client";
     String INTERVAL = "interval";
 

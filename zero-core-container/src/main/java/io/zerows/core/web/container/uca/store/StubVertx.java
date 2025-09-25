@@ -1,8 +1,8 @@
 package io.zerows.core.web.container.uca.store;
 
+import io.r2mo.typed.cc.Cc;
 import io.vertx.core.Future;
 import io.vertx.core.Vertx;
-import io.zerows.core.uca.cache.Cc;
 import io.zerows.core.util.Ut;
 import io.zerows.core.web.model.atom.running.RunVertx;
 import io.zerows.module.configuration.atom.NodeVertx;
