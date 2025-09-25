@@ -3,7 +3,7 @@ package io.zerows.core.database.jooq.operation;
 import io.zerows.ams.constant.em.typed.ChangeFlag;
 import io.vertx.core.Future;
 import io.vertx.core.json.JsonObject;
-import io.zerows.core.fn.Fn;
+import io.zerows.core.fn.Fx;
 import io.zerows.core.util.Ut;
 import io.zerows.core.database.jooq.util.JqAnalyzer;
 
@@ -88,7 +88,7 @@ class ActionUpsert extends AbstractAction {
             final List<Future<List<T>>> futures = new ArrayList<>();
             futures.add(this.insert.insertAsync(compared.get(ChangeFlag.ADD)));
             futures.add(this.update.updateAsync(compared.get(ChangeFlag.UPDATE)));
-            return Fn.compressL(futures);
+            return Fx.compressL(futures);
         });
     }
 

@@ -1,7 +1,6 @@
 package io.zerows.core.fn;
 
 import io.vertx.core.Future;
-import io.zerows.ams.fn.ErrorSupplier;
 import io.zerows.core.util.Ut;
 import io.zerows.module.metadata.uca.logging.OLog;
 
@@ -22,7 +21,7 @@ class Monad {
     /*
      * JvmSupplier -> Supplier
      */
-    static <T> T monad(final ErrorSupplier<T> supplier, final T defaultValue) {
+    static <T> T monad(final Supplier<T> supplier, final T defaultValue) {
         try {
             return supplier.get();
         } catch (final Throwable ex) {
@@ -33,7 +32,7 @@ class Monad {
         }
     }
 
-    static <T> Future<T> monadAsync(final ErrorSupplier<Future<T>> supplier, final T defaultValue) {
+    static <T> Future<T> monadAsync(final Supplier<Future<T>> supplier, final T defaultValue) {
         try {
             return supplier.get();
         } catch (final Throwable ex) {

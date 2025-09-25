@@ -1,6 +1,6 @@
 package io.zerows.core.web.websocket.store;
 
-import io.zerows.core.fn.Fn;
+import io.r2mo.function.Fn;
 import io.zerows.core.web.websocket.annotations.Subscribe;
 import io.zerows.core.web.websocket.atom.Remind;
 import io.zerows.core.web.websocket.eon.MessageOfSock;

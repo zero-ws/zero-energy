@@ -1,7 +1,7 @@
 package io.zerows.core.util;
 
+import io.r2mo.function.Fn;
 import io.vertx.core.Future;
-import io.zerows.core.fn.Fn;
 import io.zerows.core.exception.BootingException;
 import io.zerows.core.exception.WebException;
 import io.zerows.core.exception.internal.SPINullException;

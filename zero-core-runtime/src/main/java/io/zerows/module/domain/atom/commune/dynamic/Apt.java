@@ -1,11 +1,12 @@
 package io.zerows.module.domain.atom.commune.dynamic;
 
+import io.r2mo.function.Actuator;
+import io.r2mo.function.Fn;
 import io.vertx.codegen.annotations.Fluent;
 import io.vertx.core.Future;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
 import io.zerows.ams.constant.em.typed.ChangeFlag;
-import io.zerows.ams.fn.Actuator;
 import io.zerows.core.util.Ut;
 import io.zerows.module.domain.exception._AptParameterException;
 import io.zerows.module.metadata.uca.logging.OLog;
@@ -310,7 +311,7 @@ public class Apt {
 
     private void doBatch(final Actuator actuator, final String method) {
         this.doBatch(() -> {
-            actuator.execute();
+            Fn.jvmAt(actuator);
             return null;
         }, null, method);
     }

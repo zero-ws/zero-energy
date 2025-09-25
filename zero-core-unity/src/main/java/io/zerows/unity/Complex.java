@@ -5,7 +5,7 @@ import io.zerows.core.uca.qr.Pagination;
 import io.vertx.core.Future;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
-import io.zerows.core.fn.Fn;
+import io.zerows.core.fn.Fx;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -101,7 +101,7 @@ class Complex {
                     pageSet.stream()
                         .map(each -> pageConsumer.apply(each).compose(responseBuilder))
                         .forEach(futures::add);
-                    return Fn.combineT(futures).compose(list -> {
+                    return Fx.combineT(futures).compose(list -> {
                         final R result = list.stream().reduce(fnReduce).orElse(null);
                         final R firstRef = firstResult.get();
                         return Ux.future(fnReduce.apply(firstRef, result));

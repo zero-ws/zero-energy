@@ -1,12 +1,13 @@
 package io.zerows.unity;
 
+import io.r2mo.function.Fn;
 import io.vertx.core.Future;
 import io.vertx.core.Vertx;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
 import io.zerows.core.constant.configure.YmlCore;
 import io.zerows.core.database.jooq.JooqInfix;
-import io.zerows.core.fn.Fn;
+import io.zerows.core.fn.Fx;
 import io.zerows.core.util.Ut;
 
 import java.lang.reflect.Method;
@@ -52,7 +53,7 @@ class RegistryLegacy {
                 methodSet.forEach(method -> queue.add(json -> invokeComponent(componentCls, method, vertx)));
             }
         });
-        return Fn.parallel(Boolean.TRUE, queue);
+        return Fx.parallel(Boolean.TRUE, queue);
     }
 
     private static Set<Method> registryBridgeMethod(final Class<?> clazz) {
@@ -110,7 +111,7 @@ class RegistryLegacy {
                 }
             }
         });
-        return Fn.combineB(async);
+        return Fx.combineB(async);
     }
 
     private static Future<Boolean> invokeComponent(final Class<?> clazz, final String methodName, final Vertx vertx) {

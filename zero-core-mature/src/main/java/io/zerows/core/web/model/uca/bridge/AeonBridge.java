@@ -4,7 +4,7 @@ import io.reactivex.rxjava3.core.Observable;
 import io.zerows.core.annotations.Address;
 import io.zerows.core.constant.KMeta;
 import io.zerows.core.constant.KName;
-import io.zerows.core.fn.Fn;
+import io.zerows.core.fn.Fx;
 import io.zerows.core.uca.log.Annal;
 import io.zerows.core.util.Ut;
 import io.zerows.core.web.model.atom.Receipt;
@@ -60,7 +60,7 @@ public class AeonBridge {
         final Annotation annotation = method.getDeclaredAnnotation(Address.class);
         final String address = Ut.invoke(annotation, KName.VALUE);
         // 2. Ensure address incoming.
-        Fn.outBoot(!ADDRESS.contains(address), LOGGER,
+        Fx.outBoot(!ADDRESS.contains(address), LOGGER,
             BootAddressWrongException.class,
             AeonBridge.class, address, clazz, method);
 

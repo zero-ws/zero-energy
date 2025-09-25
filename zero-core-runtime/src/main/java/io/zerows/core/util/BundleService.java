@@ -1,6 +1,6 @@
 package io.zerows.core.util;
 
-import io.zerows.core.fn.Fn;
+import io.r2mo.function.Fn;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;

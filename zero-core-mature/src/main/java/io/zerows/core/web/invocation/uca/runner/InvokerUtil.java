@@ -3,7 +3,7 @@ package io.zerows.core.web.invocation.uca.runner;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ext.web.Session;
 import io.zerows.ams.constant.VValue;
-import io.zerows.core.fn.Fn;
+import io.zerows.core.fn.Fx;
 import io.zerows.core.util.Ut;
 import io.zerows.core.web.invocation.exception.BootAsyncSignatureException;
 import io.zerows.core.web.invocation.exception.BootWorkerArgumentException;
@@ -89,7 +89,7 @@ public class InvokerUtil {
         final Class<?>[] params = method.getParameterTypes();
         final OLog logger = Ut.Log.uca(target);
         // 2. The parameters
-        Fn.outBoot(VValue.ZERO == params.length,
+        Fx.outBoot(VValue.ZERO == params.length,
             logger, BootWorkerArgumentException.class,
             target, method);
     }
@@ -100,7 +100,7 @@ public class InvokerUtil {
         final Class<?> paramType,
         final Class<?> target) {
         final OLog logger = Ut.Log.uca(target);
-        Fn.outBoot(condition, logger,
+        Fx.outBoot(condition, logger,
             BootAsyncSignatureException.class, target,
             returnType.getName(), paramType.getName());
     }

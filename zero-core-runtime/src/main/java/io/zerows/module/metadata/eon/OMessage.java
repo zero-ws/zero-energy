@@ -31,7 +31,7 @@ public interface OMessage {
 
     }
 
-    // ----------- C: io.zerows.core.fn.Fn
+    // ----------- C: io.zerows.core.fn.Fx
     interface Fn {
         String PROGRAM_NULL = "[ Program ] Null Input";
         String PROGRAM_QR = "[ Program ] Null Record in database";

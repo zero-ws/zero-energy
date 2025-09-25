@@ -1,12 +1,12 @@
 package io.zerows.core.web.model.zdk.web;
 
+import io.zerows.core.fn.Fx;
 import io.zerows.core.uca.log.Annal;
 import io.vertx.core.http.Cookie;
 import io.vertx.core.http.HttpServerRequest;
 import io.vertx.core.http.HttpServerResponse;
 import io.vertx.ext.web.RoutingContext;
 import io.vertx.ext.web.Session;
-import io.zerows.core.fn.Fn;
 import io.zerows.core.web.model.exception.BootFilterContextException;
 
 import java.util.Map;
@@ -57,6 +57,6 @@ public abstract class HttpFilter implements Filter {
     }
 
     public void init() {
-        Fn.outBoot(null == this.context, this.logger, BootFilterContextException.class, this.getClass());
+        Fx.outBoot(null == this.context, this.logger, BootFilterContextException.class, this.getClass());
     }
 }

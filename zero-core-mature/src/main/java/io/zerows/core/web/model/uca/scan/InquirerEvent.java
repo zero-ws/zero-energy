@@ -1,7 +1,6 @@
 package io.zerows.core.web.model.uca.scan;
 
-import io.zerows.core.fn.Fn;
-import io.zerows.core.uca.log.Annal;
+import io.r2mo.function.Fn;
 import io.zerows.core.web.model.atom.Event;
 import io.zerows.core.web.model.uca.scan.parallel.EndPointThread;
 import io.zerows.module.metadata.zdk.uca.Inquirer;
@@ -16,7 +15,6 @@ import java.util.Set;
  */
 public class InquirerEvent implements Inquirer<Set<Event>> {
 
-    private static final Annal LOGGER = Annal.get(InquirerEvent.class);
 
     @Override
     public Set<Event> scan(final Set<Class<?>> endpoints) {

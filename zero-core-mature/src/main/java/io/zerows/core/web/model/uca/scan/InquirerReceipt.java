@@ -1,6 +1,6 @@
 package io.zerows.core.web.model.uca.scan;
 
-import io.zerows.core.fn.Fn;
+import io.r2mo.function.Fn;
 import io.zerows.core.uca.log.Annal;
 import io.zerows.core.web.model.atom.Receipt;
 import io.zerows.core.web.model.uca.scan.parallel.QueueThread;

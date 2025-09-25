@@ -1,12 +1,12 @@
 package io.zerows.core.util;
 
+import io.r2mo.function.Fn;
 import io.r2mo.typed.cc.Cc;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
 import io.zerows.ams.constant.VPath;
 import io.zerows.ams.constant.VString;
 import io.zerows.ams.util.HUt;
-import io.zerows.core.fn.Fn;
 import org.osgi.framework.Bundle;
 
 import java.io.File;

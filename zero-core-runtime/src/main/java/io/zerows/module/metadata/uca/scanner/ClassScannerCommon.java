@@ -2,7 +2,7 @@ package io.zerows.module.metadata.uca.scanner;
 
 import com.google.common.collect.ImmutableSet;
 import com.google.common.reflect.ClassPath;
-import io.zerows.core.fn.Fn;
+import io.r2mo.function.Fn;
 import io.zerows.core.util.Ut;
 import org.osgi.framework.Bundle;
 

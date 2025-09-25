@@ -1,7 +1,7 @@
 package io.zerows.core.util;
 
+import io.r2mo.function.Fn;
 import io.zerows.ams.util.HUt;
-import io.zerows.core.fn.Fn;
 
 import javax.crypto.Cipher;
 import java.security.KeyFactory;

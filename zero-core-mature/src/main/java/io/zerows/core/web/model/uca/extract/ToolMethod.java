@@ -1,8 +1,8 @@
 package io.zerows.core.web.model.uca.extract;
 
+import io.zerows.core.fn.Fx;
 import io.zerows.core.uca.log.Annal;
 import io.vertx.core.http.HttpMethod;
-import io.zerows.core.fn.Fn;
 import io.zerows.core.web.model.exception.BootMethodNullException;
 import jakarta.ws.rs.*;
 
@@ -35,7 +35,7 @@ public class ToolMethod {
     @SuppressWarnings("all")
     public static HttpMethod resolve(final Method method) {
         // 1. Method checking.
-        Fn.outBoot(null == method, LOGGER,
+        Fx.outBoot(null == method, LOGGER,
             BootMethodNullException.class, ToolMethod.class);
         final Annotation[] annotations = method.getDeclaredAnnotations();
         // 2. Method ignore

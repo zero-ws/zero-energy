@@ -1,11 +1,11 @@
 package io.zerows.core.web.container.uca.gateway;
 
 import io.zerows.ams.constant.VValue;
+import io.zerows.core.fn.Fx;
 import io.zerows.core.uca.log.Annal;
 import io.vertx.core.eventbus.Message;
 import io.vertx.ext.web.RoutingContext;
 import io.zerows.core.annotations.Address;
-import io.zerows.core.fn.Fn;
 import io.zerows.core.util.Ut;
 import io.zerows.core.web.container.exception.BootReturnTypeException;
 import io.zerows.core.web.container.exception.BootWorkerMissingException;
@@ -49,7 +49,7 @@ class DifferEvent implements Differ<RoutingContext> {
             // Exception because this method must has return type to
             // send message to event bus. It means that it require
             // return types.
-            Fn.outBoot(true, LOGGER, BootReturnTypeException.class,
+            Fx.outBoot(true, LOGGER, BootReturnTypeException.class,
                 this.getClass(), method);
         } else {
             final Class<?> replierType = replier.getReturnType();
@@ -57,16 +57,16 @@ class DifferEvent implements Differ<RoutingContext> {
                 if (this.isAsync(replier)) {
                     // Mode 5: Event Bus: ( Async ) Request-Response
                     aim = CACHE.CC_AIMS.pick(AimAsync::new, "Mode Vert.x");
-                    // Fn.po?l(Pool.AIMS, Thread.currentThread().getName() + "-mode-vert.x", AsyncAim::new);
+                    // Fx.po?l(Pool.AIMS, Thread.currentThread().getName() + "-mode-vert.x", AsyncAim::new);
                 } else {
                     // Mode 3: Event Bus: One-Way
                     aim = CACHE.CC_AIMS.pick(AimOneWay::new, "Mode OneWay");
-                    // aim = Fn.po?l(Pool.AIMS, Thread.currentThread().getName() + "-mode-oneway", OneWayAim::new);
+                    // aim = Fx.po?l(Pool.AIMS, Thread.currentThread().getName() + "-mode-oneway", OneWayAim::new);
                 }
             } else {
                 // Mode 1: Event Bus: Request-Response
                 aim = CACHE.CC_AIMS.pick(AimAsync::new, "Mode Java");
-                // aim = Fn.po?l(Pool.AIMS, Thread.currentThread().getName() + "-mode-java", AsyncAim::new);
+                // aim = Fx.po?l(Pool.AIMS, Thread.currentThread().getName() + "-mode-java", AsyncAim::new);
             }
         }
         return aim;
@@ -95,12 +95,12 @@ class DifferEvent implements Differ<RoutingContext> {
 
         final Method method;
         // Get null found throw exception.
-        Fn.outBoot(null == found, LOGGER, BootWorkerMissingException.class,
+        Fx.outBoot(null == found, LOGGER, BootWorkerMissingException.class,
             this.getClass(), address);
         /* Above sentence will throw exception when found is null */
         method = found.getMethod();
 
-        Fn.outBoot(null == method, LOGGER, BootWorkerMissingException.class,
+        Fx.outBoot(null == method, LOGGER, BootWorkerMissingException.class,
             this.getClass(), address);
         return method;
     }

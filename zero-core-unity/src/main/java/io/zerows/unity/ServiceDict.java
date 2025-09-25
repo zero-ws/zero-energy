@@ -65,7 +65,7 @@ class ServiceDict {
                  * JtDict instance for fetchAsync
                  */
                 final Dictionary dictStub = CC_DICT.pick(() -> Ut.instance(dictCls), dict.hashCode());
-                // Fn.po?l(POOL_DICT, dict.hashCode(), () -> Ut.instance(dictCls));
+                // Fx.po?l(POOL_DICT, dict.hashCode(), () -> Ut.instance(dictCls));
                 /*
                  * Param Map / List<Source>
                  */

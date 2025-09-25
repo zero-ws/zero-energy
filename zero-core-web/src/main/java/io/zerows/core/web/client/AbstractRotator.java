@@ -1,11 +1,11 @@
 package io.zerows.core.web.client;
 
+import io.r2mo.function.Fn;
 import io.vertx.core.json.JsonObject;
 import io.zerows.ams.constant.VString;
 import io.zerows.common.app.KIntegration;
 import io.zerows.common.app.KIntegrationApi;
 import io.zerows.core.constant.KWeb;
-import io.zerows.core.fn.Fn;
 import io.zerows.core.util.Ut;
 import io.zerows.core.web.client.exception._500RequestConfigException;
 import io.zerows.core.web.client.exception._501HttpClientNullException;

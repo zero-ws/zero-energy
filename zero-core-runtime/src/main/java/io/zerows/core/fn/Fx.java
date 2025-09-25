@@ -1,6 +1,5 @@
 package io.zerows.core.fn;
 
-import io.zerows.ams.fn.ErrorSupplier;
 import io.vertx.core.Future;
 
 import java.util.function.Consumer;
@@ -34,8 +33,8 @@ import java.util.function.Supplier;
  * - Predicate  |
  */
 @SuppressWarnings("all")
-public final class Fn extends _Out {
-    private Fn() {
+public final class Fx extends _Out {
+    private Fx() {
     }
 
     // 安全执行确认：Supplier<Tool> -> Consumer<Tool>
@@ -43,11 +42,11 @@ public final class Fn extends _Out {
         Monad.safeT(supplier, consumer);
     }
 
-    public static <T> T monad(final ErrorSupplier<T> supplier, final T defaultValue) {
+    public static <T> T monadWith(final Supplier<T> supplier, final T defaultValue) {
         return Monad.monad(supplier, defaultValue);
     }
 
-    public static <T> Future<T> monadAsync(final ErrorSupplier<Future<T>> supplier, final T defaultValue) {
+    public static <T> Future<T> monadAsync(final Supplier<Future<T>> supplier, final T defaultValue) {
         return Monad.monadAsync(supplier, defaultValue);
     }
 }

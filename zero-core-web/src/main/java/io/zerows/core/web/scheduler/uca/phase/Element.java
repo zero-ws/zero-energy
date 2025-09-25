@@ -1,7 +1,8 @@
 package io.zerows.core.web.scheduler.uca.phase;
 
+import io.r2mo.function.Actuator;
+import io.r2mo.function.Fn;
 import io.r2mo.typed.cc.Cc;
-import io.zerows.ams.fn.Actuator;
 import io.zerows.core.constant.em.EmJob;
 import io.zerows.core.running.context.KRunner;
 import io.zerows.core.util.Ut;
@@ -24,7 +25,7 @@ class Element {
         JobIncome income = null;
         if (Objects.nonNull(incomeCls) && Ut.isImplement(incomeCls, JobIncome.class)) {
             income = CC_INCOME.pick(() -> Ut.instance(incomeCls), mission.getCode());
-            // income = Fn.po?l(Pool.INCOMES, mission.getCode(), () -> Ut.instance(incomeCls));
+            // income = Fx.po?l(Pool.INCOMES, mission.getCode(), () -> Ut.instance(incomeCls));
         }
         return income;
     }
@@ -34,14 +35,14 @@ class Element {
         JobOutcome outcome = null;
         if (Objects.nonNull(outcomeCls) && Ut.isImplement(outcomeCls, JobOutcome.class)) {
             outcome = CC_OUTCOME.pick(() -> Ut.instance(outcomeCls), mission.getCode());
-            // outcome = Fn.po?l(Pool.OUTCOMES, mission.getCode(), () -> Ut.instance(outcomeCls));
+            // outcome = Fx.po?l(Pool.OUTCOMES, mission.getCode(), () -> Ut.instance(outcomeCls));
         }
         return outcome;
     }
 
     static void onceLog(final Mission mission, final Actuator actuator) {
         if (EmJob.JobType.ONCE == mission.getType()) {
-            KRunner.run(actuator::execute, "once-logger-debug");
+            KRunner.run(() -> Fn.jvmAt(actuator), "once-logger-debug");
         }
     }
 }

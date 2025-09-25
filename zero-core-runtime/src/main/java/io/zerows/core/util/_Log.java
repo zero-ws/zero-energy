@@ -5,7 +5,7 @@ import io.zerows.module.metadata.uca.logging.OLog;
 /**
  * @author lang : 2024-04-17
  */
-class _Log extends _Load {
+class _Log extends _Jackson {
     /**
      * 新版日志架构，替换旧版本的 Annal 模式，Annal 模式不支持 OSGI 环境下的日志输出，所以此处进行了替换
      * <pre><code>

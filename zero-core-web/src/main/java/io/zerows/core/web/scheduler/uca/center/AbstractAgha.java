@@ -1,10 +1,11 @@
 package io.zerows.core.web.scheduler.uca.center;
 
+import io.r2mo.function.Actuator;
+import io.r2mo.function.Fn;
 import io.vertx.core.Future;
 import io.vertx.core.Vertx;
 import io.vertx.core.VertxException;
 import io.vertx.core.WorkerExecutor;
-import io.zerows.ams.fn.Actuator;
 import io.zerows.core.annotations.Contract;
 import io.zerows.core.constant.em.EmJob;
 import io.zerows.core.util.Ut;
@@ -222,7 +223,7 @@ public abstract class AbstractAgha implements Agha {
                         /*
                          * 任务执行成功，执行后置逻辑
                          */
-                        actuator.execute();
+                        Fn.jvmAt(actuator);
                         this.logger().info(MessageOfJob.AGHA.WORKER_END, code);
                         return Future.succeededFuture(result);
                     })

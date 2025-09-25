@@ -1,6 +1,7 @@
 package io.zerows.core.web.model.uca.scan.parallel;
 
-import io.zerows.ams.fn.Actuator;
+import io.r2mo.function.Actuator;
+import io.r2mo.function.Fn;
 
 import java.util.concurrent.CountDownLatch;
 
@@ -17,7 +18,7 @@ public class ThreadAtom extends Thread {
 
     @Override
     public void run() {
-        this.consumer.execute();
+        Fn.jvmAt(this.consumer);
         this.counter.countDown();
     }
 }

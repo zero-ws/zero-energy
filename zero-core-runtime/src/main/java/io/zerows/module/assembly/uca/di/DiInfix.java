@@ -1,9 +1,9 @@
 package io.zerows.module.assembly.uca.di;
 
+import io.r2mo.function.Fn;
 import io.reactivex.rxjava3.core.Observable;
 import io.zerows.core.annotations.Infusion;
 import io.zerows.core.constant.KMeta;
-import io.zerows.core.fn.Fn;
 import io.zerows.core.util.Ut;
 import io.zerows.module.assembly.eon.MessageOfDI;
 import io.zerows.module.metadata.store.OCacheClass;

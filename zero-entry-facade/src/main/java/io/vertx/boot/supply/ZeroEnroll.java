@@ -6,9 +6,8 @@ import io.vertx.core.Handler;
 import io.vertx.core.Vertx;
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
-import io.zerows.ams.fn.Actuator;
 import io.zerows.core.constant.configure.YmlCore;
-import io.zerows.core.fn.Fn;
+import io.zerows.core.fn.Fx;
 import io.zerows.core.running.boot.KLauncher;
 import io.zerows.core.running.boot.KPivot;
 import io.zerows.core.spi.BootIo;
@@ -95,7 +94,7 @@ class ZeroEnroll {
             registers.stream()
                 .map(register -> register.configureAsync(vertx, ambient))
                 .forEach(futures::add);
-            return Fn.combineB(futures);
+            return Fx.combineB(futures);
         });
     }
 
@@ -114,7 +113,7 @@ class ZeroEnroll {
             arkSet.forEach(ark -> registers.stream()
                 .map(register -> register.initializeAsync(vertx, ark))
                 .forEach(futures::add));
-            return Fn.combineB(futures);
+            return Fx.combineB(futures);
         });
     }
 
